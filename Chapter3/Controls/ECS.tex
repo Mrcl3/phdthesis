@@ -1,6 +1,6 @@
 As mentioned in the previous chapter, the \gls{CBM} will face an unprecedented interaction rate in high-energy physics experiments (up to $10^{7}$~events/s). That number sets also a clear requirement for the detector systems and their corresponding data acquisition. Moreover, due to the huge quantity of incoming data which is closely connected to the storage size, certain design decisions had to be made in order to reduce the raw data coming from the subsystems. To address \gls{CBM} conditions complex triggers would have to be introduced, e.g. signatures of off-target decays of $\Omega$ hyperons. The decay topologies required for the reconstruction of the collisions imply a long trigger latency \cite{Friese_2017}. In order to realize such a complex trigger logic and reduce the data amount, the raw data needs to be evaluated in software on \gls{CPU}s and/or \gls{GPU}s. The self-triggered readout system implies that the association of data from different detectors to physical collision events must be based solely on their timestamp, which is generated in the frond-end electronic (\gls{FEE}) circuitry. As a result, a central timing system must synchronize the \gls{FEE} elements to sub-nanosecond precision. On the other hand, the typical "event building" action and the high-level trigger are transitioned to the \gls{FLES} ("First-level Event Selector") online compute farm. 
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\columnwidth]{Chapter3/Controls/images/online.png}
 \caption{Schematics of the CBM readout systems}

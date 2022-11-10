@@ -8,7 +8,13 @@ During the detector's lifetime (10 years), there will be only limited opportunit
     \item reliable operation across long distances (the readout device needs to reside at least \SI{20}{\metre} away from the detector).
 \end{itemize}
 
-\section{Introduction to humidity measurements}
+\section{How to understand relative humidity?}
+Before introducing the next experimental setup and the respective results, it's necessary to discuss a few definitions and analytical relationships. The relative humidity or the dew/frost point, are commonly used indicators to describe the amount of water molecules in the air. Nevertheless, the dew/frost point is a much more useful value, as it provides an absolute value. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water or solid ice at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew/frost point. Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). A dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice or a combination of both. 
+
+The \gls{RH} is usually defined as the ratio of the water vapor pressure ($p$) to the equilibrium vapor pressure over a plane of water ($p_{s}$):
+\begin{equation}
+    RH = 100*\frac{p}{p{s}}
+\end{equation}
 
 
 $DP(T, RH) = \frac{\lambda(ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}$

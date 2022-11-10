@@ -58,7 +58,7 @@
 \usepackage{float}
 \usepackage{csquotes}
 \usepackage{color}
-\usepackage[subentrycounter]{glossaries}
+\usepackage[subentrycounter,toc]{glossaries}
 \setglossarystyle{altlisthypergroup}
 \makeglossaries
 \loadglsentries{glo.tex}
@@ -199,10 +199,12 @@
 
 \input{Documents/appendix.tex}
 \clearpage
+\addcontentsline{toc}{chapter}{References}
 \printbibliography
 \clearpage
 \printglossaries
 %\addchap{Curriculum Vitae}
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
 \includepdf[pages=-]{CV.pdf}
 
 \end{document}

@@ -8,11 +8,11 @@ Thermal cycling testing is usually performed in order to determine the ability o
     \item high and low test temperatures,
     \item cycle and transition times.
 \end{itemize}
-DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. In this case, to simplify the problem we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear TCE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion should be considered to understand the overall situation. From the thermal cycling point of view, the most significant difference between the two previously mentioned devices is the voltage drop (foreseen to be around 0.6V for 1.2V and 1.8V regulators). Therefore, a \gls{LDO} regulator dissipates much more heat than the \gls{STS}-XYTER (see photo~\ref{fig_temperatures_camera}), which was also confirmed by multiple simulations (see sections~\ref{nominal} -~\ref{power_loss}).
+DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. In this case, to simplify the problem we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion should be considered to understand the overall situation. From the thermal cycling point of view, the most significant difference between the two previously mentioned devices is the voltage drop (foreseen to be around 0.6V for 1.2V and 1.8V regulators). Therefore, a \gls{LDO} regulator dissipates much more heat than the \gls{STS}-XYTER (see photo~\ref{fig_temperatures_camera}), which was also confirmed by multiple simulations (see sections~\ref{nominal} -~\ref{power_loss}).
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/feb_thermal.jpg}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/feb_thermal.jpg}
 \caption{Temperature of the \gls{FEB} components measured with a thermal camera for the low power consumption scenario \cite{leo_electronics}. The \gls{LDO} (on the right side of the photo) dissipates on average more heat than chips.}
 \label{fig_temperatures_camera}
 \end{figure}
@@ -62,20 +62,20 @@ Cooling liquid at \SI{-40}{\celsius}, \gls{FEB}s powered on.
     As per the simulations done for the cooling liquid entering the detector at  \SI{-40}{\celsius}, the cooling plate and \gls{FEB}s should reach temperatures as shown in the figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.5\columnwidth]{Chapter3/Cycling/Images/cooling_block_nominal.png}
+\includegraphics[width=0.5\columnwidth]{Chapter4/images/cooling_block_nominal.png}
 \caption{Temperature distribution on the cooling plate for the nominal operation scenario}
 \label{fig_coolinkg_block_nominal}
 \end{figure}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.5\columnwidth]{Chapter3/Cycling/Images/nominal_febs.png}
+\includegraphics[width=0.5\columnwidth]{Chapter4/images/nominal_febs.png}
 \caption{Temperature distribution in the \gls{FEB} box and in the \gls{FEB} for the nominal operation scenario}
 \label{fig_nominal_febs}
 \end{figure}
 In periods in which the temperature will change due to transitions between detector states. The electronics will also face thermal stresses, which will partially occur with the electronics switched on, as depicted in the figure~\ref{fig_nominal_scenario}. The plot is divided into two sections - active and passive, which indicates whether the electronics is on or off. The temperature on the plot reflects the temperatures that will be present inside the \gls{STS}, but the x-axis serves only as a general time indication needed for the transitions to occur. It doesn't convey a real message about the length of the processes. Nevertheless, figure~\ref{fig_nominal_scenario} contains important information related to the detector operation. During the active (with low voltage on) phase of operation between 0 and step 10 the temperature change of the electronics is $\Delta T \approx \SI{20}{\celsius}$. For the passive part of the plot, the temperature change is $\Delta T \approx \SI{20}{\celsius}$. These temperatures provide an indication of minimum and maximum thermal cycling set points.  
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.95\columnwidth]{Chapter3/Cycling/Images/nominal_all.png}
+\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal_all.png}
 \caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
 \label{fig_nominal_scenario}
 \end{figure}
@@ -88,28 +88,28 @@ At any given point during operation, the operator may need to reconfigure or reb
 
 %\begin{figure}[!h]
 %\centering
-%\includegraphics[width=0.85\columnwidth]{Chapter3/Cycling/Images/reboot_cooling_plate.png}
+%\includegraphics[width=0.85\columnwidth]{Chapter4/images/reboot_cooling_plate.png}
 %\caption{Temperature distribution on the cooling plate for the reboot scenario}
 %\label{fig_reboot_scenario}
 %\end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/reboot_box.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/reboot_box.png}
 \caption{Temperature distribution in the \gls{FEB} box for the reboot scenario}
 \label{fig_reboot_box}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/reboot_FEB.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/reboot_FEB.png}
 \caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
 \label{fig_reboot_FEB}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.95\columnwidth]{Chapter3/Cycling/Images/nominal.png}
+\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal.png}
 \caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
 \label{fig_reboot_nominal}
 \end{figure}
@@ -120,7 +120,7 @@ The last considered scenario is the so-called loss of power scenario. Out of the
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.55\columnwidth]{Chapter3/Cycling/Images/switchoff.png}
+\includegraphics[width=0.55\columnwidth]{Chapter4/images/switchoff.png}
 \caption{Sudden loss of power and bringing the \glspl{FEB} back to operation}
 \label{fig_loss}
 \end{figure}
@@ -133,7 +133,7 @@ The experimental setup for the thermal cycling is depicted in the figure~\ref{fi
 The main test object for this part of the work was thermal cycling of the \gls{FEB}s. The diagnostic circuit of the \gls{STS}-XYTER helps to identify any \gls{PCB} related issues. In order to read the temperatures, $V_{ddm}$, and  \gls{CSA} bias values, a dedicated \footnote{purely software-based \gls{IOC}, not connected to any hardware}{soft IOC} was deployed. To acquire the previously mentioned values, the pyEPICS library~\cite{pyEPICS} was used, and the GBTxEMU-based readout chain (see \autoref{tester}) was adjusted to publish the values via channel access protocol. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.95\columnwidth]{Chapter3/Cycling/Images/cycling_scheme.png}
+\includegraphics[width=0.95\columnwidth]{Chapter4/images/cycling_scheme.png}
 \caption{Schematics of the thermal cycling setup}
 \label{fig_setup}
 \end{figure}
@@ -155,8 +155,8 @@ The \gls{FEB}s components may slightly differ, depending on what was the aim of 
 \newpage
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.45\columnwidth]{Chapter3/Cycling/Images/noglobtop.jpg}
-\includegraphics[width=0.45\columnwidth]{Chapter3/Cycling/Images/globtop.jpg}
+\includegraphics[width=0.45\columnwidth]{Chapter4/images/noglobtop.jpg}
+\includegraphics[width=0.45\columnwidth]{Chapter4/images/globtop.jpg}
 \caption{Left photo depicts two \glspl{FEB} (version A and B) with the \gls{LDO} regulators with a 3D-printed protection cover and without glob top. These two boards feature also have resistors instead of the \gls{STS}-XYTERs.
 The right photo depicts two fully assembled \gls{FEB}s with \gls{STS}-XYTERS version 2.1 and DYMAX 9001 as the glob top.}
 \label{fig_noglobtop}
@@ -166,8 +166,8 @@ To prepare for the thermal cycling, the assembled boards (type A and B) were mou
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.5\columnwidth]{Chapter3/Cycling/Images/FEBB_T_sensors.jpeg}
-\includegraphics[width=0.4\columnwidth]{Chapter3/Cycling/Images/thermal_setup.jpeg}
+\includegraphics[width=0.5\columnwidth]{Chapter4/images/FEBB_T_sensors.jpeg}
+\includegraphics[width=0.4\columnwidth]{Chapter4/images/thermal_setup.jpeg}
 \caption{A \gls{FEB} glued to the fin, with 3 DS18B20 temperature sensors installed on the fin (left) and two \gls{FEB}s mounted on a fin with thermal pads inside a climatic chamber (right)}
 \label{fig_cycling_temps}
 \end{figure}
@@ -191,7 +191,7 @@ Passive cycling was performed in the steps of 50 repetitions between optical and
 The \gls{FEB}, regardless of the type (A or B), is treated equally from the mechanical point of view. The components and the way the board is assembled are the same. Thereafter, the type won't be distinguished. Moreover, during set B testing, there weren't any current trip conditions applied and for set A the trip current was set to 3.1 A. The passive cycling is illustrated in the figure~\ref{fig_passive_cycling}. The liquid pumped through the cooling block is always a few degrees higher (depicted as 'Lauda temperature') than the setpoint of the climatic chamber. This prevails condensation or icing on sensitive electronics at all times. Moreover, the periods at the maximum and minimum temperature were always the same and equaled 20 minutes. During passive cyclings we haven't observed any performance deterioration, nevertheless, it was always performed on brand-new boards.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.55\columnwidth]{Chapter3/Cycling/Images/active_cycling.png}
+\includegraphics[width=0.55\columnwidth]{Chapter4/images/active_cycling.png}
 \caption{Example of the thermal cycling (passive) of the FEE}
 \label{fig_passive_cycling}
 \end{figure}
@@ -205,7 +205,7 @@ The active cycling was performed also in the step of 50 repetitions, but due to 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.57\columnwidth]{Chapter3/Cycling/Images/FEB0ASIC5COMP.png}
+\includegraphics[width=0.57\columnwidth]{Chapter4/images/FEB0ASIC5COMP.png}
 \caption{A detailed view on the performed active cycling}
 \label{fig_active_detailed}
 \end{figure}
@@ -213,7 +213,7 @@ The active cycling was performed also in the step of 50 repetitions, but due to 
 A detailed view of a few cycles is presented in the figure~\ref{fig_active_detailed}. The figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. Moreover, two bottom plots show how the cycling affects the \gls{STS}-XYTERs diagnostic circuit. The $V_{ddm}$ value varies from about 1200 up to 1240, nevertheless, it does not have any effect on the performance of the chip, as the operating range could vary as much as 100 mV. The measured values of the $V_{ddm}$ may also vary across the \gls{FEB}, which can be seen in the figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2 V line connecting the subsequent chips is negligible}{the nominal 1.2V} supplied by the 1.2V \gls{LDO} regulator. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{Chapter3/Cycling/Images/vddm_comp.png}
+\includegraphics[width=0.9\columnwidth]{Chapter4/images/vddm_comp.png}
 \caption{$V_{vddm}$ values comparison for different chips in the board}
 \label{feb_vary}
 \end{figure}
@@ -222,7 +222,7 @@ A detailed view of a few cycles is presented in the figure~\ref{fig_active_detai
 Moreover, during the active cycling, we placed 3 DS18B20 sensors on the fin (see section~\ref{cycling_setup}. The sensors were glued to the fin, in order to determine how the temperature changes when the final thermal interfaces are used. Figure~\ref{fig_active_sensors} depicts the difference between the temperatures measured by different sensors during cycling. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/active.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/active.png}
 \caption{Temperature evolution of the fin during the active cycling. The DS18B20 \cite{DS18B20} sensor has an uncertainty of $\SI{0.5}{\celsius}$, which was not depicted in order to better illustrate the trend.}
 \label{fig_active_sensors}
 \end{figure}
@@ -238,7 +238,7 @@ The cold startup was identified, as one of the riskiest events that may cause a 
 The figure~\ref{fig_power_cycle} shows how the current drawn by the 1.2 \gls{LDO} regulators and 1.8 \gls{LDO} regulators changes with regards to the different tests performed in the \gls{STS}-XYTERs. The highest current values are reached during write/read tests of the registers. The drop of the currents is related to the change in the \gls{CSA} value. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/currents.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/currents.png}
 \caption{Cold startup of one of the \gls{FEB} - current consumed by the 1.8V and 1.2 \gls{LDO} regulators during the test procedure. During the period, in which the power is on, each chip undergoes 3 testing cycles.}
 \label{fig_power_cycle}
 \end{figure}
@@ -265,8 +265,8 @@ The onset of the \gls{LDO} failure can be seen in the figure \ref{fig_cold_start
 %\newpage
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.46\columnwidth]{Chapter3/Cycling/Images/currents_long.png}
-\includegraphics[width=0.48\columnwidth]{Chapter3/Cycling/Images/cycling.png}
+\includegraphics[width=0.46\columnwidth]{Chapter4/images/currents_long.png}
+\includegraphics[width=0.48\columnwidth]{Chapter4/images/cycling.png}
 \caption{Current consumed by the 1.8V and 1.2 \gls{LDO} regulators during the cold startup testing at $T = \SI{-30}{\celsius}$ (left)
 Comparison of the lauda chiller setpoint, readouts from the internal temperature and relative humidity sensors of the climatic chamber (right)}
 \label{fig_cold_startup}
@@ -276,7 +276,7 @@ Similarly, the onset of the \gls{FEB} failure can be seen from the diagnostic ci
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/temps_vddm.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/temps_vddm.png}
 \caption{Temperature and $V_{ddm}$ of two chosen \gls{STS}-XYTERs, and onset of \gls{LDO} regulator failure}
 \label{fig_cold_startup_vddm}
 \end{figure}
@@ -301,7 +301,7 @@ The onset of failure during the active cycling can be also seen via the diagnost
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/FEB2ASIC2COMP1.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/FEB2ASIC2COMP1.png}
 \caption{Temperature and $V_{ddm}$ of a chosen \gls{STS}-XYTER, and onset of \gls{LDO} regulator failure}
 \label{fig_active_failure}
 \end{figure}
@@ -310,7 +310,7 @@ One of the potential failure mechanisms can be seen in the figure~\ref{fig_ldo_l
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter3/Cycling/Images/FEB_81_LDO_lift.png}
+\includegraphics[width=0.8\columnwidth]{Chapter4/images/FEB_81_LDO_lift.png}
 \caption{Microscopic view on the air bubble between glob top and bonds of the \gls{LDO}}
 \label{fig_ldo_lift}
 \end{figure}
@@ -320,14 +320,14 @@ Performed thermal cycling lead to discovering the limits of the \glspl{FEB}, nam
 
 %\begin{figure}[!h]
 %\centering
-%\includegraphics[width=0.6\columnwidth]{Chapter3/Cycling/Images/temps.png}
+%\includegraphics[width=0.6\columnwidth]{Chapter4/images/temps.png}
 %\caption{A power cycle}
 %\label{fig_cold_startup}
 %\end{figure}
 
 %\begin{figure}[!h]
 %\centering
-%\includegraphics[width=0.6\columnwidth]%{Chapter3/Cycling/Images/csa.png}
+%\includegraphics[width=0.6\columnwidth]%{Chapter4/images/csa.png}
 %\caption{A power cycle}
 %\label{fig_cold_startup}
 %\end{figure}

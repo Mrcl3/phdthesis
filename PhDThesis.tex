@@ -150,89 +150,41 @@
 \addchap{Kurzfassung}
 %\input{Documents/acnowledgements.tex}
 \chapter{Introduction}
-\section{Standard model}
-\section{Quark Gluon Plasma and QCD phase diagram}
-\section{Physics cases and observables}
-%\subsection{Equation of state}
-%\subsection{Phase Transition}
-%\subsection{Chiral Symmetry Restoration}
-%\subsection{Hypernuclei}
-\section{Thesis overview and its rationale}
+\label{chap:intro}
+\input{Chapter1/physics.tex}
 \chapter{The CBM experiment and the role of the STS}
-\section{The SIS100 Accelerator}
-\section{Overview of the FAIR facility}
-\section{Overview of the CBM experiment}
+\label{chap:CBM_STS}
+\input{Chapter2/FAIR.tex}
+\input{Chapter2/CBM.tex}
 \input{Chapter2/STS.tex}
 \chapter{Online systems in the CBM experiment}
+\label{chap:online_systems}
 \input{Chapter3/Controls/ECS.tex}
 \input{Chapter3/Controls/DCS.tex}
-
 \input{Chapter3/Controls/Introduction.tex}
 \input{Chapter3/Controls/EPICS.tex}
-
-%\chapter{Containerized control software and its applications}
-\input{Chapter3/DCS/Containarization.tex}
-\input{Chapter3/Controls/frontend.tex}
-\input{Chapter3/FEE/monitoring.tex}
-\input{Chapter3/Irradiation/CBM-STS-PR-2021}
-\input{Chapter3/Cycling/motivation.tex}
+\chapter{Containerized control software and its applications}
+\label{chap:containers}
+\input{Chapter4/Containarization.tex}
+\input{Chapter4/frontend.tex}
+\input{Chapter4/monitoring.tex}
+\input{Chapter4/irradiation.tex}
+\input{Chapter4/cycling.tex}
 \chapter{The mSTS as the pathfinder for the DCS}
-%\input{Chapter3/DCS/Introduction.tex}
-%\input{Chapter3/DCS/EPICS.tex}
-
-
-%\input{Chapter3/DCS/frontend.tex}
-
-
-\input{Chapter3/DCS/mSTS.tex}        
-
-\input{Chapter3/DCS/operation.tex}
-
-
-%\subsection{Experiment overview and its goals}
-%\subsection{Prototyping of the DCS based on the mSTS}
-%\subsection{Design and functionalities of the DCS}
-%\subsection{Silicon sensors' leakage current monitoring}
-%\section{Monitoring of the Front End Electronics' parameters}
-
-%\section{Applications of the control software}
-%\subsection{Control and monitoring of a custom climatic chamber for studies of thermal interfaces}
-
-
-%\chapter{Solutions for humidity and temperature monitoring in the STS}
-\input{Chapter4/Overview.tex}
-\input{Chapter4/FOS.tex}
-\input{Chapter4/chosen_sensors.tex}
-
-%\section{Overview of different technologies}
-%\section{Motivation and market availability of different types of sensors}
-%\subsection{Capacitive sensors}
-%\subsection{Fiber Optic sensors}
-%\subsection{Dew point transmitters}
-%\section{Fiber optic sensing technology}
-%\section{Fiber Bragg Grating technology for humidity and temperature monitoring}
-%\section{Evaluation and choice of the measurement setup}
-%\section{Characterization of the RH FOS}
-%\section{Time response and uncertainty of the FOS}
-%\section{Hysteresis}
-%\section{Conclusions}
-
-
+\label{chap:msts}
+\input{Chapter5/DCS/mSTS.tex}        
+\input{Chapter5/DCS/operation.tex}
+\chapter{Solutions for humidity and temperature monitoring in the STS}
+\label{chap:sts}
+\input{Chapter6/Overview.tex}
+\input{Chapter6/FOS.tex}
+\input{Chapter6/chosen_sensors.tex}
 \chapter{On the way to the Silicon Tracking System}
-\section{Thermal Demonstrator and its controls}
-\subsection{Setup overview and its goals}
-\subsection{Controls overview}
-\input{Chapter3/STS/Orchestration.tex}
-
-\section{Front End Electronics monitoring}
-\section{Powering concept for the STS}
-\section{Cooling management}
-\section{Instrumentation for the STS and its design}
-\section{Detector safety}
-\section{Outlook and summary}
+\label{chap:outlook}
+\input{Chapter7/demo.tex}
+\input{Chapter7/failures.tex}
+\input{Chapter7/Orchestration.tex}
 \addchap{Zusammenfassung}
-
-
 
 %\bibliographystyle{unsrt}% We choose the "plain" reference style
 %\bibliography{refs.bib}
@@ -243,7 +195,7 @@
 \listoftables
 \clearpage
 
-\input{Chapter3/DCS/appendix.tex}
+\input{Documents/appendix.tex}
 \clearpage
 \printbibliography
 \clearpage

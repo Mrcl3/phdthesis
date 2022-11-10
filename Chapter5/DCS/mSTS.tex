@@ -6,7 +6,7 @@ The mCBM aims to test and optimize the performance of the detectors including cr
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\columnwidth]{Chapter3/DCS/images/mcbm_2021_setup.png}
+\includegraphics[width=0.7\columnwidth]{Chapter5/DCS/images/mcbm_2021_setup.png}
 \caption{Schematical view of the mCBM experiment in 2022}
 \label{fig_mcbm}
 \end{figure}
@@ -15,7 +15,7 @@ The developments of DAQ, First Level Event Selector (\gls{FLES}), or \gls{DCS} w
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter3/DCS/images/mSTS_mech.png}
+\includegraphics[width=0.75\columnwidth]{Chapter5/DCS/images/mSTS_mech.png}
 \caption{Mechanical design (right) and simplified geometry of the \gls{mSTS} together with its enclosure (left)}
 \label{fig_STS}
 \end{figure}
@@ -50,7 +50,7 @@ A breakdown of the \gls{mSTS}'s \gls{DCS} architecture is presented in Figure~\r
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.55\columnwidth]{Chapter3/DCS/images/mcbmpng.png}
+\includegraphics[width=0.55\columnwidth]{Chapter5/DCS/images/mcbmpng.png}
 \caption{A general structure of the \gls{mSTS} DCS architecture}
 \label{fig_mstsarch}
 \end{figure}
@@ -66,7 +66,7 @@ The \gls{mSTS} as opposed to the final STS doesn't require sophisticated hardwar
 A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}. Each state of the \gls{FSM} represents a well-defined detector state. After initialization of all the services, the detector enters into the standby state, in which the cooling stabilizes and the detector is in a safe state. Next transitions and stages prepare the \gls{mSTS} for the operation and data taking, low voltage and subsequently high voltage channels are turned on. In case any of the issues listed above happens, the detector is brought into a safe state (error state), which in most cases requires operator intervention. The global states mentioned to the right of the block diagram are the states propagated to the higher levels of control (\gls{SCA}/\gls{ECS}).
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter3/DCS/images/FSM.png}
+\includegraphics[width=0.8\columnwidth]{Chapter5/DCS/images/FSM.png}
 \caption{Proposed finite state machine for the \gls{mSTS}}
 \label{fig_FSM}
 \end{figure}
@@ -77,7 +77,7 @@ A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}.
 Weave Scope is a visualization and monitoring tool for Docker and Kubernetes. It offers a detailed view into the applications as well as your entire infrastructure and allows you to diagnose any problems with your distributed containerized-time real-time, as it is being deployed to a cloud provider. Weavescope has proved to be a useful tool for running commands and configuring the containers after their initialization. The container publishes the values from the chillers, hence the container is connected to Phoebus, archiver, alarm-server, and sequencer. 
 %\begin{figure}[!h]
 %\centering
-%\includegraphics[width=0.55\columnwidth]{Chapter3/DCS/images/weave.png}
+%\includegraphics[width=0.55\columnwidth]{Chapter5/DCS/images/weave.png}
 %\caption{mSTS - weavescope view}
 %\label{fig_weave}
 %\end{figure}

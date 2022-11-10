@@ -1,0 +1,254 @@
+\begin{filecontents}{refs.bib}
+@online{solarfarm, 
+  author  = {Buckley, Alastair and nee Hall, Lisa Clark and {Colantuono, Giuseppe Everard}, Aldous}, 
+  title   = {{The Sheffield Solar Farm}}, 
+  url     = {http://www.sheffieldsolarfarm.group.shef.ac.uk/solar-panel-data},
+  urldate = {2013-05-16}, 
+}
+@article{foo2010,
+  author = {Foo Bar},
+  journal = {J.P.B.},
+  year = {2010},
+  volume = {290}
+  title = {Where the wild things are},
+  doi = {10.1.1/jpb001},
+  url = {http://dx.doi.org/10.1.1/jpb001}
+}
+\end{filecontents}
+
+\documentclass[12pt,a4paper,oneside]{scrbook}
+\usepackage[%
+  backend=bibtex      % biber or bibtex
+%,style=authoryear    % Alphabeticalsch
+ ,style=numeric-comp  % numerical-compressed
+ ,sorting=none        % no sorting
+ ,sortcites=true      % some other example options ...
+ ,block=none
+ ,indexing=false
+ ,citereset=none
+ ,isbn=true
+ ,url=true
+ ,doi=true            % prints doi
+ ,natbib=true
+ ,backref=true
+ % if you need natbib functions
+]{biblatex}
+\addbibresource{refs.bib}  % better than \bibliography
+
+\usepackage[breaklinks=true, colorlinks=true, linkcolor=blue, linktoc=all, pdfborder={0 0 0}]{hyperref} % hyper refs without borders 
+
+\usepackage[utf8]{inputenc}
+\usepackage[main=english, greek]{babel}
+
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{pdfpages}
+\usepackage{acronym}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{minted}
+\usepackage{footnote}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage[subentrycounter]{glossaries}
+\setglossarystyle{altlisthypergroup}
+\makeglossaries
+\loadglsentries{glo.tex}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{grffile}
+\DeclareNewSectionCommand[
+  style=section,
+  counterwithin=subsubsection,
+  font=\normalsize,
+  afterskip=1.5ex plus .2ex,
+  beforeskip=-3.25ex plus -1ex minus -.2ex,
+  indent=0pt,
+  level=4,
+  tocstyle=section,
+  toclevel=4,
+  tocindent=10em,
+  tocnumwidth=5em
+]{subsubsubsection}
+\setcounter{secnumdepth}{\subsubsubsectionnumdepth}
+\setcounter{tocdepth}{\subsubsubsectiontocdepth}
+
+\RedeclareSectionCommand[
+  level=5,
+  counterwithin=subsubsubsection,
+  toclevel=5,
+  tocindent=12em,
+  tocnumwidth=6em
+]{paragraph}
+\RedeclareSectionCommand[
+  level=6,
+  toclevel=6,
+  tocindent=14em,
+  tocnumwidth=7em
+]{subparagraph}
+\definecolor{auburn1}{rgb}{0.43, 0.21, 0.1}
+\definecolor{source}{gray}{0.85}% my comment style
+\definecolor{auburn}{rgb}{0.36, 0.54, 0.66}
+\newcommand{\myTitleStyle}[1]{{\LARGE\sffamily\color{auburn} #1}}
+%\newcommand{\myCommentStyle}[1]{{\footnotesize\sffamily\color{black!100!white} #1}}
+ 
+% my string style
+\newcommand{\myStringStyle}[1]{{\footnotesize\sffamily\color{violet!100!black} #1}}
+%\newcommand{\myStringStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
+ 
+% my symbol style
+\newcommand{\mySymbolStyle}[1]{{\footnotesize\sffamily\color{violet!100!black} #1}}
+%\newcommand{\mySymbolStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
+ 
+% my keyword style
+\newcommand{\myKeywordStyle}[1]{{\footnotesize\sffamily\color{green!70!black} #1}}
+%\newcommand{\myKeywordStyle}[1]{{\footnotesize\sffamily\color{black!70!black} #1}}
+ 
+% my global style
+\newcommand{\myGlobalStyle}[1]{{\footnotesize\sffamily\color{blue!100!black} #1}}
+%\newcommand{\myGlobalStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
+ 
+% my number style
+\newcommand{\myNumberStyle}[1]{{\footnotesize\sffamily\color{brown!100!black} #1}}
+%\newcommand{\myNumberStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
+
+
+
+
+
+
+
+\begin{document}
+
+\input{Titlepage.tex}
+\input{ToC.tex}
+% --------------------------------
+\thispagestyle{empty}
+\clearpage
+\begin{center}
+
+\hspace{0pt}
+\vfill
+
+\Large\foreignlanguage{greek}{Δεν υπάρχει τίποτα μόνιμο, εκτός από την αλλαγή.\\}
+\vspace{0.5cm}
+\normalsize{There is nothing permanent, except change.\\}
+\vspace{1cm}
+\color{auburn}\foreignlanguage{greek}{\textit{Ἡράκλειτος}}
+\vfill
+\hspace{0pt}
+\end{center}
+\pagebreak
+%--------------------------------
+\addchap{Abstract}
+\addchap{Kurzfassung}
+%\input{Documents/acnowledgements.tex}
+\chapter{Introduction}
+\section{Standard model}
+\section{Quark Gluon Plasma and QCD phase diagram}
+\section{Physics cases and observables}
+%\subsection{Equation of state}
+%\subsection{Phase Transition}
+%\subsection{Chiral Symmetry Restoration}
+%\subsection{Hypernuclei}
+\section{Thesis overview and its rationale}
+\chapter{The CBM experiment and the role of the STS}
+\section{The SIS100 Accelerator}
+\section{Overview of the FAIR facility}
+\section{Overview of the CBM experiment}
+\input{Chapter2/STS.tex}
+\chapter{Online systems in the CBM experiment}
+\input{Chapter3/Controls/ECS.tex}
+\input{Chapter3/Controls/DCS.tex}
+
+\input{Chapter3/Controls/Introduction.tex}
+\input{Chapter3/Controls/EPICS.tex}
+
+%\chapter{Containerized control software and its applications}
+\input{Chapter3/DCS/Containarization.tex}
+\input{Chapter3/Controls/frontend.tex}
+\input{Chapter3/FEE/monitoring.tex}
+\input{Chapter3/Irradiation/CBM-STS-PR-2021}
+\input{Chapter3/Cycling/motivation.tex}
+\chapter{The mSTS as the pathfinder for the DCS}
+%\input{Chapter3/DCS/Introduction.tex}
+%\input{Chapter3/DCS/EPICS.tex}
+
+
+%\input{Chapter3/DCS/frontend.tex}
+
+
+\input{Chapter3/DCS/mSTS.tex}        
+
+\input{Chapter3/DCS/operation.tex}
+
+
+%\subsection{Experiment overview and its goals}
+%\subsection{Prototyping of the DCS based on the mSTS}
+%\subsection{Design and functionalities of the DCS}
+%\subsection{Silicon sensors' leakage current monitoring}
+%\section{Monitoring of the Front End Electronics' parameters}
+
+%\section{Applications of the control software}
+%\subsection{Control and monitoring of a custom climatic chamber for studies of thermal interfaces}
+
+
+%\chapter{Solutions for humidity and temperature monitoring in the STS}
+\input{Chapter4/Overview.tex}
+\input{Chapter4/FOS.tex}
+\input{Chapter4/chosen_sensors.tex}
+
+%\section{Overview of different technologies}
+%\section{Motivation and market availability of different types of sensors}
+%\subsection{Capacitive sensors}
+%\subsection{Fiber Optic sensors}
+%\subsection{Dew point transmitters}
+%\section{Fiber optic sensing technology}
+%\section{Fiber Bragg Grating technology for humidity and temperature monitoring}
+%\section{Evaluation and choice of the measurement setup}
+%\section{Characterization of the RH FOS}
+%\section{Time response and uncertainty of the FOS}
+%\section{Hysteresis}
+%\section{Conclusions}
+
+
+\chapter{On the way to the Silicon Tracking System}
+\section{Thermal Demonstrator and its controls}
+\subsection{Setup overview and its goals}
+\subsection{Controls overview}
+\input{Chapter3/STS/Orchestration.tex}
+
+\section{Front End Electronics monitoring}
+\section{Powering concept for the STS}
+\section{Cooling management}
+\section{Instrumentation for the STS and its design}
+\section{Detector safety}
+\section{Outlook and summary}
+\addchap{Zusammenfassung}
+
+
+
+%\bibliographystyle{unsrt}% We choose the "plain" reference style
+%\bibliography{refs.bib}
+
+\renewcommand\listfigurename{List of Figures}
+\listoffigures
+\renewcommand\listtablename{List of Tables}
+\listoftables
+\clearpage
+
+\input{Chapter3/DCS/appendix.tex}
+\clearpage
+\printbibliography
+\clearpage
+\printglossaries
+%\addchap{Curriculum Vitae}
+\includepdf[pages=-]{CV.pdf}
+
+\end{document}

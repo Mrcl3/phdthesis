@@ -1,0 +1,26 @@
+\chapter{Solutions for humidity and temperature monitoring in the STS}
+The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for ambient sensors. As described in the section~\ref{cooling}, the ambient temperature will reach \SI{-10}{\celsius} at the end of the \gls{STS} lifetime. The cooling liquid (3M NOVEC 649) will be circulating at temperatures close to \SI{-40}{\celsius}. Therefore, the first boundary condition arises - the frost point needs to be below \SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}. For the first few years of operation, the temperatures will be higher and therefore RH/frost point can be measured more accurately. One of the most common techniques to achieve the frost points below \SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the \gls{FEE}. 
+During the detector's lifetime (10 years), there will be only limited opportunities to do any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period. As some of the sensors can be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy. The humidity measurements will take place in a distributed fashion, implying that different sensors may face different doses. As the detector will be placed in a dipole magnet providing a magnetic field of \SI{1}{\tesla\metre}, the sensors need to be insensitive to it. An ideal humidity sensor should meet the following requirements:
+\begin{itemize}
+    \item small dimensions and mass (especially when placed close to the active area of the system),
+    \item accurate relative humidity readouts at temperatures down to \SI{-20}{\celsius}, 
+    \item ideally respond to a wide range of \gls{RH} values from 0~\% to 80~\%,
+    \item high repeatability and low hysteresis,
+    \item reliable operation across long distances (the readout device needs to reside at least \SI{20}{\metre} away from the detector).
+\end{itemize}
+
+\section{Introduction to humidity measurements}
+
+
+$DP(T, RH) = \frac{\lambda(ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}$
+
+\section{Overview of different technologies}
+In a constraint volume of the 
+\section{Motivation and market availability of different sensor types}
+
+\subsection{Capacitive sensors}
+
+\subsection{Fiber optic sensors}
+
+\subsection{Dew point transmitters}
+

@@ -17,6 +17,7 @@ jobs:
         with:
           root_file: PhDThesis.aux
           compiler: bibtex
+          args: 
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:

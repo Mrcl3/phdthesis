@@ -4,11 +4,8 @@
 \chapter{Example of deploying an IOC with YAML file}
 An example yaml file used to deploy \gls{IOC}. In this particular case, the IOC was operating a BINDER MK240 climatic chamber using Modbus protocol. The volumes are used to acquire database files and also synchronize the time with the node. Moreover, the container run in the host network and the so-called pseudo terminal is activated (tty). 
 \label{YAML}
-  \begin{minted}[
-    frame=single,
-    linenos
-  ]{yaml}
-  
+\begin{verbatim}
+
 version: "3.7"
 services:
   binder:
@@ -21,8 +18,7 @@ services:
     image: "paluma.rub.de/panda-ioc"
     tty: true
     command: /config/iocBoot/iocBinder/st.cmd
-
-\end{minted}
+\end{verbatim}
 
 \chapter{CSA scans for modules of the mSTS}
 \label{CSA}

@@ -3,7 +3,10 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
+      - uses: actions/checkout@v1
+      - run: apt-get install texlive-lang-greek
+      
       - name: Set up Git repository
         uses: actions/checkout@v2
 

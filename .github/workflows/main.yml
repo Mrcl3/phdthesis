@@ -9,17 +9,17 @@ jobs:
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
-          root_file: main.tex
+          root_file: PhDThesis.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
       - name: bibtex main
         uses: dante-ev/latex-action@latest
         with:
-          root_file: main.aux
+          root_file: PhDThesis.aux
           compiler: bibtex
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
-          root_file: main.tex
+          root_file: PhDThesis.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape

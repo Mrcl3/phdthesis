@@ -1,5 +1,5 @@
 The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for ambient sensors. As described in the section~\ref{cooling}, the ambient temperature will reach \SI{-10}{\celsius} at the end of the \gls{STS} lifetime. The cooling liquid (3M NOVEC 649) will be circulating at temperatures close to \SI{-40}{\celsius}. Therefore, the first boundary condition arises - the frost point needs to be below \SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}. For the first few years of operation, the temperatures will be higher and therefore RH/frost point can be measured more accurately. One of the most common techniques to achieve the frost points below \SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the \gls{FEE}. 
-During the detector's lifetime (10 years), there will be only limited opportunities to do any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period. As some of the sensors can be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy. The humidity measurements will take place in a distributed fashion, implying that different sensors may face different doses. As the detector will be placed in a dipole magnet providing a magnetic field of \SI{1}{\tesla\metre}, the sensors need to be insensitive to it. An ideal humidity sensor should meet the following requirements:
+During the detector's lifetime (10 years), there will be limited opportunities to do any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period. As some of the sensors can be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy. The humidity measurements will be distributed, implying that different sensors may face different doses. As the detector will be placed in a dipole magnet providing a magnetic field of \SI{1}{\tesla\metre}, the sensors need to be insensitive to it. An ideal humidity sensor should meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
     \item accurate relative humidity readouts at temperatures down to \SI{-20}{\celsius}, 
@@ -9,15 +9,37 @@ During the detector's lifetime (10 years), there will be only limited opportunit
 \end{itemize}
 
 \section{How to understand relative humidity?}
-Before introducing the next experimental setup and the respective results, it's necessary to discuss a few definitions and analytical relationships. The relative humidity or the dew/frost point, are commonly used indicators to describe the amount of water molecules in the air. Nevertheless, the dew/frost point is a much more useful value, as it provides an absolute value. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water or solid ice at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew/frost point. Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). A dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice or a combination of both. 
 
+Before introducing the next experimental setup and the individual results, it's necessary to discuss a few definitions and analytical relationships. The relative humidity or the dew/frost point, are commonly used indicators to describe the number of water molecules in the air. Nevertheless, the dew/frost point is a much more useful value, as it provides an absolute value. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water or solid ice at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew/frost point. Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). A dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
+
+
+The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows:
+
+\begin{equation}
+\begin{split}
+    &log({e}^{*}_{s}) = a(T_{st}/T - 1) + b(log(T_{st}/T) - c(10^{11.344(1-T/T_{st})} - 1) \\
+    &+ d(10^{-3.49149(T_{st}/T - 1} -1) + log(e^{*}_{st})
+\end{split}
+\end{equation}
+where: log refers to the logarithm in base 10, $e_{s}$ is the saturation water vapor pressure (hPa), a to g are constants; $a = - 7.90298$, $b=5.02808$, $c=1.3816*10^{-7}$, $d=1.3816*10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246~hPa$), and $T_{st}$ is the boiling point (at 1~atm) temperature (373.15~K). Similar equation can be also formulated for the vapor pressure over ice. These equations marked the beginning of the tries to formulate a highly accurate description of water dynamics. In this chapter a highly accurate empirical formula was used to estimate the dew point. The Magnus formula is much simpler to use and allows to convert between the saturation vapor pressure and temperature with minimal error~\cite{magnus}: 
+\begin{equation}
+    e^{*}_{s} = cexp(aT/(b+T))
+\end{equation}
+where: 
 The \gls{RH} is usually defined as the ratio of the water vapor pressure ($p$) to the equilibrium vapor pressure over a plane of water ($p_{s}$):
 \begin{equation}
-    RH = 100*\frac{p}{p{s}}
+    RH = 100*\frac{e}{e^{*}_{s}}
+\end{equation}
+Based of the parameters approximations by Sonntag \cite{magnus}, the formula converges to:
+\begin{equation}
+    e^{*}_{s} = 6.112*exp(17.62T/(243.12))
+\end{equation}
+This approximation should 
+\begin{equation}
+    DP(T, RH) = \frac{\lambda(ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}
 \end{equation}
 
 
-$DP(T, RH) = \frac{\lambda(ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}$
 
 \section{Overview of different technologies}
 In a constraint volume of the 

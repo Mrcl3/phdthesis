@@ -1,5 +1,6 @@
+\section{Sensors requirements}
 The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for ambient sensors. As described in the section~\ref{cooling}, the ambient temperature will reach \SI{-10}{\celsius} at the end of the \gls{STS} lifetime. The cooling liquid (3M NOVEC 649) will be circulating at temperatures close to~\SI{-40}{\celsius}. Therefore, the first boundary condition arises - the frost point needs to be below~\SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}. For the first few years of operation, the temperatures will be higher and therefore RH/frost point can be measured more accurately. One of the most common techniques to achieve the frost points below~\SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the~\gls{FEE}. 
-During the detector's lifetime (10 years), there will be limited opportunities to do any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period. As some of the sensors can be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy. The humidity measurements will be distributed, implying that different sensors may face different doses. As the detector will be placed in a dipole magnet providing a magnetic field of \SI{1}{\tesla\metre}, the sensors need to be insensitive to it. An ideal humidity sensor should meet the following requirements:
+During the detector's lifetime (10 years), there will be limited opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period. As some of the sensors can be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy. The humidity measurements will be distributed, implying that different sensors may face different doses. As the detector will be placed in a dipole magnet providing a magnetic field of \SI{1}{\tesla\metre}, the sensors need to be insensitive to it. An ideal humidity sensor should meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
     \item accurate relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
@@ -8,9 +9,10 @@ During the detector's lifetime (10 years), there will be limited opportunities t
     \item reliable operation across long distances (the readout device needs to reside at least~\SI{20}{\metre} away from the detector).
 \end{itemize}
 
+On the other hand, due to overpressure conditions inside the \gls{STS} enclosure low response time (seconds) is not necessarily needed. For the hardware and software interlocking a delay up to minutes is considered to be acceptable. The purpose of this chapter is to discuss the considerations for a distributed sensing system, as well as the extensive testing and design of fiber optic sensors. 
 \section{Vapor pressure and its significance}
 
-Before introducing the next experimental setup and the respective results, it's necessary to discuss a few definitions and analytical and empirical formulas. The relative humidity or the dew/frost point, are commonly used indicators to describe the number of water molecules in the air. Nevertheless, the dew/frost point is a much more useful value, as it provides an absolute value. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water or solid ice at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew/frost point. Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). A dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
+The relative humidity or the dew/frost point, are commonly used indicators to describe the number of water molecules in the air. Nevertheless, the dew/frost point is a much more useful value, as it provides an absolute value. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water or solid ice at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew/frost point. Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). A dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
 
 
 The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows:
@@ -54,22 +56,39 @@ The dew points based on relative humidity and temperature can be seen in the fig
 \caption{Dew points calculations based on the empirical formulas}
 \label{fig:dewpointmagnus}
 \end{figure}
-In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the temperature and \gls{RH} are needed. In uncertainty analysis, the individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular uncertainty for the sensors that measure the temperature and relative humidity:
+In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the \footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer not affected by the moisture of the air.}{dry-bulb} temperature and \gls{RH} are needed. In uncertainty analysis, the individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular uncertainty for the sensors that measure the temperature and relative humidity:
 \begin{equation}
     \mu(x_{i}) = \frac{a}{\sqrt{3}}
 \end{equation}
-where a is the uncertainty available in the datasheets, and $u_{i}$ represent the measured value. The combined uncertainty $\mu_{c}$ can be derived from equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}:
+where a is the uncertainty available in the datasheets, and $u_{i}$ represents the measured value. The combined uncertainty $\mu_{c}$ can be derived from equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}:
 \begin{equation}
     u_{Td} = \left [  \left (\frac{\partial T_{d}}{\partial T_{a}}  \right )^{2} \mu^{2}(T) + \left (\frac{\partial T_{d}}{\partial RH}  \right )^{2} \mu^{2}(RH)\right ]^{1/2}
+    \label{dp_error}
 \end{equation}
-In each system, we assume that measuring dew point temperature or relative humidity is statistically independent of measuring air temperature and the confidence level for the uncertainty interval is 68~\%.  Moreover, below~\SI{0}{\celsius} the frost point starts to play the key role. The moisture in the air will undergo deposition as a layer of frost on exposed surfaces that are also at a temperature below the frost point. 
+In each system, we assume that measuring dew point temperature or relative humidity is statistically independent of measuring air temperature and the confidence level for the uncertainty interval is 68~\%.  Moreover, below~\SI{0}{\celsius} the frost point starts to play a key role. The moisture in the air will undergo deposition as a layer of frost on exposed surfaces that are also at a temperature below the frost point. 
 
 \section{Overview of different technologies}
 
+Nowadays electronic humidity sensors are commonly used in industry, scientific research facilities and civil infrastructure. In general, we can divide the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. More than 75~\% of those sensors are resistive and capacitive ones. The efforts to employ miniaturized sensors in the \gls{HEP} experiment have been ongoing since many years \cite{Berruti}. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case specific study related to \gls{HEP} is summarized in \cite{Kapic}. The \gls{STS} will feature a few different technologies of the \gls{RH} and temperature sensors - capacitive sensors, fiber optic sensors and dew point transmitters. 
 
+
+\subsection{Capacitive sensors}
+The capacitive sensors, in the simplest form, can be made out of two parallel plates, where the capacitance between the two electrodes in given by:
+\begin{equation}
+C = \epsilon_{r}\epsilon_0\frac{A}{d}
+\end{equation}
+where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constant, A is the plate surface area and d is the plate distance. If the humidity changes can be associated to the changes of one of the parameters a \gls{RH} can be therefore calculated. 
+The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fairly miniaturized and insensitive to pressure changes. The main drawbacks of these sensors are listed below:
+\begin{itemize}
+    \item limited long term stability,
+    \item sensitive to water condensation,
+    \item limited distance to the readout device,
+    \item most of the sensors are not radiation hard.
+\end{itemize}
+Two different \gls{RH} capacitive sensors have been tested in low temperature regime - IST HYT221 and Sensiron SHT85. Figure \ref{fig:hyt221} shows the \gls{RH} and temperature error respectively. Measuring low values of humidity at low temperatures below \SI{-20}{\celsius} and 5~\% leads to large dew point errors (\SI{7}{\celsius} and more). The estimated dew point errors are presented in figure \ref{fig:hyt221_dp}.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter6/images/hyt221_rh.png}
+\includegraphics[width=0.85\columnwidth]{Chapter6/images/hyt221_rh.png}
 \caption{Relative humidity and temperature uncertainties \cite{hyt221}}
 \label{fig:hyt221}
 \end{figure}
@@ -93,17 +112,9 @@ In each system, we assume that measuring dew point temperature or relative humi
 \caption{Dew point error based on the the figure \ref{fig:sht85}}
 \label{fig:sht85_dp}
 \end{figure}
-
-
-
-
-\section{Motivation and market availability of different sensor types}
-
-
-
-\subsection{Capacitive sensors}
-
+\newpage
 \subsection{Fiber optic sensors}
 
 \subsection{Dew point transmitters}
 
+\section{How to characterize a sensor?}

@@ -1,4 +1,4 @@
-%\newpage
+\newpage
 \section{Irradiation studies of the powering units}
 Radiation-induced effects in electronics play an important role in accelerator facilities, where different particle species may elevate radiation levels even in relatively remote areas. Depending on many factors, i.a. location of the setup, intensity or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. The detector will be powered by about 140 low voltage modules, providing 2100 power channels. In order to estimate the Single Event Effects (SEE) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in GSI, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors in the power units' electronics and estimating its rate.
 
@@ -26,7 +26,7 @@ O(n,d)           & 10.53
 \label{cross-seciton}
 \end{table}
 
-%\newpage
+\newpage
 \subsection{Motivation}
 
 The powering of the Front End Boards (\gls{FEB}s), together with the data processing electronics, sum up to about 2100 low voltage channels, operated in about 140 low voltage modules, 16 channels each. All of them will be placed in a protected area within the cave with an elevated radiation level. The estimated dose values were calculated by A. Senger using FLUKA code (see Figure~\ref{fig:mCBM})~\cite{FLUKA}. 
@@ -40,10 +40,10 @@ cave under the platform in (11 AGeV Au $10^{9} \mathrm{\ ions/s}$ on 1\% Au
 interaction target) 0 to 0.5 m and 1.5 m to 2 m above the ground} 
     \label{fig:mCBM}
 \end{figure}
+%\newpage
+For the gold beam with the highest available intensities ($10^{9}\mathrm{\ ions/s}$) and energies (11 AGeV), we expect a total dose level of 20 \footnote{Gray is a SI unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter \cite{gray}}{mGy} after 1 month of operation in the area between 0 and 0.5 m above the ground (at the planned location of the power crates x = -600 cm, z = -600 cm) and 40 mGy between 1.5 m and 2 m above the ground (x = -600 cm, z = -600 cm). A failure in the low voltage powering of the FEE may lead to a rapid decrease of temperature, as the primary coolant temperature may reach down to $-40^{\circ}\mathrm{C}$, consequently making the FEE susceptible to thermal stress. The effects of radiation must be therefore studied to ensure the safe operation of the STS. Estimation of the soft error rate (\gls{SER}) may also indicate whether there is a need for further shielding of the power electronics in order to minimize the overall dose.
 
-musiFor the gold beam with the highest available intensities ($10^{9}\mathrm{\ ions/s}$) and energies (11 AGeV), we expect a total dose level of 20 mGy after 1 month of operation in the area between 0 and 0.5 m above the ground (at the planned location of the power crates x = -600 cm, z = -600 cm) and 40 mGy between 1.5 m and 2 m above the ground (x = -600 cm, z = -600 cm). A failure in the low voltage powering of the FEE may lead to a rapid decrease of temperature, as the primary coolant temperature may reach down to $-40^{\circ}\mathrm{C}$, consequently making the FEE susceptible to thermal stress. The effects of radiation must be therefore studied to ensure the safe operation of the STS. Estimation of the soft error rate (\gls{SER}) may also indicate whether there is a need for further shielding of the power electronics in order to minimize the overall dose.
-
-
+\newpage
 \subsection{Methodology}
 The subject of the irradiation campaign was a MPOD mini crate with one low voltage (WIENER) and one high voltage (ISEG) module. The crate's CC24 controller (ISEG) offers an embedded EPICS Input Output controller, which was used to detect radiation-induced channel or module failures. All registered events were stored in a dedicated database. In order to correlate the soft failure rate with the absorbed dose, two types of thermoluminescent dosimeters were used. A larger polyethylene sphere (d = 30 cm) was used to measure the neutron ambient dose, whilst the cylinder (d = 5 cm, h = 6 cm) measured other particles~\cite{bonner}. We assume that the conditions (neutron spectra - mostly thermal neutrons, neutron moderators, etc.) at the \gls{CBM} experiment will be similar to conditions at SIS18, and at the mCBM experiment. Therefore, the quality factor, which takes into account both \gls{LET} and relative biological effectiveness (\gls{RBE}), to convert the measured given in Sv to absorbed energy in Gy is 5 for both irradiation campaigns. The dose measured with the cylinder is assumed to have a quality factor of 1.
 

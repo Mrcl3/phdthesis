@@ -24,19 +24,19 @@ The bottom layer of the Figure \ref{fig_DCS_arch} contains all the process senso
  The \gls{DCS} for the Silicon Tracking System (\gls{STS}) is being designed taking into consideration the following aspects:
  \begin{itemize}
      \item applications should be easy to run on different operating systems and processor architectures,
-     \item horizontal and vertical scalability, when it comes to adding additional computing nodes or applications/Input Output Controllers (\gls{IOC}s)/containers,
+     \item horizontal and vertical scalability, when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/containers,
      \item it should be possible to integrate a sub-system oriented \gls{EPICS}-based \gls{DCS} with higher-level control structures,
      \item the system should be highly available, minimizing the downtimes,
      \item it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
      \item all parameters/process variables should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken,
      \item the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
-     \item there should be reliable means of supervision of processes, containers, and \gls{IOC}s.
+     \item there should be reliable means of supervision of processes, containers, and \glspl{IOC}.
  \end{itemize}
 
 The \gls{EPICS} was chosen, as a system that answers most of the needs for the future Detector Control System(s) of the \gls{CBM} experiment. More detailed explanations of how \gls{EPICS} works are described in the next sections. According to \cite{EPICS_DOCS}, the basis attributes of \gls{EPICS} are:
 \begin{itemize}
     \item tool based - minimized need for custom coding,
-    \item distributed - an arbitrary number of \gls{IOC}s and \gls{OPI}s, as long as the network doesn't the saturation,
+    \item distributed - an arbitrary number of \glspl{IOC} and \glspl{OPI}, as long as the network doesn't the saturation,
     \item event driven - it's designed to be event-driven to the maximum extent possible,
     \item high performance, robust,
     \item scalable,

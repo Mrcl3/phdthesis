@@ -1,14 +1,14 @@
 \newpage
 \section{Thermal cycling of detector's electronics}
 \label{thermal_cycling}
-Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extremely high and low temperatures. Permanent changes to the electrical or physical features may compromise the detector modules' performance. The thermal expansion coefficient is an important property of adhesives that affects relative movement between parts on a \glspl{PCB}. \gls{CTE} should be a concern when it comes to \glspl{PCB}s, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may for example cause shear failures in solder joints~\cite{cte_report}. In the case of the \gls{FEB}s both the \gls{LDO} regulators and \gls{STS}-XYTERs are glob-topped, therefore identifying potential reasons for failure could be a complex task. Apart from \gls{CTE}, the performance of a DYMAX material depends on many other factors:
+Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extremely high and low temperatures. Permanent changes to the electrical or physical features may compromise the detector modules' performance. The thermal expansion coefficient is an important property of adhesives that affects relative movement between parts on a \glspl{PCB}. \gls{CTE} should be a concern when it comes to \glspl{PCB}s, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may for example cause shear failures in solder joints~\cite{cte_report}. In the case of the \gls{FEB}s both the \gls{LDO} regulators and STS-XYTERs are glob-topped, therefore identifying potential reasons for failure could be a complex task. Apart from \gls{CTE}, the performance of a DYMAX material depends on many other factors:
 \begin{itemize}
     \item adhesion to the substrates,
     \item part geometry (including mass),
     \item high and low test temperatures,
     \item cycle and transition times.
 \end{itemize}
-DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. In this case, to simplify the problem we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion should be considered to understand the overall situation. From the thermal cycling point of view, the most significant difference between the two previously mentioned devices is the voltage drop (foreseen to be around 0.6V for 1.2V and 1.8V regulators). Therefore, a \gls{LDO} regulator dissipates much more heat than the \gls{STS}-XYTER (see photo~\ref{fig_temperatures_camera}), which was also confirmed by multiple simulations (see sections~\ref{nominal} -~\ref{power_loss}).
+DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. In this case, to simplify the problem we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion should be considered to understand the overall situation. From the thermal cycling point of view, the most significant difference between the two previously mentioned devices is the voltage drop (foreseen to be around 0.6V for 1.2V and 1.8V regulators). Therefore, a \gls{LDO} regulator dissipates much more heat than the STS-XYTER (see photo~\ref{fig_temperatures_camera}), which was also confirmed by multiple simulations (see sections~\ref{nominal} -~\ref{power_loss}).
 
 \begin{figure}[!h]
 \centering
@@ -130,7 +130,7 @@ The last considered scenario is the so-called loss of power scenario. Out of the
 \label{cycling_setup}
 The experimental setup for the thermal cycling is depicted in the figure~\ref{fig_setup}. The software part features the Control System Studio (Phoebus) for monitoring, accessing the database (Redis DB), and monitoring the \gls{PV}s. Moreover, all values are saved with archiver appliance. The second node dedicated to thermal cycling features a LabView-based interface for reading out additional humidity sensors. This node was later on depreciated and relative humidity readouts were taken from the built-in \gls{RH} sensor inside the climatic chamber.
 
-The main test object for this part of the work was thermal cycling of the \gls{FEB}s. The diagnostic circuit of the \gls{STS}-XYTER helps to identify any \gls{PCB} related issues. In order to read the temperatures, $V_{ddm}$, and  \gls{CSA} bias values, a dedicated \footnote{purely software-based \gls{IOC}, not connected to any hardware}{soft IOC} was deployed. To acquire the previously mentioned values, the pyEPICS library~\cite{pyEPICS} was used, and the GBTxEMU-based readout chain (see \autoref{tester}) was adjusted to publish the values via channel access protocol. 
+The main test object for this part of the work was thermal cycling of the \gls{FEB}s. The diagnostic circuit of the STS-XYTER helps to identify any \gls{PCB} related issues. In order to read the temperatures, $V_{ddm}$, and  \gls{CSA} bias values, a dedicated \footnote{purely software-based \gls{IOC}, not connected to any hardware}{soft IOC} was deployed. To acquire the previously mentioned values, the pyEPICS library~\cite{pyEPICS} was used, and the GBTxEMU-based readout chain (see \autoref{tester}) was adjusted to publish the values via channel access protocol. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter4/images/cycling_scheme.png}
@@ -157,8 +157,8 @@ The \gls{FEB}s components may slightly differ, depending on what was the aim of 
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter4/images/noglobtop.jpg}
 \includegraphics[width=0.45\columnwidth]{Chapter4/images/globtop.jpg}
-\caption{Left photo depicts two \glspl{FEB} (version A and B) with the \gls{LDO} regulators with a 3D-printed protection cover and without glob top. These two boards feature also have resistors instead of the \gls{STS}-XYTERs.
-The right photo depicts two fully assembled \gls{FEB}s with \gls{STS}-XYTERS version 2.1 and DYMAX 9001 as the glob top.}
+\caption{Left photo depicts two \glspl{FEB} (version A and B) with the \gls{LDO} regulators with a 3D-printed protection cover and without glob top. These two boards feature also have resistors instead of the STS-XYTERs.
+The right photo depicts two fully assembled \gls{FEB}s with STS-XYTERS version 2.1 and DYMAX 9001 as the glob top.}
 \label{fig_noglobtop}
 \end{figure}
 
@@ -181,7 +181,7 @@ Based on the operation scenarios of the \gls{STS}, the \gls{FEB}s, \gls{ROB}s, a
     \item with powering - $\Delta T\approx\SI{20}{\celsius} $
     \item more than 190 cold startups, as indicated in section~\ref{irradiation_results}
 \end{itemize}
-Testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} - the so-called cold startup. The transition time between the extreme temperatures (for passive and active cycling) was not manually adjusted and depends only on the power of the Lauda chiller and the climatic chamber. Nevertheless, the transition times are equal for all the tested devices. The main object of the tests was the \gls{FEB}s and its sensitivity to the thermally induced mechanical stresses. In the two main sets of measurements so far, in total 12 \gls{FEB}s in different configurations were tested.  After each round of thermal cycling, the boards were inspected optically under the microscope for any signs of deterioration or visible changes. On the other hand, during the cycling with powering and cold startups, the \gls{STS}-XYTERs were extensively tested. The \glspl{ASIC} test included configuration of the chip, changing \gls{CSA} values to trigger different current consumption, but also ID consistency check, write/read registers test, and internal pulses. 
+Testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} - the so-called cold startup. The transition time between the extreme temperatures (for passive and active cycling) was not manually adjusted and depends only on the power of the Lauda chiller and the climatic chamber. Nevertheless, the transition times are equal for all the tested devices. The main object of the tests was the \gls{FEB}s and its sensitivity to the thermally induced mechanical stresses. In the two main sets of measurements so far, in total 12 \gls{FEB}s in different configurations were tested.  After each round of thermal cycling, the boards were inspected optically under the microscope for any signs of deterioration or visible changes. On the other hand, during the cycling with powering and cold startups, the STS-XYTERs were extensively tested. The \glspl{ASIC} test included configuration of the chip, changing \gls{CSA} values to trigger different current consumption, but also ID consistency check, write/read registers test, and internal pulses. 
 \subsubsection{Passive cycling}
 Passive cycling was performed in the steps of 50 repetitions between optical and electrical inspection. During this part we tested the following temperature differences:
 \begin{itemize}
@@ -197,7 +197,7 @@ The \gls{FEB}, regardless of the type (A or B), is treated equally from the mech
 \end{figure}
 
 \subsubsection{Active cycling}
-The active cycling was performed also in the step of 50 repetitions, but due to the fact that the \glspl{FEB} were powered, all the boards and \gls{STS}-XYTERs were continuously tested and the current consumed varied by around 1 A at most. The boards underwent the followings cycles:
+The active cycling was performed also in the step of 50 repetitions, but due to the fact that the \glspl{FEB} were powered, all the boards and STS-XYTERs were continuously tested and the current consumed varied by around 1 A at most. The boards underwent the followings cycles:
 \begin{itemize}
     \item set A - 8 \glspl{FEB} - [\SI{-10}{\celsius}, \SI{20}{\celsius}] and [\SI{-40}{\celsius}, \SI{-10}{\celsius}],
     \item Set B - 4 \glspl{FEB} (2 \glspl{FEB} A and 2 \glspl{FEB} B)  $\Delta T$ - [\SI{-20}{\celsius}, \SI{20}{\celsius}], [\SI{-30}{\celsius}, \SI{20}{\celsius}], [\SI{-40}{\celsius}, \SI{20}{\celsius}].
@@ -210,7 +210,7 @@ The active cycling was performed also in the step of 50 repetitions, but due to 
 \label{fig_active_detailed}
 \end{figure}
 
-A detailed view of a few cycles is presented in the figure~\ref{fig_active_detailed}. The figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. Moreover, two bottom plots show how the cycling affects the \gls{STS}-XYTERs diagnostic circuit. The $V_{ddm}$ value varies from about 1200 up to 1240, nevertheless, it does not have any effect on the performance of the chip, as the operating range could vary as much as 100 mV. The measured values of the $V_{ddm}$ may also vary across the \gls{FEB}, which can be seen in the figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2 V line connecting the subsequent chips is negligible}{the nominal 1.2V} supplied by the 1.2V \gls{LDO} regulator. 
+A detailed view of a few cycles is presented in the figure~\ref{fig_active_detailed}. The figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. Moreover, two bottom plots show how the cycling affects the STS-XYTERs diagnostic circuit. The $V_{ddm}$ value varies from about 1200 up to 1240, nevertheless, it does not have any effect on the performance of the chip, as the operating range could vary as much as 100 mV. The measured values of the $V_{ddm}$ may also vary across the \gls{FEB}, which can be seen in the figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2 V line connecting the subsequent chips is negligible}{the nominal 1.2V} supplied by the 1.2V \gls{LDO} regulator. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter4/images/vddm_comp.png}
@@ -235,7 +235,7 @@ The cold startup was identified, as one of the riskiest events that may cause a 
     \item set A - 4 \glspl{FEB} - 200 cycles at $T = \SI{-30}{\celsius}$, 4 other \glspl{FEB} (including the one without chips) 300 cycles at $T = \SI{-30}{\celsius}$,
     \item Set B - 2 \glspl{FEB} - 50 $T = \SI{-20}{\celsius}$, 2 other \glspl{FEB} 50 $T = \SI{-30}{\celsius}$.
 \end{itemize}
-The figure~\ref{fig_power_cycle} shows how the current drawn by the 1.2 \gls{LDO} regulators and 1.8 \gls{LDO} regulators changes with regards to the different tests performed in the \gls{STS}-XYTERs. The highest current values are reached during write/read tests of the registers. The drop of the currents is related to the change in the \gls{CSA} value. 
+The figure~\ref{fig_power_cycle} shows how the current drawn by the 1.2 \gls{LDO} regulators and 1.8 \gls{LDO} regulators changes with regards to the different tests performed in the STS-XYTERs. The highest current values are reached during write/read tests of the registers. The drop of the currents is related to the change in the \gls{CSA} value. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter4/images/currents.png}
@@ -244,8 +244,8 @@ The figure~\ref{fig_power_cycle} shows how the current drawn by the 1.2 \gls{LDO
 \end{figure}
 \newpage
 \subsection{Results}
-Already during preliminary thermal cycling activities, it was determined that the \gls{LDO}s are the weaker point and are more prone to failure than the \gls{STS}-XYTERs. Therefore, the main effort was put to gain statistics and identify the onset of a potential \gls{LDO} regulator related failure. To get a better understanding of the conditions leading to failures, the two sets (A and B) of measurements were compared. 
-In the case of set B, which featured 8 \glspl{FEB} - 4 \glspl{FEB} with DYMAX 9001, 2 \glspl{FEB} with DYMAX 9008 as the DAM and 9001 as the fill, and 2 \glspl{FEB} without \gls{STS}-XYTERs and globtop over the \gls{LDO} regulators, during the passive cycling and active cycling no failure was observed and no deterioration was observed under the microscope. First failures were detected during the power cycling at $T=\SI{-30}{\celsius}$, as summarized in the table~\ref{tab:SetA}. 
+Already during preliminary thermal cycling activities, it was determined that the \gls{LDO}s are the weaker point and are more prone to failure than the STS-XYTERs. Therefore, the main effort was put to gain statistics and identify the onset of a potential \gls{LDO} regulator-related failure. To get a better understanding of the conditions leading to failures, the two sets (A and B) of measurements were compared. 
+In the case of set B, which featured 8 \glspl{FEB} - 4 \glspl{FEB} with DYMAX 9001, 2 \glspl{FEB} with DYMAX 9008 as the DAM and 9001 as the fill, and 2 \glspl{FEB} without STS-XYTERs and globtop over the \gls{LDO} regulators, during the passive cycling and active cycling no failure was observed. No deterioration was observed under the microscope. First failures were detected during the power cycling at $T=\SI{-30}{\celsius}$, as summarized in the table~\ref{tab:SetA}. 
 \begin{table}[!h]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -272,12 +272,12 @@ Comparison of the lauda chiller setpoint, readouts from the internal temperature
 \label{fig_cold_startup}
 \end{figure}
 
-Similarly, the onset of the \gls{FEB} failure can be seen from the diagnostic circuit of the \gls{STS}-XYTERs (see figure \ref{fig_cold_startup_vddm}). $V_{ddm}$ drops significantly, at the point at which the \gls{LDO} stops providing the nominal current. It was later identified that one of the bond connections from the \gls{LDO} pad failed due to thermal stress. Therefore, the output current of the \gls{LDO} was reduced to a few mA and the supply current to the \glspl{ASIC} was not possible anymore.
+Similarly, the onset of the \gls{FEB} failure can be seen from the diagnostic circuit of the STS-XYTERs (see figure \ref{fig_cold_startup_vddm}). $V_{ddm}$ drops significantly, at the point at which the \gls{LDO} stops providing the nominal current. It was later identified that one of the bond connections from the \gls{LDO} pad failed due to thermal stress. Therefore, the output current of the \gls{LDO} was reduced to a few mA and the supply current to the \glspl{ASIC} was not possible anymore.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter4/images/temps_vddm.png}
-\caption{Temperature and $V_{ddm}$ of two chosen \gls{STS}-XYTERs, and onset of \gls{LDO} regulator failure}
+\caption{Temperature and $V_{ddm}$ of two chosen STS-XYTERs, and onset of \gls{LDO} regulator failure}
 \label{fig_cold_startup_vddm}
 \end{figure}
 
@@ -297,12 +297,12 @@ DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\celsius}
 \label{tab:setB}
 \end{table}
 
-The onset of failure during the active cycling can be also seen via the diagnostic circuit of the \gls{STS}-XYTER (see figure~\ref{fig_active_failure}). The temperature measured by the chip drops by $\SI{15}{\celsius}$, and the $V_{ddm}$ reaches 0 mV, indicating a problem with 1.2V \gls{LDO} regulator. 
+The onset of failure during the active cycling can be also seen via the diagnostic circuit of the STS-XYTER (see figure~\ref{fig_active_failure}). The temperature measured by the chip drops by $\SI{15}{\celsius}$, and the $V_{ddm}$ reaches 0 mV, indicating a problem with 1.2V \gls{LDO} regulator. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter4/images/FEB2ASIC2COMP1.png}
-\caption{Temperature and $V_{ddm}$ of a chosen \gls{STS}-XYTER, and onset of \gls{LDO} regulator failure}
+\caption{Temperature and $V_{ddm}$ of a chosen STS-XYTER, and onset of \gls{LDO} regulator failure}
 \label{fig_active_failure}
 \end{figure}
 

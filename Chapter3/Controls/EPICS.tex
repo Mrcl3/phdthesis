@@ -21,7 +21,7 @@ As described in Figure \ref{fig_EPICS}, the system uses Client/Server and Publis
      \item Labview \cite{State:2022qlw} 
      \item custom software (e.g. python/C++ or stream processing software) \cite{taurus}
  \end{itemize} 
- These frameworks were discarded either because of licensing needs (Labview, Siemens WinCC) or lack of extensive experience on-site (Tango). Phoebus \cite{Phoebus} was chosen as the collection of tools and applications to monitor and operate \gls{mSTS}. All \gls{mSTS}'s \glspl{OPI} were prepared in Phoebus \cite{Phoebus}. The detector uses the following Phoebus-related applications:
+ These frameworks were discarded either because of licensing needs (Labview, Siemens WinCC) or lack of extensive experience on-site (Tango). Phoebus \cite{Phoebus} was chosen as the collection of tools and applications to monitor and operate \gls{STS}. All \gls{mSTS}'s \glspl{OPI} were prepared in Phoebus \cite{Phoebus}. The detector uses the following Phoebus-related applications:
 \begin{itemize}
     \item Alarms logging
     \item Alarm server
@@ -46,7 +46,7 @@ The heart of the system is an \gls{IOC}, which provides control logic for the co
     \item Device Support and drivers - serve access to external devices
 \end{itemize}
 An \gls{IOC} doesn't need many computing resources, that's why it runs also on low-power single-board computers like Raspberry PI or Odroid. 
- \gls{IOC} are also commonly supported by additional modules, device support, libraries, and \gls{API}s which altogether provide an efficient way to control various devices.
+ \gls{IOC} are also commonly supported by additional modules, device support, libraries, and \glspl{API} which altogether provide an efficient way to control various devices.
 To communicate with devices, an \gls{IOC} uses so-called device support. The most commonly used ones include:
 \begin{itemize}
     \item StreamDevice is a generic EPICS device support for devices with a "byte stream" based communication interface. That means devices that can be controlled by sending and receiving strings (in the broadest sense, including non-printable characters and even null-bytes). Examples of this type of communication interface are serial line (RS-232, RS-485, ...), IEEE-488 (also known as GPIB or HP-IB), and telnet-like TCP/IP \cite{StreamDevice},

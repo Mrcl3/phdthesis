@@ -1,12 +1,12 @@
 %\section{The \gls{mSTS} as the pathfinder for the \gls{STS}}
-The mCBM~\cite{mCBM} is considered a FAIR Phase 0 experiment and the precursor of the \gls{CBM}. The first mCBM campaign took place in 2019 after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, 4 detector modules (8 \glspl{FEB} mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} features 11 detector modules, and it was assembled in order to have a better understanding of the components and the performance of a more complex structure. Completing 11 modules (together with the QA procedures, testing of the \gls{STS}-XYTERs and \gls{FEB}s), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the mCBM experiment and focuses on the \gls{DCS} architecture and gives an introduction to the detector operation. The next sections summarize the assembly of the \gls{mSTS} and its hardware. At last, the results obtained through \gls{DCS} will be discussed. 
+The mCBM~\cite{mCBM} is considered a FAIR Phase 0 experiment and the precursor of the \gls{CBM}. The first mCBM campaign took place in 2019 after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, 4 detector modules (8 \glspl{FEB} mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} features 11 detector modules, and it was assembled in order to have a better understanding of the components and the performance of a more complex structure. Completing 11 modules (together with the QA procedures, testing of the STS-XYTER and \gls{FEB}s), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the mCBM experiment and focuses on the \gls{DCS} architecture and gives an introduction to the detector operation. The next sections summarize the assembly of the \gls{mSTS} and its hardware. At last, the results obtained through \gls{DCS} will be discussed. 
 
 \section{mCBM the phase 0 experiment}
 The mCBM aims to test and optimize the performance of the detectors including crucial software and hardware components. The experiment uses beams from SIS18 synchrotron at energies up to 2~AGeV and intensities up to $10^{9}$ ions/s. The test setup is positioned downstream of a solid target with a polar angle of about \SI{25}{\degree} (see figure~\ref{fig_mcbm}).
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\columnwidth]{Chapter5/DCS/images/mcbm_2021_setup.png}
+\includegraphics[width=0.7\columnwidth]{Chapter6/DCS/images/mcbm_2021_setup.png}
 \caption{Schematic view of the mCBM experiment in 2022}
 \label{fig_mcbm}
 \end{figure}
@@ -15,7 +15,7 @@ The developments of DAQ, First Level Event Selector (\gls{FLES}), or \gls{DCS} w
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter5/DCS/images/mSTS_mech.png}
+\includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/mSTS_mech.png}
 \caption{Mechanical design (right) and simplified geometry of the \gls{mSTS} together with its enclosure (left)}
 \label{fig_STS}
 \end{figure}
@@ -50,7 +50,7 @@ A breakdown of the \gls{mSTS}'s \gls{DCS} architecture is presented in Figure~\r
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.55\columnwidth]{Chapter5/DCS/images/mcbmpng.png}
+\includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/mcbmpng.png}
 \caption{A general structure of the \gls{mSTS} \gls{DCS} architecture}
 \label{fig_mstsarch}
 \end{figure}
@@ -66,7 +66,7 @@ The \gls{mSTS} as opposed to the final \gls{STS} doesn't require sophisticated h
 A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}. Each state of the \gls{FSM} represents a well-defined detector state. After initialization of all the services, the detector enters into the standby state, in which the cooling stabilizes and the detector is in a safe state. Next transitions and stages prepare the \gls{mSTS} for the operation and data taking, low voltage and subsequently high voltage channels are turned on. In case any of the issues listed above happens, the detector is brought into a safe state (error state), which in most cases requires operator intervention. The global states mentioned to the right of the block diagram are the states propagated to the higher levels of control (\gls{SCA}/\gls{ECS}).
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter5/DCS/images/FSM.png}
+\includegraphics[width=0.8\columnwidth]{Chapter6/DCS/images/FSM.png}
 \caption{Proposed finite state machine for the \gls{mSTS}}
 \label{fig_FSM}
 \end{figure}
@@ -77,7 +77,7 @@ A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}.
 Weave Scope is a visualization and monitoring tool for Docker and Kubernetes. It offers a detailed view into the applications as well as your entire infrastructure and allows you to diagnose any problems with your distributed containerized-time real-time, as it is being deployed to a cloud provider. Weavescope has proved to be a useful tool for running commands and configuring the containers after their initialization. The container publishes the values from the chillers, hence the container is connected to Phoebus, archiver, alarm-server, and sequencer. 
 %\begin{figure}[!h]
 %\centering
-%\includegraphics[width=0.55\columnwidth]{Chapter5/DCS/images/weave.png}
+%\includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/weave.png}
 %\caption{mSTS - weavescope view}
 %\label{fig_weave}
 %\end{figure}

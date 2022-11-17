@@ -68,7 +68,7 @@
 \DeclareNewSectionCommand[
   style=section,
   counterwithin=subsubsection,
-  font=\normalsize,
+  %font=\normalsize,
   afterskip=1.5ex plus .2ex,
   beforeskip=-3.25ex plus -1ex minus -.2ex,
   indent=0pt,
@@ -129,6 +129,7 @@
 \begin{document}
 
 \input{Titlepage.tex}
+\input{backpage.tex}
 \input{ToC.tex}
 % --------------------------------
 \thispagestyle{empty}
@@ -172,15 +173,16 @@
 \input{Chapter4/monitoring.tex}
 \input{Chapter4/irradiation.tex}
 \input{Chapter4/cycling.tex}
-\chapter{The mSTS as the pathfinder for the DCS}
-\label{chap:msts}
-\input{Chapter5/DCS/mSTS.tex}        
-\input{Chapter5/DCS/operation.tex}
 \chapter{Solutions for humidity and temperature monitoring in the STS}
 \label{chap:sts}
-\input{Chapter6/Overview.tex}
-\input{Chapter6/FOS.tex}
-\input{Chapter6/chosen_sensors.tex}
+\input{Chapter5/Overview.tex}
+\input{Chapter5/FOS.tex}
+\input{Chapter5/chosen_sensors.tex}
+\chapter{The mSTS as the pathfinder for the DCS}
+\label{chap:msts}
+\input{Chapter6/DCS/mSTS.tex}        
+\input{Chapter6/DCS/operation.tex}
+
 \chapter{On the way to the Silicon Tracking System}
 \label{chap:outlook}
 \input{Chapter7/demo.tex}

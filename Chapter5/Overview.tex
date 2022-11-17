@@ -144,7 +144,7 @@ Fiber optic sensors have notable advantages in comparison to conventional sensor
     \item immunity to electrostatic and electromagnetic interference,
     \item resistant to harsh conditions - the sensors are completely passive elements, hence they offer long durability.
 \end{itemize}
-On the other hand \gls{FOS} are difficult to integrate in hardware interlocks, and handling and installation of the sensors might be more challenging due to the risk of damaging the fiber.
+On the other hand \, gls{FOS} are difficult to integrate into hardware interlocks, and handling and installation of the sensors might be more challenging due to the risk of damaging the fiber.
 
 
 
@@ -159,47 +159,36 @@ Both factors can be affected by strain, temperature, magnetic field, and/or pres
 \begin{equation}
     \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
 \end{equation}
-where $P_{e}$ is a photo-elastic constant, $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient of the fiber. Using an FBG temperature sensor requires decoupling the strain measurement from the temperature measurement, usually called temperature compensation~\cite{Yun-Jiang_Rao_1997}. The most commonly used solution involves either using two sensors next to each other or inscribed in the same fiber. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
+where $P_{e}$ is a photo-elastic constant, $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient of the fiber. Using an FBG temperature sensor requires decoupling the strain measurement from the temperature measurement, usually called temperature compensation~\cite{Yun-Jiang_Rao_1997}. The most commonly used solution involves using two sensors next to each other or inscribed in the same fiber. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
 \begin{equation}
     \frac{\Delta\lambda_{B}}{\lambda_{B}}=\left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
 \end{equation}
 
-As it was mentioned in the~\cite{Kronenberg:02, YEO2008280}, the change of the wavelength can be perceived as a superposition of \gls{RH} and temperature effects.
-    
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.45\columnwidth]{Chapter5/images/Picture1.png}
+\caption{FBG-based sensors for relative humidity measurements}
+\label{fig:fbg_scheme}
+\end{figure}
 
 
-It's possible to measure RH instead of strain by applying a hygroscopic material (for example, polyimide) to the cladding. The Bragg wavelength shift becomes a superposition of temperature and humidity effects in this case (see equation (see equation~\ref{eqn:FBG})~\cite{Kronenberg:02}. 
+It's possible to measure RH instead of strain by applying a hygroscopic material (for example, polyimide) to the fiber cladding (see figure~\ref{fig:fbg_scheme}. The  Bragg wavelength shift becomes a superposition of temperature and humidity effects in this case (see equation (see equation~\ref{eqn:FBG})~\cite{Kronenberg:02, YEO2008280}. 
                             %\newpage
                              \begin{equation}\label{eqn:FBG}
                             %\large
                                     \frac{\Delta\lambda_{B}}{\lambda_{B}}=\Delta TS_{T}+\Delta RHS_{RH}
                             \end{equation}
-                            $\lambda_{B}$ - Bragg wavelength, $S_{RH/T}$ - sensitivity  coefficients for RH and temperature, respectively. \newline
-In order to measure RH, it’s crucial to have precise temperature readouts in the vicinity of the coated FBG. Otherwise, the actual RH readout may be dominated by uncertainty or just the inaccurate temperature measurement.
+                            where $\lambda_{B}$ is the Bragg wavelength, and $S_{RH/T}$ are the sensitivity coefficients for RH and temperature, respectively. 
 
+Similarly to the strain measurement, it’s crucial to have precise temperature readouts in the vicinity of the coated FBG. Otherwise, the actual RH readout may be dominated by uncertainty or just the inaccurate temperature measurement. FBG sensors should also be packaged appropriately and kept strain-free to prevent additional stress. Detailed discussion about the experimental setup, chosen design of the \gls{FBG} sensors, and their features will be presented in the section~\ref{fbg_results}.
 
-
-In the proposed RH sensor, which is based entirely on FBG technology, the advantage lies in the complete insensitivity to electromagnetic interference and highly reduced wiring.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.45\columnwidth]{Chapter5/images/Picture1.png}
-\caption{Controls architecture for the temperature and humidity sensor measurement}
-\label{fig:fos_rh}
-\end{figure}
-
-
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.85\columnwidth]{Chapter5/images/yeo_coating.png}
-\caption{Controls architecture for the temperature and humidity sensor measurement}
-\label{fig:fos_coating}
-\end{figure}
 
 
 \subsection{Dew point transmitters}
 
+
+~\cite{michell_e20}
 
  
 \section{Experimental setup}
@@ -207,7 +196,7 @@ In the proposed RH sensor, which is based entirely on FBG technology, the advant
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.85\columnwidth]{Chapter5/images/FOS_dcs_scheme.png}
+\includegraphics[width=0.75\columnwidth]{Chapter5/images/FOS_dcs_scheme.png}
 \caption{Controls architecture for the temperature and humidity sensor measurement}
 \label{fig:fos_arch}
 \end{figure}

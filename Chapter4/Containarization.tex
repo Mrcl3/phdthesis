@@ -13,7 +13,7 @@ IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collab
 \caption{EPICS 7.0.3.1 based \gls{IOC} image}
 \label{fig_ioc1}
 \end{figure}
-\newpage
+%\newpage
 A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figure~\ref{fig_doc}. Every container is assigned an IP address for every Docker network it connects to. Moreover, each network has a default subnet mask and gateway. In order to connect the \gls{IOC} with other services, the ports used by \gls{EPICS} (5064, 5065 for channel access protocol and 7064, 7065 for PVAccess) need to be exposed.  The containers use the host network to communicate with each other and other nodes. It's mostly due to limitations in the protocols used by the \gls{IOC}, as they may not pass through Network Address Translation (NAT).
 \begin{figure}[!h]
 \centering
@@ -21,7 +21,7 @@ A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figu
 \caption{General idea of an \gls{IOC} in the container}
 \label{fig_doc}
 \end{figure}
-\newpage
+%\newpage
 \section{Docker}
 Docker was chosen as the platform to prepare the images and run the containers. One of the features of docker has been considered risky for the operation of the detector/experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector - e.g. killing the container. Moreover, a compromised node can also endanger other nodes in the network.  Nevertheless, since late 2020 it's possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating risk
 %\begin{figure}[!h]

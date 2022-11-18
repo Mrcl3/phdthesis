@@ -151,7 +151,7 @@ On the other hand \, gls{FOS} are difficult to integrate into hardware interlock
 
 \subsubsection{Fibre Bragg Grating based sensors}
 
-Fiber Bragg Grating is a type of selective filter that reflects light signals at a specific wavelength known as the Bragg wavelength. Such a filter is created by inscribing a systematic variation of the refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependant on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the FBG:
+Fiber Bragg Grating is a type of selective filter that reflects light signals at a specific wavelength known as the Bragg wavelength. Such a filter is created by inscribing a systematic variation of the refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependant on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}:
 \begin{equation}
     \lambda_{B} = 2 \eta_{eff} \Lambda
 \end{equation}
@@ -159,7 +159,7 @@ Both factors can be affected by strain, temperature, magnetic field, and/or pres
 \begin{equation}
     \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
 \end{equation}
-where $P_{e}$ is a photo-elastic constant, $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient of the fiber. Using an FBG temperature sensor requires decoupling the strain measurement from the temperature measurement, usually called temperature compensation~\cite{Yun-Jiang_Rao_1997}. The most commonly used solution involves using two sensors next to each other or inscribed in the same fiber. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
+where $P_{e}$ is a photo-elastic constant, $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient of the fiber. Using an \gls{FBG} temperature sensor requires decoupling the strain measurement from the temperature measurement, usually called temperature compensation~\cite{Yun-Jiang_Rao_1997}. The most commonly used solution involves using two sensors next to each other or inscribed in the same fiber. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
 \begin{equation}
     \frac{\Delta\lambda_{B}}{\lambda_{B}}=\left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
 \end{equation}
@@ -181,18 +181,22 @@ It's possible to measure RH instead of strain by applying a hygroscopic material
                             \end{equation}
                             where $\lambda_{B}$ is the Bragg wavelength, and $S_{RH/T}$ are the sensitivity coefficients for RH and temperature, respectively. 
 
-Similarly to the strain measurement, it’s crucial to have precise temperature readouts in the vicinity of the coated FBG. Otherwise, the actual RH readout may be dominated by uncertainty or just the inaccurate temperature measurement. FBG sensors should also be packaged appropriately and kept strain-free to prevent additional stress. Detailed discussion about the experimental setup, chosen design of the \gls{FBG} sensors, and their features will be presented in the section~\ref{fbg_results}.
+Similarly to the strain measurement, it’s crucial to have precise temperature readouts in the vicinity of the coated \gls{FBG}. Otherwise, the actual RH readout may be dominated by uncertainty or just the inaccurate temperature measurement. \gls{FBG} sensors should also be packaged appropriately and kept strain-free to prevent additional stress. Detailed discussion about the experimental setup, chosen design of the \gls{FBG} sensors, and their features will be presented in the section~\ref{fbg_results}.
 
 
 
 \subsection{Dew point transmitters}
+The Easidew family of industrial transmitters incorporates the latest Michell ceramic metal-oxide moisture technology providing stable, reliable, and repeatable moisture measurements for all dew-point applications~\cite{michell_e20}.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.65\columnwidth]{Chapter5/images/s8000_remote.png}
+\caption{Controls architecture for the temperature and humidity sensor measurement}
+\label{fig:fos_mirror}
+\end{figure}
 
-~\cite{michell_e20}
-
- 
 \section{Experimental setup}
-
+The experimental setup consists of several devices, listed in the figure~\ref{fig:fos_arch}. 
 
 \begin{figure}[!h]
 \centering

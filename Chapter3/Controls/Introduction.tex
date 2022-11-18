@@ -1,5 +1,5 @@
 
-.%empty page
+%empty page
 %\newpage
 %\thispagestyle{empty} 
 %\mbox{}
@@ -10,16 +10,7 @@
 
 %%% Insert here the text body, replacing the dummy content.
 %\label{sec:introduction}
- Typically, Detector Control Systems' (\gls{DCS}) building blocks reside in a dedicated network to avoid unnecessary cross-talk and ensure more efficient debugging. An example of a hardware and software division is shown in Figure \ref{fig_DCS_arch}.
 
- \begin{figure}[!h]
-\centering
-\includegraphics[width=0.5\columnwidth]{Chapter3/Controls/images/example.png}
-\caption{General detector control system architecture}
-\label{fig_DCS_arch}
-\end{figure}
-
-The bottom layer of the Figure \ref{fig_DCS_arch} contains all the process sensors, actuators, and other devices that are connected to the control system via I/O boards and/or field buses. Communication between the field layer and control layer can be of almost any type compatible with the used components, i.e. Ethernet, Modbus TCP, Profibus. The control logic is introduced in \gls{PLC}s and so-called control nodes (single board computers etc.) in the control layer. The supervision layer or supervisory level provides the operators with means of controlling and monitoring the subsystem, for example via command line or a Graphical User Interface (\gls{GUI}) or Operator Interface (\gls{OPI}) \cite{layers}. The three control layers provide an overview of the connections and hardware but don't describe the software part in detail. The \gls{DCS} must provide not only means of communicating between the mentioned layers but also visualization, logging, archiving, and controlling (either in an automated way by a Finite State Machine (\gls{FSM}) or manually). 
 \subsection{System requirements}
  The \gls{DCS} for the Silicon Tracking System (\gls{STS}) is being designed taking into consideration the following aspects:
  \begin{itemize}
@@ -33,10 +24,10 @@ The bottom layer of the Figure \ref{fig_DCS_arch} contains all the process senso
      \item there should be reliable means of supervision of processes, containers, and \glspl{IOC}.
  \end{itemize}
 
-The \gls{EPICS} was chosen, as a system that answers most of the needs for the future Detector Control System(s) of the \gls{CBM} experiment. More detailed explanations of how \gls{EPICS} works are described in the next sections. According to \cite{EPICS_DOCS}, the basis attributes of \gls{EPICS} are:
+The \gls{EPICS} was chosen, as a system that answers most of the needs for the future \gls{DCS} of the \gls{CBM} experiment. More detailed explanations of how \gls{EPICS} works are described in the next sections. According to \cite{EPICS_DOCS}, the basis attributes of \gls{EPICS} are:
 \begin{itemize}
     \item tool based - minimized need for custom coding,
-    \item distributed - an arbitrary number of \glspl{IOC} and \glspl{OPI}, as long as the network doesn't the saturation,
+    \item distributed - an arbitrary number of \glspl{IOC} and \glspl{OPI}, as long as the network doesn't saturate,
     \item event driven - it's designed to be event-driven to the maximum extent possible,
     \item high performance, robust,
     \item scalable,

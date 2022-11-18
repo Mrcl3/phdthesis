@@ -16,7 +16,21 @@
 }
 \end{filecontents}
 
-\documentclass[12pt,a4paper,oneside]{scrbook}
+\documentclass[[paper=a4,%
+               fontsize=11,%
+               twoside,%
+               headings=optiontohead,%
+               headsepline,%
+               openany,
+               DIV=12,%
+               BCOR=10mm,%
+               headinclude=true,%
+               footinclude=false,%
+               parskip=half,%
+               bibliography=totoc,%
+               draft=false,%
+]{scrbook}
+
 \usepackage[%
   backend=bibtex      % biber or bibtex
 %,style=authoryear    % Alphabeticalsch
@@ -39,7 +53,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[main=english, greek]{babel}
-
+\usepackage{scrhack}
 \usepackage{xcolor}
 \usepackage{siunitx}
 \usepackage{pdfpages}
@@ -65,6 +79,38 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{grffile}
+
+\usepackage{xcolor}
+\usepackage{charter}
+
+
+\addtokomafont{disposition}{\selectfont\color{black}}
+%\usepackage{addfont}
+%\addfont{OT1}{d7seg}{\dviiseg}
+\usepackage[oldstylemath]{kpfonts}
+
+\addtokomafont{chapter}{\fontsize{30pt}{30pt}\selectfont}%\fontsize{50pt}{50pt}
+\newkomafont{chapternumber}{\fontfamily{0T1}\fontsize{400pt}{600pt}\selectfont\color{gray}}
+\newkomafont{chaptername}{\itshape\rmfamily\small\color{black}}
+
+
+\RedeclareSectionCommand[
+       style = chapter,
+  prefixfont = \sffamily\Large\bfseries,
+        font = \Huge\bfseries\sffamily,
+  beforeskip = 10ex,
+   innerskip = 1cm,
+   afterskip = 10ex plus  0.2ex,
+    tocstyle = chapter]{chapter}
+\renewcommand\chapterformat{%
+  \raisebox{-6pt}{\colorbox{white}{%
+    \parbox[b][60pt]{45pt}{\centering%
+      {\usekomafont{chaptername}{\chapapp}}%
+      \vfill
+      {\usekomafont{chapternumber}{\textbf{\thechapter}}}%\autodot
+      \vspace{5pt}%
+}}}\enskip}
+
 \DeclareNewSectionCommand[
   style=section,
   counterwithin=subsubsection,
@@ -123,7 +169,8 @@
 
 
 
-
+%\renewcommand{\cleardoublepage}{}
+%\renewcommand{\clearpage}{}
 
 
 \begin{document}
@@ -133,7 +180,7 @@
 \input{ToC.tex}
 % --------------------------------
 \thispagestyle{empty}
-\clearpage
+%\clearpage
 \begin{center}
 
 \hspace{0pt}
@@ -147,10 +194,10 @@
 \vfill
 \hspace{0pt}
 \end{center}
-\pagebreak
+%\pagebreak
 %--------------------------------
-\addchap{Abstract}
-\addchap{Kurzfassung}
+\chapter*{Abstract}
+\chapter*{Kurzfassung}
 %\input{Documents/acnowledgements.tex}
 \chapter{Introduction}
 \label{chap:intro}
@@ -188,7 +235,7 @@
 \input{Chapter7/demo.tex}
 \input{Chapter7/failures.tex}
 \input{Chapter7/Orchestration.tex}
-\addchap{Zusammenfassung}
+\chapter*{Zusammenfassung}
 
 %\bibliographystyle{unsrt}% We choose the "plain" reference style
 %\bibliography{refs.bib}
@@ -198,13 +245,12 @@
 \addcontentsline{toc}{chapter}{List of Tables}
 \renewcommand\listtablename{List of Tables}
 \listoftables
-\clearpage
-
-\input{Documents/appendix.tex}
-\clearpage
+%\clearpage
+\include{Documents/appendix.tex}
+%\clearpage
 \addcontentsline{toc}{chapter}{References}
 \printbibliography
-\clearpage
+%\clearpage
 \printglossaries
 %\addchap{Curriculum Vitae}
 \addcontentsline{toc}{chapter}{Curriculum Vitae}

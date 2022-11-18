@@ -1,6 +1,6 @@
 \newpage
 \section{Outlook}
-The last section of this computing note focuses on the future of the CBM experiment. The first part describes different software components needed to operate the experiment with focus on the \gls{DCS}. The second part illustrates potential upgrades and additions to the DCS in order to address components needed for a more complex system.
+The last section of this computing note focuses on the future of the CBM experiment. The first part describes different software components needed to operate the experiment with a focus on the \gls{DCS}. The second part illustrates potential upgrades and additions to the DCS in order to address components needed for a more complex system.
 \subsection{Experiment controls architecture}
 Figure \ref{fig_sim} depicts the targeted controls architecture of the future CBM experiment. According to CBM computing Note 18003 \cite{CBM_definitions} detector control and Interlock control are denoted as Experiment and Detector controls work packages 1 and 2. The respective control systems of the mCBM experiment have been running in a standalone mode so far, what means that there hasn't been any structured communication between DCS, Device Control Agent (\gls{DCA}) and Experiment Control System (\gls{ECS}).
 
@@ -12,7 +12,7 @@ Figure \ref{fig_sim} depicts the targeted controls architecture of the future CB
 \end{figure}
 
 \subsection{Experiment Control System (ESC)}\label{sssAgents}
-The ECS consists of so-called so ftware agents, which should efficiently managed all the subsystems in order to acquire data for the physics analysis.
+The ECS consists of so-called software agents, which should efficiently manage all the subsystems in order to acquire data for the physics analysis.
 The Experiment Control Agent, or ECA, is the top layer of the ECS core, which should be always running and keep track of 
 the partitions, of the systems in partitions, and of the systems out of partitions.  It also manages the states of ``Central systems'' not having partition-level states (e.g. TFC, FLESnet in case it does 
 not use internal partitions, ...). It provides upon request from agents the address and port needed to establish the 0MQ sockets and for building the 
@@ -21,7 +21,7 @@ detector systems plus all needed central systems. It corresponds to the run cont
 Multiple partitions can operate in parallel, potentially allowing to run~/~write parallel runs with independent 
 detector system sets. 
 
-The PCAs also hold internally instances of the necessary SCA interfaces, which are tasked with:
+The PCAs also hold internal instances of the necessary SCA interfaces, which are tasked with:
 \begin{itemize}
  \item holding a copy of the current state of the SCA
  \item periodic ping of the SCA to ensure early disconnection detection
@@ -55,10 +55,10 @@ The following detector SCA interfaces are expected (indicative, list will be dyn
  \item Beam Fragment Timing Counter (BFTC)
  \item Projectile Spectators Detector (PSD)
 \end{itemize}
-The subsystem specific SCA should manage communication both with the DAQ chain and DCS. 
+The subsystem-specific SCA should manage communication both with the DAQ chain and DCS. 
 \subsection{Detector Control System (DCS)}
 The mSTS didn't publish its overall status to any external agent. Due to that reason, some information like \gls{ASIC} internal temperature or $V_{DDM}$ were only accessible via the data acquisition chain (\gls{DCA}-\gls{CRI}). In the future, each subsystem will have an assigned \gls{SCA} to tackle control of the readout chain and the DCS. After almost two years of operation of the containers based \gls{DCS}, it proved to be a reliable, easily maintained solution. Nevertheless, for the final system, several additional applications are needed. The STS will be much more complex and challenging when it comes to configuration and running. Moreover, it will be extremely important to have both hardware and software interlocking to ensure the machine's safety.
-Figure \ref{fig_arch} shows a general idea behind the STS's DCS from the software point of view. The maste r node or the central DCS node will get the data from the configuration database, which will allow to prepare subsystems for a given action (for example for a transition into a different state). Moreover, the master node will be only accessible by the DCS experts, excluding subsystem-related personnel from performing actions on other subsystems' DCS. 
+Figure \ref{fig_arch} shows a general idea behind the STS's DCS from the software point of view. The master node or the central DCS node will get the data from the configuration database, which will allow to prepare subsystems for a given action (for example for a transition into a different state). Moreover, the master node will be only accessible by the DCS experts, excluding subsystem-related personnel from performing actions on other subsystems' DCS. 
 
 \begin{figure}[!h]
 \centering

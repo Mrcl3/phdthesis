@@ -72,13 +72,13 @@ Cooling liquid at \SI{-40}{\celsius}, \gls{FEB}s powered on.
 \caption{Temperature distribution in the \gls{FEB} box and in the \gls{FEB} for the nominal operation scenario}
 \label{fig_nominal_febs}
 \end{figure}
-In periods in which the temperature will change due to transitions between detector states. The electronics will also face thermal stresses, which will partially occur with the electronics switched on, as depicted in the figure~\ref{fig_nominal_scenario}. The plot is divided into two sections - active and passive, which indicates whether the electronics is on or off. The temperature on the plot reflects the temperatures that will be present inside the \gls{STS}, but the x-axis serves only as a general time indication needed for the transitions to occur. It doesn't convey a real message about the length of the processes. Nevertheless, figure~\ref{fig_nominal_scenario} contains important information related to the detector operation. During the active (with low voltage on) phase of operation between 0 and step 10 the temperature change of the electronics is $\Delta T \approx \SI{20}{\celsius}$. For the passive part of the plot, the temperature change is $\Delta T \approx \SI{20}{\celsius}$. These temperatures provide an indication of minimum and maximum thermal cycling set points.  
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal_all.png}
-\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
-\label{fig_nominal_scenario}
-\end{figure}
+In periods in which the temperature will change due to transitions between detector states. The electronics will also face thermal stresses, which will partially occur with the electronics switched on. During the active (with low voltage on) phase of operation the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. After switching off the electronics, the temperature change is $\Delta T \approx \SI{20}{\celsius}$. These temperatures provide an indication of minimum and maximum thermal cycling set points.  
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal_all.png}
+%\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a %\gls{FEB} box and cooling liquid temperature.}
+%\label{fig_nominal_scenario}
+%\end{figure}
 %\newpage
 
 \subsection{Reboot scenario}
@@ -107,23 +107,23 @@ At any given point during operation, the operator may need to reconfigure or reb
 \label{fig_reboot_FEB}
 \end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal.png}
-\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
-\label{fig_reboot_nominal}
-\end{figure}
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.95\columnwidth]{Chapter4/images/nominal.png}
+%\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a %\gls{FEB} box and cooling liquid temperature.}
+%\label{fig_reboot_nominal}
+%\end{figure}
 \newpage
 \subsection{Loss of power scenario}
 \label{power_loss}
-The last considered scenario is the so-called loss of power scenario. Out of the three introduced scenarios, it's the least probable one, but it also leads to a significant data loss, as 10 \glspl{FEB} would stop sending data. Such a scenario could happen if all the connected low-voltage channels switch off, e.g. due to radiation. In this case, the \glspl{FEB} would reach the temperature of the cooling block ($T \approx \SI{-40}{\celsius}$ if the powering wasn't turned in a timely manner (see figure~\ref{fig_loss}).
+The last considered scenario is the so-called loss of power scenario. Out of the three introduced scenarios, it's the least probable one, but it also leads to a significant data loss, as 10 \glspl{FEB} would stop sending data. Such a scenario could happen if all the connected low-voltage channels switch off, e.g. due to radiation. In this case, the \glspl{FEB} would reach the temperature of the cooling block ($T \approx \SI{-40}{\celsius}$) if the powering wasn't turned in a timely manner.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.55\columnwidth]{Chapter4/images/switchoff.png}
-\caption{Sudden loss of power and bringing the \glspl{FEB} back to operation}
-\label{fig_loss}
-\end{figure}
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.55\columnwidth]{Chapter4/images/switchoff.png}
+%\caption{Sudden loss of power and bringing the \glspl{FEB} back to operation}
+%\label{fig_loss}
+%\end{figure}
 
 %\newpage
 \subsection{Experimental setup}
@@ -137,7 +137,6 @@ The main test object for this part of the work was thermal cycling of the \gls{F
 \caption{Schematics of the thermal cycling setup}
 \label{fig_setup}
 \end{figure}
-\newpage
 Apart from the \gls{ASIC}-specific values, we monitor also:
 \begin{itemize}
     \item currents and voltages supplied to the 1.2V and 1.8V \gls{LDO} regulators on the \gls{FEB}, 
@@ -185,16 +184,18 @@ Testing was divided into three stages: passive cycling, active cycling, and powe
 \subsubsection{Passive cycling}
 Passive cycling was performed in the steps of 50 repetitions between optical and electrical inspection. During this part we tested the following temperature differences:
 \begin{itemize}
-    \item Set A - 8 \glspl{FEB} (3 \glspl{FEB} type A, 3 \glspl{FEB} type B and 2 \glspl{FEB} without globtop and \glspl{ASIC}) were tested in the realistic operating scenarios of the \gls{STS} - [\SI{-20}{\celsius}, \SI{-10}{\celsius}], [\SI{-30}{\celsius}, \SI{-10}{\celsius}], [\SI{-40}{\celsius}, \SI{-10}{\celsius}],
+    \item Set A - 8 \glspl{FEB} (3 \glspl{FEB} type A, 3 \glspl{FEB} type B and 2 \glspl{FEB} without glob top and \glspl{ASIC}) were tested in the realistic operating scenarios of the \gls{STS} - [\SI{-20}{\celsius}, \SI{-10}{\celsius}], [\SI{-30}{\celsius}, \SI{-10}{\celsius}], [\SI{-40}{\celsius}, \SI{-10}{\celsius}],
     \item Set B - 2/4 \glspl{FEB} (1/2 \glspl{FEB} A and 1/2 \glspl{FEB} B) were tested more extensively by increasing $\Delta T$ - [\SI{-20}{\celsius}, \SI{20}{\celsius}].
 \end{itemize}
-The \gls{FEB}, regardless of the type (A or B), is treated equally from the mechanical point of view. The components and the way the board is assembled are the same. Thereafter, the type won't be distinguished. Moreover, during set B testing, there weren't any current trip conditions applied and for set A the trip current was set to 3.1 A. The passive cycling is illustrated in the figure~\ref{fig_passive_cycling}. The liquid pumped through the cooling block is always a few degrees higher (depicted as 'Lauda temperature') than the setpoint of the climatic chamber. This prevails condensation or icing on sensitive electronics at all times. Moreover, the periods at the maximum and minimum temperature were always the same and equaled 20 minutes. During passive cyclings we haven't observed any performance deterioration, nevertheless, it was always performed on brand-new boards.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.55\columnwidth]{Chapter4/images/active_cycling.png}
-\caption{Example of the thermal cycling (passive) of the FEE}
-\label{fig_passive_cycling}
-\end{figure}
+The \gls{FEB}, regardless of the type (A or B), are treated equally from the mechanical point of view. The components and the way the board is assembled are the same. Thereafter, the type won't be distinguished. During set B testing, there weren't any current trip conditions applied and for set A the trip current was set to 3.1 A. 
+%The passive cycling is illustrated in the figure~\ref{fig_passive_cycling}.
+The liquid pumped through the cooling block is always a few degrees higher (depicted as 'Lauda temperature') than the setpoint of the climatic chamber. This prevails condensation or icing on sensitive electronics at all times. Moreover, the periods at the maximum and minimum temperature were always the same and equaled 20 minutes. During passive cyclings we haven't observed any performance deterioration, nevertheless, it was always performed on brand-new boards.
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.55\columnwidth]{Chapter4/images/active_cycling.png}
+%\caption{Example of the thermal cycling (passive) of the FEE}
+%\label{fig_passive_cycling}
+%\end{figure}
 
 \subsubsection{Active cycling}
 The active cycling was performed also in the step of 50 repetitions, but due to the fact that the \glspl{FEB} were powered, all the boards and STS-XYTERs were continuously tested and the current consumed varied by around 1 A at most. The boards underwent the followings cycles:
@@ -222,7 +223,7 @@ A detailed view of a few cycles is presented in the figure~\ref{fig_active_detai
 Moreover, during the active cycling, we placed 3 DS18B20 sensors on the fin (see section~\ref{cycling_setup}. The sensors were glued to the fin, in order to determine how the temperature changes when the final thermal interfaces are used. Figure~\ref{fig_active_sensors} depicts the difference between the temperatures measured by different sensors during cycling. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter4/images/active.png}
+\includegraphics[width=0.5\columnwidth]{Chapter4/images/active.png}
 \caption{Temperature evolution of the fin during the active cycling. The DS18B20 \cite{DS18B20} sensor has an uncertainty of $\SI{0.5}{\celsius}$, which was not depicted in order to better illustrate the trend.}
 \label{fig_active_sensors}
 \end{figure}

@@ -6,13 +6,14 @@ The mCBM aims to test and optimize the performance of the detectors including cr
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\columnwidth]{Chapter6/DCS/images/mcbm_2021_setup.png}
+\includegraphics[width=1\columnwidth]{Chapter6/DCS/images/mcbm_2021_setup.png}
 \caption{Schematic view of the mCBM experiment in 2022}
 \label{fig_mcbm}
 \end{figure}
 
 The developments of DAQ, First Level Event Selector (\gls{FLES}), or \gls{DCS} will significantly reduce the commissioning time required for the CBM experiment at the SIS100 synchrotron. The mCBM \gls{DAQ} is based on the common readout interface (\gls{CRI}) (see section \ref{DAQ}). Each subsystem uses up to a few \gls{CRI} boards. Apart from exercising the readout chain and \gls{DCS}, the mCBM aims to operate the subsystems in the high-rate nucleus-nucleus collision environment. The development of the readout chain has a significant role, in order to be able to improve the free streaming data acquisition and transport to the computer farm. Moreover, offline data analysis, online tracking, event reconstruction, and event selection algorithms have been intensively investigated. 
-
+\newpage
+Figure~\ref{fig_STS} depicts the latest \gls{mSTS}, which features 4 units forming 2 tracking stations of 5 ladders, 11 modules, 24 \gls{FEB}s (22 readout \gls{FEB}s + 2 pulser \gls{FEB}s), and 176 readout \gls{ASIC}s. The mentioned pulser \gls{FEB}s are additional boards that are triggered by the beam and were added to the system as a time reference and to check the data flow in the system.  Most of the components used for the assembly of the detector are close to the final ones, therefore the operation of the \gls{mSTS} gives us a perfect opportunity to study the modules in detail.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/mSTS_mech.png}
@@ -20,7 +21,7 @@ The developments of DAQ, First Level Event Selector (\gls{FLES}), or \gls{DCS} w
 \label{fig_STS}
 \end{figure}
 
-Figure~\ref{fig_STS} depicts the latest \gls{mSTS}, which features 4 units forming 2 tracking stations of 5 ladders, 11 modules, 24 \gls{FEB}s (22 readout \gls{FEB}s + 2 pulser \gls{FEB}s), and 176 readout \gls{ASIC}s. The mentioned pulser \gls{FEB}s are additional boards that are triggered by the beam and were added to the system as a time reference and to check the data flow in the system.  Most of the components used for the assembly of the detector are close to the final ones, therefore the operation of the \gls{mSTS} gives us a perfect opportunity to study the modules in detail.
+
 \subsection{Data-taking campaigns}
 After the commissioning of the new \gls{mSTS} experiment in June 2021, the first data-taking took place in July featuring collisions of oxygen on a nickel target at 2.00 AGeV with intensities of $10^{10}$ ions/spill. The spill duration was set to \SI{10}{seconds}, therefore effective intensity reached $10^{9}~\mathrm{ions/s}$. This campaign allowed performing last checks of the \gls{DCS} and other systems, before the announced $\Lambda$ benchmark runs in 2022 \cite{sturm3}. During that beam campaign, great spatial and time resolution were confirmed. Moreover, a clear distinction between noise and MIP position was seen. The vertex reconstruction was completed using the correlations of \gls{mSTS} findings. Hit reconstruction efficiency of 97.5\% was achieved, which is consistent with the expectation from models, using the mTOF as an additional external reference~\cite{dario1}. The preceding runs with uranium beams and gold target ($T = 1$ AGeV and average collision rate of 400 kHz) took place in March 2022. The benchmark runs with Ni + Ni ($T = 1.93$ AGeV and average collision rate of 200-300 kHz) were realized in June 2022. During the data taking with the heaviest systems, the silicon sensors were exposed to a significant particles flux, what will be discussed in the next sections. 
 \section{Introduction to the detector control}
@@ -50,8 +51,8 @@ A breakdown of the \gls{mSTS}'s \gls{DCS} architecture is presented in Figure~\r
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/mcbmpng.png}
-\caption{A general structure of the \gls{mSTS} \gls{DCS} architecture}
+\includegraphics[width=0.65\columnwidth]{Chapter6/DCS/images/mcbmpng (2).png}
+\caption{A general structure of the \gls{mSTS}'s \gls{DCS} architecture}
 \label{fig_mstsarch}
 \end{figure}
 
@@ -66,7 +67,7 @@ The \gls{mSTS} as opposed to the final \gls{STS} doesn't require sophisticated h
 A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}. Each state of the \gls{FSM} represents a well-defined detector state. After initialization of all the services, the detector enters into the standby state, in which the cooling stabilizes and the detector is in a safe state. Next transitions and stages prepare the \gls{mSTS} for the operation and data taking, low voltage and subsequently high voltage channels are turned on. In case any of the issues listed above happens, the detector is brought into a safe state (error state), which in most cases requires operator intervention. The global states mentioned to the right of the block diagram are the states propagated to the higher levels of control (\gls{SCA}/\gls{ECS}).
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter6/DCS/images/FSM.png}
+\includegraphics[width=1\columnwidth]{Chapter6/DCS/images/FSM.png}
 \caption{Proposed finite state machine for the \gls{mSTS}}
 \label{fig_FSM}
 \end{figure}

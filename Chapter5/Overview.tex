@@ -77,7 +77,7 @@ Nowadays electronic humidity sensors are commonly used in industry, scientific r
 The efforts to employ miniaturized sensors in the \gls{HEP} experiment have been ongoing for many years \cite{Berruti}. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case-specific study related to \gls{HEP} is summarized in \cite{Kapic}. The \gls{STS} will feature a few different technologies of the \gls{RH} and temperature sensors - capacitive sensors, fiber optic sensors and dew point transmitters. 
 
 
-\subsection{Capacitive sensors}
+\subsection{Industrial capacitive sensors}
 The capacitive sensors, in the simplest form, can be made out of two parallel plates, where the capacitance between the two electrodes in given by:
 \begin{equation}
 C = \epsilon_{r}\epsilon_0\frac{A}{d}
@@ -137,21 +137,21 @@ In general, humidity sensing can be classified according to the operating princi
 Fiber optic sensors have notable advantages in comparison to conventional sensors:
 
 \begin{itemize}
-    \item fibers can be insensitive to radiation or have a predictable behavior \cite{fos_radiation},
+    \item fibers can be insensitive to radiation or have a predictable behavior,
     \item magnetic field insensitive,
     \item good signal transmission over long distances,
     \item multiplexing capabilities (see figure~\ref{fig:sensing}),
     \item immunity to electrostatic and electromagnetic interference,
     \item resistant to harsh conditions - the sensors are completely passive elements, hence they offer long durability.
 \end{itemize}
-On the other hand \, gls{FOS} are difficult to integrate into hardware interlocks, and handling and installation of the sensors might be more challenging due to the risk of damaging the fiber.
+On the other hand, \gls{FOS} are difficult to integrate into hardware interlocks, and handling and installation of the sensors might be more challenging due to the risk of damaging the fiber.
 
 
 
 
 \subsubsection{Fibre Bragg Grating based sensors}
 
-Fiber Bragg Grating is a type of selective filter that reflects light signals at a specific wavelength known as the Bragg wavelength. Such a filter is created by inscribing a systematic variation of the refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependant on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}:
+Fiber Bragg Grating is a type of selective filter that reflects light signals at a specific wavelength known as the Bragg wavelength. Such a filter is created by inscribing a systematic variation of the refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependant on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}~\cite{Othonos2000FiberBG}:
 \begin{equation}
     \lambda_{B} = 2 \eta_{eff} \Lambda
 \end{equation}
@@ -185,8 +185,28 @@ Similarly to the strain measurement, it’s crucial to have precise temperature 
 
 
 
-\subsection{Dew point transmitters}
-The Easidew family of industrial transmitters incorporates the latest Michell ceramic metal-oxide moisture technology providing stable, reliable, and repeatable moisture measurements for all dew-point applications~\cite{michell_e20}.
+\subsection{Trace humidity sensing}
+Due to expected very low dew point levels inside the \gls{STS} (below \SI{-45}{\celsius} and the requirement to keep the device safe, it was proposed to use trace humidity sensors in so-called sniffing system~\cite{Berruti}.
+The most common sensing techniques include:
+\begin{itemize}
+    \item tunable diode laser (dew points up to \SI{20}{\celsius}),
+    \item oscillating quartz crystal sensor (dew points up to \SI{0}{\celsius}),
+    \item aluminum oxide sensor (dew points up to \SI{20}{\celsius}),
+    \item chilled mirror dew point hygrometer  (dew points up to \SI{100}{\celsius}).
+\end{itemize}
+As such most of them include digital circuitry in the active area, which could be affected both by radiation and magnetic field, therefore a special system with a vacuum pump was chosen~\ref{fig:sniffer}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.35\columnwidth]{Chapter5/images/ES20.png}
+\includegraphics[width=0.4\columnwidth]{Chapter5/images/s8000.png}
+\caption{Left: Michell ES20 ceramic metal-oxide sampling system~\cite{michell_e20}
+Right: Michell S8000 Remote High Precision Chilled Mirror Hygrometer~\cite{michell_s8000}}
+\label{fig:sniffer}
+\end{figure}
+Aluminum oxide interacts with water, and it is considered a sensitive layer and is used for moisture sensors. The best way to compare the sensor is to do that with a capacitor. The sensors are characterized by very low uncertainties, and the implementation in a hardware-based interlock is much easier than in the case of the \gls{FOS}.
+
+Another precise and commonly used method is the chilled mirror hygrometer. In this method, a mirror is cooled slowly and in a controlled manner until condensate can be detected on it. Using a vapor pressure curve, we can determine the partial pressure of water vapor at the dew point of flowing gas. A careful measurement presupposes that equilibrium conditions are reached. This can only be achieved by approaching the dew point approximately with the temperature regime and repeating it several times. The measurement range of the Michell S8000 chilled mirror is presented in the figure~\ref{fig:fos_mirror}. The hygrometer together with the HYT221 and SHT85 was used to calibrate and characterize FBG-based \gls{FOS}. 
 
 \begin{figure}[!h]
 \centering
@@ -194,6 +214,15 @@ The Easidew family of industrial transmitters incorporates the latest Michell ce
 \caption{Controls architecture for the temperature and humidity sensor measurement}
 \label{fig:fos_mirror}
 \end{figure}
+\newpage
+\subsection{Performance in high radiation environments}
+Implementing a cost-effective distributed sensing system is a challenging task. Sniffing lines that suck air samples from the detector's active area, and then the trace humidity sensors measure the dew point in a distant (safe) area, are considered to be the most reliable way, but their cost per sensing point is relatively high. 
+
+Over the years, the capacitive sensors have been widely used in many industrial applications, but their susceptibility to radiation, doesn't qualify them as appropriate and reliable sensors for long-term \gls{STS} operation~\cite{Kapic, capacitive_irrad, Berruti}.  RH sensors based on polymer are mainly affected by ionizing radiation. The sensor's internal electronic circuit is its most vulnerable part~\cite{SHCHEMEROV20222871}.
+
+In recent decades, researchers have studied the effects of different types of radiation on optical fibers. When radiation interacts with materials, it changes their characteristics and often affects the performance and reliability of the devices, with pronounced consequences. For all these reasons careful investigations concerning how the radiation affects the operation of components intended for use in these harsh environments were conducted. The radiation may cause point defects inside the fiber, causing the attenuation of the signal~\cite{FOS_FIB_RAD}. Nowadays, it's possible to to fabricate radiation hard fibers \cite{troska}, for example as reported in \cite{Berruti} commonly used Corning SMF-28 optical fibers are considered radiation tolerant. However, a careful choice of the fiber material is needed, as it reliability depends on many factors as dose, dose rate, wavelength.  Another matter that needs to be considered is the influence of the radiation on the Fiber Bragg Grating, as the radiation may affect the wavelength shift~\cite{gusarov}. Moreover, in the same study 
+
+
 
 \section{Experimental setup}
 The experimental setup consists of several devices, listed in the figure~\ref{fig:fos_arch}. 
@@ -205,9 +234,3 @@ The experimental setup consists of several devices, listed in the figure~\ref{fi
 \label{fig:fos_arch}
 \end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.65\columnwidth]{Chapter5/images/s8000_remote.png}
-\caption{Controls architecture for the temperature and humidity sensor measurement}
-\label{fig:fos_mirror}
-\end{figure}

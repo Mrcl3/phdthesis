@@ -1,9 +1,9 @@
 \section{Applications}
-Over the years EPICS has become a framework that offers users many off-the-shelf applications that ease the implementation and configuration process. Figure \ref{fig_dcs_node_msts} shows the most commonly used control related applications. 
+Over the years EPICS has become a framework that offers users many off-the-shelf applications that ease the implementation and configuration process. Figure \ref{fig_dcs_node_msts} shows the most commonly used control-related applications. 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{Chapter4/images/dcs_node.png}
+\includegraphics[width=0.95\columnwidth]{Chapter4/images/dcs_node.jpg}
 \caption{Services used in addition to Phoebus functionalities}
 \label{fig_dcs_node_msts}
 \end{figure}
@@ -13,20 +13,20 @@ Control System Studio (CS-Studio or CSS) consists of open-source Java applicatio
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter4/images/lauda1.png}
+\includegraphics[width=0.9\columnwidth]{Chapter4/images/lauda1.png}
 \caption{An example of a detector system \gls{GUI}}
 \label{fig_lauda1}
 \end{figure}
 
 \subsection{Archiver Solutions} \label{archiver}
-An Archiver serves as one of the main building blocks of the whole \gls{DCS}, as it allows the operator not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly and without significant downtime. Moreover, the linked database and other clients should also have a stable connection with the archiver. A primary choice for STS is the so-called Archiver Appliance~\cite{archiver_appliance}. The architecture of an appliance is presented in the figure~\ref{fig_archiver}. It shows an example of a storage configuration divided into short-term storage, medium-term storage, and long-term storage. Moreover, four Tomcat containers\footnote[1]{An Open source web server by the Apache foundation} are employed to handle the tasks of the archiver.  
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\columnwidth]{Chapter4/images/applarch.png}
-\caption{Architecture of a single appliance \cite{archiver_appliance}}
-\label{fig_archiver}
-\end{figure}
-\newline
+An Archiver serves as one of the main building blocks of the whole \gls{DCS}, as it allows the operator not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly and without significant downtime. Moreover, the linked database and other clients should also have a stable connection with the archiver. A primary choice for STS is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle a system administrator can adjust these settings to the needs of the specific case. Moreover, four Tomcat containers\footnote[1]{An Open source web server by the Apache foundation} are employed to handle the tasks of the archiver.  
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.7\columnwidth]{Chapter4/images/applarch.png}
+%\caption{Architecture of a single appliance \cite{archiver_appliance}}
+%\label{fig_archiver}
+%\end{figure}
+%\newline
 
 The main advantage of the archiver include: 
 
@@ -46,7 +46,7 @@ Apart from the Archiver appliance, there are also alternative solutions:
 The alarm server monitors a chosen set of \gls{PV}s, including their alarm state. EPICS records facilitate fields related to the alarm thresholds and their severity, evaluated each time the record is processed. Every numeric value could have two uppers and two lower boundaries, with assigned severities (NO\_ALARM, MINOR, MAJOR). EPICS by itself doesn't take any actions on the detector's hardware when the alarm threshold is exceeded. On the other hand, a Phoebus-based GUI will change the font color (MINOR - orange, MAJOR - red) of the variable once the alarm appears. If the connection to the alarm server exists, then the server acts upon a change in the alarm status of a record. The user interfaces show alarms, allow acknowledgment, and provide guidance and helpful links. Apache Kafka is a distributed event store and stream-processing platform which serves as a communication bus between the alarm server and Phoebus. An example of the mSTS's alarm handling is depicted in the figure~\ref{fig_alarm1}. It provides not only a visual notification of an alarm but also guidance, displays, and commands.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter4/images/alarms.png}
+\includegraphics[width=1\columnwidth]{Chapter4/images/alarms.png}
 \caption{Phoebus alarm handler view -  top left part some \gls{GUI}s, the top right part is the alarm table showing the current and acknowledged alarms, bottom left features a color status of respective nodes (e.g. cooling), bottom right shows the latest entries in the log}
 \label{fig_alarm1}
 \end{figure}

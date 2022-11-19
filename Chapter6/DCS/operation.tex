@@ -6,16 +6,16 @@ The powering of the \gls{mSTS} is organized in a similar fashion as it will be i
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter6/DCS/images/unit0.png}
+\includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/unit0.png}
 \caption{Schematic view of the \gls{mSTS}'s first station}
 \label{fig_msts_scheme}
 \end{figure}
 \newpage
 \subsubsection{Noise considerations}
-\footnote{Noise}{unwanted high-frequency disturbance or interference with the electrical signal} problems are the most common and critical issues while building a high-energy physics particle detector. The total noise contribution can be divided into four components~\cite{noise_twepp2008}:
+\footnote{unwanted high-frequency disturbance or interference with the electrical signal}{Noise} problems are the most common and critical issues while building a high-energy physics particle detector. The total noise contribution can be divided into four components~\cite{noise_twepp2008}:
 \begin{itemize}
     \item thermal noise $n_{TH}(t)$ - contributions caused by the current passing through a resistor,
-    \item \gls{EMI} in Detector-FEE connection, $n_{D-E}(t)$,
+    \item \gls{EMI} in Detector-\gls{FEE} connection, $n_{D-E}(t)$,
     \item \gls{EMI} in \gls{FEE}-external connections, $n_{E-F}(t)$,
     \item additional sources, related to the intrinsic noise of the FEE elements, $n_{add}(t)$.
 \end{itemize}
@@ -24,7 +24,7 @@ From the practical point of view, designing and implementing a proper powering a
 The \gls{mSTS}'s enclosure is decoupled from the experiment table (no direct connection of any conducting elements). The \gls{mSTS} enclosure is connected to a dedicated ground of the \gls{mCBM} experiment, preventing any \gls{EMI} on the lines that may affect the performance. In reality, there are no perfect grounds, even in the same line there might potential differences.  Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. The floating ground scheme for the sensors biasing circuity and the front-end electronics come with important boundary conditions for the powering - each module side requires a separate powering line and the \gls{ROB} needs to be decoupled from the \gls{FEB} \cite{RodriguezRodriguez2020}. Moreover, to further reduce possible noise pickup a return path capacitor was implemented at the \gls{FEB} connectors and the \gls{HV} common return (depicted as C-RTN) was connected to the enclosure.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/power_distribution.png}
+\includegraphics[width=0.85\columnwidth]{Chapter6/DCS/images/power_distribution.png}
 \caption{Power distribution scheme of the \gls{mSTS} \cite{RodriguezRodriguez2020}}
 \label{fig_msts_power}
 \end{figure}
@@ -59,7 +59,6 @@ $1^{*}$    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$
 \caption{mSTS units and differences between the components used for assembly (in order to achieve 1.2 V output, 1.8 V \gls{LDO} regulator was used with a diode)}
 \label{tab:msts_comp}
 \end{table}
-\newpage
 Before assembling the \gls{mSTS}, extensive measurements of all the building blocks were performed. Figure \ref{fig_msts_ENC1} and  \ref{fig_msts_ENC2} show measurements of two modules from different units. Unit 1 is the only unit used before for the previous \gls{mCBM} campaign~\cite{heuser1}. It is one of the oldest units and it's also slightly irradiated, therefore sensors' leakage current is elevated in comparison to the new modules. An example of modules testing can be seen in the figures \ref{fig_msts_ENC1} and \ref{fig_msts_ENC2}. The module of unit 1 (Figure \ref{fig_msts_ENC2}) has larger noise and odd-even effect than unit 0 module. Moreover, in both modules, the Z-strips (p-side channel numbers 0 to 128) are clearly recognizable. Figure \ref{fig_msts_ENC2} shows the theoretical ENC values for the building blocks of a module (sensor, microcables, and ASICs). The targeted \gls{ENC} value is 1000~$e^{-}$, nevertheless the measurement outcome depends also on the sensor size, microcables length and nuances of the assembly process. In case of \gls{mSTS} modules the targeted \gls{ENC} value was achieved during the laboratory testing, but from the obtained data and the ADC thresholds used during the data-taking campaign we can conclude that the \gls{ENC} levels were higher than 1000~$e^{-}$.%\newpage
 \begin{figure}[h!]
 \centering
@@ -114,7 +113,7 @@ The pie charts in the figure \ref{fig_power_CSA} show that while increasing the 
 \newpage
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.65\columnwidth]{Chapter6/DCS/images/POBpie.png}
+\includegraphics[width=0.7\columnwidth]{Chapter6/DCS/images/POBpie.png}
 \caption{Power dissipation share of different components of the powering scheme depending on the \gls{CSA} value}
 \label{fig_power_CSA}
 \end{figure}
@@ -129,9 +128,9 @@ Figure \ref{fig_power2} shows the current drawn by 4 \glspl{FEB} of unit 1 depen
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/U2CSABIAS.png}
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/U3L1CSABIAS.png}
-\caption{CSA scan of the unit 2 (left) and unit 3 ladder 0 (right)}
+\includegraphics[width=0.6\columnwidth]{Chapter6/DCS/images/U2CSABIAS.png}
+\includegraphics[width=0.6\columnwidth]{Chapter6/DCS/images/U3L1CSABIAS.png}
+\caption{CSA scan of the unit 2 (upper) and unit 3 ladder 0 (lower)}
 \label{fig_power2}
 \end{figure}
 \newpage

@@ -38,7 +38,7 @@ As reported during the EPICS Collaboration meeting 2022 \cite{epics_2022}, a tra
 \subsection{Use of gateways}
 Let's consider the low voltage powering of the STS's FEE, which consists of about 2100 low voltage channels, 140 modules, and 14 crates. Each crate has a controller with an embedded \gls{IOC}, publishing all the process variables. By putting the power supplies into a different subnet, we can not only easily debug potential issues but also limit the network traffic. That's why it has been endorsed to use CA Gateway \cite{gateway} or PV gateway (to be tested), which will take care of regulating access between the subnets in the DCS network. It also provides additional access security, assuring that the IOCs running the key services like powering run smoothly.
 
-\section{Front End Electronics monitoring}
-\section{Powering concept for the STS}
-\section{Cooling management}
+%\section{Front End Electronics monitoring}
+%\section{Powering concept for the STS}
+%\section{Cooling management}
 \section{Outlook and summary}

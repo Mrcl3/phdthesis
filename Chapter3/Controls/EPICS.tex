@@ -35,10 +35,9 @@ More details about these applications and their use will be provided in the next
 \end{itemize}
 
 \subsection{EPICS architecture and IOC}
-
-The heart of the system is an \gls{IOC}, which provides control logic for the connected hardware. An \gls{IOC} contains a few components \cite{IOC}:
+The core elements of the systems are the \glspl{IOC}, which provides control logic for the connected hardware. An \gls{IOC} contains a few components \cite{IOC}:
 \begin{itemize}
-    \item \gls{IOC} Database - which contains all the user-defined database  records,
+    \item \gls{IOC} Database -  a memory resident database containing a set of named records of various types \cite{IOC2},
     \item record support - set of support routines defining a record,
     \item Sequencer - an optional extension of the \gls{IOC} which is a finite state machine,
     \item Monitors and scanners,
@@ -54,5 +53,5 @@ To communicate with devices, an \gls{IOC} uses so-called device support. The mos
     \item asynDriver \cite{asyn} - asynchronous driver support, which is an interface that implements a device-specific code to low-level communication drivers. Together with the StreamDevice it's the most commonly used one in the \gls{mSTS}. 
 \end{itemize}
 
-In order to ease the deployment process and have a flexible solution for different architectures, we created images for the \gls{IOC} as well as other \gls{DCS} building blocks. These images can be seen as files with code that upon execution result in the initialization of a container. More detailed information about containerization is included in the next chapter. 
+In order to ease the deployment process and have a flexible solution for different architectures, images for the \gls{IOC} as well as other \gls{DCS} building blocks were created. These images can be seen as files with code that upon execution result in the initialization of a container. More detailed information about containerization is included in the next chapter. 
  

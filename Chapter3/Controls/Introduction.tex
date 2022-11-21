@@ -9,21 +9,8 @@
 
 
 %%% Insert here the text body, replacing the dummy content.
-%\label{sec:introduction}
-
-\subsection{System requirements}
- The \gls{DCS} for the Silicon Tracking System (\gls{STS}) is being designed taking into consideration the following aspects:
- \begin{itemize}
-     \item applications should be easy to run on different operating systems and processor architectures,
-     \item horizontal and vertical scalability, when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/containers,
-     \item it should be possible to integrate a sub-system oriented \gls{EPICS}-based \gls{DCS} with higher-level control structures,
-     \item the system should be highly available, minimizing the downtimes,
-     \item it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
-     \item all parameters/process variables should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken,
-     \item the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
-     \item there should be reliable means of supervision of processes, containers, and \glspl{IOC}.
- \end{itemize}
-
+%\label{sec:introduction
+\subsection{Control system for the \gls{CBM} experiment}
 The \gls{EPICS} was chosen, as a system that answers most of the needs for the future \gls{DCS} of the \gls{CBM} experiment. More detailed explanations of how \gls{EPICS} works are described in the next sections. According to \cite{EPICS_DOCS}, the basis attributes of \gls{EPICS} are:
 \begin{itemize}
     \item tool based - minimized need for custom coding,

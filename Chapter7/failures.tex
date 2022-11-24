@@ -1,14 +1,14 @@
 \section{Failure considerations}
 
-Failure considerations are an important aspect of planning a detector and its services. Some systems might need to be planned a redunant structures that bring a detector into a safe state in case of an issue. There are a few layers of dependencies and interlocks, including those software and hardware ones.
+Failure considerations are an important aspect of planning a detector and its services. Some systems might need to be planned as redunant structures that bring a detector into a safe state in case of an issue. There are a few layers of dependencies and interlocks, including those software and hardware ones.
 
 \subsection{Power supply failure}
-Low voltage power supply failures can be divided into: channel, module, controller or crate failures. The example below describes the worst case scenario in the failed modules supply the readout boards.
+Low voltage power supply failures can be divided into: channel, module, controller or crate failures. The example below describes the worst-case scenario in which the failed modules supply the readout boards.
 
 \begin{itemize}
     \item channel failure - in case of a permanent failure up to 5 \gls{FEB}s might be off (if that channel powers a \gls{ROB}),
     \item module failure - up to 75 \gls{FEB}s might get disabled (4,3~\% of all boards), 
-    \item crate failure (10 LV modules in the crate) - up to 750 boards stop working what constitutes to about 43 \% of the STS.
+    \item crate failure (10 LV modules in the crate) - up to 750 boards stop working which constitutes about 43 \% of the STS.
 \end{itemize}
 
 As the LV power supplies will be located in the array which is not accessible during the beam time, any kind of permanent failure will result in a loss of the physics data. 

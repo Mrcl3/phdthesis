@@ -24,8 +24,8 @@ From the practical point of view, designing and implementing a proper powering a
 The \gls{mSTS}'s enclosure is decoupled from the experiment table (no direct connection of any conducting elements). The \gls{mSTS} enclosure is connected to a dedicated ground of the \gls{mCBM} experiment, preventing any \gls{EMI} on the lines that may affect the performance. In reality, there are no perfect grounds, even in the same line there might potential differences.  Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. The floating ground scheme for the sensors biasing circuity and the front-end electronics come with important boundary conditions for the powering - each module side requires a separate powering line and the \gls{ROB} needs to be decoupled from the \gls{FEB} \cite{RodriguezRodriguez2020}. Moreover, to further reduce possible noise pickup a return path capacitor was implemented at the \gls{FEB} connectors and the \gls{HV} common return (depicted as C-RTN) was connected to the enclosure.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.85\columnwidth]{Chapter6/DCS/images/power_distribution.png}
-\caption{Power distribution scheme of the \gls{mSTS} \cite{RodriguezRodriguez2020}}
+\includegraphics[width=1\columnwidth]{Chapter6/DCS/images/power_distribution.png}
+\caption{Power distribution scheme of the \gls{mSTS} (private correspondence with Anton Lymanets}
 \label{fig_msts_power}
 \end{figure}
 \newpage
@@ -35,7 +35,7 @@ In order to avoid overheating of the detector's \gls{FEE} and \glspl{POB}, the e
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.6\columnwidth]{Chapter6/DCS/images/cooling.png}
+\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/cooling.png}
 \caption{Temperature readouts of the three Lauda chillers used for the \gls{mSTS} (denoted as 1, 2, 3) and the dew point inside the enclosure}
 \label{fig_cooling}
 \end{figure}

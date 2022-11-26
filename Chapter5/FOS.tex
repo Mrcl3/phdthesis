@@ -10,7 +10,7 @@ The higher thickness reflects itself also in the increased time response as seen
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter5/images/time_response_yeo.jpg}
-\caption{Recovery time of the sensors from 75 to 33\%RH~\cite{YEO_PI}}
+\caption{Recovery time of the sensors from 75 to 33\% RH~\cite{YEO_PI}}
 \label{fig:yeo2}
 \end{figure}
 
@@ -40,9 +40,9 @@ In order to do so, two different designs were compared:
 The devices used to calibrate and characterize the sensors are listed in the figure~\ref{fig:fos_arch}. The sensors were calibrated using a S8000 chilled mirror hygrometer~\cite{michell_s8000}. Additionally, to compare the results two industrial \gls{RH} sensors were used: HYT221 and SHT85 (see section \ref{capacitive_sensors}. The temperature during the testing was controlled by a Binder MKF chamber~\cite{binder} which offers also relative humidity control down to \SI{0}{\celsius}. 
 In general, two calibration methods were used to characterize the \gls{FBG}-based relative humidity sensors. The first method involved the use of different saturated salt solutions:
 \begin{itemize}
-    \item lithium chloride - \gls{RH} at \SI{25}{\celsius} 11 \%
-    \item magnesium(II) chloride - \gls{RH} at \SI{25}{\celsius} 33 \%
-    \item sodium chloride - \gls{RH} at \SI{25}{\celsius} 75 \%
+    \item lithium chloride - \gls{RH} at \SI{25}{\celsius} 11\%
+    \item magnesium(II) chloride - \gls{RH} at \SI{25}{\celsius} 33\%
+    \item sodium chloride - \gls{RH} at \SI{25}{\celsius} 75\%
 \end{itemize}
 Moreover, 100\% and 0\% conditions were achieved by using pure water and nitrogen flushing, respectively. Due to well-defined relative humidity values at a given temperature, this method offers a cost-effective way to calibrate a \gls{RH}. The second method relied on the humidity control (10\% to 80\% with a 10\% increment) of the climatic chamber.  The sensing instrument (light source) was the Micron Optics Hyperion SI255~\cite{si255}. The SI255 is a high power, low noise, ultra wide swept wavelength laser, it is guaranteed to provide absolute accuracy of 1~pm at every scan within the operating range of 1500 -- 1600~nm. 
 
@@ -102,7 +102,7 @@ The second test involved checking the humidity response in the range (10\% to 80
 \label{fig_response}
 \end{figure}
 \newpage
-Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. The figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Moreover, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, what is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strained applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
+Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. The figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Furthermore, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, what is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strained applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
 
 \begin{figure}[!h]
 \centering
@@ -132,7 +132,7 @@ The uncertainties of the reference devices (the Michell chilled mirror and the P
 \caption{Humidity sensitivity at different temperatures with the corresponding uncertainty (first sensor in the array.}
 \label{fig_RH_sens2}
 \end{figure}
-Similar plots were also obtained for all the other sensors inside the array (see figure~\ref{fig_calibration}. The second hygrometer didn't show a linear response to the changing conditions. That's why it's not included in the summary plots. Figure~\ref{fig_calibration} shows the humidity sensitivity of the calibrated \gls{RH} sensors. The average $S_{RH}$ for the array sensors is $2.77\pm0.03$~pm/\%RH  and $2.09\pm0.02$~pm/\%RH for the hygrometer. Given the uncertainty of the coating thickness, these results are in line with the findings from Yeo and Kronenberg~\cite{Kronenberg:02,YEO_PI}. The uncertainty obtained from the calibration is much smaller than the error introduced by the interrogator itself, which is $1$~pm. That means that the hygrometer measures with an accuracy of 0.5\%RH and for the array sensors on average $0.36$~\%RH. 
+Similar plots were also obtained for all the other sensors inside the array (see figure~\ref{fig_calibration}. The second hygrometer didn't show a linear response to the changing conditions. That's why it's not included in the summary plots. Figure~\ref{fig_calibration} shows the humidity sensitivity of the calibrated \gls{RH} sensors. The average $S_{RH}$ for the array sensors is $2.77\pm0.03$~pm/\%RH  and $2.09\pm0.02$~pm/\%RH for the hygrometer. Given the uncertainty of the coating thickness, these results are in line with the findings from Yeo and Kronenberg~\cite{Kronenberg:02,YEO_PI}. The uncertainty obtained from the calibration is much smaller than the error introduced by the interrogator itself, which is $1$~pm. That means that the hygrometer measures with an accuracy of 0.5\%RH and for the array sensors on average $0.36$\%RH. 
 %RH
 %R
 \begin{figure}[!h]
@@ -142,7 +142,7 @@ Similar plots were also obtained for all the other sensors inside the array (see
 \label{fig_calibration}
 \end{figure}
 The second coefficient called temperature sensitivity conveys information on how the wavelength shifts depending on the changing temperature. In this case for the stable \gls{RH} values, the temperature was changed between \SI{-20}{\celsius} or partially deduced from the humidity sensitivity curves. 
-The average temperature sensitivity $S_\text{T}$ value for the array is $10.25\pm0.02\,\mathrm{\frac{pm}{^{\circ}C}}$ and for the hygrometer $10.87\pm 0.02\,\mathrm{\frac{pm}{^{\circ}C}}$ (see Figure~\ref{fig_calibration1}). The temperature sensitivity is about an order of magnitude larger than the humidity sensitivity. That implies that the temperature sensor located next to the \gls{RH} one should measure with good accuracy, in order to avoid a huge uncertainty of the humidity measurement. A \SI{0.1}{\celsius} temperature uncertainty leads to almost $0.5$~\%RH uncertainty in the case of the hygrometer and $0.36$~\%RH. 
+The average temperature sensitivity $S_\text{T}$ value for the array is $10.25\pm0.02\,\mathrm{\frac{pm}{^{\circ}C}}$ and for the hygrometer $10.87\pm 0.02\,\mathrm{\frac{pm}{^{\circ}C}}$ (see Figure~\ref{fig_calibration1}). The temperature sensitivity is about an order of magnitude larger than the humidity sensitivity. That implies that the temperature sensor located next to the \gls{RH} one should measure with good accuracy, in order to avoid a huge uncertainty of the humidity measurement. A \SI{0.1}{\celsius} temperature uncertainty leads to almost $0.5$\%RH uncertainty in the case of the hygrometer and $0.36$\%RH. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/comp.png}
@@ -200,7 +200,7 @@ The time response of the hygrometer and the array sensors was investigated. In o
 
 
 \subsection{Hysteresis}
-The plots showing hysteresis of the hygrometer and two array sensors are depicted in figure~\ref{fig_hysteresis} and~\ref{fig_hysteresis2}. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH} in a similar fashion. The temperature of about \SI{25}{\celsius} and \gls{RH} were kept stable during the measurement, but it's very difficult to have precisely the same conditions for every point.  Figure~\ref{fig_hysteresis2} shows also how the temperature differed at the certain humidity levels, what could have an effect on the hysteresis measurement. Nevertheless, it is important to mention again that the resolution of the interrogator is about $1$~pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point the hysteresis of the hygrometer is $0.72\pm0.48$\% and for the array sensors $2.67\pm0.33$\%. 
+The plots showing hysteresis of the hygrometer and two array sensors are depicted in figure~\ref{fig_hysteresis} and~\ref{fig_hysteresis2}. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH} in a similar fashion. The temperature of about \SI{25}{\celsius} and \gls{RH} were kept stable during the measurement, but it's very difficult to have precisely the same conditions for every point.  Figure~\ref{fig_hysteresis2} shows also how the temperature differed at the certain humidity levels, what could have an effect on the hysteresis measurement. It is important to mention again that the resolution of the interrogator is about $1$~pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point the hysteresis of the hygrometer is $0.72\pm0.48$\% and for the array sensors $2.67\pm0.33$\%. 
 
 \begin{figure}[!h]
 \centering

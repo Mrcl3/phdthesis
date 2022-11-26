@@ -14,7 +14,7 @@ EPICS is a set of tools and applications which provide a software infrastructure
 As described in Figure \ref{fig_EPICS}, the system uses client/server and publish/subscribe approaches to communicate between different devices/nodes. Most servers, called Input/Output Controllers ( \gls{IOC}) perform I/O and local control tasks and publish this information to clients via dedicated protocols Channel Access and/or pvAccess \cite{EPICS}. 
 
  \subsection{Available control tool sets}
- EPICS and related toolkits offer a complete set of applications to control large experiments. Many different sites all over the world have implemented EPICS-based control systems, i.e. \gls{J-PARC} \cite{J-PARC}, \gls{STAR} \cite{STAR}, \gls{ITER} \cite{ITER}, Australian Synchrotron and many more \cite{EPICS_site}.  Nevertheless, there are also different alternatives to implementing a control system, which include: 
+ EPICS and related toolkits offer a complete set of applications to control large experiments. Many different sites all over the world have implemented EPICS-based control systems, i.e. \gls{J-PARC} \cite{J-PARC}, \gls{STAR} \cite{STAR}, \gls{ITER} \cite{ITER}, Australian Synchrotron and many more \cite{EPICS_site}. Besides, there are also different alternatives to implementing a control system, which include: 
  \begin{itemize}
      \item Siemens WinCC \cite{Camacho:2022fxa,Goralczyk:2022udx}
      \item Tango \cite{Santander-Vela:2021tma}
@@ -29,22 +29,21 @@ As described in Figure \ref{fig_EPICS}, the system uses client/server and publis
 \end{itemize}
 More details about these applications and their use will be provided in the next sections. Although Phoebus proved to be easy to use and implement new operator screens, there are also alternatives that could provide similar functionalities:
 \begin{itemize}
-    \item Bluesky Project (Python-based set of libraries \cite{Bluesky})
-    \item React Automation Studio \cite{React}
+    \item Bluesky Project (Python-based set of libraries \cite{Bluesky}),
+    \item React Automation Studio \cite{React},
     \item Channel Access Tools - MEDM, \gls{ALH}, \gls{AR} etc. 
 \end{itemize}
 
 \subsection{EPICS architecture and IOC}
-The core elements of the systems are the \glspl{IOC}, which provides control logic for the connected hardware. An \gls{IOC} contains a few components \cite{IOC}:
+The core elements of the systems are the \glspl{IOC}, which provides control logic for the connected hardware. The \gls{IOC} uses channel access and/or PVAccess to communicate with clients and contains also the following parts\cite{IOC}:
 \begin{itemize}
-    \item \gls{IOC} Database -  a memory resident database containing a set of named records of various types \cite{IOC2},
+    \item \gls{IOC} database -  a memory resident database containing a set of named records of various types \cite{IOC2},
     \item record support - set of support routines defining a record,
-    \item Sequencer - an optional extension of the \gls{IOC} which is a finite state machine,
-    \item Monitors and scanners,
-    \item Channel Access and/or PVAccess (newer protocol added with EPICS7 release),
-    \item Device Support and drivers - serve access to external devices
+    \item device support and drivers - serve access to external devices.
+    \item monitors and scanners,
+    \item sequencer - an optional extension of the \gls{IOC} which is a finite state machine,
 \end{itemize}
-An \gls{IOC} doesn't need many computing resources, that's why it runs also on low-power single-board computers like Raspberry PI or Odroid. 
+An \gls{IOC} doesn't need extensive computing resources, that's why it runs also on low-power single-board computers like Raspberry PI or Odroid. 
  \gls{IOC} are also commonly supported by additional modules, device support, libraries, and \glspl{API} which altogether provide an efficient way to control various devices.
 To communicate with devices, an \gls{IOC} uses so-called device support. The most commonly used ones include:
 \begin{itemize}

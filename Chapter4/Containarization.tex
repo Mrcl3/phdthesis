@@ -1,7 +1,7 @@
 \section{Containerized IOC}
-Containerization is an increasingly popular method of virtualizing an application, without having to run a full-blown operating system. In modern computing, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} containers and their different applications become more and more popular. According to to~\cite{Klaus2021} the first mention of about a docker container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
+Containerization is an increasingly popular method of virtualizing an application, without having to run a full-blown operating system. In current practices, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} containers and their different applications become more and more popular. According to to~\cite{Klaus2021} the first mention of about a docker container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
 
-IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collaboration and adjusted to the \gls{STS} needs. The latest \gls{IOC}'s image is built on EPICS R7.0.3.1 image and it contains the most important modules and extensions i.a. asyn, autosave, calc, Modbus, and SNMP (see Figure~\ref{fig_ioc1}). Moreover, by using so-called Volumes (see Figure~\ref{fig_doc}) the \gls{IOC} can be used at any node with the docker engine. Volumes are one of the mechanisms to manage application data and it's a proper way to ensure data persistence. Having prepared database files, st.cmd, and stream protocols if needed, an \gls{IOC} can be deployed on any node, with any operating system and processor architecture.
+IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collaboration and adjusted to the \gls{STS} needs. The latest \gls{IOC}'s image is built on EPICS R7.0.3.1 image and it contains the most important modules and extensions i.a. asyn, autosave, calc, Modbus, and SNMP (see Figure~\ref{fig_ioc1}). By using so-called volumes (see Figure~\ref{fig_doc}) the \gls{IOC} can be used at any node with the docker engine. Volumes are one of the mechanisms to manage application data and it's a proper way to ensure data persistence. When a container is started, Docker loads the read-only image layer, adds a read-write layer on top of the image stack, and mounts volumes onto the container filesystem. Having prepared database files, st.cmd, and stream protocols if needed, an \gls{IOC} can be deployed on any node, with any operating system and processor architecture.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter4/images/epics_ioc.jpg}
@@ -9,7 +9,7 @@ IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collab
 \label{fig_ioc1}
 \end{figure}
 %\newpage
-A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figure~\ref{fig_doc}. Every container is assigned an IP address for every Docker network it connects to. Moreover, each network has a default subnet mask and gateway. In order to connect the \gls{IOC} with other services, the ports used by \gls{EPICS} (5064, 5065 for channel access protocol and 7064, 7065 for PVAccess) need to be exposed.  The containers use the host network to communicate with each other and other nodes. It's mostly due to limitations in the protocols used by the \gls{IOC}, as they may not pass through Network Address Translation (NAT).
+A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figure~\ref{fig_doc}. Every container is assigned an IP address for every Docker network it connects to. Each network has a default subnet mask and gateway. In order to connect the \gls{IOC} with other services, the ports used by \gls{EPICS} (5064, 5065 for channel access protocol and 7064, 7065 for PVAccess) need to be exposed.  The deployed containers use the host network to communicate with each other and other nodes.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter4/images/docker_run.jpg}
@@ -18,7 +18,7 @@ A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figu
 \end{figure}
 %\newpage
 \section{Docker}
-Docker was chosen as the platform to prepare the images and run the containers. One of the features of docker has been considered risky for the operation of the detector/experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector - e.g. killing the container. Moreover, a compromised node can also endanger other nodes in the network.  Nevertheless, since late 2020 it's possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating risk
+Docker was chosen as the platform to prepare the images and run the containers. One of the features of docker has been considered risky for the operation of the detector/experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector - e.g. killing the container. Moreover, a compromised node can also endanger other nodes in the network.  Since late 2020 it's possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating the risk.
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.8\columnwidth]{sections/images/docker.png}
@@ -31,7 +31,7 @@ Docker was chosen as the platform to prepare the images and run the containers. 
     \item Singularity~\cite{singularity}
 \end{itemize}
 \section{Safety Considerations}
-Containers are a handy tool to easily address the control and monitoring of different setups. Nevertheless, implementing an additional layer over EPICS-based applications may lead to safety concerns. This technology has many advantages:
+Containers are a handy tool to easily address the control and monitoring of different setups. Still, implementing an additional layer over EPICS-based applications may lead to safety concerns. This technology has many advantages:
 \begin{itemize}
     \item standardized, what makes it portable anywhere,
     \item independent of the operating system,
@@ -52,5 +52,4 @@ For the use of containers in the final experiment, the following list must be ta
     \item cluster and container redundancy.
 \end{itemize}
 
-\section{Motivation}
-Nevertheless, to demonstrate the containerized \gls{DCS}, not all the available applications were used. The mSTS's \gls{DCS} features the applications listed in the figure \ref{fig_dcs_node_msts}. All these applications were used as containers based on previously prepared images and linked using Docker-compose, which is a tool for defining and running multi-container Docker applications \cite{docker_compose}. To configure the containers a YAML file has to be populated with the container settings. This section summarizes the most important applications used for the DCS and their functionalities.
+

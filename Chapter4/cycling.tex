@@ -38,7 +38,7 @@ Si~\cite{Si}                           & 2.6
 %\newpage
 
 
-Moreover, there are other phenomena that may cause damage to a glob-topped device:
+There are also other phenomena that may cause damage to a glob-topped device:
 \begin{itemize}
     \item chip cracking,
     \item failure of the chip to board or substrate joint,
@@ -161,7 +161,7 @@ The right photo depicts two fully assembled \gls{FEB}s with STS-XYTERS version 2
 \label{fig_noglobtop}
 \end{figure}
 
-To prepare for the thermal cycling, the assembled boards (type A and B) were mounted on a fin (either with thermal pads or by gluing it to the fin's surface) and then subsequently placed on a cooling plate in the climatic chamber (see figure~\ref{fig_cycling_temps}). In order to reproduce similar conditions as in the \gls{STS} (coolant temperature at \SI{-40}{\celsius}) KRYO 51 coolant instead of the NOVEC 649. Moreover, the temperature of the chamber is always kept below the temperature of the cooling plate to avoid icing. During the cycling, the voltage drop at the \gls{LDO} regulators was the same for all the boards $V=0.6V$. 
+To prepare for the thermal cycling, the assembled boards (type A and B) were mounted on a fin (either with thermal pads or by gluing it to the fin's surface) and then subsequently placed on a cooling plate in the climatic chamber (see figure~\ref{fig_cycling_temps}). In order to reproduce similar conditions as in the \gls{STS} (coolant temperature at \SI{-40}{\celsius}) KRYO 51 coolant instead of the NOVEC 649. Additionally, he temperature of the chamber is always kept below the temperature of the cooling plate to avoid icing. During the cycling, the voltage drop at the \gls{LDO} regulators was the same for all the boards $V=0.6V$. 
 
 \begin{figure}[!h]
 \centering
@@ -180,7 +180,7 @@ Based on the operation scenarios of the \gls{STS}, the \gls{FEB}s, \gls{ROB}s, a
     \item with powering - $\Delta T\approx\SI{20}{\celsius} $
     \item more than 190 cold startups, as indicated in section~\ref{irradiation_results}
 \end{itemize}
-Testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} - the so-called cold startup. The transition time between the extreme temperatures (for passive and active cycling) was not manually adjusted and depends only on the power of the Lauda chiller and the climatic chamber. Nevertheless, the transition times are equal for all the tested devices. The main object of the tests was the \gls{FEB}s and its sensitivity to the thermally induced mechanical stresses. In the two main sets of measurements so far, in total 12 \gls{FEB}s in different configurations were tested.  After each round of thermal cycling, the boards were inspected optically under the microscope for any signs of deterioration or visible changes. On the other hand, during the cycling with powering and cold startups, the STS-XYTERs were extensively tested. The \glspl{ASIC} test included configuration of the chip, changing \gls{CSA} values to trigger different current consumption, but also ID consistency check, write/read registers test, and internal pulses. 
+Testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} - the so-called cold startup. The transition time between the extreme temperatures (for passive and active cycling) was not manually adjusted and depends only on the power of the Lauda chiller and the climatic chamber. The transition times are equal for all the tested devices. The main object of the tests was the \gls{FEB}s and its sensitivity to the thermally induced mechanical stresses. In the two main sets of measurements so far, in total 12 \gls{FEB}s in different configurations were tested.  After each round of thermal cycling, the boards were inspected optically under the microscope for any signs of deterioration or visible changes. On the other hand, during the cycling with powering and cold startups, the STS-XYTERs were extensively tested. The \glspl{ASIC} test included configuration of the chip, changing \gls{CSA} values to trigger different current consumption, but also ID consistency check, write/read registers test, and internal pulses. 
 \subsubsection{Passive cycling}
 Passive cycling was performed in the steps of 50 repetitions between optical and electrical inspection. During this part we tested the following temperature differences:
 \begin{itemize}
@@ -189,7 +189,7 @@ Passive cycling was performed in the steps of 50 repetitions between optical and
 \end{itemize}
 The \gls{FEB}, regardless of the type (A or B), are treated equally from the mechanical point of view. The components and the way the board is assembled are the same. Thereafter, the type won't be distinguished. During set B testing, there weren't any current trip conditions applied and for set A the trip current was set to 3.1 A. 
 %The passive cycling is illustrated in the figure~\ref{fig_passive_cycling}.
-The liquid pumped through the cooling block is always a few degrees higher (depicted as 'Lauda temperature') than the setpoint of the climatic chamber. This prevails condensation or icing on sensitive electronics at all times. Moreover, the periods at the maximum and minimum temperature were always the same and equaled 20 minutes. During passive cyclings we haven't observed any performance deterioration, nevertheless, it was always performed on brand-new boards.
+The liquid pumped through the cooling block is always a few degrees higher (depicted as 'Lauda temperature') than the setpoint of the climatic chamber. This prevails condensation or icing on sensitive electronics at all times. The periods at the maximum and minimum temperature were always the same and equaled 20 minutes. During passive cyclings we haven't observed any performance deterioration, but it was always performed on brand-new boards.
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.55\columnwidth]{Chapter4/images/active_cycling.png}
@@ -211,7 +211,7 @@ The active cycling was performed also in the step of 50 repetitions, but due to 
 \label{fig_active_detailed}
 \end{figure}
 
-A detailed view of a few cycles is presented in the figure~\ref{fig_active_detailed}. The figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. Moreover, two bottom plots show how the cycling affects the STS-XYTERs diagnostic circuit. The $V_{ddm}$ value varies from about 1200 up to 1240, nevertheless, it does not have any effect on the performance of the chip, as the operating range could vary as much as 100 mV. The measured values of the $V_{ddm}$ may also vary across the \gls{FEB}, which can be seen in the figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2 V line connecting the subsequent chips is negligible}{the nominal 1.2V} supplied by the 1.2V \gls{LDO} regulator. 
+A detailed view of a few cycles is presented in the figure~\ref{fig_active_detailed}. The figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. The two bottom plots show how the cycling affects the STS-XYTERs diagnostic circuit. The $V_{ddm}$ value varies from about 1200 up to 1240, but it does not have any effect on the performance of the chip, as the operating range could vary as much as 100 mV. The measured values of the $V_{ddm}$ may also vary across the \gls{FEB}, which can be seen in the figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2 V line connecting the subsequent chips is negligible}{the nominal 1.2V} supplied by the 1.2V \gls{LDO} regulator. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter4/images/vddm_comp.png}
@@ -262,7 +262,7 @@ of cycles}
 \label{tab:SetA}
 \end{table}
 
-The onset of the \gls{LDO} failure can be seen in the figure \ref{fig_cold_startup}. At about 500min the 1.2LDO regulators input current started dropping, indicating increasing resistance in the circuit. As depicted in the figure \ref{fig_cold_startup} once the temperature reached $\SI{20}{\celsius}$ the current consumption was again nominal. Nevertheless, after a point, this effect turned out to be irreversible, and we observed the complete failure of the 1.2V \gls{LDO} regulator. After about 100 cycles, the current consumption measured at the level of the power supply dropped to almost 0 A. 
+The onset of the \gls{LDO} failure can be seen in the figure \ref{fig_cold_startup}. At about 500min the 1.2LDO regulators input current started dropping, indicating increasing resistance in the circuit. As depicted in the figure \ref{fig_cold_startup} once the temperature reached $\SI{20}{\celsius}$ the current consumption was again nominal. After a point, this effect turned out to be irreversible, and we observed the complete failure of the 1.2V \gls{LDO} regulator. After about 100 cycles, the current consumption measured at the level of the power supply dropped to almost 0 A. 
 %\newpage
 \begin{figure}[!h]
 \centering
@@ -317,7 +317,7 @@ One of the potential failure mechanisms can be seen in the figure~\ref{fig_ldo_l
 \end{figure}
 \newpage
 \subsection{Conclusions}
-Performed thermal cycling lead to discovering the limits of the \glspl{FEB}, namely a failure related to the \gls{LDO} regulators. The two realized sets of measurements lead to 6/20 1.2V \gls{LDO} failures and 2/20 1.8V \gls{LDO} regulator-related failures. The more frequent 1.2 \gls{LDO} regulator failure can be associated with larger current changes, leading also to larger temperature differences. Moreover, the boards which were initially tested in harsher conditions (bigger difference between the extreme temperatures) tend to fail sooner. As described in the introduction to thermal cycling, one of the most probable mechanisms leading to the \gls{LDO} regulator-related failure is the mismatch of the \gls{CTE}. Findings made in this section provide important information on how to improve the module and their performance before the assembly of the modules for the final \gls{STS}. 
+Performed thermal cycling lead to discovering the limits of the \glspl{FEB}, namely a failure related to the \gls{LDO} regulators. The two realized sets of measurements lead to 6/20 1.2V \gls{LDO} failures and 2/20 1.8V \gls{LDO} regulator-related failures. The more frequent 1.2 \gls{LDO} regulator failure can be associated with larger current changes, leading also to larger temperature differences. Furthermore, the boards which were initially tested in harsher conditions (bigger difference between the extreme temperatures) tend to fail sooner. As described in the introduction to thermal cycling, one of the most probable mechanisms leading to the \gls{LDO} regulator-related failure is the mismatch of the \gls{CTE}. Findings made in this section provide important information on how to improve the module and their performance before the assembly of the modules for the final \gls{STS}. 
 
 %\begin{figure}[!h]
 %\centering

@@ -23,14 +23,14 @@ The high availability of services plays a key role in the safe operation of a de
 Crucial elements of the STS, like the air drying plant or the cooling plant, will be monitored and controlled by a PLC-based system (for example Siemens PLC). This hardware layer will provide the essential safety measures in case of failure but the PLC will be also linked to an IOC publishing the values to the software layer. Even before triggering the hardware interlock, any potentially hazardous system behavior will be discovered by the software of the control system. In order to ensure maximum safety, failover mechanisms will be exercised to mitiage potential IOC failures. There are 3 considered methods to address failover. 
 
 
-Suppose the hardware is controlled e.g. via a network. In that case, it's possible to deploy a backup IOC, which has the same configuration as the main IOC, therefore providing a replacement if it fails. Nevertheless, under some standards like as example RS232, it's not considered good practice to have two IOCs connected to the same node. Furthermore, in the case of RS232 a multiplexer would be needed to implement a redundant solution. 
+Suppose the hardware is controlled e.g. via a network. In that case, it's possible to deploy a backup IOC, which has the same configuration as the main IOC, therefore providing a replacement if it fails. Under some standards like as example RS232, it's not considered a good practice to have two IOCs connected to the same node. Furthermore, in the case of RS232 a multiplexer would be needed to implement a redundant solution. 
 
 A second possibility is to use failover mechanisms based on an orchestrator, in this case, the deployment and life cycle of a container is governed by an additional tool, i.e. Kubernetes. In case one of the containers (IOCs) hangs up, it will be automatically stopped and a new container will take over the tasks. Nevertheless, the newly deployed container could have a different configuration, therefore changing the state of the whole system. 
 
 
 \subsection{Data persistence}
 
-As mentioned in the section \ref{archiver}, the archiver could be split into a few nodes serving as temporary data storage (short-term, mid-term). Proper daily backup to GSI managed database would be recommended, nevertheless, it depends mostly on the database services provided by the GSI IT. So far, the Redis DB has been used but also other options should be considered. 
+As mentioned in the section \ref{archiver}, the archiver could be split into a few nodes serving as temporary data storage (short-term, mid-term). Proper daily backup to GSI managed database would be recommended, but it depends mostly on the database services provided by the GSI IT. So far, the Redis DB has been used but also other options should be considered. 
 
 \subsection{Available protocols}
 As reported during the EPICS Collaboration meeting 2022 \cite{epics_2022}, a transition to the newer protocol (PV access) is ongoing. Nevertheless, CA and PVA are both included in the EPICS 7, which should be the base image of the CBM IOC image, and also for the next versions of the IOC. PVA is under constant development and will offer even more features in the coming years, thus for the future CBM experiment (timeline of more than 10 years), it's a perfect choice. 

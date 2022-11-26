@@ -1,5 +1,7 @@
-\section{Applications}
+\section{Multi-container applications}
 Over the years EPICS has become a framework that offers users many off-the-shelf applications that ease the implementation and configuration process. Figure \ref{fig_dcs_node_msts} shows the most commonly used control-related applications. 
+To demonstrate the containerized control system, not all the available applications were used. All these applications were used as containers based on previously prepared images and linked using Docker-compose, which is a tool for defining and running multi-container Docker applications \cite{docker_compose}. To configure the containers a \footnote{  YAML is a human-friendly data serialization language for all programming languages~\cite{YAML}.}{YAML} file has to be populated with the container settings. This section summarizes the most important applications used for the DCS and their functionalities.
+
 
 \begin{figure}[!h]
 \centering
@@ -19,7 +21,7 @@ Control System Studio (CS-Studio or CSS) consists of open-source Java applicatio
 \end{figure}
 
 \subsection{Archiver Solutions} \label{archiver}
-An Archiver serves as one of the main building blocks of the whole \gls{DCS}, as it allows the operator not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly and without significant downtime. Moreover, the linked database and other clients should also have a stable connection with the archiver. A primary choice for STS is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle a system administrator can adjust these settings to the needs of the specific case. Moreover, four Tomcat containers\footnote[1]{An Open source web server by the Apache foundation} are employed to handle the tasks of the archiver.  
+An Archiver serves as one of the main building blocks of the whole \gls{DCS}, as it allows the operator not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for STS is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle a system administrator can adjust these settings to the needs of the specific case. Moreover, four Tomcat containers\footnote[1]{An Open source web server by the Apache foundation} are employed to handle the tasks of the archiver.  
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.7\columnwidth]{Chapter4/images/applarch.png}

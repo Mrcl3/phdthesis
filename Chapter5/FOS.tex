@@ -3,14 +3,14 @@ As described in the section~\ref{fbg}, it's possible to measure the relative hum
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter5/images/yeo_coating.jpg}
-\caption{RH response of the sensors with different coating thicknesses from 23 to 97\%RH at constant room temperature~\cite{YEO_PI}}
+\caption{RH response of the sensors with different coating thicknesses from 23 to 97\%RH at constant room temperature~\cite{YEO_PI}.}
 \label{fig:yeo}
 \end{figure}
 The higher thickness reflects itself also in the increased time response as seen in the figure~\ref{fig:yeo2}. As for the \gls{STS} sensing system, the most crucial scenarios include an uncontrolled change of humidity which should be detected within minutes to conduct necessary actions in the control system. Therefore, the chosen coating thickness is between \SI{15}{\micro\metre} and \SI{20}{\micro\metre}, slightly higher than the first reported distributed sensing system implemented for the \gls{CMS} at \gls{CERN}, where \SI{10}{\micro\metre} were used. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter5/images/time_response_yeo.jpg}
-\caption{Recovery time of the sensors from 75 to 33\% RH~\cite{YEO_PI}}
+\caption{Recovery time of the sensors from 75 to 33\% RH~\cite{YEO_PI}.}
 \label{fig:yeo2}
 \end{figure}
 
@@ -52,7 +52,7 @@ Optics sensing interrogators.}{ENLIGHT} software, and a custom \gls{IOC} connect
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter5/images/FOS_dcs_scheme.png}
-\caption{Controls architecture for the temperature and humidity sensor measurement}
+\caption{Controls architecture for the temperature and humidity sensor measurement.}
 \label{fig:fos_arch}
 \end{figure}
 \subsection{Sensors characterization}
@@ -73,7 +73,7 @@ One of the most important sensor characteristics is accuracy, which holds inform
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter5/images/Picture2.png}
-\caption{Different contributions to the sensor's accuracy}
+\caption{Different contributions to the sensor's accuracy.}
 \label{fig:accuracy}
 \end{figure}
 Combining all the errors we can estimate the total uncertainty of a sensor, which is given as:
@@ -93,7 +93,7 @@ The test subjects were two hygrometers (\SI{15}{\micro\metre} PI coating) and  5
 \caption{Spectral response of the relative humidity array.}
 \label{fig_array_wavelength}
 \end{figure}
-The second test involved checking the humidity response in the range (10\% to 80\%), see figures~\ref{fig_response}. In both cases, increasing the relative humidity inside the test chamber results in the shift of the Bragg wavelength toward higher values. It's related to the increasing strain on the grating resulting from deposition of water molecules in the polyimide. These measurements were taken at a stable temperature of \SI{20}{\celsius}.
+The second test involved checking the humidity response in the range (10\% to 80\%), see figures~\ref{fig_response}. In both cases, increasing the relative humidity inside the test chamber results in the shift of the Bragg wavelength toward higher values. It's related to the increasing strain on the grating resulting from the deposition of water molecules in the polyimide. These measurements were taken at a stable temperature of \SI{20}{\celsius}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter5/images/rh.png}
@@ -102,19 +102,19 @@ The second test involved checking the humidity response in the range (10\% to 80
 \label{fig_response}
 \end{figure}
 \newpage
-Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. The figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Furthermore, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, what is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strained applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
+Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. The figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Furthermore, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, which is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strain applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\columnwidth]{Chapter5/images/RHS.png}
-\caption{Calibration curves for the hygrometer}
+\caption{Calibration curves for the hygrometer.}
 \label{fig_single_calibration}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\columnwidth]{Chapter5/images/RH1.png}
-\caption{Calibration curves for the first \gls{RH} sensor in the array}
+\caption{Calibration curves for the first \gls{RH} sensor in the array.}
 \label{fig_array_calibration}
 \end{figure}
 \newpage
@@ -151,7 +151,7 @@ The average temperature sensitivity $S_\text{T}$ value for the array is $10.25\p
 \end{figure}
 
 \subsection{Calibration with saturated salt solutions}
-The two mentioned hygrometers were also at first tested with a use of saturated salt solutions method. The details of this approach are given in the section~\ref{fos:setup}. The results of these measurements are depicted in the figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 doesn't have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
+The two mentioned hygrometers were also at first tested with the use of the saturated salt solutions method. The details of this approach are given in section~\ref{fos:setup}. The results of these measurements are depicted in the figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 doesn't have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
 
 \begin{figure}[!h]
 \centering
@@ -161,7 +161,7 @@ The two mentioned hygrometers were also at first tested with a use of saturated 
 \label{fig:fos_salt}
 \end{figure}
 
-The comparison of the results form two different calibration methods for the hygrometers are depicted in the table~\ref{tab:fos}. Both methods proved to deliver reliable results. The method involving saturated salt solutions is a very cost effective method allowing to characterize the sensors, but it can't be used in a wide range, especially in temperature below \SI{0}{\celsius} as the relative humidity provided by the solution is not constant. 
+The comparison of the results from two different calibration methods for the hygrometers is depicted in the table~\ref{tab:fos}. Both methods proved to deliver reliable results. The method involving saturated salt solutions is a very cost-effective method allowing to characterize the sensors, but it can't be used in a wide range, especially in temperatures below \SI{0}{\celsius} as the relative humidity provided by the solution is not constant. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -180,7 +180,7 @@ Climatic chamber              & 2.09     & 10.87
 
 
 \subsection{Time response}
-The time response of the hygrometer and the array sensors was investigated. In order to do so, the sensors were tested during the increasing humidity from about 20\% to 80\%. In principle, the \gls{FBG} based \gls{FOS} has a much longer time response to the capacitive sensors. The time response of different sensors is often compared using for example the time to reach 63\% of targeted value $\tau_{63}$. Figures~\ref{fig_time_response} and~\ref{fig_time_response2} depict the comparison of the time response of the hygrometer and one of the array sensors with commercial capacitive sensors (two SHT85 and HYT221 sensors). The response of the \gls{FOS} are shown as the change of the wavelength. It's also noteworthy that the response is about twice slower at \SI{0}{\celsius}. The average response time at \SI{0}{\celsius} for the array sensors is $10.7$~min, and $4.8$~min for the hygrometer. On the other hand, at \SI{20}{\celsius} those values equal $2.3$~min and $2$~min. Differences among the array sensors were also seen, but they most likely correspond to slight differences in the coating thickness and the position inside the climatic chamber. 
+The time response of the hygrometer and the array sensors was investigated. In order to do so, the sensors were tested during the increasing humidity from about 20\% to 80\%. In principle, the \gls{FBG} based \gls{FOS} has a much longer time response to the capacitive sensors. The time response of different sensors is often compared using for example the time to reach 63\% of targeted value $\tau_{63}$. Figures~\ref{fig_time_response} and~\ref{fig_time_response2} depict the comparison of the time response of the hygrometer and one of the array sensors with commercial capacitive sensors (two SHT85 and HYT221 sensors). The response of the \gls{FOS} is shown as the change of the wavelength. It's also noteworthy that the response is about twice slower at \SI{0}{\celsius}. The average response time at \SI{0}{\celsius} for the array sensors is $10.7$~min, and $4.8$~min for the hygrometer. On the other hand, at \SI{20}{\celsius} those values equal $2.3$~min and $2$~min. Differences among the array sensors were also seen, but they most likely correspond to slight differences in the coating thickness and the position inside the climatic chamber. 
 
 \begin{figure}[!h]
 \centering
@@ -200,28 +200,28 @@ The time response of the hygrometer and the array sensors was investigated. In o
 
 
 \subsection{Hysteresis}
-The plots showing hysteresis of the hygrometer and two array sensors are depicted in figure~\ref{fig_hysteresis} and~\ref{fig_hysteresis2}. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH} in a similar fashion. The temperature of about \SI{25}{\celsius} and \gls{RH} were kept stable during the measurement, but it's very difficult to have precisely the same conditions for every point.  Figure~\ref{fig_hysteresis2} shows also how the temperature differed at the certain humidity levels, what could have an effect on the hysteresis measurement. It is important to mention again that the resolution of the interrogator is about $1$~pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point the hysteresis of the hygrometer is $0.72\pm0.48$\% and for the array sensors $2.67\pm0.33$\%. 
+The plots showing the hysteresis of the hygrometer and two array sensors are depicted in figure~\ref{fig_hysteresis} and~\ref{fig_hysteresis2}. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH} in a similar fashion. The temperature of about \SI{25}{\celsius} was kept stable during the measurement, but it's very difficult to have precisely the same conditions for every point.  Figure~\ref{fig_hysteresis2} shows also how the temperature differed at certain humidity levels, which could have an effect on the hysteresis measurement. It is important to mention again that the resolution of the interrogator is about $1$~pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point, the hysteresis of the hygrometer is $0.72\pm0.48$\% and for the array sensors $2.67\pm0.33$\%. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/25_RHS.png}
-\caption{Hysteresis of a }
+\caption{Hysteresis of the hygrometer and the first array sensor at a constant temperature of \SI{25}{\celsius}.}
 \label{fig_hysteresis}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/25_RHST.png}
-\caption{Hysteresis}
+\caption{Temperature stability during the hysteresis measurement.}
 \label{fig_hysteresis2}
 \end{figure}
 
 \subsection{Repeatability}
-The repeatability of the hygrometer was also established my performing three measurement that involved increasing humidity from about $10$\% to $80$\% and then decreasing it again in step of $10$\% to the baseline value. The sensor shows good performance over 7 days of measurements. The sensors in the array showed a large offset which is most likely related to the holder/packaging of the sensor and the difficulty to keep the sensors in a strain-free conditions, as they are located very close to each other (less than $15$~cm).
+The repeatability of the hygrometer was also established by performing three measurements that involved increasing humidity from about $10$\% to $80$\% and then decreasing it again in steps of $10$\% to the baseline value. The sensor shows good performance over 7 days of measurements. The sensors in the array showed a large offset which is most likely related to the holder/packaging of the sensor and the difficulty to keep the sensors in strain-free conditions, as they are located very close to each other (less than $15$~cm).
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/repeat.png}
-\caption{Repeatability}
+\caption{Repeatability of the hygrometer.}
 \label{fig_repeatability}
 \end{figure}
 

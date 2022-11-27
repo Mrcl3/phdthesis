@@ -95,13 +95,13 @@ Two different \gls{RH} capacitive sensors have been tested in low-temperature re
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter5/images/hyt221_rh.png}
-\caption{Relative humidity and temperature uncertainties \cite{hyt221}}
+\caption{Relative humidity and temperature uncertainties \cite{hyt221}.}
 \label{fig:hyt221}
 \end{figure}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/HYT221RH7T15.png}
-\caption{Dew point error based on values from the figure \ref{fig:hyt221}}
+\caption{Dew point error based on values from the figure \ref{fig:hyt221}.}
 \label{fig:hyt221_dp}
 \end{figure}
 \newpage
@@ -109,14 +109,14 @@ Figure \ref{fig:sht85} shows the uncertainties for the measurements with the SHT
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter5/images/sht85_rh.png}
-\caption{Relative humidity uncertainties, the temperature uncertainty is \SI{0.2}{\celsius} \cite{SHT85}}
+\caption{Relative humidity uncertainties, the temperature uncertainty is \SI{0.2}{\celsius} \cite{SHT85}.}
 \label{fig:sht85}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/SHTRH15T02.png}
-\caption{Dew point error based on the the figure \ref{fig:sht85}}
+\caption{Dew point error based on the the figure \ref{fig:sht85}.}
 \label{fig:sht85_dp}
 \end{figure}
 \newpage
@@ -129,7 +129,7 @@ Optical fiber optic sensors-based system usually consists of three main componen
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter5/images/sensing.png}
-\caption{Comparison of different sensing possibilities with the \gls{FOS}}
+\caption{Comparison of different sensing possibilities with the \gls{FOS}.}
 \label{fig:sensing}
 \end{figure}
 
@@ -169,7 +169,7 @@ where $P_{e}$ is a photo-elastic constant, $\epsilon$ is a strain induced on the
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter5/images/Picture1.png}
-\caption{FBG-based sensors for relative humidity measurements}
+\caption{FBG-based sensors for relative humidity measurements.}
 \label{fig:fbg_scheme}
 \end{figure}
 
@@ -202,7 +202,7 @@ As such most of them include digital circuitry in the active area, which could b
 \includegraphics[width=0.35\columnwidth]{Chapter5/images/ES20.png}
 \includegraphics[width=0.4\columnwidth]{Chapter5/images/s8000.png}
 \caption{Left: Michell ES20 ceramic metal-oxide sampling system~\cite{michell_e20}
-Right: Michell S8000 Remote High Precision Chilled Mirror Hygrometer~\cite{michell_s8000}}
+Right: Michell S8000 Remote High Precision Chilled Mirror Hygrometer~\cite{michell_s8000}.}
 \label{fig:sniffer}
 \end{figure}
 Aluminum oxide interacts with water, and it is considered a sensitive layer and is used for moisture sensors. The best way to compare the sensor is to do that with a capacitor. The sensors are characterized by very low uncertainties, and the implementation in a hardware-based interlock is much easier than in the case of the \gls{FOS}.
@@ -212,11 +212,12 @@ Another precise and commonly used method is the chilled mirror hygrometer. In th
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter5/images/s8000_remote.png}
-\caption{Controls architecture for the temperature and humidity sensor measurement}
+\caption{Controls architecture for the temperature and humidity sensor measurement.n }
 \label{fig:fos_mirror}
 \end{figure}
 \newpage
 \subsection{Sensors performance in high radiation environments}
+\label{fos_irrad}
 Implementing a cost-effective distributed sensing system is a challenging task. Sniffing lines that suck air samples from the detector's active area, and then the trace humidity sensors measure the dew point in a distant (safe) area, are considered to be the most reliable way, but their cost per sensing point is relatively high. 
 
 Over the years, capacitive sensors have been widely used in many industrial applications, but their susceptibility to radiation doesn't qualify them as appropriate and reliable sensors for long-term \gls{STS} operation~\cite{Kapic, capacitive_irrad, Berruti}.  RH sensors based on the polymer are mainly affected by ionizing radiation. The sensor's internal electronic circuit is its most vulnerable part~\cite{SHCHEMEROV20222871}.

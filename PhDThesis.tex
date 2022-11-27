@@ -29,6 +29,7 @@
                %parskip=full,%
                bibliography=totoc,%
                draft=false,%
+               numbers=noenddot,
 ]{scrbook}
 
 \usepackage[%
@@ -169,6 +170,13 @@
 %\newcommand{\myNumberStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
 
 
+% removing the dot after figure number
+
+%\renewcommand*{\figureformat}{%
+%  \figurename~\thefigure%
+%  \autodot% DELETED
+%}
+
 
 
 %\renewcommand{\cleardoublepage}{}
@@ -209,7 +217,7 @@
 \chapter{The STS and its role in the CBM experiment}
 \label{chap:CBM_STS}
 \input{Chapter2/STS.tex}
-\chapter{DCS, an important part of the online systems}
+\chapter{The DCS, an important part of the online systems}
 \label{chap:online_systems}
 \input{Chapter3/Controls/ECS.tex}
 \input{Chapter3/Controls/DCS.tex}
@@ -231,7 +239,9 @@
 \label{chap:msts}
 \input{Chapter6/DCS/mSTS.tex}        
 \input{Chapter6/DCS/operation.tex}
-\input{Chapter6/DCS/Orchestration.tex}
+\chapter{Summary and overview}
+\label{chap:last}
+\input{Chapter7/Orchestration.tex}
 %\chapter{On the way to the Silicon Tracking System}
 %\label{chap:outlook}
 %\input{Chapter7/demo.tex}

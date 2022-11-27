@@ -20,6 +20,7 @@ DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced
 
 \begin{table}[!h]
 \begin{center}
+\caption{Coefficient of thermal expansion of different materials below the glass transition temperature}
 \begin{tabular}{ll}
 \hline
 \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{CTE $\alpha_{2}$} [\si{\micro\metre\per\metre\per\celsius]}] \\ \hline
@@ -30,7 +31,6 @@ FR4~\cite{FR4}                          & 15                                   \
 Si~\cite{Si}                           & 2.6                                 
 \end{tabular}
 \label{TCE}
-\caption{Coefficient of thermal expansion of different materials below the glass transition temperature}
 \end{center}
 \end{table}
 
@@ -62,7 +62,7 @@ Cooling liquid at \SI{-40}{\celsius}, \gls{FEB}s powered on.
     As per the simulations done for the cooling liquid entering the detector at  \SI{-40}{\celsius}, the cooling plate and \gls{FEB}s should reach temperatures as shown in the figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.5\columnwidth]{Chapter4/images/cooling_block_nominal.png}
+\includegraphics[width=0.6\columnwidth]{Chapter4/images/cooling_block_nominal.png}
 \caption{Temperature distribution on the cooling plate for the nominal operation scenario}
 \label{fig_coolinkg_block_nominal}
 \end{figure}
@@ -249,6 +249,7 @@ Already during preliminary thermal cycling activities, it was determined that th
 In the case of set B, which featured 8 \glspl{FEB} - 4 \glspl{FEB} with DYMAX 9001, 2 \glspl{FEB} with DYMAX 9008 as the DAM and 9001 as the fill, and 2 \glspl{FEB} without STS-XYTERs and globtop over the \gls{LDO} regulators, during the passive cycling and active cycling no failure was observed. No deterioration was observed under the microscope. First failures were detected during the power cycling at $T=\SI{-30}{\celsius}$, as summarized in the table~\ref{tab:SetA}. 
 \begin{table}[!h]
 \centering
+\caption{Detailed description of the \gls{LDO} failure with regard to the type and number of cycles}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lll}
 Globtop                   & Failure              & Remarks                       \\ \hline
@@ -257,8 +258,6 @@ DYMAX 9001                & 200 power cycles     & 1.2V \gls{LDO} failure after 
 DYMAX 9001                & 200/300 power cycles & 1.2V \gls{LDO} failure during cycling \\ \hline
 \end{tabular}%
 }
-\caption{Detailed description of the \gls{LDO} failure with regard to the type and number
-of cycles}
 \label{tab:SetA}
 \end{table}
 
@@ -286,6 +285,7 @@ Similar thermal cycling testing was done to the set A, but in this case, the $\D
 
 \begin{table}[!h]
 \centering
+\caption{Detailed description of the \gls{LDO} failure with regard to the type and number of cycles}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llll}
 Globtop    & Cycles                                                                                                                                                                                                                                                                                  & Failure                                                          & Remarks                                                                              \\ \hline
@@ -294,7 +294,6 @@ DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-20}{\celsius}
 DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\end{tabular}                                                                                                                & 29th cold startup {$\SI{-40}{\celsius}$}   & 1.2V \gls{LDO} failure                                                                     \\ \hline
 \end{tabular}%
 }
-\caption{Detailed description of the \gls{LDO} failure with regard to the type and number of cycles}
 \label{tab:setB}
 \end{table}
 

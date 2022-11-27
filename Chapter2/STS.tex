@@ -67,29 +67,36 @@ The readout chain used in the module or FEBs test is built from two components:
 \caption{CRI board}
 \label{fig_cri_board}
 \end{figure}
-\subsection{DPB based readout chain}
+\subsection{DPB-based readout chain}
 
 \subsection{Tester readout chain}
 \label{tester}
-Another alternative to the two readout chains introduced in the last two sections is so-called GBTxEMU-based tester. It is based on a commercial Artix-7 board (TE-0712, Trenz Electronics Gmbh), and allows emulating GBTX ASIC or the whole CROB. Moreover, it could also be used in an autonomous mode with the addition of VITA  57.1 FMC adapter
+Another alternative to the two readout chains introduced in the last two sections is the so-called GBTxEMU-based tester. It is based on a commercial Artix-7 board (TE-0712, Trenz Electronics Gmbh), and allows emulating GBTX ASIC or the whole CROB. Moreover, it could also be used in an autonomous mode with the addition of VITA  57.1 FMC adapter
 
 \subsection{Cooling}
 \label{cooling}
 \subsection{Powering scheme}
 \label{powering}
 \subsection{Detector enclosure}
-\section{Requirements for the control system} 
-Custom solutions which are applied in the \gls{STS} make the control of this system even more challenging. In fact, the control frameworks needs to be very broad to address that problem.
- The \gls{DCS} for the Silicon Tracking System (\gls{STS}) is being designed taking into consideration the following aspects:
+\section{Requirements for the control system}
+\label{sys:req}
+Custom solutions that are applied in the \gls{STS} make the control of this system even more challenging. Different services are going to have different control needs. In fact, the control frameworks need to be very broad to address that problem.
+A distributed control system should offer remote control, alarm detection, reporting and logging, modeling and simulation, data processing (archiving, retrieval, plotting, conversion, analysis), common time management, access security, and automatic sequencing.
+In addition to that, the \gls{DCS} for the Silicon Tracking System (\gls{STS}) is being designed taking into consideration the following aspects:
+
+ 
  \begin{itemize}
-     \item applications should be easy to run on different operating systems and processor architectures,
-     \item horizontal and vertical scalability, when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/containers,
-     \item it should be possible to integrate a sub-system oriented \gls{EPICS}-based \gls{DCS} with higher-level control structures,
-     \item the system should be highly available, minimizing the downtimes,
-     \item it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
-     \item all parameters/\footnote{In control theory, a process variable is the current measured value of a particular part of a process which is being monitored or controlled}{process variables} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken,
-     \item the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
-     \item there should be reliable means of supervision of processes, containers, and \glspl{IOC}.
+    \item potential control framework should offer the possibility to be able to control a variety of different services, which often have different communication protocols,
+    \item logging, and monitoring - there should be reliable means of supervision of processes, containers, and \footnote{The input/output controller is a device that interfaces between an input or output device and the computer or hardware device}{Input/Output Controllers} (\glspl{IOC}).
+    \item the control software should be horizontally and vertically scalable, when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/containers,
+    \item supervision - it should be possible to integrate a sub-system oriented with higher-level control structures,
+     \item flexible - applications should be easy to run on different operating systems and processor architectures,
+     \item sustainability and support - the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
+     \item reliability - the system should be highly available, minimizing the downtimes,
+     \item network separation - it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
+     \item \glspl{GUI} - all parameters/\footnote{In control theory, a process variable is the current measured value of a particular part of a process which is being monitored or controlled}{process variables} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken,
+       \item supervision - it should be possible to integrate a sub-system oriented with higher-level control structures.
+
  \end{itemize}
 
 

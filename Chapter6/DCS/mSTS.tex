@@ -1,23 +1,23 @@
 %\section{The \gls{mSTS} as the pathfinder for the \gls{STS}}
-The mCBM~\cite{mCBM} is considered a FAIR Phase 0 experiment and the precursor of the \gls{CBM}. The first mCBM campaign took place in 2019 after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, 4 detector modules (8 \glspl{FEB} mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} features 11 detector modules, and it was assembled in order to have a better understanding of the components and the performance of a more complex structure. Completing 11 modules (together with the QA procedures, testing of the STS-XYTER and \gls{FEB}s), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the mCBM experiment and focuses on the \gls{DCS} architecture and gives an introduction to the detector operation. The next sections summarize the assembly of the \gls{mSTS} and its hardware. At last, the results obtained through \gls{DCS} will be discussed. 
+The mCBM~\cite{mCBM} experiment is considered a FAIR Phase 0 experiment and the precursor of \gls{CBM}. The first mCBM campaign took place in 2019 after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, built of 4 detector modules (8 \glspl{FEB}) mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} detector features 11 detector modules, and it was assembled in order to have a better understanding of the components and the operation of a more complex structure. Completing 11 modules (together with the QA procedures, testing of the STS-XYTER and \glspl{FEB}), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the mCBM experiment and focuses on the \gls{DCS} architecture and gives an introduction to the detector operation. The next sections summarize the assembly of \gls{mSTS} and its hardware. At the end, the results obtained through the \gls{DCS} will be discussed. 
 
 \section{mCBM the phase 0 experiment}
-The mCBM aims to test and optimize the performance of the detectors including crucial software and hardware components. The experiment uses beams from SIS18 synchrotron at energies up to 2~AGeV and intensities up to $10^{9}$ ions/s. The test setup is positioned downstream of a solid target with a polar angle of about \SI{25}{\degree} (see figure~\ref{fig_mcbm}).
+The \gls{mCBM} experiment aims to test and optimize the performance of the detectors including crucial software and hardware components. The experiment uses beams from SIS18 synchrotron at energies up to 2~AGeV and intensities up to $10^{9}$ ions/s. The test setup is positioned downstream of a solid target with a polar angle of about \SI{25}{\degree} (see figure~\ref{fig_mcbm}).
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter6/DCS/images/mcbm_2021_setup.png}
-\caption{Schematic view of the mCBM experiment in 2022}
+\caption{Schematic view of the mCBM experiment in 2022.}
 \label{fig_mcbm}
 \end{figure}
 
-The developments of DAQ, First Level Event Selector (\gls{FLES}), or \gls{DCS} will significantly reduce the commissioning time required for the CBM experiment at the SIS100 synchrotron. The mCBM \gls{DAQ} is based on the common readout interface (\gls{CRI}) (see section \ref{DAQ}). Each subsystem uses up to a few \gls{CRI} boards. Apart from exercising the readout chain and \gls{DCS}, the mCBM aims to operate the subsystems in the high-rate nucleus-nucleus collision environment. The development of the readout chain has a significant role, in order to be able to improve the free streaming data acquisition and transport to the computer farm. Furthermore, offline data analysis, online tracking, event reconstruction, and event selection algorithms have been intensively investigated. 
+The development of the \gls{DAQ}, First Level Event Selector (\gls{FLES}), or \gls{DCS} will significantly reduce the commissioning time required for the \gls{CBM} experiment at the SIS100 synchrotron. The \gls{mCBM} \gls{DAQ} is based on the common readout interface (\gls{CRI}) (see section \ref{DAQ}). Each subsystem uses up to a few \gls{CRI} boards. Apart from exercising the readout chain and \gls{DCS}, the mCBM aims to operate the subsystems in the high-rate nucleus-nucleus collision environment. The development of the readout chain has a significant role, in order to be able to improve the free streaming data acquisition and transport to the computer farm. Furthermore, offline data analysis, online tracking, event reconstruction, and event selection algorithms have been intensively investigated. 
 \newpage
-Figure~\ref{fig_STS} depicts the latest \gls{mSTS}, which features 4 units forming 2 tracking stations of 5 ladders, 11 modules, 24 \gls{FEB}s (22 readout \gls{FEB}s + 2 pulser \gls{FEB}s), and 176 readout \gls{ASIC}s. The mentioned pulser \gls{FEB}s are additional boards that are triggered by the beam and were added to the system as a time reference and to check the data flow in the system.  Most of the components used for the assembly of the detector are close to the final ones, therefore the operation of the \gls{mSTS} gives us a perfect opportunity to study the modules in detail.
+Figure~\ref{fig_STS} depicts the latest \gls{mSTS}, which features 4 units forming 2 tracking stations of 5 ladders, 11 modules, 24 \gls{FEB}s (22 readout \gls{FEB}s + 2 pulser \gls{FEB}s), and 176 readout \gls{ASIC}s. The mentioned pulser \gls{FEB}s are additional boards that are triggered by the beam and were added to the system as a time reference and to check the data flow in the system.  Most of the components used for the assembly of the detector are close to the final ones, therefore the operation of the \gls{mSTS} gives us a unique opportunity to study the modules' performance in detail.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/mSTS_mech.png}
-\caption{Mechanical design (right) and simplified geometry of the \gls{mSTS} together with its enclosure (left)}
+\caption{Mechanical design (right) and simplified geometry of the \gls{mSTS} together with its enclosure (left).}
 \label{fig_STS}
 \end{figure}
 
@@ -52,7 +52,7 @@ A breakdown of the \gls{mSTS}'s \gls{DCS} architecture is presented in Figure~\r
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter6/DCS/images/mcbmpng (2).png}
-\caption{A general structure of the \gls{mSTS}'s \gls{DCS} architecture}
+\caption{A general structure of the \gls{mSTS}'s \gls{DCS} architecture.}
 \label{fig_mstsarch}
 \end{figure}
 
@@ -68,7 +68,7 @@ A proposed \gls{FSM} for the \gls{mSTS} can be seen in the figure~\ref{fig_FSM}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter6/DCS/images/FSM.png}
-\caption{Proposed finite state machine for the \gls{mSTS}}
+\caption{Proposed finite state machine for the \gls{mSTS}.}
 \label{fig_FSM}
 \end{figure}
 

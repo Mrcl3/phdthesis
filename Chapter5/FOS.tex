@@ -6,7 +6,7 @@ As described in the section~\ref{fbg}, it's possible to measure the relative hum
 \caption{RH response of the sensors with different coating thicknesses from 23 to 97\%RH at constant room temperature~\cite{YEO_PI}.}
 \label{fig:yeo}
 \end{figure}
-The higher thickness reflects itself also in the increased time response as seen in the figure~\ref{fig:yeo2}. As for the \gls{STS} sensing system, the most crucial scenarios include an uncontrolled change of humidity which should be detected within minutes to conduct necessary actions in the control system. Therefore, the chosen coating thickness is between \SI{15}{\micro\metre} and \SI{20}{\micro\metre}, slightly higher than the first reported distributed sensing system implemented for the \gls{CMS} at \gls{CERN}, where \SI{10}{\micro\metre} were used. 
+The higher thickness reflects itself also in the increased time response as seen in Figure~\ref{fig:yeo2}. As for the \gls{STS} sensing system, the most crucial scenarios include an uncontrolled change of humidity which should be detected within minutes to conduct necessary actions in the control system. Therefore, the chosen coating thickness is between \SI{15}{\micro\metre} and \SI{20}{\micro\metre}, slightly higher than the first reported distributed sensing system implemented for the \gls{CMS} at \gls{CERN}, where \SI{10}{\micro\metre} were used. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter5/images/time_response_yeo.jpg}
@@ -17,7 +17,7 @@ The higher thickness reflects itself also in the increased time response as seen
 In order to do so, two different designs were compared:
 \begin{itemize}
     \item multiplexed version with 5 \glspl{FBG} inscribed in a germanium-doped fiber (see figure~\ref{fig_array_photo}. The polyimide layer was applied in four steps, \SI{5}{\micro\metre} with \SI{1.25}{\micro\metre} uncertainty for each layer. In total the coating thickness was about \SI{20}{\micro\metre}$\pm$\SI{5}{\micro\metre}. The temperature compensation was ensured by a second \gls{FBG} array which measures only temperature (the sensitive part is in epoxy),
-    \item the second design is a hygrometer with temperature and humidity sensors inscribed into one fiber. The coating thickness was chosen to be \SI{15}{\micro\metre}. The tested sensors are depicted in the figure~\ref{fig_single_photo}.
+    \item the second design is a hygrometer with temperature and humidity sensors inscribed into one fiber. The coating thickness was chosen to be \SI{15}{\micro\metre}. The tested sensors are depicted in Figure~\ref{fig_single_photo}.
 \end{itemize}
 
 \begin{figure}[!h]
@@ -37,7 +37,7 @@ In order to do so, two different designs were compared:
 
 \section{Experimental setup}
 \label{fos:setup}
-The devices used to calibrate and characterize the sensors are listed in the figure~\ref{fig:fos_arch}. The sensors were calibrated using a S8000 chilled mirror hygrometer~\cite{michell_s8000}. Additionally, to compare the results two industrial \gls{RH} sensors were used: HYT221 and SHT85 (see section \ref{capacitive_sensors}. The temperature during the testing was controlled by a Binder MKF chamber~\cite{binder} which offers also relative humidity control down to \SI{0}{\celsius}. 
+The devices used to calibrate and characterize the sensors are listed in Figure~\ref{fig:fos_arch}. The sensors were calibrated using a S8000 chilled mirror hygrometer~\cite{michell_s8000}. Additionally, to compare the results two industrial \gls{RH} sensors were used: HYT221 and SHT85 (see section \ref{capacitive_sensors}. The temperature during the testing was controlled by a Binder MKF chamber~\cite{binder} which offers also relative humidity control down to \SI{0}{\celsius}. 
 In general, two calibration methods were used to characterize the \gls{FBG}-based relative humidity sensors. The first method involved the use of different saturated salt solutions:
 \begin{itemize}
     \item lithium chloride - \gls{RH} at \SI{25}{\celsius} 11\%
@@ -56,7 +56,7 @@ Optics sensing interrogators.}{ENLIGHT} software, and a custom \gls{IOC} connect
 \label{fig:fos_arch}
 \end{figure}
 \subsection{Sensors characterization}
-To characterize the sensors and estimate their uncertainty, it's necessary to know the wavelength reflected at the \gls{FBG}. The figure~\ref{fig_hygrometer1} shows an example of the readout of the SI255 device from the hygrometer. What's of interest is the center of the depicted pick and its intensity. To perform an accurate calibration of the sensors, the \gls{RH} and temperature sensitivity factors have to reside in precisely controlled environmental conditions. The climatic chamber offers the temperature control between \SI{-40}{\celsius} and \SI{180}{\celsius}. As both methods to control humidity offer only limited capabilities below \SI{0}{\celsius} for calibration of series production a new custom humidity control system will need to be considered~\cite{Berruti, Veldscholte:2021wjt}. 
+To characterize the sensors and estimate their uncertainty, it's necessary to know the wavelength reflected at the \gls{FBG}. Figure~\ref{fig_hygrometer1} shows an example of the readout of the SI255 device from the hygrometer. What's of interest is the center of the depicted pick and its intensity. To perform an accurate calibration of the sensors, the \gls{RH} and temperature sensitivity factors have to reside in precisely controlled environmental conditions. The climatic chamber offers the temperature control between \SI{-40}{\celsius} and \SI{180}{\celsius}. As both methods to control humidity offer only limited capabilities below \SI{0}{\celsius} for calibration of series production a new custom humidity control system will need to be considered~\cite{Berruti, Veldscholte:2021wjt}. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter5/images/hygr.png}
@@ -86,7 +86,7 @@ In general, the total uncertainty of a \gls{FBG} sensor may consist of many othe
 \label{fbg_results}
 In this section, the efforts to calibrate and characterize the humidity arrays and hygrometers are described in detail. The calibration relied on the Bragg wavelength shift measurements while increasing the \gls{RH} levels at a constant temperature value. This measurement was then repeated for different temperature values. It is a commonly used approach to estimate the humidity and temperature sensitivities~\cite{Berruti}. For the calibration using the saturated salt solutions, the sensors were exposed to the given salt for a prolonged time of about 6 hours. In the second case, the calibration step in the climatic chamber lasted about 2 hours. Keeping the sensors for this time at a constant conditions, ensured that the equilibrium is reached. 
 \subsection{Characterization of RH FOS}
-The test subjects were two hygrometers (\SI{15}{\micro\metre} PI coating) and  5 \gls{RH} sensors (\SI{20}{\micro\metre)} in an array with \SI{15}{\cm}. The spectral response of the sensor in the array can be in the figure~\ref{fig_array_wavelength}. The spectral responses are usually the first sign that the sensors perform correctly. 
+The test subjects were two hygrometers (\SI{15}{\micro\metre} PI coating) and  5 \gls{RH} sensors (\SI{20}{\micro\metre)} in an array with \SI{15}{\cm}. The spectral response of the sensor in the array can be in Figure~\ref{fig_array_wavelength}. The spectral responses are usually the first sign that the sensors perform correctly. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter5/images/rh_array.png}
@@ -102,7 +102,7 @@ The second test involved checking the humidity response in the range (10\% to 80
 \label{fig_response}
 \end{figure}
 \newpage
-Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. The figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Furthermore, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, which is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strain applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
+Figures~\ref{fig_single_calibration} and~\ref{fig_array_calibration} depict the calibration curves of the hygrometer and one of the array sensors. The calibration curves were obtained by changing the humidity values from ~10\% up to 80\% at constant temperatures. The temperature range was from \SI{-20}{\celsius} to about \SI{30}{\celsius}. Figures depict a linear response to the humidity increase at every temperature. The measurements below \SI{0}{\celsius} have a relatively larger uncertainty, due to the limited humidity control and fewer points. Furthermore, the change of temperature results also in the shift of the Bragg wavelength toward smaller values, which is also in acceptance with results from Kronenberg~\cite{Kronenberg:02} and Berruti~\cite{Berruti}. In the array calibration, two curves are missing, because the sensitivity factors had unrealistically high uncertainties. This is most likely caused by an additional strain applied to the sensors after handling. %The issue related to the array is discussed in the next sections.
 
 \begin{figure}[!h]
 \centering
@@ -151,7 +151,7 @@ The average temperature sensitivity $S_\text{T}$ value for the array is $10.25\p
 \end{figure}
 
 \subsection{Calibration with saturated salt solutions}
-The two mentioned hygrometers were also at first tested with the use of the saturated salt solutions method. The details of this approach are given in section~\ref{fos:setup}. The results of these measurements are depicted in the figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 doesn't have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
+The two mentioned hygrometers were also at first tested with the use of the saturated salt solutions method. The details of this approach are given in section~\ref{fos:setup}. The results of these measurements are depicted in Figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 doesn't have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
 
 \begin{figure}[!h]
 \centering

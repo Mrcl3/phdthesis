@@ -50,9 +50,10 @@
 ]{biblatex}
 \addbibresource{refs.bib}  % better than \bibliography
 
-\usepackage[breaklinks=true, colorlinks=true, linkcolor=blue, linktoc=all, pdfborder={0 0 0}]{hyperref} % hyper refs without borders 
+\usepackage[breaklinks=true, colorlinks=no, linkcolor=blue, linktoc=all, pdfborder={0 0 0}]{hyperref} % hyper refs without borders 
 
 \usepackage[utf8]{inputenc}
+\usepackage[basic,italic,defaultimath,nohbar,defaultmathsizes]{mathastext}
 \usepackage[main=english, greek]{babel}
 \usepackage{scrhack}
 \usepackage{xcolor}
@@ -67,7 +68,7 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage[nottoc,numbib,notlot]{tocbibind}
-
+\usepackage{multirow}
 \usepackage{multicol}
 \usepackage{url}
 \usepackage{float}
@@ -184,7 +185,7 @@
 
 
 \begin{document}
-
+\frontmatter
 \input{Titlepage.tex}
 \input{backpage.tex}
 \input{ToC.tex}
@@ -209,6 +210,7 @@
 \chapter*{Abstract}
 \chapter*{Kurzfassung}
 %\input{Documents/acnowledgements.tex}
+\mainmatter
 \chapter{Introduction}
 \label{chap:intro}
 \input{Chapter1/physics.tex}
@@ -217,7 +219,7 @@
 \chapter{The STS and its role in the CBM experiment}
 \label{chap:CBM_STS}
 \input{Chapter2/STS.tex}
-\chapter{The DCS, an important part of the online systems}
+\chapter{DCS, an important part of the online systems}
 \label{chap:online_systems}
 \input{Chapter3/Controls/ECS.tex}
 \input{Chapter3/Controls/DCS.tex}
@@ -230,17 +232,18 @@
 \input{Chapter4/monitoring.tex}
 \input{Chapter4/irradiation.tex}
 \input{Chapter4/cycling.tex}
-\chapter{Solutions for humidity and temperature monitoring in the STS}
-\label{chap:sts}
+\chapter{Solutions for humidity monitoring in the STS}
+\label{chap:fos}
 \input{Chapter5/Overview.tex}
 \input{Chapter5/FOS.tex}
 \input{Chapter5/chosen_sensors.tex}
-\chapter{The mSTS as the pathfinder for the DCS}
+\chapter{mSTS as the pathfinder for the DCS}
 \label{chap:msts}
 \input{Chapter6/DCS/mSTS.tex}        
 \input{Chapter6/DCS/operation.tex}
 \chapter{Summary and overview}
 \label{chap:last}
+\input{Chapter7/summary.tex}
 \input{Chapter7/Orchestration.tex}
 %\chapter{On the way to the Silicon Tracking System}
 %\label{chap:outlook}

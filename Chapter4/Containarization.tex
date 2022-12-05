@@ -9,7 +9,7 @@ IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collab
 \label{fig_ioc1}
 \end{figure}
 \newpage
-A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in the Figure~\ref{fig_doc}. Every container is assigned an IP address for every Docker network it connects to. Each network has a default subnet mask and gateway. In order to connect the \gls{IOC} with other services, the ports used by \gls{EPICS} (5064, 5065 for channel access protocol and 7064, 7065 for PVAccess) need to be exposed.  The deployed containers use the host network to communicate with each other and other nodes.
+A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in Figure~\ref{fig_doc}. Every container is assigned an IP address for every Docker network it connects to. Each network has a default subnet mask and gateway. In order to connect the \gls{IOC} with other services, the ports used by \gls{EPICS} (5064, 5065 for channel access protocol and 7064, 7065 for PVAccess) need to be exposed.  The deployed containers use the host network to communicate with each other and other nodes.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter4/images/docker_run.jpg}

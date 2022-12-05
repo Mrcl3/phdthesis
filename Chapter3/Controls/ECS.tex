@@ -16,8 +16,8 @@ The readout hardware is connected to the farm via custom-developed optical links
 %\newpage
 \section{Controlling a HEP experiment}
 
-High energy physics experiments require complex control systems which are crucial to the successful operation of the installment. Proper implementation of such systems ensures higher safety margins and enhanced data production quality. In general the whole system should be robust, partitioned, modular, distributed, mobile, highly available. Similar topics were also considered while designing the \gls{STS}'s control system in section 
-Figure \ref{fig_sim} depicts the targeted controls architecture of the future \gls{CBM} experiment. It consists of different \footnote{A software agent is a persistent, goal-oriented computer program}{software agents} with clearly defined tasks. During the Phase - 0 experiment of the \gls{CBM} (\gls{mCBM}) some parts of the future \gls{ECS} were tested. The respective parts of the controls have been tested in a standalone mode, which means that there hasn't been any structured communication between \gls{DCS}, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}). Nevertheless, for the final experiment the detector control system should provide the information on the detector state to the agent(s) residing at a higher position in the control hierarchy, and also request the state of the~\gls{DAQ}.
+High energy physics experiments require complex control systems, which are crucial to the successful operation of the installation. Proper implementation of such systems ensures higher safety margins and enhanced data production quality. In general the whole system should be robust, partitioned, modular, distributed, mobile, highly available. Similar topics were also considered while designing the \gls{STS}'s control system in section 
+Figure \ref{fig_sim} depicts the targeted controls' architecture of the future \gls{CBM} experiment. It consists of different \footnote{A software agent is a persistent, goal-oriented computer program}{software agents} with clearly defined tasks. During the Phase - 0 experiment of the \gls{CBM} (\gls{mCBM}) some parts of the future \gls{ECS} were tested. The respective parts of the controls have been tested in a standalone mode, which means that there hasn't been any structured communication between \gls{DCS}, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}). Nevertheless, for the final experiment the detector control system should provide the information on the detector state to the agent(s) residing at a higher position in the control hierarchy, and also request the state of the~\gls{DAQ}.
 
 \newpage
 \begin{figure}[!h]
@@ -30,7 +30,7 @@ Figure \ref{fig_sim} depicts the targeted controls architecture of the future \g
  In the next sections, the main features of the control agents are discussed, in particular those that can influence \gls{DCS} (Partition Control Agent (\gls{PCA}), System Control Agent (\gls{SCA}), and \gls{DCA}). Apart from the mentioned agents, the following components are expected to run: 
  \begin{itemize}
      \item Logging and monitoring system - state or configuration changes should be documented for possible revision,
-     \item First Event Selector network - \gls{DAQ} software controlling the data readout and timeslice building,
+     \item First Level Event Selector network (FLESnet) - \gls{DAQ} software controlling the data readout and timeslice building,
      \item Online processing - software receiving the data from the FLESnet and processing it,
      \item Time and Fast Control (\gls{TFC}) - hardware source of timing information.
  \end{itemize}
@@ -43,27 +43,15 @@ The \glspl{PCA} also hold internal instances of the necessary System Control Age
  \item holding a copy of the current state of the \gls{SCA},
  \item periodic ping of the \gls{SCA} to ensure early disconnection detection,
  \item sending requests to the \gls{SCA} and receiving the replies,
- \item monitoring the \gls{SCA} broadcast channel for unexpected/unrequested state changes.
+ \item monitoring the \gls{SCA} broadcast channel for unexpected state changes.
 \end{itemize}
 
-These should not be confused with the \gls{SCA}, which are in separate processes (the list will be dynamic and generic at \gls{PCA} level, and can depend on the systems participating in the readout activities):
+These should not be confused with the \gls{SCA}, which are in separate processes (the list will be dynamic and generic at \gls{PCA} level, and can depend on the systems participating in the readout activities): \gls{BMON}, \gls{MVD}, \gls{STS}, \gls{RICH}, \gls{MUCH}, \gls{TOF}, \gls{PSD}. 
 
-\begin{itemize}
- \item Time zero (T0), also known as Start Detector or Beam Monitor \gls{BMON})
- \item Micro-Vertex Detector (\gls{MVD})
- \item Silicon Tracking System (\gls{STS})
- \item Ring Imaging CHerenkov (\gls{RICH})
- \item MUon CHambers (\gls{MUCH})
- \item Transition Radiation Detector (\gls{TRD})
- \item Time Of Flight (\gls{TOF})
- \item Beam Fragment Timing Counter (\gls{BFTC})
- \item Projectile Spectators Detector (\gls{PSD})
-\end{itemize}
-
-The SCA is the first detector supervisory layer which contains the current information about the state of the \gls{DAQ} and \gls{DCS}. Its role with division into the underlying systems is discussed in the next subsection.
+The SCA is the first detector supervisory layer, which contains the current information about the state of the \gls{DAQ} and \gls{DCS}. Its role with division into the underlying systems is discussed in the next subsection.
 
 \subsection{System Control Agent and its role}
-The subsystem-specific \gls{SCA} should manage communication both with the detector-specific agents and with the higher supervisory entities of the \gls{ECS}. Furthermore, the \gls{SCA} should provide higher control levels with the global state whenever it's requested, handle any changes reported by a detector (tracking the state), and provide an interface for the shift crew to monitor the state of the system. 
+The subsystem-specific \gls{SCA} should manage communication both with the detector-specific agents and with the higher supervisory entities of \gls{ECS}. Furthermore, \gls{SCA} should provide higher control levels with the global state whenever it's requested, handle any changes reported by a detector (tracking the state), and provide an interface for the shift crew to monitor the state of the system. 
 
 Two main links of the \gls{SCA} include:
 \begin{itemize}

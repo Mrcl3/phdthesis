@@ -54,7 +54,7 @@ To communicate with devices, an \gls{IOC} uses so-called device support. The mos
 \begin{itemize}
     \item StreamDevice is a generic EPICS device support for devices with a "byte stream" based communication interface. That means devices that can be controlled by sending and receiving strings (in the broadest sense, including non-printable characters and even null bytes). Examples of this type of communication interface are serial line (RS-232, RS-485, ...), IEEE-488 (also known as GPIB or HP-IB), and telnet-like TCP/IP \cite{StreamDevice},
     \item devModbus \cite{modbus} - includes support for three Modbus standards (TCP, RTU, ASCII), used for control of climatic chambers in the \gls{STS} group,
-    \item asynDriver \cite{asyn} - asynchronous driver support, which is an interface that implements a device-specific code to low-level communication drivers. Together with the StreamDevice it's the most commonly used one in the \gls{mSTS}. 
+    \item asynDriver \cite{asyn} - asynchronous driver support, which is an interface that implements a device-specific code to low-level communication drivers. Together with the StreamDevice it's the most commonly used one in \gls{mSTS}. 
 \end{itemize}
 
 Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring of the software components may be challenging if the system is built out of several nodes. Containers are a handy tool to tackle these issues. 

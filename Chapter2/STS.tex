@@ -1,15 +1,14 @@
 
-\section{Overview of the Silicon Tracking System}
-\subsection{Role of the tracker}
-\subsection{Silicon Sensors}
+\section{Overview of the Silicon Tracking System (STS)}
+\subsection{Role of the semiconductors based detector - vertexing and tracking}
+\subsection{Highlights of the double-sided microstrip silicon sensors}
 \label{sensors}
-One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature as per equation \ref{Sil:temp} \cite{Hartmann:2017gzy}.
+Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature, as per equation \ref{Sil:temp}~\cite{Hartmann:2017gzy}.
 
 \begin{equation}
 \label{Sil:temp}
     I_{R}(T) \propto T^{2}e^{\frac{-E}{2kT}}
 \end{equation}
-
  By assuming that one of the  temperature sensors at a similar height as the silicon sensors mimics their temperature. This assumption clearly doesn't consider several effects like silicon sensors' self-heating. Nevertheless, it allows us to scale down leakage current to $20\,^{\circ}$C using the equation \ref{Sil:scal}.
  
 \begin{equation}
@@ -20,7 +19,7 @@ One of the important parameters of the silicon sensor is leakage current, which 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter2/images/Leakage_current.png}
-\caption{The first proposition of the CBM readout chain based on separate DPB and FLIB boards \cite{CRI}}
+\caption{Fluence estimations based on the Hamburg model.}
 \label{fig_leakage}
 \end{figure}
 
@@ -34,12 +33,23 @@ One of the important parameters of the silicon sensor is leakage current, which 
 
 
 \subsection{Module}
-\subsection{STS-XYTER}
-\subsection{Front End Boards}
 \label{module}
-\subsection{Readout chains}
+\subsection{The readout chain of the STS}
 \label{readout}
 \label{DAQ}
+\subsubsection{STS-XYTER}
+
+\subsubsection{Front-end boards (FEB)}
+
+\subsubsection{Readout board (ROB)}
+
+\subsubsection{Common Readout Interface (CRI)}
+\subsection{Alternative readout chains for testing purposes}
+
+\subsection{DPB-based readout chain}
+
+\subsection{Tester readout chain}
+
 There are three main readout chains that have been exercised for different detector development activities.  
 The readout chain used in the module or FEBs test is built from two components: 
 \begin{enumerate}
@@ -67,18 +77,17 @@ The readout chain used in the module or FEBs test is built from two components:
 \caption{CRI board}
 \label{fig_cri_board}
 \end{figure}
-\subsection{DPB-based readout chain}
 
-\subsection{Tester readout chain}
 \label{tester}
 Another alternative to the two readout chains introduced in the last two sections is the so-called GBTxEMU-based tester. It is based on a commercial Artix-7 board (TE-0712, Trenz Electronics Gmbh), and allows emulating GBTX ASIC or the whole CROB. Moreover, it could also be used in an autonomous mode with the addition of VITA  57.1 FMC adapter
-
-\subsection{Cooling}
-\label{cooling}
-\subsection{Powering scheme}
+\subsection{Powering schematics of the detector}
 \label{powering}
-\subsection{Detector enclosure}
-\section{Requirements for the control system}
+\subsection{Cooling concept for the STS's electronics and silicon sensors}
+\label{cooling}
+
+\subsection{Detector enclosure and its importance}
+\section{System safety and the consequences}
+\subsection{Requirements for the control system}
 \label{sys:req}
 Custom solutions that are applied in \gls{STS} make the control of this system very challenging. Different services imply different control solutions which need to be implemented.
 A distributed control system should offer remote control, alarm detection, reporting and logging, modeling and simulation, data processing (archiving, retrieval, plotting, conversion, analysis), common time management, access security, and automatic \footnote{Sequencing, also known as sequential control, it controls the device in a pre-determined order.}{sequencing}.
@@ -94,8 +103,8 @@ In addition to that, the \gls{DCS} for the Silicon Tracking System (\gls{STS}) i
      \item sustainability and support - the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
      \item reliability - the system should be highly available, minimizing the downtimes,
      \item network separation - it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
-     \item \glspl{GUI} - all parameters/\footnote{In control theory, a process variable is the currently measured value of a particular part of a process which is being monitored or controlled}{process variables} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken,
+     \item \glspl{GUI} - all parameters/\footnote{In control theory, a process variable is the currently measured value of a particular part of a process which is being monitored or controlled}{process variables} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk and what actions need to be taken.
 
  \end{itemize}
-
+\newpage
 

@@ -1,25 +1,26 @@
 
-As mentioned in the previous chapter, the \gls{CBM} will face an unprecedented interaction rate in high-energy physics experiments (up to $10^{7}$~events/s). That number sets also a clear requirement for the detector systems and their corresponding data acquisition. Due to the huge quantity of incoming data which is closely connected to the storage size, certain design decisions had to be made in order to reduce the raw data coming from the subsystems. 
+As mentioned in the previous chapter, the \gls{CBM} will face an unprecedented interaction rate in high-energy physics experiments (up to $10^{7}$~events/s). That number also sets a clear requirement for the detector systems and their corresponding data acquisition. Due to the huge quantity of incoming data which is closely connected to the storage size, certain design decisions had to be made in order to reduce the raw data coming from the subsystems. 
 
 The decay topologies required for the reconstruction of the collisions imply a long trigger latency~\cite{Friese_2017}. In order to realize a complex trigger logic and reduce the data amount, the raw data needs to be evaluated in software on \glspl{CPU} and/or \glspl{GPU} level. The self-triggered readout system implies that the association of data from different detectors to physical collision events must be based solely on their timestamp, which is generated in the frond-end electronic (\gls{FEE}) circuitry. As a result, a central timing system must synchronize the \gls{FEE} elements to sub-nanosecond precision. On the other hand, the typical "event building" action and the high-level trigger are transitioned to the \gls{FLES} ("First-level Event Selector") online compute farm. 
 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\columnwidth]{Chapter3/Controls/images/online.png}
-\caption{Schematics of the CBM readout systems}
+\includegraphics[width=0.7\columnwidth]{Chapter3/Controls/images/online.png}
+\caption{Schematics of the CBM readout systems.}
 \label{fig_controls}
 \end{figure}
 
 \newpage
 The readout hardware is connected to the farm via custom-developed optical links that manage clock and time distribution, data transfer, and control communication. The Common Readout Interface (\gls{CRI}) connects the links to the online farm. The \gls{CRI} forwards the clock and time information obtained from the Timing and Fast Control (\gls{TFC}) system to the detector \gls{FEE}, and also converts the data received from the detector. Figure~\ref{fig_controls} shows the schematic view of the controls and data acquisition chain of the \gls{CBM} experiment. The Experiment Control System (\gls{ECS}) highlighted in red is also the supervisory structure of the Detector Control System (\gls{DCS}) which controls and monitors the subsystems. The next sections focus on the software components related to the \gls{ECS}, and a detailed explanation of the experiment control with its design. The main focus is put on the \gls{DCS}. An introduction to the modern control system frameworks is given, together with a detailed explanation of the functionalities of the specific software components. 
 %\newpage
-\section{Controlling a HEP experiment}
+\section{Controlling a High Energy Physics (HEP) experiment}
 
-High energy physics experiments require complex control systems, which are crucial to the successful operation of the installation. Proper implementation of such systems ensures higher safety margins and enhanced data production quality. In general the whole system should be robust, partitioned, modular, distributed, mobile, highly available. Similar topics were also considered while designing the \gls{STS}'s control system in section 
+High-energy physics experiments require complex control systems, which are crucial to the successful operation of the installation. Proper implementation of such systems ensures higher safety margins and enhanced data production quality. In general, the whole system should be robust, partitioned, modular, distributed, mobile, and highly available. Similar topics were also considered while designing the \gls{STS}'s control system.
+
 Figure \ref{fig_sim} depicts the targeted controls' architecture of the future \gls{CBM} experiment. It consists of different \footnote{A software agent is a persistent, goal-oriented computer program}{software agents} with clearly defined tasks. During the Phase - 0 experiment of the \gls{CBM} (\gls{mCBM}) some parts of the future \gls{ECS} were tested. The respective parts of the controls have been tested in a standalone mode, which means that there hasn't been any structured communication between \gls{DCS}, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}). Nevertheless, for the final experiment the detector control system should provide the information on the detector state to the agent(s) residing at a higher position in the control hierarchy, and also request the state of the~\gls{DAQ}.
 
-\newpage
+%\newpage
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\columnwidth]{Chapter3/Controls/images/AgentsRelations_V2.pdf}
@@ -34,7 +35,7 @@ Figure \ref{fig_sim} depicts the targeted controls' architecture of the future \
      \item Online processing - software receiving the data from the FLESnet and processing it,
      \item Time and Fast Control (\gls{TFC}) - hardware source of timing information.
  \end{itemize}
-\section{Experiment Control System}\label{sssAgents}
+\section{Experiment Control System and its structure}\label{sssAgents}
 
 The highest supervisory element of the control strategy is the Experiment Control Agent (\gls{ECA}). It is the top layer of the \gls{ECS} core, which should be constantly running and keeping track of the  partitions, the systems in partitions, and the systems out of partitions. Partition is a component of the \gls{ECS} describing the combined state of a set of detector systems participating in a common readout. It is used to segment the readout and data flow. It also manages the states of "Central systems," which do not have partition-level states (e.g. \gls{TFC}, \gls{FLES} in case it does not use internal partitions).  It provides the address and port required by agents to establish the \footnote{asynchronous messaging library \cite{zeromq}.}{0MQ} \footnote{A socket is used by a client to send requests to and receive replies from a service}{sockets.} and build the \gls{ECS} structure upon request. The \gls{PCA}, is the bottom layer of the \gls{ECS}, which tracks the state and controls a set of detector systems plus all needed central systems. Multiple partitions can run concurrently, potentially allowing for parallel runs with independent detector system sets. 
 

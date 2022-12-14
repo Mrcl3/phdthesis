@@ -5,7 +5,7 @@ IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collab
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter4/images/epics_ioc.jpg}
-\caption{EPICS 7.0.3.1 based \gls{IOC} image}
+\caption{Schematic view of the EPICS 7.0.3.1 based \gls{IOC} image and the most commonly used modules.}
 \label{fig_ioc1}
 \end{figure}
 \newpage
@@ -13,12 +13,12 @@ A general idea of a containerized \gls{EPICS} \gls{IOC} is presented in Figure~\
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter4/images/docker_run.jpg}
-\caption{General idea of an \gls{IOC} in the container}
+\caption{A general idea behind the containerization of an \gls{IOC}.}
 \label{fig_doc}
 \end{figure}
 %\newpage
-\section{Docker}
-Docker was chosen as the platform to prepare the images and run the containers. One of the features of docker has been considered risky for the operation of the detector/experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector - e.g. killing the container. A compromised node can also endanger other nodes in the network.  Since late 2020 it's possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating the risk.
+\section{Containerization platform - Docker}
+Docker was chosen as the platform to prepare the images and run the containers. One of the features of docker has been considered risky for the operation of the detector/experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised, it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector - e.g. killing the container. A compromised node can also endanger other nodes in the network.  Since late 2020 it's possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating the risk.
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.8\columnwidth]{sections/images/docker.png}

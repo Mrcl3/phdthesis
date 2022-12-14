@@ -8,10 +8,9 @@ EPICS is a set of tools and applications which provide a software infrastructure
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter3/Controls/images/EPICS.png}
-\caption{EPICS working principle}
+\caption{EPICS working principle. The servers provide the \glspl{PV} via the channel access protocol to the others clients in the network.}
 \label{fig_EPICS}
 \end{figure}
-\newpage
 
 As described in Figure \ref{fig_EPICS}, the system uses client/server and publish/subscribe approaches to communicate between different devices/nodes. Most servers, called Input/Output Controllers (\gls{IOC}) perform \footnote{ I/O task is anything which the CPU can't perform on its own, and has to rely on other components}{I/O} and local control tasks and publish this information to clients via dedicated protocols Channel Access and/or pvAccess \cite{EPICS}. 
 
@@ -30,7 +29,7 @@ As described in Figure \ref{fig_EPICS}, the system uses client/server and publis
     \item Alarm server,
     \item Save and restore.
 \end{itemize}
-\newpage
+%\newpage
 More details about these applications and their use will be provided in the next sections. Although Phoebus proved to be easy to use and implement new operator screens, there are also alternatives that could provide similar functionalities:
 \begin{itemize}
     \item Bluesky Project (Python-based set of libraries \cite{Bluesky}),
@@ -38,7 +37,7 @@ More details about these applications and their use will be provided in the next
     \item Channel Access Tools - MEDM, \gls{ALH}, \gls{AR} etc. 
 \end{itemize}
 
-\subsection{EPICS architecture and IOC}
+\subsection{EPICS architecture and input/output controller (IOC)}
 The core elements of the systems are the \glspl{IOC}, which provides control logic for the connected hardware. The \gls{IOC} uses channel access and/or PVAccess to communicate with clients and contains also the following components\cite{IOC}:
 \begin{itemize}
     \item \gls{IOC} database -  a memory resident database containing a set of named records of various types \cite{IOC2},
@@ -58,7 +57,7 @@ To communicate with devices, an \gls{IOC} uses so-called device support. The mos
 \end{itemize}
 
 Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring of the software components may be challenging if the system is built out of several nodes. Containers are a handy tool to tackle these issues. 
-\newpage
+%\newpage
 Besides, this technology has many advantages:
 \begin{itemize}
     \item standardized, what makes it portable anywhere,

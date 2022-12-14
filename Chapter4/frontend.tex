@@ -13,19 +13,19 @@ All the applications in figure~\ref{fig_dcs_node_msts} applications were used as
 \newpage
 \subsection{Control System Studio and Phoebus}
 
-Control System Studio (\gls{CSS}) consists of open-source Java applications and modules which can be used in constructing a control system. Phoebus is an update to the \gls{CSS} and significantly improves its performance by removing dependencies on Eclipse RCP. Phoebus uses both channel access protocol and \gls{PV} access and it offers graphically based applications to access \gls{EPICS} \glspl{PV}, \glspl{OPI}, PVs history, etc. An example of a chiller \gls{GUI} is depicted in figure~\ref{fig_lauda1}. One of the main features of Phoebus is its modular nature. Users can develop and add their products or just include or exclude applications or configurations. 
+Control System Studio (\gls{CSS}) consists of open-source Java applications and modules which can be used in constructing a control system. Phoebus is an update to the \gls{CSS}, and significantly improves its performance by removing dependencies on Eclipse RCP. Phoebus uses both channel access protocol and \gls{PV} access, and it offers graphically based applications to access \gls{EPICS} \glspl{PV}, \glspl{OPI}, PVs history, etc. An example of a chiller \gls{GUI} is depicted in figure~\ref{fig_lauda1}. One of the main features of Phoebus is its modular nature. Users can develop and add their products, or just include or exclude applications or configurations. 
 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.92\columnwidth]{Chapter4/images/lauda1.png}
-\caption{An example of a detector system \gls{GUI}.}
+\includegraphics[width=1\columnwidth]{Chapter4/images/lauda1.png}
+\caption{An example of a detector system \gls{GUI} for a cooling unit.}
 \label{fig_lauda1}
 \end{figure}
 
 \newpage
-\subsection{Archiver Solutions} \label{archiver}
-An Archiver serves as one of the main building blocks of the \gls{DCS}, as it allows not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for \gls{STS} is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle a system administrator can adjust these settings to the needs of the specific case. The  four \footnote{An Open source web server by the Apache foundation}{Tomcat containers } are employed to handle the tasks of the archiver.  
+\subsection{Solutions for archiving the data} \label{archiver}
+An Archiver serves as one of the main building blocks of the \gls{DCS}, as it allows not only to look up the history of a given record, but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for \gls{STS} is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle, a system administrator can adjust these settings to the needs of the specific case. The  four \footnote{An Open source web server by the Apache foundation}{Tomcat containers} are employed to handle the tasks of the archiver.  
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.7\columnwidth]{Chapter4/images/applarch.png}
@@ -49,19 +49,19 @@ Apart from the Archiver appliance, there are also alternative solutions:
     \item RDB Archive engine \cite{rdb_archive}.
 \end{itemize}
 
-\subsection{Alarm server}
-An alarm server monitors a chosen set of \glspl{PV}, including their alarm state. \gls{EPICS} records facilitate fields related to the alarm thresholds and their severity, evaluated each time the record is processed. Every numeric value could have two uppers and two lower boundaries, with assigned severities (NO\_ALARM, MINOR, MAJOR). \gls{EPICS} by itself doesn't take any actions on the detector's hardware when the alarm threshold is exceeded. On the other hand, a Phoebus-based \gls{GUI} will change the font color (MINOR - orange, MAJOR - red) of the variable once the alarm appears. If the connection to the alarm server exists, then the server acts upon a change in the alarm status of a record. The user interfaces show alarms, allow acknowledgment, and provide guidance and helpful links. Apache Kafka is a distributed event store and stream-processing platform which serves as a communication bus between the alarm server and Phoebus. An example of the \gls{mSTS}'s alarm handling \gls{GUI} is depicted in Figure~\ref{fig_alarm1}. It provides not only a visual notification of an alarm but also guidance, displays, and commands.
+\subsection{Alert communication with alarm server}
+An alarm server monitors a chosen set of \glspl{PV}, including their alarm state. \gls{EPICS} records facilitate fields related to the alarm thresholds and their severity, evaluated each time the record is processed. Every numeric value could have two uppers and two lower boundaries, with assigned severities (NO\_ALARM, MINOR, MAJOR). \gls{EPICS} by itself, doesn't take any actions on the detector's hardware when the alarm threshold is exceeded. On the other hand, a Phoebus-based \gls{GUI} will change the font color (MINOR - orange, MAJOR - red) of the variable once the alarm appears. If the connection to the alarm server exists, then the server acts upon a change in the alarm status of a record. The user interfaces show alarms, allow acknowledgment, and provide guidance and helpful links. Apache Kafka is a distributed event store and stream-processing platform which serves as a communication bus between the alarm server and Phoebus. An example of the \gls{mSTS}'s alarm handling \gls{GUI} is depicted in Figure~\ref{fig_alarm1}. It provides not only a visual notification of an alarm but also guidance, displays, and commands.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter4/images/alarms.png}
-\caption{Phoebus alarm handler view -  top left part some \gls{GUI}s, the top right part is the alarm table showing the current and acknowledged alarms, bottom left features a color status of respective nodes (e.g. cooling), bottom right shows the latest entries in the log}
+\caption{Phoebus alarm handler view -  top left part some \gls{GUI}s, the top right part is the alarm table showing the current and acknowledged alarms, bottom left features a color status of respective nodes (e.g. cooling), bottom right shows the latest entries in the log.}
 \label{fig_alarm1}
 \end{figure}
 \newpage
-\subsection{Alarm logging}
+\subsection{State and commands logging}
 Logging is another important part of the \gls{DCS}. It allows monitoring and checking of all the changes in the configuration and alarms of all the process variables. Thanks to the logs acquired by the dedicated service, debugging becomes much easier. The alarm logging service enables the logging of: configuration changes, state changes logging, and commands. Similarly to the alarm server, it uses Apache Kafka for data transfer. Apart from the logs, there is also a \gls{GUI} available in the Phoebus \cite{alarm_logger}, an operator can also use the \footnote{source-available data visualization dashboard software }{Kibana} web interface to discover patterns and trends in the data. 
 
-\subsection{Finite state machine}
+\subsection{Finite state machine as an automation and safety mechanism}
 A finite state machine (\gls{FSM}) is a construct that defines states and transitions between these states. In a given moment it has a clearly defined state and a given set of rules and conditions apply to this state. An input issued by an operator or automatically by a sensor(s) could trigger a transition. All transitions are unidirectional, but it's possible to define two opposite transitions, e.g. entering and escaping the error state. 
 \newpage
 One of the possibilities to implement a \gls{FSM} is to use Sequencer, which is a State Notation Language based on C/C++. 

@@ -1,6 +1,6 @@
 
 \section{Overview of the CBM experiment}
-\gls{CBM} is a fixed target experiment which aims to measure rare particles as probes of the dense matter with a very good precision at beam energies up to 12~AGeV. It is well positioned to explore many facets of \gls{QCD} matter, and to discover new exotic states (in combination with \gls{PANDA} experiment). In addition, it will be able to explore the equation of state at densities and temperatures close to those probed by neutron star mergers. The \gls{CBM} aims to study the following physics phenomenon:
+\gls{CBM} is a fixed target experiment that aims to measure rare particles as probes of dense matter with very good precision at beam energies up to 12~AGeV. It is well positioned to explore many facets of \gls{QCD} matter and to discover new exotic states. In addition, it will be able to explore the equation of state at densities and temperatures close to those probed by neutron star mergers. The \gls{CBM} aims to study the following physics phenomenon:
 \begin{enumerate}
     \item the equation of state of baryonic matter at neutron star densities,
     \begin{itemize}
@@ -71,27 +71,21 @@ The experiment consists of the following detectors:
 
  \textbf{Silicon Tracking System} \gls{STS} which is responsible for tracking of charged particles and measuring their momentum. The \gls{STS} is located inside a superconducting dipole magnet~\cite{Malakhov:109025},
  
-\textbf{Muon Chamber System} \gls{MUCH} is the fourth subsystem of the \gls{CBM} experiment. It is dedicated to muon detection and track reconstruction.
+\textbf{Muon Chamber System} \gls{MUCH} is the fourth subsystem of the \gls{CBM} experiment. It is dedicated to muon detection (for example rare particles decaying into muons like $J/\psi$) and track reconstruction. This concept is based on layered design of the hadron absorbers (5 layers), separated with tracking detector planes which are based on Gas Electron Multiplication (\gls{GEM}) and Resistive Plate Chambers (\gls{RPC}) detectors~\cite{MUCH}.
 
-\textbf{Ring Imaging Cherenkov Detector} \gls{RICH}
+\textbf{Ring Imaging Cherenkov Detector} \gls{RICH} is responsible for electron identification via Cherenkov radiation~\cite{RICH}. It allows separating electrons from pions up to 8 GeV/c. The detector consists of \SI{1.7}{\metre} long $CO_{2}$ gas radiators with pion threshold for Cherenkov radiaiton of 4.65 GeV/c, two arrays of mirrors and photon detector planes. Due to the substantial material budget in front of the RICH detector, central Au + Au collisions at 25 AGeV beam energy exhibit on the order of 100 rings. However, models predict that a pion suppression on the level of 500 will be accomplished thanks to the high granularity (about 55 000 channels) and high number of photons per ring~\cite{RICH}.
 
-\textbf{Transition Radiation Detector} \gls{TRD}
+\textbf{Transition Radiation Detector} \gls{TRD} to suppress pions and to support track reconstruction with 9-10 detector layers grouped into 3 stations. It is placed from approximately \SI{4}{\metre} to \SI{9}{\metre} downstream of the target, and the total active area reaches \SI{600}{\square\metre}. 
 
-\textbf{Time-of-Flight Detector} \gls{TOF}
+\textbf{Time-of-Flight Detector} \gls{TOF} is designed to identify hadrons
+
+\textbf{Projectile Spectator Detector} \gls{PSD} determines the collision centrality and event plane
+
+There are three operational scenarios of the \gls{CBM} experiment. 
+The first one called 'hadron' scenario involves using MVD, STS, TRD, TOF and PSD. The 'muon' scenario employs additionally MUCH and the 'electron' scenario features RICH instead of MUCH. 
 
 
-\textbf{Projectile Spectator Detector} \gls{PSD}
-
-
-
-To read:
-
-For muon measurements, the RICH will be replaced by a Muon Chamber (MuCh) system. The MuCh consists of one hadron absorber made of graphite, followed by up to four iron plates, with muon tracking detector triplets behind each absorber. The circular detector triplets behind the first two absorbers, where the particle rate still is up to 500 kHz/cm2, are composed of 18 and 20 trapezoidal Gas Electron
-Multiplier (GEM) detectors per layer. The third and fourth triplet, where the particle rate is decreased to about 15 and 4 kHz/cm2, will be built from single-gap RPC detectors with low-resistivity Bakelite electrodes.
-
-Behind the fifth iron absorber, the muons will be tracked by the TRD and finally identified by the TOF. The event characterization, that is, the determination of the reaction plane angle and the centrality, will be performed by the Project Spectator Detector (PSD), a segmented hadron calorimeter located about 10 m downstream of the target.
-
-For the high-rate CBM experiment, the data read-out and acquisition system plays a crucial role. As mentioned above, the time-stamped signals will be read out without event correlation and transferred to a high-performance computing farm, the GSI GreenIT Cube, where online event reconstruction and selection are performed by high-speed algorithms. In the first step, the tracks of the charged particles were reconstructed from the space and time information of the various detector signals. In a second step, the particles will be identified, taking into account secondary decay vertices and information of RICH or MuCh, TRD, and TOF. Finally, the particles will be grouped into events, which will be selected for storage if they contain important observable. In parallel, the event is characterized using information from the PSD.
+For the high-rate CBM experiment, the data read-out and acquisition system plays a crucial role. As mentioned above, the time-stamped signals will be read out without event correlation and transferred to a high-performance computing farm, the GSI GreenIT Cube, where online event reconstruction and selection are performed by high-speed algorithms. In the first step, the tracks of the charged particles were reconstructed from the space and time information of the various detector signals. In a second step, the particles will be identified, taking into account secondary decay vertices and information of RICH or MuCh, TRD, and TOF. Finally, the particles will be grouped into events, which will be selected for storage if they contain important observables. In parallel, the event is characterized using information from the PSD.
 
 
 

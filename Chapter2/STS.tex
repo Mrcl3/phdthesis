@@ -1,10 +1,61 @@
 
 \section{Overview of the Silicon Tracking System (STS)}
-The physics observables defined in the previous chapter define the requirements for the tracking system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. The detector has to work for with ion beam energies from 2 to 14 AGeV (protons 39 GeV). In addition to that, a very high interaction rates 10~MHz result in up to 700 tracks per central Au+Au collision in the aperture of \SI{2.5}{\degree} < $\theta$ < \SI{25}{\degree}.
-STS is the main tracking detector of the \gls{CBM} experiment. The system is designed to operate in the magnetic field of \SI{1}{\tesla\metre}
-\subsection{Role of the semiconductors based detector - vertexing and tracking}
-\subsection{Highlights of the double-sided microstrip silicon sensors}
+All semiconductor based detector system include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The silicon sensors, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the desired tracker performance. 
+
+The physics observables together with the foreseen accelerator specifications defined in the previous chapter define the requirements for the detector system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. The detector has to work with ion beam energies from 2 to 14 AGeV (protons 39 GeV). In addition to that, a very high interaction rate 10~MHz results in up to 700 tracks per central Au+Au collision in the aperture of $\SI{2.5}{\degree} < \theta_{lab} < \SI{25}{\degree}$. The \gls{STS} extends more than \SI{1}{\metre} downstream of the target and will be installed in a volume of \SI{3}{\square\metre}. 
+
+In order to achieve physics goals, \gls{STS} has to address the following:
+\begin{itemize}
+    \item  aperture - the aperture of the whole experiment is expected to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}. This range corresponds to center-of-mass rapidity close to the beam rapidity. 
+    \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y, 
+    \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The damaging effect of the radiation, implies that the \footnote{ratio of the most probable amplitude for a minimum ionizing particle divided by the root mean square of the single strip noise}{signal-to-noise} ratio needs to be over 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than 1~GeV/c. 
+    \item momentum resolution - it's mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim to avoid excessive multiple scattering. It is achieved by placing the electronics, mechanical infrastructure and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.5\%$ is foreseen. 
+    \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of 10~kGy~\cite{Heuser:54798}, 
+    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (10~MHz per $\mathrm{cm^{2}}$ provide the requirements for the readout system (signal shaping time, number of readout channels etc.)
+\end{itemize}
+
+A simplified CAD drawing of the \gls{STS} is presented in Figure~\ref{fig_STS}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.85\columnwidth]{Chapter2/images/STS.png}
+\caption{A simplified geometry of the Silicon Tracking System. The 8 tracking stations cover the polar angle from \SI{2}{\degree} up to \SI{25}{\degree}.}
+\label{fig_STS}
+\end{figure}
+
+The detector consists of 876 detectors modules composed of double-sided silicon microstrip sensors, ultralight microcables and Front End Boards (\gls{FEB}) glued on the fins. The modules are distributed on carbon fiber support-structures which populate C-frames~\cite{progress_report_2016}. Two C-frames form a tracking station of \gls{STS}. The modules are produced in 166 variants, which differ in sensors size, micro-cable length and the orientation of the Front End Electronics~(\gls{FEE}). Figure~\ref{fig_assembly} depicts a simplified assembly workflow of \gls{STS}. 
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=1\columnwidth]{Chapter2/images/assembly_sequence.png}
+\caption{A simplified assembly workflow of the \gls{STS}. The silicon sensors are connected to the ASICs on the \glspl{FEB} via microcables. The modules are assembled into carbon fiber ladders which form a C-frame. (Private communication with M. Teklishyn)}
+\label{fig_assembly}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.95\columnwidth]{Chapter2/images/evolution_sts_new.png}
+\caption{Evolution of the test setups towards \gls{STS}. (Private communication with M. Teklishyn)}
+\label{fig_evolution_STS}
+\end{figure}
+
+
+
+
+
+
+\subsection{Role of the semiconductors based detector}
+
+
+
+
+\subsection{Double-sided microstrip silicon sensors}
 \label{sensors}
+The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal.
+
 Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature, as per equation \ref{Sil:temp}~\cite{Hartmann:2017gzy}.
 
 \begin{equation}
@@ -36,6 +87,8 @@ Information about the temperatures serves not only to ensure detector safety, bu
 
 \subsection{Module}
 \label{module}
+ The assembly of the detector is realized stepwise. The whole complex procedure requires utmost care and extremely high precision. Therefore, a proper workflow was developed to address the complexity of the module assembly~\cite{carmen2}.
+
 \subsection{The readout chain of the STS}
 \label{readout}
 \label{DAQ}
@@ -61,7 +114,7 @@ The readout chain used in the module or FEBs test is built from two components:
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.65\columnwidth]{Chapter2/images/DPB.png}
+\includegraphics[width=0.75\columnwidth]{Chapter2/images/DPB.png}
 \caption{The first proposition of the CBM readout chain based on separate DPB and FLIB boards \ref{fig_cri_board}}
 \label{fig_dpb_scheme}
 \end{figure}

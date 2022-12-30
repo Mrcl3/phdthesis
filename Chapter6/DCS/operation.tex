@@ -1,38 +1,47 @@
 \section{mSTS assembly and its services}
- \gls{mSTS} comprises 11 modules (22 \glspl{FEB}) and 2 pulser boards. Each module consists of a silicon sensor, shielded microcables, and 2 \glspl{FEB}. Two different silicon sensor sizes were used to assemble \gls{mSTS} modules - 62x62 mm and 62x124 mm. Each side of the sensor has 1024 strips which are connected via microcables to the readout electronics - 8 STS-XYTERs on the \gls{FEB}. The low-mass microcables transport the analog signals, and they can be affected by any electromagnetic interference~\gls{EMI}. The analog signal received by the chips are then amplified and converted into the digital domain. Subsequently, the digital signals are transported via the \glspl{CROB} (in total 5 readout boards - one for each \gls{mSTS} ladder) to the \gls{CRI}, and then processed and analyzed. In total, \gls{mSTS} has $22 528$ readout channels, which constitute only $1.25$\% of the final detector. In order to avoid overheating and reduce noise, the \gls{FEE} needs to be properly cooled and powered. These detector services are discussed in section~\ref{msts_powering} and~\ref{msts_cooling}. 
+
+ The silicon detector comprises 11 modules (22 \glspl{FEB}) and 2 pulser boards. Each module consists of a silicon sensor, shielded microcables, and 2 \glspl{FEB}. Two different silicon sensor sizes were used to assemble \gls{mSTS} modules - 62x62 mm and 62x124 mm. Each side of the sensor has 1024 strips which are connected via microcables to the readout electronics - 8 STS-XYTERs on the \gls{FEB}. The low-mass microcables transport the analog signals, and they can be affected by any electromagnetic interference~\gls{EMI}. The analog signal received by the STS-XYTER chips are then amplified and converted into the digital. Subsequently, the digital signals are transported via the data cables to \glspl{CROB} (in total 5 readout boards - one for each \gls{mSTS} ladder) to the \gls{CRI}, and then processed and analyzed. In total, \gls{mSTS} has $22 528$ readout channels, which constitute only $1.25$\% of the final detector. In order to avoid overheating and reduce noise, the \gls{FEE} needs to be properly cooled and powered. These detector services are discussed in section~\ref{msts_powering} and~\ref{msts_cooling}. 
 \subsection{Powering of the detector modules}
 \label{msts_powering}
-The powering of the \gls{mSTS} is organized similarly as it will be implemented for the final \gls{STS} (see section~\ref{powering} and figure~\ref{fig_msts_scheme})~\cite{Koczon:2020Jc}. Each power board (in total 5 \glspl{POB} - one for each ladder) is populated with DC/DC converters (2.5 V and 3 V~\cite{DC_DC_converter}) is connected to the low voltage modules several meters away from the experiment site. The double-sided silicon sensors are symmetrically reverse-biased ($\pm 75$~V) and operated in a constant voltage mode. Each side of the sensor is connected to a high voltage module located in the same crate as the low voltage ones. The details of the powering scheme and the modules mounted on the carbon ladders can be seen in Figure~\ref{fig_msts_scheme}.
+The powering of the \gls{mSTS} is organized similarly as it will be implemented for the final \gls{STS} (see section~\ref{powering} and figure~\ref{fig_msts_scheme})~\cite{Koczon:2020Jc}. Each power board (in total 5 \glspl{POB} - one for each ladder) is populated with DC/DC converters (1.8~V and 2.4~V, 2.5 V and 3 V~\cite{DC_DC_converter}). These boards are connected to the low voltage power supply (WIENER~\cite{wiener}). The double-sided silicon sensors are symmetrically reverse-biased ($\pm 75$~V) and operated in a constant voltage mode. Each side of the sensor is connected to a high voltage module located in the same crate as the low voltage ones. The details of the powering scheme and the modules mounted on the carbon ladders can be seen in Figure~\ref{fig_msts_scheme}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/unit0.png}
-\caption{Schematic view of the \gls{mSTS}'s first station.}
+\caption{Schematic view of the \gls{mSTS}'s first station. It depicts the main structures of the C-Frame. }
 \label{fig_msts_scheme}
 \end{figure}
-\newpage
+%\newpage
+
+
 \subsubsection{Noise considerations}
-\footnote{unwanted high-frequency disturbance or interference with the electrical signal}{Noise} problems are the most common and critical issues while building a high-energy physics particle detector. The total noise contribution can be divided into four components~\cite{noise_twepp2008}:
+\footnote{unwanted high-frequency disturbance or interference with outside electrical signals}{Noise} problems are the most common and critical issues while building a particles detector. The total noise contribution can be divided into four components~\cite{noise_twepp2008}:
 \begin{itemize}
-    \item thermal noise $n_{TH}(t)$ - contributions caused by the current passing through a resistor,
-    \item electromagnetic interference (\gls{EMI}) in Detector-\gls{FEE} connection, $n_{D-E}(t)$,
-    \item \gls{EMI} in \gls{FEE}-external connections, $n_{E-F}(t)$,
+    \item thermal noise $n_{TH}(t)$,
+    \item electromagnetic interference (\gls{EMI}) between the detector and \gls{FEE} connection, $n_{D-E}(t)$,
+    \item \gls{EMI} between \gls{FEE} and external connections, $n_{E-F}(t)$,
     \item additional sources, related to the intrinsic noise of the FEE elements, $n_{add}(t)$.
 \end{itemize}
 
-From the practical point of view, designing and implementing a proper powering and grounding scheme play a critical role in the data quality from the detector~\cite{Bobillier:1159563}. The silicon sensors are characterized by very low signal levels and a significant number of channels, what makes them particularly sensitive to noise pickup. In the case of the \gls{mSTS}, the \gls{FEE} is located quite far away from the silicon sensor. The microcables connecting the two mentioned elements (sensor and \gls{FEB}) are shielded, but the \gls{EMI} of the analog signal could be clearly observed when the cables are not completely flat (due to e.g. external stresses). The other contribution which is related to the noise picked up between the \gls{FEE} and external connections are addressed by for example adding another filter box (first order RC-filter) for the silicon sensor biasing lines. The total noise in the system serves as a reference for the minimum signal level that could be processed. More detailed considerations about the noise influence on the system are described in the section~\ref{module}. During the laboratory tests, satisfactory performance of the detector modules was achieved ($1000~e^{-}$ \gls{ENC}). Nevertheless, the performance in the experiment area can differ greatly, due to devices belonging to other subsystems or the accelerator services. The problem with the noise performance of the modules was also identified in this case, and substantial efforts were taken in order to find the noise sources and limit their influence (increasing the analog-digital converters (\gls{ADC}) threshold values of the STS-XYTERs). 
+From the practical point of view, designing and implementing a proper powering and grounding scheme play a critical role in the data quality from the detector~\cite{Bobillier:1159563}. The silicon sensors are characterized by very low signal levels and a significant number of channels, what makes them particularly sensitive to noise pickup. In the case of the \gls{mSTS}, the \gls{FEE} is located between 45~cm and 49~cm from the silicon sensor. The microcables connecting the two mentioned elements (sensor and \gls{FEB}) are shielded, but the \gls{EMI} of the analog signal could be clearly observed when the cables are not completely flat (due to e.g., external stresses). The other contribution which is related to the noise picked up between the \gls{FEE} and external connections are suppressed by an additional filter box (first order RC-filter) for the silicon sensor biasing lines. The total noise in the system serves as a reference for the minimum signal level that could be processed. More detailed considerations about the intrinsic noise influence on the system are described in the section~\ref{module}. During the laboratory tests, satisfactory performance of the detector modules was achieved ($1000~e^{-}$ \gls{ENC}). Nevertheless, the performance in the experiment area can differ greatly, due to influence of devices belonging to other subsystems or the accelerator services. The problem with the noise performance of the modules was also identified in this case, and substantial efforts were taken in order to find the noise sources and limit their influence (increasing the analog-digital converters (\gls{ADC}) threshold values of the STS-XYTERs). 
 
-The \gls{mSTS}'s enclosure is decoupled from the experiment table (no direct connection of any conducting elements). The \gls{mSTS} enclosure is connected to a dedicated ground of the \gls{mCBM} experiment, preventing any \gls{EMI} in the lines that may affect the performance. In reality, there are no perfect grounds, even in the same line there might be potential differences.  Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. The floating ground scheme for the sensors biasing circuity and the front-end electronics come with important boundary conditions for the powering - each module side requires a separate powering line and the \gls{ROB} needs to be decoupled from the \gls{FEB} \cite{RodriguezRodriguez2020}. In order to further reduce possible noise pickup, a return path capacitor was implemented at the \gls{FEB} connectors and the \gls{HV} common return (depicted as C-RTN) was connected to the enclosure.
+The appropriate grounding of the FEE reduces capacitive coupling between the structure and the sensitive areas of the glsFEE. Furthermore, it generates low impedance at the power connector's input to reduce external current interference going through FEE electronics. The \gls{mSTS} enclosure is connected to a dedicated ground of the \gls{mCBM} experiment, preventing any \gls{EMI} in the lines that may affect the performance. The \gls{mSTS}'s enclosure is decoupled from the experiment table (no direct connection of any conducting elements). In reality, there are no perfect grounds, even in the same line there might be potential differences. 
+
+Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. The floating ground scheme for the sensors biasing circuity and the front-end electronics come with important boundary conditions for the powering - each module side requires a separate powering line~\cite{RodriguezRodriguez2020}. In order to further reduce possible noise pickup, a return path capacitor was implemented at the \gls{FEB} connectors and the \gls{HV} common return (depicted as C-RTN) was connected to the enclosure.
+
 \begin{figure}[!h]
 \centering
-\includegraphics[width=1\columnwidth]{Chapter6/DCS/images/power_distribution.png}
-\caption{Power distribution scheme of the \gls{mSTS} (private correspondence with Anton Lymanets).}
+\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/power_distribution.png}
+\caption{Power distribution scheme of the \gls{mSTS} (private information from Anton Lymanets).}
 \label{fig_msts_power}
 \end{figure}
 \newpage
 
 \subsection{Detector modules}
- The detector modules that compound \gls{mSTS} differ not only in cable length, and sensor size, but also in components used to power them up, which may affect parameters like power dissipation or the general performance (different ENC levels).  The assembly of the detector is realized stepwise. The whole complex procedure requires utmost care and extremely high precision. Therefore, a proper workflow was developed to address the complexity of the module assembly~\cite{carmen2}. This topic is more broadly discussed in the section \ref{module}. The respective components of each \gls{mSTS} unit can be found in the table~\ref{tab:msts_comp}. 
+ The detector modules used to build \gls{mSTS} differ not only in microcable lengths, and sensor size, but also in the version of \gls{LDO} regulators and DC/DC converters output voltage, which may affect parameters like power dissipation or the general performance (ENC levels). The module assembly is more broadly discussed in the section \ref{module}. The respective components of each \gls{mSTS} unit can be found in the table~\ref{tab:msts_comp}. Before assembling \gls{mSTS}, extensive measurements of all the building blocks were performed. Figure \ref{fig_msts_ENC1} and  \ref{fig_msts_ENC2} show noise measurements of two modules from different units. Unit 1 is the only unit used before for the previous \gls{mCBM} campaign~\cite{heuser1}. It is one of the oldest units, and it's also slightly irradiated, thus sensors' leakage currents are higher than the new modules. The module of unit 1 (Figure \ref{fig_msts_ENC2}) has larger noise and a more pronounced odd-even effect than unit 0 module. In both modules, the Z-strips (p-side channel numbers 0 to 134) are clearly recognizable. 
+
+Figure \ref{fig_msts_ENC2} also shows the estimated ENC values for different components of the module (sensor, microcables, and \gls{ASIC}s). The \gls{ENC} estimation is based on a simple parameterization of the \gls{ENC} versus capacitance for the STS-XYTER. The targeted \gls{ENC} value is 1000~$e^{-}$, but the measurement outcome depends also on the sensor size, microcables length and nuances of the assembly process. In case of \gls{mSTS} modules the targeted \gls{ENC} value was achieved during the laboratory testing, but from the obtained data and the \gls{ADC} thresholds settings used during the data-taking campaign we can conclude that the \gls{ENC} levels were higher than 1000~$e^{-}$.\newpage
+
 
 \begin{table}[!h]
 %\caption{mSTS units and differences between the components used for assembly (in order to achieve 1.2 V output, 1.8 V \gls{LDO} regulator was used with a diode).}
@@ -43,7 +52,7 @@ The \gls{mSTS}'s enclosure is decoupled from the experiment table (no direct con
 \hline
 Unit & Ladder & Silicon sensors                                                                          & Microcables                                                      & \begin{tabular}[c]{@{}l@{}}DC/DC \\ converters\end{tabular} & \begin{tabular}[c]{@{}l@{}}STS-XYTER\\  version\end{tabular} & \gls{LDO} regulators             \\ \hline
 0    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}490 mm\\ 450 mm\end{tabular}          & 2.5 V, 3 V                                                  & 2.2                                                          & 1.8 V and 1.2 V            \\ \hline
-$1^{*}$    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}490 mm\\ 450 mm\end{tabular}          & 2.5 V, 3 V                                                  & 2.1                                                          & 1.8 V and 1.8 V with diode \\ \hline
+1    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}490 mm\\ 450 mm\end{tabular}          & 2.5 V, 3 V                                                  & 2.1                                                          & 1.8 V and 1.8 V with diode \\ \hline
 2    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x124 $mm^{2}$\end{tabular}                 & \begin{tabular}[c]{@{}l@{}}490 mm\\ 420 mm\end{tabular}          & 2.5 V, 3 V                                                  & 2.2                                                          & 1.8V and 1.2 V             \\ \hline
 3    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$\\ 62x62 $mm^{2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}490 mm\\ 450 mm\\ 420 mm\end{tabular} & 1.8 V, 2.4 V                                                & 2.1                                                          & 1.8 V and 1.8 V with diode \\ \hline
 3    & 1      & \begin{tabular}[c]{@{}l@{}}62x124 $mm^{2}$\\ 62x124 $mm^{2}$\end{tabular}                & \begin{tabular}[c]{@{}l@{}}490 mm\\ 420 mm\end{tabular}          & 1.8 V, 2.4 V                                                & 2.1                                                          & 1.8 V and 1.8 V with diode \\ \hline
@@ -51,24 +60,31 @@ $1^{*}$    & 0      & \begin{tabular}[c]{@{}l@{}}62x62 $mm^{2}$\\ 62x62 $mm^{2}$
 }
 \label{tab:msts_comp}
 \end{table}
-Before assembling \gls{mSTS}, extensive measurements of all the building blocks were performed. Figure \ref{fig_msts_ENC1} and  \ref{fig_msts_ENC2} show noise measurements of two modules from different units. Unit 1 is the only unit used before for the previous \gls{mCBM} campaign~\cite{heuser1}. It is one of the oldest units, and it's also slightly irradiated, thus sensors' leakage currents are higher than the new modules. The module of unit 1 (Figure \ref{fig_msts_ENC2}) has larger noise and a more pronounced odd-even effect than unit 0 module. In both modules, the Z-strips (p-side channel numbers 0 to 134) are clearly recognizable. Figure \ref{fig_msts_ENC2} also shows the estimated ENC values for different components of the module (sensor, microcables, and \gls{ASIC}s). The \gls{ENC} estimation is based on a simple parameterization of the \gls{ENC} versus capacitance for the STS-XYTER. The targeted \gls{ENC} value is 1000~$e^{-}$, but the measurement outcome depends also on the sensor size, microcables length and nuances of the assembly process. In case of \gls{mSTS} modules the targeted \gls{ENC} value was achieved during the laboratory testing, but from the obtained data and the \gls{ADC} thresholds settings used during the data-taking campaign we can conclude that the \gls{ENC} levels were higher than 1000~$e^{-}$.%\newpage
-\begin{figure}[h!]
+
+
+\begin{figure}[!hb]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/U0M1_ENC.jpg}
-\caption{Equivalent Noise Charge for module 0 of unit 0~\cite{RodriguezRodriguez2020}.}
+\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/U0M1_ENC.jpg}
+\caption{Equivalent Noise Charge for module 0 of unit 0 measured at the \gls{mCBM}'s experimental site~\cite{RodriguezRodriguez2020}.}
 \label{fig_msts_ENC1}
 \end{figure}
+\newpage
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/U1M1_ENC.png}
-\caption{Equivalent Noise Charge plots for module 0 of unit 1~\cite{RodriguezRodriguez2020}.}
+\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/U1M1_ENC.png}
+\caption{Equivalent Noise Charge plot for module 0 of unit 1 measured at the \gls{mCBM}'s experimental site~\cite{RodriguezRodriguez2020}.}
 \label{fig_msts_ENC2}
 \end{figure}
-\newpage
+
+
 \subsection{Considerations about the detector cooling}
 \label{msts_cooling}
-In order to avoid overheating of the detector's \gls{FEE} and \glspl{POB}, the electronics need to be cooled. The cooling system for \gls{mSTS} is a water-based cooling system, where the main heat exchange elements inside the detector are cooling plates.  Figure~\ref{fig_STS} shows the cooling plates which are thermally coupled to the fins with the \glspl{FEB}. Three Lauda chillers~\cite{Lauda1} were used to pump chilled water through and efficiently evacuate excess heat. These chillers were also integrated into the control system via RS232-to-Ethernet converter. Figure~\ref{fig_cooling} depicts the \footnote{The temperature of the water inside the chiller is considered a bath temperature}{bath temperature} during the 430 days of operation. Initially, the \gls{mSTS} was cooled with two Lauda chillers. During the data taking in June 2022 (depicted with red-dashed line), one of the chillers failed due to radiation-induced damage (depicted in Figure~\ref{fig_cooling} with a red dashed horizontal line). Since a similar chiller was unavailable, two others, less powerful units were employed. Hence, the values from the third cooling unit can be seen only during the last months of operation. Figure~\ref{fig_cooling} also shows the dew point inside the \gls{mSTS}, which should be always be below the water temperature, in order to avoid condensation on the \gls{FEE}. The actual water temperature that enters the detector is slightly higher (depending on the actual temperature in the experiment's location). This difference ensures that there's no risk related to the condensation inside the detector. The dew point changes that can be seen in Figure~\ref{fig_cooling}. The dew point is calculated based on the measured \gls{RH} and temperature, which change depending on the conditions (\gls{FEE} on/off, seasons). In addition to that, \gls{mSTS}'s enclosure is not tight, allowing the air to move in and out of the box. 
+In order to avoid overheating of the detector's \gls{FEE} and \glspl{POB}, the electronics need to be cooled. The cooling system for \gls{mSTS} is a water-based cooling system, where the main heat exchange elements inside the detector are cooling plates.  Figure~\ref{fig_STS} shows the cooling plates which are thermally coupled to the fins with the \glspl{FEB}. Three Lauda chillers~\cite{Lauda1} were used to pump chilled water through and efficiently evacuate excess heat. These chillers were also integrated into the control system via RS232-to-Ethernet converter.
+
+Figure~\ref{fig_cooling} depicts the \footnote{The temperature of the water inside the chiller is considered a bath temperature}{bath temperature} during the 430 days of operation. Initially, \gls{mSTS} was cooled with two Lauda chillers. During the data taking in June 2022 (depicted with red-dashed line), one of the chillers failed due to radiation-induced damage (depicted in Figure~\ref{fig_cooling} with a red dashed horizontal line). Since a similar chiller was unavailable, two others, less powerful units were employed. Hence, the values from the third cooling unit can be seen only during the last months of operation. 
+
+Figure~\ref{fig_cooling} also shows the dew point inside the \gls{mSTS}, which should be always be below the coolant temperature, in order to avoid condensation on the \gls{FEE}. The coolant temperature that enters the detector is slightly higher (depending on the actual temperature in the experiment's location). This difference ensures that there's no risk related to the condensation inside the detector. The dew point changes that can be seen in Figure~\ref{fig_cooling}. The dew point is calculated based on the measured \gls{RH} and temperature, which change depending on the conditions (\gls{FEE} on/off, seasons of the year). In addition to that, \gls{mSTS}'s enclosure is not tight,  allowing the air circulation.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/cooling.png}
@@ -83,7 +99,7 @@ Figure \ref{fig_msts_state} depicts the assembly process of \gls{mSTS}. Before t
     \item after installation on the unit,
     \item after assembling the C-frame in the mSTS enclosure.
 \end{itemize}
-The detector services (\gls{LV}, \gls{HV}, cooling), as well as the patch panel were installed on the front wall of the \gls{mSTS} enclosure~\cite{tekli1}. At that point the detector was ready to be transferred to the experimental area and the commissioning began.
+The detector services (\gls{LV}, \gls{HV}, cooling), as well as the patch panel were installed on the \gls{mSTS} enclosure's front wall~\cite{tekli1}. At that point the detector was ready to be transferred to the experimental area and the commissioning began.
 
 \begin{figure}[h!]
 \centering
@@ -96,24 +112,24 @@ The detector services (\gls{LV}, \gls{HV}, cooling), as well as the patch panel 
 
 \section{Operation of mSTS}
 
-The \gls{mSTS}'s \gls{DCS} is a fairly automatized system, in which monitoring and control are taken care of by the Finite State Machine. An operator, that is most likely the person tackling the data acquisition system, should monitor leakage currents, temperatures, dew point, availability of the nodes as well as the overall system state (based on the \gls{FSM}). All the logs are available either in Phoebus or Kibana, and the alarm server together with Phoebus takes care of notifying the operator about alarms (exceeding limits, communication errors, etc.). This section contains the summary of the most important findings which were obtained through the \gls{DCS}. 
+The \gls{mSTS}'s \gls{DCS} is a fairly automatized system, in which monitoring and control are realized by the Finite State Machine. Critical parameters that should be monitored with the \gls{DCS} include leakage currents, temperatures, dew point, availability of the nodes as well as the overall system state (based on the \gls{FSM}). All the logs are available either in Phoebus or Kibana, and the alarm server together with Phoebus takes care of notifying the operator about alarms (exceeding limits, communication errors, etc.). This section contains the summary of the most important findings which were obtained through the \gls{DCS}. 
 
 
 \subsection{Power dissipation of the mSTS}
- Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The values obtained through the detector's \gls{FEE} were compared with the measurements of two frond-end boards and average values from modules' calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with the formula~\ref{power} based on the voltage drops, as well as measured voltages and currents.
+ Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The results obtained through the detector's \gls{FEE} were compared with the measurements of two front end boards and average values from modules' calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with the formula~\ref{power} based on the voltage drops. For the \gls{mSTS} the power was calculated at the power supply level.
   \begin{equation}
   \label{power}
-    P = VI
+    P = \Delta VI
 \end{equation}
-Figure \ref{fig_power_scheme} depicts the power scheme of a \gls{FEB}. Table~\ref{tab:distribution} contains the power dissipation values for different elements of the powering scheme in function of the \gls{CSA} register's values for measurements conducted with a separate pair of \glspl{FEB}. The two mentioned \glspl{FEB} were powered directly using a \gls{LV} power supply (R\&S~HMP4040~\cite{RS}). The power dissipation estimations for the distribution lines and the DC/DC converters were performed based on the assumed efficiency of $80$\%, which might be lower for $I > 2$~A. This efficiency drops to $65$\% at \SI{10}{\celsius} with currents approaching the device output limit ($3$~A).  Another assumption was also made for the voltage drop in the \gls{LDO} regulators of $0.6$~V.
+where V and I are the voltage change and current. Figure \ref{fig_power_scheme} depicts the powering scheme of a \gls{FEB}. Table~\ref{tab:distribution} contains the power dissipation values for different elements of the powering scheme in function of the \gls{CSA} register's values for measurements conducted with a separate pair of \glspl{FEB}. The two mentioned \glspl{FEB} were powered directly using a \gls{LV} power supply (R\&S~HMP4040~\cite{RS}). The power dissipation estimations for the distribution lines and the DC/DC converters were performed based on the assumed efficiency of $80$\%. This efficiency drops to $65$\% at \SI{10}{\celsius} with currents approaching the device output limit ($3$~A).  Another assumption was also made for the voltage drop in the \gls{LDO} regulators of $0.6$~V.
  
- In this case, due to the settings of the \glspl{ASIC} the currents for the digital line were slightly higher than expected values for the operation - around $2.3$~A instead of $1.9$~A. The current of analog lines are mostly defined by the \gls{CSA} register values, and in this case varied from $1.4$~A to $4.1$~A.  The voltage drop of every element in the distribution lines couldn't be accurately determined. Hence, the calculations were made for the distribution lines based on the currents measured for a \glspl{FEB} and they can't be considered as a reference. A detailed description of the powering scheme can be found in section~\ref{module}.
+ In this case, due to the settings of the \glspl{ASIC} the currents for the digital line were slightly higher than expected values for the operation - around $2.3$~A instead of $1.9$~A. The current of analog lines is mostly defined by the \gls{CSA} register values, and in this case varied from $1.4$~A to $4.1$~A.  The voltage drop of every element in the distribution lines couldn't be accurately determined. Hence, the calculations were made for the distribution lines based on the currents measured for the \glspl{FEB} and they can't be considered as a reference. A detailed description of the powering scheme can be found in section~\ref{module}.
 
 
  \begin{figure}[h!]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter6/DCS/images/powering_diss_feb.png}
-\caption{Schematics of the powering scheme of the \gls{FEB}. The focus was put on the elements that contribute the most to the overall power dissipation, with exclusion of the \gls{ROB}}
+\caption{Schematics of the powering scheme of the \gls{FEB}. The focus was put on the elements that contribute the most to the overall power dissipation, with exclusion of the power dissipation related to the \gls{ROB}.}
 \label{fig_power_scheme}
 \end{figure}
 % Please add the following required packages to your document preamble:
@@ -121,7 +137,7 @@ Figure \ref{fig_power_scheme} depicts the power scheme of a \gls{FEB}. Table~\re
 % \usepackage{graphicx}
 \begin{table}[!h]
 \centering
-\caption{Power dissipation of the powering scheme in function of the CSA registers values. Once the ASICs are configured, the digital line current remains constant. }
+\caption{Power dissipation of the powering system in function of the CSA registers values. Once the ASICs are configured, the digital line current remains constant. }
 \label{tab:distribution}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{cccccc}
@@ -134,17 +150,17 @@ Figure \ref{fig_power_scheme} depicts the power scheme of a \gls{FEB}. Table~\re
 }
 \end{table}
 
-Figure~\ref{fig_power_CSA} illustrates the distribution of the power dissipation among the different elements of the powering scheme for different values of the \gls{CSA} current. While increasing the power consumption of the \glspl{ASIC}, there is also a  significant rise of the power dissipated by the DC/DC converters and distribution lines. %\newpage
+Figure~\ref{fig_power_CSA} illustrates the distribution of the power dissipation among the different elements of the powering system for different values of the \gls{CSA} current. While increasing the power consumption of the \glspl{ASIC}, there is also a  significant rise of the power dissipated by the DC/DC converters and distribution lines. %\newpage
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.65\columnwidth]{Chapter6/DCS/images/POBpie.png}
+\includegraphics[width=0.6\columnwidth]{Chapter6/DCS/images/POBpie.png}
 \caption{Power dissipation share of different elements of the powering scheme as a function of the \gls{CSA} value.}
 \label{fig_power_CSA}
 \end{figure}
 
 \newpage
-Figure \ref{fig_power3} and \ref{fig_power4} shows the current drawn by 4 \glspl{FEB} of unit 1 depending on the current of the \gls{CSA}. It was determined that the \gls{CSA} value of 31 should be the nominal value for the \gls{STS} modules. This value also ensures that the signal amplification is correct (\gls{CSA} value of 31 corresponds to approximately $2$~mA per analog channel). The \gls{CSA} value may vary \gls{ASIC} to \gls{ASIC} to address the different requirements of the modules (depending for example on their noise levels). In principle, the \gls{ASIC} \gls{AFE} is powered by two power domains ($1.2$~V - VDDM and $1.8$~V - AVDD). By adjusting the \gls{CSA} registers settings, we influence the VDDM line. 
+Figure \ref{fig_power3} and \ref{fig_power4} shows the current drawn by 4 \glspl{FEB} of unit 1 depending on the settings of the \gls{CSA}. It was determined that the \gls{CSA} value of 31 should be the nominal value for the \gls{STS} modules. This value also ensures proper signal amplification, (\gls{CSA} value of 31 corresponds to approximately $2$~mA per analog channel). The \gls{CSA} value may vary from \gls{ASIC} to \gls{ASIC} to address the different requirements of the modules (depending for example on their noise levels). In principle, the \gls{ASIC}'s Analog Front End \gls{AFE} is powered by two power domains ($1.2$~V - VDDM and $1.8$~V - AVDD). By adjusting the \gls{CSA} registers settings, we influence the VDDM line. 
 %\begin{figure}[h!]
 %\centering
 %\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/U0CSABIAS.png}
@@ -155,17 +171,17 @@ Figure \ref{fig_power3} and \ref{fig_power4} shows the current drawn by 4 \glspl
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U0CSABIAS.png}
-\caption{CSA scan of the unit 2 (upper).}
+\caption{Low voltage \gls{FEB} current measured at the power supply in the function of CSA settings of the unit 2. }
 \label{fig_power3}
 \end{figure}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U3L0CSABIAS.png}
-\caption{CSA scan of the unit 3 ladder 0 (lower).}
+\caption{Low voltage \gls{FEB} current measured at the power supply in the function of CSA settings of the unit 3 ladder 0.}
 \label{fig_power4}
 \end{figure}
 
-Similar measurements were also conducted for all the other detector modules (see Appendix~\ref{CSA}). The average values of the current (a module is powered by two low voltage channels) for every unit are depicted in Figure \ref{fig_avg}. For the older modules, especially those powered by 1.8 V and 2.4~V DC/DC converters (unit 3), the currents are significantly higher, reaching 1.6 - 1.8~A at the \gls{CSA} 31. The \gls{AFE} of the modules of unit 1 are powered by the 1.8~V \gls{LDO} regulators with a diode, which causes a voltage drop of approximately 0.6~V. Nevertheless, this sub-optimal solution can be also seen via increased current and power dissipation of the unit 1 modules. The current of modules of units 0 and 2 are similar, as they use the same components, which are also considered the final ones for \gls{STS}.
+Similar measurements were also conducted for all the other detector modules (see Appendix~\ref{CSA}). The average values of the current for every unit are depicted in Figure \ref{fig_avg}. For the older modules, especially those powered by 1.8 V and 2.4~V DC/DC converters (unit 3), the currents are significantly higher, reaching 1.6 - 1.8~A at the \gls{CSA} 31. The \gls{AFE} of the modules of unit 1 are powered by the 1.8~V \gls{LDO} regulators with a diode, which causes a voltage drop of approximately 0.6~V. Nevertheless, this sub-optimal solution can be also seen via increased current and power dissipation of the unit 1 modules. The current of modules of units 0 and 2 are similar, as they use the same components, which are also considered the final ones for \gls{STS}.
 
 %\newpage
 \begin{figure}[h!]
@@ -197,7 +213,7 @@ Figure \ref{fig_theor} shows the comparison of the power consumption of \gls{mST
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/theor.png}
-\caption{Average power dissipation of the units compared with predictions based on theoretical power dissipation in the components (depicted as FLA.)} 
+\caption{Average power dissipation of the units compared with predictions based on theoretical power dissipation in the components (depicted as FLA and FLA v2).} 
 \label{fig_theor}
 \end{figure}
 The components used for units 0 and 2 are considered to be almost the final ones. The power consumption of these modules should serve as a reference for further calculations. Some parameters related to the voltage drop may change in \gls{STS}, mostly due to different powering lines' lengths and diameters of the wires, as well as different connectors. 
@@ -214,19 +230,19 @@ Unit 2         & 24.7 kW & 29.9 kW \\ \hline
 
 \label{tab:power_cons}
 \end{table}
-The values stated in the table~\ref{tab:power_cons} can't be considered as a reference. The results give a good estimation of the power consumption and also show how the module assembly evolved. 
+The values stated in the table~\ref{tab:power_cons} can't be considered as a reference. The results provide an estimation of the power consumption and also show how the module assembly evolved. 
 %\newpage
 \subsection{Parameters monitoring and obtained data}
-All the software and hardware components mentioned in the previous sections deliver essential information about the detector's safety and operational state. Thanks to the ongoing ambient monitoring, many issues of the subsystem were discovered and addressed, e.g. not sufficient cooling. Figure \ref{fig_temp} shows the temperature trends during the 430 days of operation. The first temperature sensor (depicted in blue) was placed at the top of the \gls{mSTS}'s enclosure, and the second one (depicted in orange) is located on the upper part of unit 2. Temperatures registered in \gls{mSTS} vary not only depending on the \gls{FEE} powering (peaks observed throughout the operation) but also on the temperature in the cave. The broader peak at the end of the studied period (red dashed line) is associated with the cooling unit's failure. There are also a few periods, with the longest in December and January, when the detector was not operated. 
+All the software and hardware components mentioned in the previous sections deliver essential information about the detector's safety and operational state. Thanks to the ongoing ambient monitoring, many issues of the subsystem were discovered and addressed, e.g. not sufficient cooling. Figure \ref{fig_temp} shows the temperature trends obtained through \gls{DCS} during the 430 days of operation. The first temperature sensor (depicted in blue) was placed at the top of the \gls{mSTS}'s enclosure, and the second one (depicted in orange) is located on the upper part of unit 2. Temperatures registered in \gls{mSTS} vary not only depending on the \gls{FEE} powering (peaks observed throughout the operation) but also on the temperature in the cave. The broader peak at the end of the studied period (red dashed line) is associated with the cooling unit's failure. There are also a few periods, with the longest in December and January, when the detector was not operated. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/temp2.png}
-\caption{Temperature monitoring in the \gls{mSTS} detector using PT100 sensors. The gray array refers to the period without any major data-taking activities.}
+\caption{Temperature monitoring in the \gls{mSTS} detector using PT100 sensors. The gray area refers to the period without any major data-taking activities.}
 \label{fig_temp}
 \end{figure}
 \newpage
-To ensure the safe operation of the system, it was also necessary to have information about the dew point. Water condensation on the parts of the \gls{FEE} could cause the electronics to fail. Figure \ref{fig_dew} depicts the differences in the dew point and temperature over the mentioned period. The coolant setpoint was always carefully adjusted depending on the situation in the experimental cave. 
+To ensure the safe operation of the system, it was also necessary to have information about the dew point. Water condensation on the parts of the \gls{FEE} could cause the electronics to fail. Figure \ref{fig_dew} depicts the trends in the dew point and temperature over the mentioned period. The coolant setpoint was always carefully adjusted depending on the situation in the experimental cave, and it varied between \SI{12}{\celsius} and \SI{17}{\celsius}.
 
 \begin{figure}[!h]
 \centering
@@ -236,7 +252,7 @@ To ensure the safe operation of the system, it was also necessary to have inform
 \end{figure}
 
 
-Temperature sensors are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of unit 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. Temperature measured in the unit 3, especially at the beginning of the operation (depicted with the red rectangle), were much higher than those measured in unit 0 and 1. This effect is associated with a cooling issue which was resolved at the beginning of 2022. At the right end of the plot, we can see again the cooling unit failure. 
+Temperature sensors (PT100) are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of unit 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. Temperature measured in the unit 3, especially at the beginning of the operation (depicted with the red rectangle), was much higher than those measured in unit 0 and 1. This effect is associated with an insufficient cooling which was resolved at the beginning of 2022. At the right end of the plot, we can see again the cooling unit failure. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/POB1.png}
@@ -244,7 +260,7 @@ Temperature sensors are also used to monitor the temperature on the powering boa
 \label{fig_POB1}
 \end{figure}
 
-Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on the unit 2. Unit 2 features 2 modules, 4 \gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about 1.6 A at constant 10.5 V), in comparison to the \gls{ROB} which is powered with 7 V and consumes about 0.8 A. This is, most likely, related to the position of better contact of the \gls{FEB} box to the cooling plate.
+Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on the unit 2. Unit 2 features 2 modules, 4 \gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about 1.6 A at constant 10.5 V), in comparison to the \gls{ROB} which is powered with 7 V and consumes about 0.8 A. This is, most likely, related to the better contact of the \gls{FEB} box to the cooling plate.
 
 \begin{figure}[!h]
 \centering
@@ -257,7 +273,7 @@ Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as d
 
 \subsection{Monitoring of the leakage current}
 
-Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. By knowing the temperature trends over the irradiation period, we can normalize the leakage current from different points to a certain reference value, e.g. \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the detector is significantly lower, which indicates that the cooling is working. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
+Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. By knowing the temperature trends over the irradiation period, we can normalize the leakage current from different points to a certain reference value, e.g. \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several temperature  sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the box is significantly lower, which indicates properly working cooling. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
 
 \begin{figure}[!h]
 \centering
@@ -266,7 +282,7 @@ Information about the temperatures serves not only to ensure detector safety, bu
 \label{fig_temperatures}
 \end{figure}
 
-As the silicon sensors are symmetrically biased, the nominal operating voltage was chosen to be $\pm75$~V (full depletion of the non-irradiated silicon sensors is assured). The reverse polarity also implies negative current values. On most of the plots, only one side of the silicon sensors will be showed. The other side of the sensor is characterized by the same trends, but opposite sign.
+As the silicon sensors are symmetrically biased, the nominal operating voltage was chosen to be $\pm75$~V (to assure full depletion of the non-irradiated silicon sensors). The reverse polarity also implies negative current values. On most of the plots, leakage current of only one side of the silicon sensors will be showed. The other side of the sensor is characterized by the same trends, but opposite sign.
 
 %\newpage
 \begin{figure}[!h]
@@ -277,18 +293,18 @@ As the silicon sensors are symmetrically biased, the nominal operating voltage w
 \label{fig_msts_LC}
 \end{figure}
 
-The behavior of the \gls{STS} silicon sensors during data-taking can be seen in figure~\ref{fig_msts_LC}. Due to radiation-induced surface and bulk damage, the leakage current will increase with the increasing total fluence (Hamburg model). In order to properly compare the leakage current before and after the irradiation, it's necessary to have the same ambient conditions or to measure the temperature and then normalize the current to \SI{20}{\celsius}. Apart from the constant rise of the leakage current during the data-taking, two particular parts of the plot can be distinguished. The first one just after 500 min, when increased beam intensity (about $10^{8}$~ions/spill) caused the spill structure to appear. A similar trend can also be observed from around 1500 min. The sensors of different units behave differently, depending on their position relative to the beam, sensor size, or potential differences during the assembly.
+The leakage current changes of the \gls{STS} silicon sensors during data-taking can be seen in figure~\ref{fig_msts_LC}. Due to radiation-induced surface and bulk damage, the leakage current  increased with the increasing total fluence (as foreseen in the Hamburg Model). In order to properly compare the leakage current before and after the irradiation, it's necessary to have the same ambient conditions or to measure the temperature and then normalize the current to \SI{20}{\celsius}. Apart from the constant rise of the leakage current during the data-taking, two particular parts of the plot can be distinguished. The first one just after 600 min, when increased beam intensity (about $10^{8}$~ions/spill) caused the spill structure to appear. A similar trend can also be observed from around 1600 min. The sensors of different units behave slightly different, depending on their position relative to the beam, sensor size, or possible differences in the assembly procedure.
 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/uranium/current_U_highintensity.png}
 \includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/uranium/U3L1_spill.png}
-\caption{Unit 0 \gls{FEB} 3 - normalization of the current (left) and zoomed-in view of the spill structure seen by the silicon sensors (10 s spill).}
+\caption{Unit 0 \gls{FEB} 3 - normalization of the current (left) and zoomed-in view of the spill structure seen by the silicon sensors (spill of 10~s length).}
 \label{fig_sensors_spill}
 \end{figure}
 
-An example of the normalization of the unit 0 sensors is depicted in Figure~\ref{fig_sensors_spill}. A more detailed view of the spill structure is shown on the right plot. It can be clearly seen, that the reaction products traversing the silicons cause a significant leakage current increase of about \SI{10}{\micro A} (for the highest beam intensities - $10^{9}$ ions/s). Comparison of the average leakage current from two units after normalization to $20\,^{\circ}$C is shown in Figure~\ref{fig_leak}. Throughout the year 2021, only a few beam time campaigns took place. The increase of the leakage current due to radiation-induced damage is negligible. On the other hand, during the beam campaigns of 2022, the effect of radiation can be clearly seen. The leakage current value obtained for the module 0 of unit 3 differs from the performance of other modules, indicating an electrical issue.
+An example of the normalization of the unit 0 sensors is depicted in Figure~\ref{fig_sensors_spill}. A more detailed view of the spill structure is shown on the right plot. It can be clearly seen, that the reaction products traversing the silicons cause a significant leakage current increase of about \SI{10}{\micro A} (for the highest beam intensities - $10^{9}$ ions/s). Comparison of the average leakage current from two units after normalization to $20\,^{\circ}$C is shown in Figure~\ref{fig_leak}. Throughout the year 2021, only a few beam time campaigns took place. The increase of the leakage current due to radiation-induced damage is negligible. On the other hand, during the beam campaigns of 2022, the effect of radiation can be clearly seen. The leakage current value obtained for the module 0 of unit 3 differs from the performance of other modules, indicating an electrical problem.
 
 \begin{figure}[!h]
 \centering
@@ -299,25 +315,25 @@ An example of the normalization of the unit 0 sensors is depicted in Figure~\ref
 \end{figure}
 
 \newpage
-The quantitative current changes over the \gls{mCBM} campaign are shown in Table~\ref{tab:msts_final_fluence}. To better understand the overall results, it is important to take a look at the position of the silicon sensors with respect to the beam (see~figure~\ref{fig_sensors_scheme}). The sensors located closer to the collision point (from unit 0) are more irradiated than sensors from units 2 and 3. Furthermore, the results obtained from unit 3 are inconsistent throughout the experiment, which means that those modules are considered to have electrical issues (e.g. short circuits). By applying the Hamburg model, it's possible to estimate the fluence accumulated by the sensors based on the leakage currents differences (Table~\ref{tab:msts_final_fluence}). 
+The quantitative current changes over the \gls{mCBM} campaign are shown in Table~\ref{tab:msts_final_fluence}. To better understand the overall results, it is important to take a look at the position of the silicon sensors with respect to the beam (see~figure~\ref{fig_sensors_scheme}). The sensors located closer to the collision point (from unit 0) are more irradiated than sensors from units 2 and 3. Furthermore, the results obtained from unit 3 are inconsistent throughout the experiment, which means that those modules seems to have electrical problems (e.g. short circuits). By applying the Hamburg model, it's possible to estimate the fluence accumulated by the sensors based on the leakage currents differences (Table~\ref{tab:msts_final_fluence}). 
 
 \begin{table}[!h]
-\caption{Leakage current differences and corresponding fluence estimations for all the \gls{mSTS} modules.}
+\caption{Leakage current differences and corresponding fluence estimations based on the Hamburg model for all the \gls{mSTS} modules.}
 \centering
 \begin{tabular}{lcc}
 \hline
 \multicolumn{1}{c}{Module} & \begin{tabular}[c]{@{}c@{}}Current \\ difference {[}uA{]}\end{tabular} & Fluence {[}$n/cm_{2}${]} \\ \hline
-U3L1M0                     & 16.23                                                                  & $2.5*10^{11}$          \\
-U3L1M1                     & 7.6                                                                    & $5.8*10^{10}$          \\ \hline
-U3L0M0                     & 3.7                                                                    & $5.7*10^{10}$          \\
-U3L0M1                     & 4.1                                                                    & $6.2*10^{10}$          \\
-U3L0M2                     & 3.5                                                                    & $5.3*10^{10}$          \\ \hline
-U2M0                       & 3.6                                                                    & $5.5*10^{10}$          \\
-U2M1                       & 6.3                                                                    & $4.8*10^{10}$          \\ \hline
-U1M0                       & 6.4                                                                    & $9.8*10^{10}$          \\
-U1M1                       & 6                                                                      & $9.1*10^{10}$          \\ \hline
-U0M0                       & 6.9                                                                    & $1.1*10^{11}$          \\
-U0M1                       & 7.2                                                                    & $1.1*10^{11}$ \\ \hline       
+U3L1M0                     & 16.23                                                                  & $2.5\times10^{11}$          \\
+U3L1M1                     & 7.6                                                                    & $5.8\times10^{10}$          \\ \hline
+U3L0M0                     & 3.7                                                                    & $5.7\times10^{10}$          \\
+U3L0M1                     & 4.1                                                                    & $6.2\times10^{10}$          \\
+U3L0M2                     & 3.5                                                                    & $5.3\times10^{10}$          \\ \hline
+U2M0                       & 3.6                                                                    & $5.5\times10^{10}$          \\
+U2M1                       & 6.3                                                                    & $4.8\times10^{10}$          \\ \hline
+U1M0                       & 6.4                                                                    & $9.8\times10^{10}$          \\
+U1M1                       & 6                                                                      & $9.1\times10^{10}$          \\ \hline
+U0M0                       & 6.9                                                                    & $1.1\times10^{11}$          \\
+U0M1                       & 7.2                                                                    & $1.1\times10^{11}$ \\ \hline       
 \end{tabular}
 \label{tab:msts_final_fluence}
 \end{table}
@@ -329,12 +345,12 @@ U0M1                       & 7.2                                                
 \label{fig_sensors_scheme}
 \end{figure}
 \newpage
-\subsection{IV characteristic of chosen modules}
+\subsection{Current-voltage characteristic of chosen modules}
 The IV curves provide crucial information about the detector performance (see section \ref{sensors}):
 \begin{itemize}
     \item shot noise, closely related to the leakage current, which increases with the fluence,
     \item type inversion,
-    \item annealing and reverse annealing.
+    \item annealing and reverse annealing processes.
 \end{itemize}
 Figure \ref{fig_IV} shows IV curves of two selected modules from two different units (1 and 3) measured before assembly and at different moments of the module operation in the \gls{mSTS}.
 \begin{figure}[!h]
@@ -345,7 +361,7 @@ Figure \ref{fig_IV} shows IV curves of two selected modules from two different u
 \label{fig_IV}
 \end{figure}
 
-The leakage current is scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70~V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low voltage powering lines. Even though, it is difficult to distinguish the point of full depletion, the current values were still considered in the expected range. Linear behavior is an indicative of a resistive element added to the circuitry. The unit 3 sensor shows breakdown at similar biasing voltage for all three measurements. Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector. This module was tested without additional \gls{HV} filter, \gls{LV} connection and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated in the new version of the \gls{FEB} (FEB8-3). 
+The leakage current is scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70~V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low voltage powering lines. Even though, it is difficult to distinguish the point of full depletion, the current values were still considered in the expected range. Linear behavior is an indicative of a resistive element added to the circuitry. The unit 3 sensor shows breakdown at similar biasing voltage for all three measurements. Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector. This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated in the new version of the \gls{FEB} (FEB8-3). 
 
 \begin{figure}[!h]
 \centering

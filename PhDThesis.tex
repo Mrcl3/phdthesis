@@ -82,6 +82,12 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 
+%Changing spaces between the entrie sin the table of contents
+\usepackage{tocloft}
+\renewcommand\cftchapafterpnum{\vskip15pt}
+%\renewcommand\cftsecafterpnum{\vskip8pt}
+%\renewcommand\cftsubsecafterpnum{\vskip8pt}
+
 \usepackage{xcolor}
 \usepackage{charter}
 
@@ -190,7 +196,7 @@
 \frontmatter
 \input{Titlepage.tex}
 \input{backpage.tex}
-\input{ToC.tex}
+\newpage
 % --------------------------------
 \thispagestyle{empty}
 %\clearpage
@@ -209,6 +215,8 @@
 \end{center}
 %\pagebreak
 %--------------------------------
+\input{ToC.tex}
+
 \chapter*{Abstract}
 \chapter*{Kurzfassung}
 %\input{Documents/acnowledgements.tex}
@@ -268,7 +276,9 @@
 \addcontentsline{toc}{chapter}{References}
 \printbibliography
 %\clearpage
+
 \printglossaries
+
 %\addchap{Curriculum Vitae}
 \addcontentsline{toc}{chapter}{Curriculum Vitae}
 \includepdf[pages=-]{CV.pdf}

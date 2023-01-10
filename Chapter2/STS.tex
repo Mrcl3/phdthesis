@@ -1,56 +1,17 @@
 
-\section{Overview of the Silicon Tracking System (STS)}
-All semiconductor based detector systems include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The silicon sensors, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the detector performance. 
+%\section{Overview of the Silicon Tracking System (STS)}
+All semiconductor based detector systems include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The silicon sensors, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the detector performance.
 
-The physics observables together with the foreseen accelerator specifications mentioned in the previous chapter define the requirements for the detector system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. The detector has to work with ion beam energies from 2 to 14 AGeV (protons 39 GeV). In addition to that, a very high interaction rate 10~MHz results in up to 700 tracks per central Au+Au collisions. The \gls{STS} extends more than \SI{1}{\metre} downstream of the target and will be installed in a volume of \SI{3}{\square\metre}. 
+The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal
 
-In order to achieve physics goals, \gls{STS} has to address the following:
-\begin{itemize}
-    \item  aperture - the aperture of the whole experiment is expected to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}. This range corresponds to center-of-mass rapidity close to the beam rapidity. 
-    \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y, 
-    \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The damaging effect of the radiation, implies that the \footnote{ratio of the most probable amplitude for a minimum ionizing particle divided by the root mean square of the single strip noise}{signal-to-noise} ratio needs to be over 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than 1~GeV/c. 
-    \item momentum resolution - it's mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim to avoid excessive multiple scattering. It is achieved by placing the electronics, mechanical infrastructure and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.5\%$ is foreseen. 
-    \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of 10~kGy~\cite{Heuser:54798}, 
-    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (10~MHz per $\mathrm{cm^{2}}$ provide the requirements for the readout system (signal shaping time, number of readout channels etc.)
-\end{itemize}
-
-A simplified CAD drawing of the \gls{STS} is presented in Figure~\ref{fig_STS}. 
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.85\columnwidth]{Chapter2/images/STS.png}
-\caption{A simplified geometry of the Silicon Tracking System. The 8 tracking stations cover the polar angle from \SI{2}{\degree} up to \SI{25}{\degree}.}
-\label{fig_STS}
-\end{figure}
-
-The detector consists of 876 detectors modules. A module is composed of double-sided silicon microstrip sensors, ultralight microcables (of up to 50~cm length) and Front End Boards (\gls{FEB}) populated with ASICs (STS-XYTER) glued on the fins. The modules are distributed on carbon fiber support-structures which populate C-frames~\cite{progress_report_2016}. Two C-frames form a tracking station of \gls{STS}.  Figure~\ref{fig_assembly} depicts a simplified assembly workflow of \gls{STS}.
-The modules are produced in 166 variants, which differ in sensors size, micro-cable length and the orientation of the Front End Electronics~(\gls{FEE}).  
-\newpage
-\begin{figure}[!h]
-\centering
-\includegraphics[width=1\columnwidth]{Chapter2/images/assembly_sequence.png}
-\caption{A simplified assembly workflow of the \gls{STS}. The silicon sensors are connected to the ASICs on the \glspl{FEB} via microcables. The modules are assembled into carbon fiber ladders which form a C-frame. (Private information from M. Teklishyn)}
-\label{fig_assembly}
-\end{figure}
-
-%The evolution of different experimental setups constructed for the purpose of testing components of the \gls{STS} is depicted in Figure \ref{fig_evolution_STS}. 
-
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=0.95\columnwidth]{Chapter2/images/evolution_sts_new.png}
-%\caption{Evolution of the test setups towards \gls{STS}. (Private information %from M. Teklishyn)}
-%\label{fig_evolution_STS}
-%\end{figure}
-
-
-That cable design is comparable to \SI{213}{\micro\metre} of silicon for a single detector module.
-
-
-
+This chapter aims to present an introduction to the silicon based detector systems and general working principles. Subsequently, the design of the \gls{STS} is discussed with focus on the hardware and its control. At last, the requirements for the detector control system are considered. 
 
 \subsection{Role of the semiconductors based detector}
 
-Semiconductors can be considered as ionization chambers, which are supplemented with a pair of electrodes and applied external voltage. The radiation passing through the volume of a sensor may result in forming an electron and hole pair. Figure~\ref{fis_si} shows an example of implementing segmented electrodes to determine the particle position. 
+Semiconductors can be considered as ionization chambers, which are features a pair of electrodes and applied external voltage. The radiation passing through the volume of a sensor may result in forming an electron and hole pair. Those signals can be converted into digital ones, processed and analyzed.
+In the simplest case, a plate could be used as an electrode, but it wouldn't be possible to determine the position of a particle very precisely. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. In order to achieve the two-dimensional information, the second electrode has usually an inclination of a few degrees.
+
+Apart from microstrip sensors, there are also for example pixel devices which enable determining two-dimensional positions. It can be achieved either by proper segmentation of the electronics or designing the geometry.  
 
 \begin{figure}[!h]
 \centering
@@ -58,8 +19,7 @@ Semiconductors can be considered as ionization chambers, which are supplemented 
 \caption{The segmented electrode enables defining the particle position (left). The segmented second set of strips enables two-dimensional position sensing. The right scheme depicts the strips oriented at a small angle, which aims to reduce fake hits~\cite{Spieler}.}
 \label{fig_si}
 \end{figure}
-
-Apart from microstrip sensors, there are also pixel devices which enable determining two-dimensional positions. It can be achieved either by proper segmentation of the electronics or designing the geometry.  
+\newpage
 
 
 The sensitive volume of a silicon sensor produces the average signal current given by 
@@ -68,26 +28,17 @@ The sensitive volume of a silicon sensor produces the average signal current giv
 \end{equation}
 where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the bandgap, so that the electron can move to the conduction band. The silicon has a gap of 1.12~eV. Nevertheless, the commonly used ionization energy for silicon is about 3.6~eV. This effect is related to the fact that only about 30\% of the particle's energy is converted into electrical signal, the rest goes into phonon excitation.
 
-\subsection{Double-sided microstrip silicon sensors}
-\label{sensors}
-The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal.
+\section{Radiation damage to the silion sensors} 
 
-Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature, as per equation \ref{Sil:temp}~\cite{Hartmann:2017gzy}.
+Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor. 
 
-The most important formula which allows for the trackers to be used in particle physics is Bethe-Bloch formula:
+The influence of the radiation on the silicon is described by so-called Hamburg model. 
 
+The traversing particles are not only causing the ionization of the lattice, but also interact with the silicon via electromagnetic and strong forces. Atoms can be displaced and create defects. Those defects populate new levels in the band gap, changing the properties of the silicon. That’s why the performance of the silicon sensor will degrade over time, what should also be considered while designing an experiment. The leakage current of a sensor after irradiation is related to the fluence as follows:
 \begin{equation}
--\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} [\frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}]
+    I_{d} = I_{0} + \alpha + \phi + Ad
 \end{equation}
-
-Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor). 
-
-Silcon sensors
-
-Radiation damage can be divided into two main groups: bulk and surface damage. The influence of the radiation on the silicon is described by so-called Hamburg model. 
-
-The traversing particles are not only causing the ionization of the lattice, but also interact with the silicon via electromagnetic and strong forces. Atoms can be displaced and create defects. Those defects populate new levels in the band gap, changing the properties of the silicon. That’s why the performance of the silicon sensor will degrade over time, what should also be considered while designing an experiment. 
-
+where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and fluence, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. 
 
 
 
@@ -115,6 +66,74 @@ The traversing particles are not only causing the ionization of the lattice, but
 \caption{The first proposition of the CBM readout chain based on separate DPB and FLIB boards \cite{CRI}}
 \label{fig_leakage1}
 \end{figure}
+
+
+
+
+\section{Design of STS}
+
+
+The physics observables together with the foreseen accelerator specifications mentioned in the previous chapter define the requirements for the detector system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. The detector has to work with ion beam energies from 2 to 14 AGeV (protons 39 GeV). In addition to that, a very high interaction rate 10~MHz results in up to 700 tracks per central Au+Au collisions. The \gls{STS} extends more than \SI{1}{\metre} downstream of the target and will be installed in a volume of \SI{3}{\square\metre}. 
+
+In order to achieve physics goals, \gls{STS} has to address the following:
+\begin{itemize}
+    \item  aperture - the aperture of the whole experiment is expected to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}. This range corresponds to center-of-mass rapidity close to the beam rapidity. 
+    \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y, 
+    \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The damaging effect of the radiation, implies that the \footnote{ratio of the most probable amplitude for a minimum ionizing particle divided by the root mean square of the single strip noise}{signal-to-noise} ratio needs to be over 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than 1~GeV/c. 
+    \item momentum resolution - it's mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim to avoid excessive multiple scattering. It is achieved by placing the electronics, mechanical infrastructure and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.5\%$ is foreseen. 
+    \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of 10~kGy~\cite{Heuser:54798}. It was confirmed that after receiving twice the mentioned dose the charge collection efficiency decreases by up to 20\%. 
+    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (10~MHz per $\mathrm{cm^{2}}$ provide the requirements for the readout system (signal shaping time, number of readout channels etc.)
+\end{itemize}
+
+A simplified CAD drawing of the \gls{STS} is presented in Figure~\ref{fig_STS}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.85\columnwidth]{Chapter2/images/STS.png}
+\caption{A simplified geometry of the Silicon Tracking System. The 8 tracking stations cover the polar angle from \SI{2}{\degree} up to \SI{25}{\degree}.}
+\label{fig_STS}
+\end{figure}
+
+The detector consists of 876 detectors modules. A module is composed of double-sided silicon microstrip sensors, ultralight microcables (of up to 50~cm length) and Front End Boards (\gls{FEB}) populated with ASICs (STS-XYTER) glued on the fins. The modules are distributed on carbon fiber support-structures which populate C-frames~\cite{progress_report_2016}. Two C-frames form a tracking station of \gls{STS}.  Figure~\ref{fig_assembly} depicts a simplified assembly workflow of \gls{STS}.
+The modules are produced in 166 variants, which differ in sensors size, micro-cable length and the orientation of the Front End Electronics~(\gls{FEE}).  
+
+
+The stations are placed inside a thermally insulated box which resides in a dipole magnet. During \gls{STS} operation, the temperature inside the enclosure will be gradually decreased with the increasing radiation damage to the silicon sensors, to ensure no risk of thermal runaway~\cite{Spieler}. In principle, the largest amount of heat is dissipated by the low-voltage powering of the electronics and not the sensors themselves. Hence, an effective cooling is needed to address this problem.
+The temperature of about \SI{-10}{\celsius} will ensure a safe performance of the semiconductors and minimize the contribution of the shot noise~\cite{Spieler}. The low ambient temperature also sets hard limits on the frost point. As the coolant temperatures might reach down to \SI{-40}{\celsius}, the frost point needs to be below \SI{-45} at all times. 
+
+\newpage
+\begin{figure}[!h]
+\centering
+\includegraphics[width=1\columnwidth]{Chapter2/images/assembly_sequence.png}
+\caption{A simplified assembly workflow of the \gls{STS}. The silicon sensors are connected to the ASICs on the \glspl{FEB} via microcables. The modules are assembled into carbon fiber ladders which form a C-frame. (Private information from M. Teklishyn)}
+\label{fig_assembly}
+\end{figure}
+
+%The evolution of different experimental setups constructed for the purpose of testing components of the \gls{STS} is depicted in Figure \ref{fig_evolution_STS}. 
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=0.95\columnwidth]{Chapter2/images/evolution_sts_new.png}
+%\caption{Evolution of the test setups towards \gls{STS}. (Private information %from M. Teklishyn)}
+%\label{fig_evolution_STS}
+%\end{figure}
+
+
+
+
+\subsection{Double-sided microstrip silicon sensors}
+\label{sensors}
+
+Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature, as per equation \ref{Sil:temp}~\cite{Hartmann:2017gzy}.
+
+The most important formula which allows for the trackers to be used in particle physics is Bethe-Bloch formula:
+
+\begin{equation}
+-\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}\right]
+\end{equation}
+
+Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor). 
+
 
 
 
@@ -173,9 +192,8 @@ Another alternative to the two readout chains introduced in the last two section
 \subsection{Cooling concept for the STS's electronics and silicon sensors}
 \label{cooling}
 
-\subsection{Detector enclosure and its importance}
-\section{System safety and the consequences}
-\subsection{Requirements for the control system}
+
+\section{Requirements for the control system}
 \label{sys:req}
 Custom solutions that are applied in \gls{STS} make the control of this system very challenging. Different services imply different control solutions which need to be implemented.
 A distributed control system should offer remote control, alarm detection, reporting and logging, modeling and simulation, data processing (archiving, retrieval, plotting, conversion, analysis), common time management, access security, and automatic \footnote{Sequencing, also known as sequential control, it controls the device in a pre-determined order.}{sequencing}.

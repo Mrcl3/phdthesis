@@ -2,21 +2,20 @@
 %\section{Overview of the Silicon Tracking System (STS)}
 All semiconductor based detector systems include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The silicon sensors, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the detector performance.
 
-The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal
+The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal over noise ratio. 
 
 This chapter aims to present an introduction to the silicon based detector systems and general working principles. Subsequently, the design of the \gls{STS} is discussed with focus on the hardware and its control. At last, the requirements for the detector control system are considered. 
 
 \subsection{Role of the semiconductors based detector}
 
-Semiconductors can be considered as ionization chambers, which are features a pair of electrodes and applied external voltage. The radiation passing through the volume of a sensor may result in forming an electron and hole pair. Those signals can be converted into digital ones, processed and analyzed.
-In the simplest case, a plate could be used as an electrode, but it wouldn't be possible to determine the position of a particle very precisely. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. In order to achieve the two-dimensional information, the second electrode has usually an inclination of a few degrees.
+Semiconductors can be considered as ionization chambers, which are features a pair of electrodes and applied external voltage. The particles passing through the volume of a sensor may result in forming an electron and hole pair. A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around 25000 electron-hole pairs. The deposited charge is retrieved by one or more strips per side, what results in position determination. The analog signals are converted into digital ones, processed and analyzed.
 
-Apart from microstrip sensors, there are also for example pixel devices which enable determining two-dimensional positions. It can be achieved either by proper segmentation of the electronics or designing the geometry.  
+In the simplest case, a plate could be used as an electrode, but it wouldn't be possible to determine the position of a particle very precisely. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. In order to achieve the two-dimensional information, the second electrode has usually an inclination of a few degrees. Apart from microstrip sensors, there are also for example pixel devices which enable determining two-dimensional positions. It can be achieved either by proper segmentation of the electronics or designing the geometry.  
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter2/images/silicons.png}
-\caption{The segmented electrode enables defining the particle position (left). The segmented second set of strips enables two-dimensional position sensing. The right scheme depicts the strips oriented at a small angle, which aims to reduce fake hits~\cite{Spieler}.}
+\caption{The segmented electrode enables defining the particle position (left)~\cite{Sokolov:2006vdx}. The right scheme depicts the strips oriented at a small angle, which aims to reduce fake hits~\cite{Spieler}.}
 \label{fig_si}
 \end{figure}
 \newpage
@@ -28,7 +27,17 @@ The sensitive volume of a silicon sensor produces the average signal current giv
 \end{equation}
 where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the bandgap, so that the electron can move to the conduction band. The silicon has a gap of 1.12~eV. Nevertheless, the commonly used ionization energy for silicon is about 3.6~eV. This effect is related to the fact that only about 30\% of the particle's energy is converted into electrical signal, the rest goes into phonon excitation.
 
-\section{Radiation damage to the silion sensors} 
+
+
+\section{Radiation damage to the silicon sensors} 
+
+The most important formula which allows for the trackers to be used in particle physics is Bethe-Bloch formula:
+
+\begin{equation}
+-\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}\right]
+\end{equation}
+
+Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor). 
 
 Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor. 
 
@@ -36,10 +45,11 @@ The influence of the radiation on the silicon is described by so-called Hamburg 
 
 The traversing particles are not only causing the ionization of the lattice, but also interact with the silicon via electromagnetic and strong forces. Atoms can be displaced and create defects. Those defects populate new levels in the band gap, changing the properties of the silicon. That’s why the performance of the silicon sensor will degrade over time, what should also be considered while designing an experiment. The leakage current of a sensor after irradiation is related to the fluence as follows:
 \begin{equation}
+\label{eq:fluence}
     I_{d} = I_{0} + \alpha + \phi + Ad
 \end{equation}
-where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and fluence, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. 
-
+where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and temperature, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. 
+Typical values for the damage coefficeint reach 
 
 
 \begin{equation}
@@ -56,7 +66,7 @@ where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damag
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter2/images/Leakage_current.png}
-\caption{Fluence estimations based on the Hamburg model.}
+\caption{Fluence estimations based on the equation~\ref{eq:fluence} for the typical leakage changes during the \gls{mCBM} experiment.}
 \label{fig_leakage}
 \end{figure}
 
@@ -124,18 +134,16 @@ The temperature of about \SI{-10}{\celsius} will ensure a safe performance of th
 \subsection{Double-sided microstrip silicon sensors}
 \label{sensors}
 
-Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. One of the important parameters of the silicon sensor is leakage current, which is strongly correlated with the temperature, as per equation \ref{Sil:temp}~\cite{Hartmann:2017gzy}.
+The use of microstrip silicon sensors has been demonstrated in many well-known experiments like those operated at \gls{CERN}(\gls{ALICE} and \gls{CMS}) and Brookhaven National Laboratory (\gls{STAR}). The aluminum strips on the p-side of the sensors are inclined by \SI{7.5}{\degree} with respect to the n-side. That implies that there is a set of shorter strips on the p-side. These strips are interconnected with each other using a second metallization layer on the sensors. An example of this solution is presented in Figure~\ref{fig_sts_si}. 
 
-The most important formula which allows for the trackers to be used in particle physics is Bethe-Bloch formula:
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.75\columnwidth]{Chapter2/images/silicon_sensors.png}
+\caption{Left: An example of sensor's electrode segmented into strips inclined by a small angle. The shortest strips are interconnected with each other. Right: The silicon sensors to be used for the \gls{STS}. The width of the sensor is \SI{6.2}{\centi\metre} and there are 4 strip lengths: \SI{2.2}{\centi\metre}, \SI{4.2}{\centi\metre}, \SI{6.2}{\centi\metre}, \SI{12.4}{\centi\metre}.}
+\label{fig_sts_si}
+\end{figure}
 
-\begin{equation}
--\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}\right]
-\end{equation}
-
-Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor). 
-
-
-
+The sensors are produced on \SI{320}{\micro\metre} thick n-type wafers by Hamamatsu Photonics K.K. Each of the sensors features 1024 strips with \SI{58}{\micro\metre} pitch. The signal from the sensors is transported to the front-end electronics via ultra-light microcables. These cables are additionally shielded to protect the analog signals from any interference. 
 
 \subsection{Module}
 \label{module}
@@ -144,6 +152,22 @@ Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy t
 \subsection{The readout chain of the STS}
 \label{readout}
 \label{DAQ}
+The \gls{STS} readout chain is designed to control, readout and preprocess analog signals acquired from the silicon sensors. Moreover, it has to handle a high data throughput and store it. The \gls{CBM} experiment is going to run with a free-streaming Data Acquisition (\gls{DAQ}) system. It is made of the \gls{FEE}, data transport, online event reconstruction and online event selection~\cite{Kasinski1}.
+
+The first layer of the \gls{STS}'s readout chain consists of Front-End Board (\gls{FEB}) which is populated with 8  Application-specific integrated circuits (ASICs)~\cite{Kasinski2}. Each ASIC or STS-XYTER is responsible for readout of 128 channels. The chips feature the analog front-end (\gls{AFE}), the digitizer and generation of hits using Analog Digital Converter (\gls{ADC}) and timestamp information. 
+
+The next element, which transports data from the \gls{FEE} is the readout board (\gls{ROB}). It aggregates data from multiple \glspl{FEB} and sends it via optical links out of the detector enclosure to the Common Readout Interface (\gls{CRI}) board. Subsequently, the data is transported to the First Event Level Selector (\gls{FLES}). 
+
+In total, the \gls{STS} features roughly, 14000 STS-XYTERs, 600 \glspl{ROB}. Given a typical average raw event size of roughly 50 kB for minimum-bias Au+Au collisions, a peak collision rate of 10~MHz results in an instantaneous raw data rate of about 500~GB/s (for the all the detector systems).
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\columnwidth]{Chapter2/images/CRI_DAQ.png}
+\caption{The basic building parts for one \gls{FLES} entry node are shown schematically. An entry node can hold many \glspl{CRI}. A \gls{CRI} often serves numerous \glspl{ROB}, whereas a \gls{ROB} typically serves multiple \glspl{FEB}. The Timing and Fast Control (\gls{TFC}) is a core system that is shared by all \glspl{CRI}.}
+\label{fig_daq_cri}
+\end{figure}
+
+The testing phase features two other readout chains, which are based on Data Processing Board (\gls{DPB}) and GBTxEMU board. 
 \subsubsection{STS-XYTER}
 
 \subsubsection{Front-end boards (FEB)}

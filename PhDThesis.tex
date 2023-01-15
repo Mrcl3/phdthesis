@@ -83,6 +83,15 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 
+%Empty page definitions
+\usepackage{afterpage}
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+
 %Changing spaces between the entrie sin the table of contents
 \usepackage{tocloft}
 \renewcommand\cftchapafterpnum{\vskip15pt}
@@ -96,7 +105,7 @@
 \addtokomafont{disposition}{\selectfont\color{black}}
 \usepackage{addfont}
 \usepackage{lineno}
-\linenumbers
+%\linenumbers
 \usepackage[oldstylemath]{kpfonts}
 %\addfont{OT1}{d7seg}{\dviiseg}
 
@@ -196,8 +205,10 @@
 \begin{document}
 \frontmatter
 \input{Titlepage.tex}
+\myemptypage
 \input{backpage.tex}
-\newpage
+\myemptypage
+~\myemptypage
 % --------------------------------
 \thispagestyle{empty}
 %\clearpage

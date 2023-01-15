@@ -1,82 +1,104 @@
 
 %\section{Overview of the Silicon Tracking System (STS)}
-All semiconductor based detector systems include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The silicon sensors, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the detector performance.
+All semiconductor based detector systems include very similar functions. The signals from the detector channels have to be amplified and processed for storage and analysis. The sensor, analog-digital converter and all the necessary support structures are often referred to as a detector module. Nevertheless, there are many parameters that have to be optimized in order to achieve the detector performance. One of the first decision is the detector material, which depends on many factors like the availability, energy needed for electron-hole production., technological feasibility, or integration with the electronics. Silicon (Si), germanium (Ge), gallium arsenide (GaAs) and Diamond are the most common semiconductor detector materials~\cite{Lutz:1999wg,Hartmann:2017gzy}.
 
-The use of microstrip silicon sensors was demonstrated in other experiments around the world. It's design and thickness are primarily dependent on the constraints related to the scaterring and signal over noise ratio. 
 
 This chapter aims to present an introduction to the silicon based detector systems and general working principles. Subsequently, the design of the \gls{STS} is discussed with focus on the hardware and its control. At last, the requirements for the detector control system are considered. 
 
-\section{Role of the semiconductors based detector}
-
-Semiconductors can be considered as ionization chambers, which are features a pair of electrodes and applied external voltage. The particles passing through the volume of a sensor may result in forming an electron and hole pair. A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around 25000 electron-hole pairs. The deposited charge is retrieved by one or more strips per side, what results in position determination. The analog signals are converted into digital ones, processed and analyzed.
+\section{Fundamentals of the silicon detector}
+Semiconductors can be considered as ionization chambers, which are features a pair of electrodes and applied external voltage. The particles passing through the volume of a sensor may result in forming an electron and hole pair. The deposited charge is retrieved by one or more strips per side, what results in position determination. The analog signals are converted into digital ones, processed and analyzed.
 
 In the simplest case, a plate could be used as an electrode, but it wouldn't be possible to determine the position of a particle very precisely. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. In order to achieve the two-dimensional information, the second electrode has usually an inclination of a few degrees. Apart from microstrip sensors, there are also for example pixel devices which enable determining two-dimensional positions. It can be achieved either by proper segmentation of the electronics or designing the geometry.  
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=1\columnwidth]{Chapter2/images/silicons.png}
+\includegraphics[width=0.95\columnwidth]{Chapter2/images/silicons.png}
 \caption{The segmented electrode enables defining the particle position (left)~\cite{Sokolov:2006vdx}. The right scheme depicts the strips oriented at a small angle, which aims to reduce fake hits~\cite{Spieler}.}
 \label{fig_si}
 \end{figure}
 \newpage
 
 
+Ionization by charged particles can occur along their flight path due to multiple recoil interactions with electrons. The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
+\begin{equation}
+-\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}\right]
+\end{equation}
+Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor).Photons must first contact with an electron through the photo or Compton effect, or with the Si nucleus. 
+
 The sensitive volume of a silicon sensor produces the average signal current given by 
 \begin{equation}
     Q_{s} = \frac{E}{E_{i}}e
 \end{equation}
-where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the bandgap, so that the electron can move to the conduction band. The silicon has a gap of 1.12~eV. Nevertheless, the commonly used ionization energy for silicon is about 3.6~eV. This effect is related to the fact that only about 30\% of the particle's energy is converted into electrical signal, the rest goes into phonon excitation.
+where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the band gap, so that the electron can move to the conduction band. The silicon has a gap of 1.12~eV. Nevertheless, the commonly used ionization energy for silicon is about 3.6~eV. This effect is related to the fact that only about 30\% of the particle's energy is converted into electrical signal, the rest goes into phonon excitation. A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around 25000 electron-hole pairs.
 
+In a simple example, if a sensor has about $\sim10^{9}$ \footnote{Electrons or holes introduced to the conduction (valence) band by doping.}{charge carriers}, but a passing charged particle generates only $\sim2*10^{4}$ electrons. Such signal is lost in the remaining free charge carriers. There are two ways to address this problem, either by cooling the sensor to very low temperatures or depleting the silicon volume of free charge carriers. The depletion process of a pn-junction includes applying an external voltage so that the sensor is reverse-biased~\cite{Spieler}. This external voltage $\pm V$ disturbs the equilibrium of generation and recombination of electrons/holes. It increases the potential barrier of the pn-junction and the depletion width. 
 
+The full depletion voltage is one of the most important parameters for the silicon sensors, as it defines the operating range. 
+\begin{equation}
+    V_{FD} = \frac{D^{2}}{2\epsilon \mu \rho},
+\end{equation}
+where D is the sensor thickness, $\epsilon$ is the dielectric constant, $\mu$ is the mobility and $\rho$ the resistivity.
+
+When the sensor is operated in the full depletion mode, the electric field of 
+\begin{equation}
+    E_{max/min} = \frac{V_{bias}\pm V_{FD}}{D}
+\end{equation}
+is established and the thermally generated electron pairs are swept out of the depletion region. This effect results in a reverse current called leakage current which is strongly influenced by mid-gap levels taken by impurities. The current increases linearly with the $\sqrt{V}$ until the detector reaches full depletion. An electric breakdown is found at greater bias voltages, where the current begins to increase exponentially. The breakdown can be understood by either "avalanche breakdown" (charge multiplication in collisions with the lattice) or "Zener breakdown" (based on the quantum mechanical "tunnel effect")~\cite{Hartmann:2017gzy}.
 
 \section{Radiation damage to the silicon sensors} 
+To understand the properties of the silicon sensor after irradiation, it's necessary to the damage done to the lattice by the particles and the process called annealing. Annealing can be described as the combination of various effects, such as the movement of particles or defects through a lattice structure, the rearrangement, or break-up of defects, and the interaction between defects as they propagate. Annealing of silicon sensors is a process used to reduce the amount of leakage current present in silicon sensors. This process involves heating the sensors to a very high temperature for an extended period of time, allowing the bonds between the atoms in the silicon lattice to become more stable and reduce the amount of current flowing through the device. The annealing process also helps to reduce the amount of noise generated by the sensor, as well as improve its temperature stability. 
 
-The most important formula which allows for the trackers to be used in particle physics is Bethe-Bloch formula:
+Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor. Displaced atoms form so-called defects, which occupy new levels in the band gap, therefore changing the properties of the semiconductor. It results in the increase of the dark current, change of depletion voltage, and decrease of charge collection efficiency.
 
-\begin{equation}
--\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  2\frac{\delta(\gamma)}{Z}\right]
-\end{equation}
 
-Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be imparted to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\square\beta}}$ and $\delta$ density effect correction. It describes the average energy loss of a charged particle in a given medium (for example, gas or a semiconductor). 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.75\columnwidth]{Chapter2/images/niel_silicons.png}
+\caption{NIEL – non ionizing energy loss. Displacement damage function D(E) normalized to 95 MeV/mb for neutrons, protons, pions and electrons~\cite{Hartmann:2017gzy}.}
+\label{fig_niel_si}
+\end{figure}
 
-Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor. 
-
-The influence of the radiation on the silicon is described by so-called Hamburg model. 
-
-The traversing particles are not only causing the ionization of the lattice, but also interact with the silicon via electromagnetic and strong forces. Atoms can be displaced and create defects. Those defects populate new levels in the band gap, changing the properties of the silicon. That’s why the performance of the silicon sensor will degrade over time, what should also be considered while designing an experiment. The leakage current of a sensor after irradiation is related to the fluence as follows:
+\textbf{Leakage current}\bigbreak
+Production of mid-gap levels is the major contribution to the increase of leakage current during the radiation. It was also found in a number of experiments that the leakage current of a sensor irradiation is related to the fluence as follows:
 \begin{equation}
 \label{eq:fluence}
     I_{d} = I_{0} + \alpha + \phi + Ad
 \end{equation}
-where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and temperature, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. 
-Typical values for the damage coefficeint reach 
-
+where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and temperature, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. Figure~\ref{fig_leakage} depicts the correlations included in Equation~\ref{eq:fluence} for fluences up to $7\times 10^{11}~\mathrm{MeVn_{eq}cm^{2}}$. Moreover, leakage current is changes also with the temperature as:
 
 \begin{equation}
 \label{Sil:temp}
-    I_{R}(T) \propto T^{2}e^{\frac{-E}{2kT}}
+    I(T) \propto T^{2}e^{\frac{-E}{2kT}}
 \end{equation}
- By assuming that one of the  temperature sensors at a similar height as the silicon sensors mimics their temperature. This assumption clearly doesn't consider several effects like silicon sensors' self-heating. Nevertheless, it allows us to scale down leakage current to $20\,^{\circ}$C using the equation \ref{Sil:scal}.
+If the temperature of the silicon sensors is known, then it's possible to normalize the leakage current to a predefined value (e.g. \SI{20}{\celsius}). It allows comparing the leakage current of sensors before and after irradiation, even though the ambient conditions were different. 
+
+It allows us to scale down leakage current to $20\,^{\circ}$C using the equation \ref{Sil:scal}.
  
 \begin{equation}
 \label{Sil:scal}
-    \frac{I_{R}(T_{2})}{I_{R}(T_{1})} = (\frac{T_{2}}{T_{1}})^{2}e^{\frac{-E}{2kT}\frac{T_{1}-T_{2}}{T_{1}T_{2}}}
+    \frac{I_{R}(T_{2})}{I_{R}(T_{1})} = (\frac{T_{2}}{T_{1}})^{2}e^\frac{-E_{g}{2kT}\frac{T_{1}-T_{2}}{T_{1}T_{2}}}
+    
 \end{equation}
-
+where $E_{g}$ is the bang gap, k is the Boltzmann constant, I is the current and T is the temperature.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter2/images/Leakage_current.png}
-\caption{Fluence estimations based on the equation~\ref{eq:fluence} for the typical leakage changes during the \gls{mCBM} experiment.}
+\caption{Fluence estimations based on Equation~\ref{eq:fluence} for the typical leakage changes during the \gls{mCBM} experiment.}
 \label{fig_leakage}
 \end{figure}
 
+
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.65\columnwidth]{Chapter2/images/currenttempnobeam.png}
-\caption{The first proposition of the CBM readout chain based on separate DPB and FLIB boards \cite{CRI}}
-\label{fig_leakage1}
+\includegraphics[width=0.65\columnwidth]{Chapter2/images/lekage_current_fluence.png}
+\caption{Damage induced bulk current as function of particle fluence
+for different detector types.}
+\label{fig_leakage_theory}
 \end{figure}
 
+\textbf{Depletion Voltage}\bigbreak
+
+Defects caused by radiation increase the leakage current of the device and thus reduce the depletion voltage. In addition, the radiation can cause the charge carriers to become trapped, reducing the mobility of the carriers and further reducing the depletion voltage. For an n-type-doped silicon sensor, the effects of radiation on the depletion voltage are more pronounced compared to a p-type-doped sensor, as the majority carriers in an n-type-doped sensor are electrons, which are more easily affected by radiation than holes. 
 
 
 
@@ -109,7 +131,7 @@ The modules are produced in 166 variants, which differ in sensors size, micro-ca
 
 
 The stations are placed inside a thermally insulated box which resides in a dipole magnet. During \gls{STS} operation, the temperature inside the enclosure will be gradually decreased with the increasing radiation damage to the silicon sensors, to ensure no risk of thermal runaway~\cite{Spieler}. In principle, the largest amount of heat is dissipated by the low-voltage powering of the electronics and not the sensors themselves. Hence, an effective cooling is needed to address this problem.
-The temperature of about \SI{-10}{\celsius} will ensure a safe performance of the semiconductors and minimize the contribution of the shot noise~\cite{Spieler}. The low ambient temperature also sets hard limits on the frost point. As the coolant temperatures might reach down to \SI{-40}{\celsius}, the frost point needs to be below \SI{-45} at all times. 
+The temperature of about \SI{-10}{\celsius} will ensure a safe performance (away from the thermal runaway tempeartures) of the semiconductors and minimize the contribution of the shot noise~\cite{Spieler}. The low ambient temperature also sets hard limits on the frost point. As the coolant temperatures might reach down to \SI{-40}{\celsius}, the frost point needs to be below \SI{-45}{\celsius} at all times. 
 
 \newpage
 \begin{figure}[!h]
@@ -134,7 +156,7 @@ The temperature of about \SI{-10}{\celsius} will ensure a safe performance of th
 \subsection{Double-sided microstrip silicon sensors}
 \label{sensors}
 
-The use of microstrip silicon sensors has been demonstrated in many well-known experiments like those operated at \gls{CERN}(\gls{ALICE} and \gls{CMS}) and Brookhaven National Laboratory (\gls{STAR}). The aluminum strips on the p-side of the sensors are inclined by \SI{7.5}{\degree} with respect to the n-side. That implies that there is a set of shorter strips on the p-side. These strips are interconnected with each other using a second metallization layer on the sensors. An example of this solution is presented in Figure~\ref{fig_sts_si}. 
+The use of microstrip silicon sensors has been demonstrated in many well-known experiments like those operated at \gls{CERN}(\gls{ALICE} and \gls{CMS}) and Brookhaven National Laboratory (\gls{STAR}). The aluminum strips on the p-side of the sensors are inclined by \SI{7.5}{\degree} with respect to the n-side. That implies that there is a set of shorter strips on the p-side. These strips are interconnected with each other using a second metallization layer on the sensors. An example of this solution is presented in Figure~\ref{fig_sts_si}. Moreover, to shield the electronics from the dark current, the sensor is capacitevely coupled with the readout.
 
 \begin{figure}[!h]
 \centering
@@ -143,8 +165,7 @@ The use of microstrip silicon sensors has been demonstrated in many well-known e
 \label{fig_sts_si}
 \end{figure}
 
-The sensors are produced on \SI{320}{\micro\metre} thick n-type wafers by Hamamatsu Photonics K.K. Each of the sensors features 1024 strips with \SI{58}{\micro\metre} pitch. The signal from the sensors is transported to the front-end electronics via ultra-light microcables. These cables are additionally shielded to protect the analog signals from any interference. 
-
+The sensors are produced on \SI{320}{\micro\metre} thick n-type wafers by Hamamatsu Photonics K.K. The $p^{+}$ strips are located on one of the sides (called p-side) forming a pn-junction. The trips at the n-side are isolated using a p-spray technology~\cite{Heuser:54798}. Each of the sensors features 1024 strips with \SI{58}{\micro\metre} pitch. The signal from the sensors is transported to the front-end electronics via ultra-light microcables. These cables are additionally shielded to protect the analog signals from any interference. 
 \subsection{Module}
 \label{module}
  The assembly of the detector is realized stepwise. The whole complex procedure requires utmost care and extremely high precision. Therefore, a proper workflow was developed to address the complexity of the module assembly~\cite{carmen2}.
@@ -167,8 +188,8 @@ In total, the \gls{STS} features roughly, 14000 STS-XYTERs, 600 \glspl{ROB}. Giv
 \label{fig_daq_cri}
 \end{figure}
 
-There are two other readout chains that have been exercised for different detector development activities. The first option is based on Data Processing Board (\gls{DPB}).
-The second option is the readout chain based on the  GBTxEMU-based tester, which emulates the \gls{ROB}.
+There are two other readout chains that have been exercised for different detector development activities. The first option uses on Data Processing Board (\gls{DPB}), whereas
+the second option is based on the GBTxEMU-based tester, which emulates the \gls{ROB}.
 
 
 \subsection{Front-end electronics (FEE) and the readout ASIC}
@@ -214,7 +235,25 @@ The STS-XYTER (see Figure~\ref{sts_xyter}) is an integrated circuit designed for
 The digital back-end allows for register access and data readout. It also provides measures to monitor the performance of the chip via i.e., upset counters, link error monitor, diagnostic circuitry (temperature, VDDM potential, CSA bias value). The communication with the chip is based on a custom developed Hit and Control Transfer Synchronous Protocol (STS-HCTSP) protocol~\cite{Kasinski_2016}. A detailed description of the STS-XYTER can be found in the PhD thesis of A. Rodriguez~\cite{RodriguezRodriguez2020}.
 
 STS-XYTER also features an internal monitoring circuit - diagnostic circuit. It enables measurement of several potentials inside the chip. By monitoring the analog powering domain (VDDM), temperature it's possible to have a general understanding of the chip state without running extensive tests. The diagnostic circuit of the \glspl{ASIC} and the obtained results will be discussed in detail in Chapter 4.
+\subsubsection{Noise considerations for the detector module}
+Noise levels are one of the most important parameters for the \gls{STS}. Too high noise levels may not only worsen the obtained data but also affect the performance of the \gls{DAQ} chain~\cite{Heuser:54798}. The contribution of noise becomes even more crucial in the triggerless systems like the \gls{CBM} experiment. The noise hit is produced once it exceeds the set thresholds of the \gls{ADC} discriminator. It is digitized and constitutes the data together with the real hits.
 
+The readout chain was optimized in order to lower the noise contributions by using the slow shaper. The noise level is relatively high due to the faster path's higher bandwidth. The slow path, on the other hand, has been improved for minimal noise, allowing the hit to be triggered whenever a slow shaper signal passes the ADC first comparator threshold~\cite{RodriguezRodriguez2020}. The noise may be influenced by a number of factors including: load capacitance 
+(different silicon sensors sizes and microcable lengths), peaking time, temperature, glob-top, low-voltage powering and external contributions.
+
+In order to estimate the overall noise performance it's necessary to include the silicon sensor, cables, readout chip. There are three main contributions to the noise levels~\cite{Toia:209729}:
+\begin{itemize}
+    \item parallel current noise (detector leakage current, leakage current flowing through transistors in the Electrostatic Discharge protection circuit, resistor bias shunt resistance~\cite{Spieler}, feedback resistance),
+    \item series white noise (\gls{CSA} input transistor thermal and flicker noise)
+    \item series 1/f (flicker) noise (caused by charge carriers that are randomly trapped and released between the interfaces of two materials).
+\end{itemize}
+An analytical expression of the noise spectral density at the shaper output and the Equivalent Noise Charge (\gls{ENC}) can be expressed as:
+\begin{equation}
+    ENC^{2} = ENC^{2}_{i} + ENC^{2}_{w} + ENC^{2}_{1/f},
+\end{equation}
+where $ENC^{2}_{i}$  is the total current noise, $ ENC^{2}_{w}$ is the total white noise and $ENC^{2}_{1/f}$ is the total flicker noise. 
+
+Noise performance of a module provides an invaluable insight into the state of the sensor and \gls{FEE} electronics. By knowing the nominal \gls{ENC} it allows to detect and investigate potential external noise sources. Moreover, it provides means of estimating broken analog connections or hints how to adjust setting to reduce the noise contribution.
 \subsection{Readout board (ROB) and Common Readout Interface (CRI)}
 
 The \gls{STS} readout board is a data concentrator board based on the radiation-tolerant GBTx ASIC and Versatile Link
@@ -225,7 +264,7 @@ The main building elements of the board are three \gls{GBT}x \glspl{ASIC} and a 
 The Common Readout Interface (\gls{CRI}) is a \footnote{PCIe card refers to a kind of network adapter with a PCIe interface.}{PCIe card} based on Field Programmable Gate Arrays (\gls{FPGA}). The \gls{CRI} provides the input to the First-level Event Selector (\gls{FLES}). It's also a central element of the \gls{DAQ} chain, as it provides means of data control. Moreover, the \gls{CRI} has interface to the \gls{TFC} system. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\columnwidth]{Chapter2/images/cri_board_atlas.pdf}
+\includegraphics[width=0.8\columnwidth]{Chapter2/images/cri_board_atlas.pdf}
 \caption{The first prototype of the \gls{CRI} board~\cite{CRI}.}
 \label{fig_cri_board}
 \end{figure}
@@ -239,8 +278,7 @@ There are two alternative readout chains implemented for the testing purposes to
 \textbf{DBP based chain}\bigbreak
 
 
-Even though the final solution for the readout is the \gls{CRI} board, the Data Processing
-Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. For the control communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows a simple and fast communication with \glspl{FPGA}.\bigbreak
+Even though the final solution for the readout is the \gls{CRI} board, the Data Processing Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. For the control communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows a simple and fast communication with \glspl{FPGA}. \bigbreak
 
 \textbf{GBTxEMU} \bigbreak
 

@@ -2,7 +2,7 @@
 \appendix
 
 \chapter{Example of deploying an IOC with YAML file}
-An example yaml file used to deploy \gls{IOC}. In this particular case, the IOC was operating a BINDER MK240 climatic chamber using Modbus protocol. The volumes are used to acquire database files and also synchronize the time with the node. Moreover, the container run in the host network and the so-called pseudo terminal is activated (tty). 
+An example yaml file used to deploy \gls{IOC}. In this particular case, the IOC was operating a BINDER MK240 climatic chamber~\cite{binder} using Modbus protocol~\cite{modbus}. The volumes are used to acquire database files and also synchronize the time with the node. The container deployed in the host network and the so-called pseudo terminal is activated (tty). The time of the container is synchronized with the local time of the node. 
 \label{YAML}
 \begin{verbatim}
 
@@ -22,70 +22,44 @@ services:
 
 \chapter{CSA scans for modules of the mSTS}
 \label{CSA}
-The plots presented below show the behavior of the not-presented modules during the data-taking and operation of the mSTS. 
-
+The graphs depict the current trends of the \gls{STS} modules in function of the CSA value settings. The nominal operational value of 31 value is also marked. The respective components that cause higher average current for Unit 1 and 3 are listed in Chapter 6. The newest modules which are in the Unit 2 present similar currents as Unit 0. 
+\vfill
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U1CSABIAS.png}
-\caption{CSA scan of the unit 1}
+\caption{Currents of four \glspl{FEB} of Unit 1 in function of CSA value setting.}
 \label{U1CSABIAS}
 \end{figure}
-
-\begin{figure}[h!]
+\vfill
+\begin{figure}
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U2CSABIAS.png}
-\caption{CSA scan of the unit 2}
+\caption{Currents of four \glspl{FEB} of Unit 2 in function of CSA value setting.}
 \label{U2CSABIAS}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U3L1CSABIAS.png}
-\caption{CSA scan of the unit 3 ladder 0}
+\caption{Currents of four \glspl{FEB} of Unit 3 Ladder 0 in function of CSA value settings.}
 \label{U3L1CSABIAS}
 \end{figure}
 
-
+\chapter{Leakage current evolution}
+\label{Current}
+Figures~\ref{leakage_current_u1u2} and \ref{leakage_current_u3l1} depict the leakage current evolution of the remaining \gls{mSTS} modules. Leakage current trends of Unit 1, 2 and module 1 of Unit 3 Ladder 3 are in agreement. Module 0 of Unit 3 has most likely an electrical issue which reveals itself in unusually high increase of the leakage current. 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/sensors/U1_leakage.png}
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/sensors/U2_leakage.png}
-\caption{Leakage current evolution during the mSTS operation - Unit 1 and unit 2}
+\includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/sensors/U1_leakage.png}
+\includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/sensors/U2_leakage.png}
+\caption{Leakage current evolution during the \gls{mSTS} operation - Unit 1 and unit 2.}
 \label{leakage_current_u1u2}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/sensors/U3L1_leakage.png}
-\caption{Leakage current evolution during the mSTS operation - Unit 3 ladder 1}
+\includegraphics[width=0.5\columnwidth]{Chapter6/DCS/images/sensors/U3L1_leakage.png}
+\caption{Leakage current evolution during the \gls{mSTS} operation - Unit 3 ladder 1.}
 \label{leakage_current_u3l1}
 \end{figure}
 
 
-
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/uranium/U1.png}
-\includegraphics[width=0.45\columnwidth]{Chapter6/DCS/images/uranium/U2.png}
-\caption{Unit 1 and unit 2 silicon sensors current}
-\label{fig_U1U2}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/uranium/U3L1.png}
-\caption{Unit 3 Ladder 1 silicon sensors current}
-\label{fig_U3L1}
-\end{figure}
 %\chapter{IV curves}
 %\label{IV}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/IV/U3L1FEB3.png}
-\includegraphics[width=0.49\columnwidth]{Chapter6/DCS/images/IV/U1FEB1.png}
-\caption{IV curves for two modules from different units}
-\label{fig_U1FEB1}
-\end{figure}

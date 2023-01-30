@@ -36,11 +36,11 @@ Two different \gls{FOS} designs were compared:
 \caption{The left photo shows the temperature sensing array, and the right one shows the \gls{RH} sensing array after packaging the FBG in strain-free conditions. The fibers do not have the jacket applied on the polyimide coating. The arrays were manufactured by Technica~\cite{technica} and packaged by AOS Electronics~\cite{AOS}.}
 \label{fig_array_photo}
 \end{figure}
-To characterize a RH FBG-based sensor, the humidity and temperatures sensitivity coefficient have to be determined. In addition to that, parameters like time response, hysteresis or repeatability contribute to the total uncertainty of the sensor. 
+To characterize a RH FBG-based sensor, the humidity, and temperature sensitivity coefficient have to be determined. In addition to that, parameters like time response, hysteresis, or repeatability contribute to the total uncertainty of the sensor. 
 \section{Experimental setup}
 \label{fos:setup}
 
-The sensors were calibrated using a S8000 chilled mirror hygrometer~\cite{michell_s8000}. Additionally, to compare the results, two industrial \gls{RH} sensors were used: HYT221 and SHT85 (see section \ref{capacitive_sensors}). The temperature during the testing was controlled by a Binder MKF chamber~\cite{binder} which offers also relative humidity control down to \SI{0}{\celsius}. Experimental setup scheme is shown in Figure~\ref{fig:fos_arch}. 
+The sensors were calibrated using a S8000 chilled mirror hygrometer~\cite{michell_s8000}. Additionally, to compare the results, two industrial \gls{RH} sensors were used: HYT221 and SHT85 (see section \ref{capacitive_sensors}). The temperature during the testing was controlled by a Binder MKF chamber~\cite{binder} which offers also relative humidity control down to \SI{0}{\celsius}. The experimental setup scheme is shown in Figure~\ref{fig:fos_arch}. 
 
 Two calibration methods were used to characterize the \gls{FBG}-based relative humidity sensors. The first method involved the use of different saturated salt solutions:
 \begin{itemize}
@@ -50,10 +50,10 @@ Two calibration methods were used to characterize the \gls{FBG}-based relative h
 \end{itemize}
  Saturated salt solutions have well-defined relative humidity values at a given temperature~\cite{Fossa:687857}. This method offers a cost-effective way to calibrate a \gls{RH}. The second method relied on the humidity control (10\% to 80\% with a 10\% increment) of the climatic chamber.
  
- The sensing instrument (light source) was the Micron Optics Hyperion SI255~\cite{si255}. The SI255 is supplied with a high power, low noise, ultra wide swept wavelength laser. It is guaranteed to provide absolute accuracy of 1~pm at every scan within the operating range of 1500 -- 1600~nm~\cite{si255}.
+ The sensing instrument (light source) was the Micron Optics Hyperion SI255~\cite{si255}. The SI255 is supplied with high power, low noise, ultra-wide swept wavelength laser. It is guaranteed to provide absolute accuracy of 1~pm at every scan within the operating range of 1500 -- 1600~nm~\cite{si255}.
 
-The setup was controlled by the developed \gls{EPICS} based framework. The custom-written \glspl{IOC} were used to obtain data from the temperature and humidity sensors, as well as from the climatic chamber. The data related to the fiber optic sensors were collected through \footnote{ENLIGHT Sensing Analysis Software is a powerful utility that is included with Micron
-Optics sensing interrogators.}{ENLIGHT} software, and a custom \gls{IOC} connected to it. Subsequently, all the data was stored using an archiver appliance to a Redis database. 
+The setup was controlled by the developed \gls{EPICS} based framework. The custom-written \glspl{IOC} were used to obtain data from the temperature and humidity sensors, as well as from the climatic chamber. The data related to the fiber optic sensors were collected through ENLIGHT\footnote{ENLIGHT Sensing Analysis Software is a powerful utility that is included with Micron
+Optics sensing interrogators.} software, and a custom \gls{IOC} connected to it. Subsequently, all the data was stored using an archiver appliance to a Redis database. 
 
 \begin{figure}[!h]
 \centering
@@ -79,7 +79,7 @@ The climatic chamber offers the temperature control between \SI{-40}{\celsius} a
 One of the most important sensor characteristics is accuracy, which holds information about the deviation of the measured value from the ideal value. Overall, the uncertainty comprises several factors~\cite{sensors_physics}:
 \begin{itemize}
     \item calibration error - a constant error over the whole range of measurements, its source is related to the accuracy of the reference device and the calibration method applied,
-    \item hysteresis - a deviation of the sensor's output a certain point of the input single when approached from opposite directions (see Figure~\ref{fig:accuracy}), 
+    \item hysteresis - a deviation of the sensor's output to a certain point of the input single when approached from opposite directions (see Figure~\ref{fig:accuracy}), 
     \item non-linearity - in the characterization of the \glspl{FBG} it is assumed that the response of the sensors to the stimulus (increasing humidity or temperature) is linear. Therefore, any deviation from the linearity is considered a contribution to the uncertainty,
     \item repeatability - the error caused by the inability of a sensor to represent the same value at the same conditions. 
 \end{itemize}

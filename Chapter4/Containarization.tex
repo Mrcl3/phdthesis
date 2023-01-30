@@ -1,7 +1,7 @@
 \section{Containerized IOC}
-Containerization is an increasingly popular method of virtualizing an application, without having to run a full-blown operating system. In current practices, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} containers and their different applications become more and more popular. According to to~\cite{Klaus2021} the first mention of about a \footnote{Docker is a set products that use operating system level virtualization to deliver software in packages called containers.}{Docker} container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
+Containerization is an increasingly popular method of virtualizing an application, without having to run a full-blown operating system. In current practices, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} containers and their different applications become more and more popular. According to ~\cite{Klaus2021} the first mention of about a Docker\footnote{Docker is a set of products that use operating system level virtualization to deliver software in packages called containers.} container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
 
-IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collaboration and adjusted to the \gls{STS} needs. The latest \gls{IOC}'s image is built on EPICS R7.0.3.1 image and it contains the most important modules and extensions i.a. asyn, autosave, calc, Modbus, and SNMP (see Figure~\ref{fig_ioc1}). By using so-called volumes (see Figure~\ref{fig_doc}) the \gls{IOC} can be used at any node with the Docker engine. Volumes are one of the mechanisms to manage application data and it's a proper way to ensure data persistence. When a container is started, Docker loads the read-only image layer, adds a read-write layer on top of the image stack, and mounts volumes onto the container filesystem. Having prepared database files, st.cmd, and stream protocols if needed, an \gls{IOC} can be deployed on any node, with any operating system and processor architecture.
+IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collaboration and adjusted to the \gls{STS} needs. The latest \gls{IOC}'s image is built on EPICS R7.0.3.1 image, and it contains the most important modules and extensions i.a. asyn, autosave, calc, Modbus, and SNMP (see Figure~\ref{fig_ioc1}). By using so-called volumes (see Figure~\ref{fig_doc}) the \gls{IOC} can be used at any node with the Docker engine. Volumes are one of the mechanisms to manage application data, and it's a proper way to ensure data persistence. When a container is started, Docker loads the read-only image layer, adds a read-write layer on top of the image stack, and mounts volumes onto the container file system. Having prepared database files, st.cmd, and stream protocols if needed, an \gls{IOC} can be deployed on any node, with any operating system and processor architecture.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter4/images/epics_ioc.jpg}
@@ -31,7 +31,7 @@ Docker was chosen as the platform to prepare the images and run the containers. 
     \item Singularity~\cite{singularity}
 \end{itemize}
 
-For the use of containers in the final experiment, the following list must be taken into consideration:
+For the use of containers in the final experiment, the following list of requirements must be taken into consideration:
 
 \begin{itemize}
     \item services should be accessible only by experts, crucial services should be hidden from operators (authorization),
@@ -40,7 +40,7 @@ For the use of containers in the final experiment, the following list must be ta
     \item proper security context for all the services (e.g. root privileges),
     \item logging all the changes in the cluster,
     \item preventing containers from loading unwanted kernel modules,
-    \item cluster and container redundancy.
+    \item cluster, and container redundancy.
 \end{itemize}
 
 

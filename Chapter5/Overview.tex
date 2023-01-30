@@ -3,10 +3,10 @@ The third test activity, which involved important research for the \gls{STS} is 
 \section{Sensors requirements}
 
 The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for potential ambient sensors. As described in the section~\ref{STS}, the ambient temperature will reach \SI{-10}{\celsius} at the end of the \gls{STS}'s lifetime. The cooling liquid (3M NOVEC 649) will be circulating at temperatures close to~\SI{-40}{\celsius}. Therefore, the first boundary condition arises: the frost point and dew point inside the \gls{STS} has to be below~\SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}.
-During the first few years of operation, the temperatures will be higher and Relative Humidity (\gls{RH}) can be measured more \footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}{accurately}. 
+During the first few years of operation, the temperatures will be higher and Relative Humidity (\gls{RH}) can be measured more accurately\footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}. 
 %One of the most common techniques to achieve the frost points below~\SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the~\gls{FEE}. 
 
-During the detector's lifetime (10 years), there will be limited opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As some of the sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
+During the detector's lifetime (10 years), there will be limited opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
 The humidity sensors have to be insensitive to the magnetic field of \SI{1}{\tesla\metre} since the whole detector resides in a dipole magnet.  An ideal humidity sensor should also meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
@@ -68,9 +68,9 @@ Inserting the equation \ref{eq:RH} and \ref{eq:pressure} to the \ref{eq:dew} lea
 \label{fig:dewpointmagnus}
 \end{figure}
 
-The dew points based on relative humidity and temperature can be seen in Figure~\ref{fig:dewpointmagnus}. In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the \footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer, not affected by the moisture of the air.}{dry-bulb} temperature and \gls{RH} are needed.
+The dew points based on relative humidity and temperature can be seen in Figure~\ref{fig:dewpointmagnus}. In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the dry-bulb\footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer, not affected by the moisture of the air.} temperature and \gls{RH} are needed.
 
-The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement, expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the \footnote{constant in the defined range}{rectangular} distribution of uncertainty for the sensors that measure the temperature and relative humidity:
+The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the \footnote{constant in the defined range}{rectangular} distribution of uncertainty for the sensors that measure the temperature and relative humidity:
 \begin{equation}
     \mu(x_{i}) = \frac{a}{\sqrt{3}}
 \end{equation}
@@ -204,7 +204,7 @@ The most commonly used solution involves using two sensors next to each other, e
 \end{figure}
 
 
-It's possible to measure RH instead of strain by applying a hygroscopic material (for example, polyimide or di-ureasil) to the fiber \footnote{Cladding is a layer of material with a lower refractive index that covers the core of a fiber optic cable. The core of the fiber optic cable is of a higher refractive index than the surrounding cladding.}{cladding} (see figure~\ref{fig:fbg_scheme}). The Bragg wavelength shift becomes the superposition of temperature and humidity effects (see equation~\ref{eqn:FBG})~\cite{Kronenberg:02, YEO_PI}. 
+It's possible to measure RH instead of strain by applying a hygroscopic material (for example, polyimide or di-ureasil) to the fiber cladding\footnote{Cladding is a layer of material with a lower refractive index that covers the core of a fiber optic cable. The core of the fiber optic cable is of a higher refractive index than the surrounding cladding.} (see figure~\ref{fig:fbg_scheme}). The Bragg wavelength shift becomes the superposition of temperature and humidity effects (see equation~\ref{eqn:FBG})~\cite{Kronenberg:02, YEO_PI}. 
                             %\newpage
                              \begin{equation}\label{eqn:FBG}
                             %\large
@@ -257,6 +257,6 @@ Over the years, capacitive sensors have been widely used in many industrial appl
 
 In recent decades, researchers have studied the effects of different types of radiation on optical fibers. When radiation interacts with materials, it changes their characteristics and often affects the performance and reliability of the devices, with pronounced consequences. For all these reasons, careful investigations concerning how radiation affects the operation of components intended for use in these harsh environments were conducted. The radiation may cause point defects inside the fiber, causing the attenuation of the signal~\cite{FOS_FIB_RAD}. Nowadays, it's possible to fabricate radiation hard fibers \cite{troska}, for example as reported by Berruti~\cite{Berruti} commonly used Corning SMF-28 optical fibers are considered radiation tolerant. However, a careful choice of fiber material is needed, as its reliability depends on many factors such as dose, dose rate, and wavelength.  
 
-A second element which might be sensitive to radiation is the  Fiber Bragg Grating, as the radiation may affect the wavelength shift~\cite{gusarov}. The grating itself can survive high doses, but it's not completely insensitive to the radiation. Similarly, as with the fibers' materials, many factors can influence the response to the radiation of the grating. Some of them like the doping concentration (fiber is often doped with e.g. germanium), or \footnote{hydrogen is used to increase the sensitivity of the optical fiber to the UV-light laser}{hydrogen loading}~\cite{gusarov}. The next section will clarify the process of choosing the humidity sensor in more detail. 
+A second element that might be sensitive to radiation is the  Fiber Bragg Grating, as the radiation may affect the wavelength shift~\cite{gusarov}. The grating itself can survive high doses, but it's not completely insensitive to the radiation. Similarly, as with the fibers' materials, many factors can influence the response to the radiation of the grating. Some of them like the doping concentration (fiber is often doped with e.g. germanium), or hydrogen loading\footnote{hydrogen is used to increase the sensitivity of the optical fiber to the UV-light laser}~\cite{gusarov}. The next section will clarify the process of choosing the humidity sensor in more detail. 
 
 

@@ -4,7 +4,7 @@
 
 The Front-End Electronics of the \gls{STS} will undergo significant thermally induced mechanical stresses over the detector's lifetime. During the commissioning and configuration, the \gls{FEE}, especially the \glspl{FEB} will undergo many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} in room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the \glspl{FEB}. Nevertheless, the testing did not reproduce the conditions that we will face during the \gls{STS} operation.
 
-Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will face mechanical stresses. For the control and monitoring of the devices, as well as for processing of the data the previously developed control framework was introduced. 
+Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will face mechanical stresses. For the control and monitoring of devices, as well as for the processing of data the previously developed control framework was introduced. 
 \subsection{Nominal operation scenario of STS}
 \label{nominal}
 
@@ -78,12 +78,12 @@ The last considered scenario is the so-called loss of power scenario. Out of the
 Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules' performance. 
 \subsection{Thermal cycling and potential consequences for the Front-End Board}
 
-The thermal expansion coefficient (\gls{CTE}) is an important property of adhesives that affects relative movement between parts on a \gls{PCB}. \gls{CTE} should be a concern when it comes to \glspl{PCB}, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may for example cause shear failures in solder joints~\cite{cte_report}. In the case of the \glspl{FEB} both the \gls{LDO} regulators and STS-XYTERs are glob-topped, therefore identifying potential reasons for failure could be a complex task. Apart from \gls{CTE}, the performance of a \footnote{protective epoxy-based material for microelectronics}{glob top} material depends on many other factors:
+The thermal expansion coefficient (\gls{CTE}) is an important property of adhesives that affects relative movement between parts on a \gls{PCB}. \gls{CTE} should be a concern when it comes to \glspl{PCB}, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may for example cause shear failures in solder joints~\cite{cte_report}. In the case of the \glspl{FEB} both the \gls{LDO} regulators and STS-XYTERs are glob-topped, therefore identifying potential reasons for failure could be a complex task. Apart from \gls{CTE}, the performance of a glob top\footnote{protective epoxy-based material for microelectronics} material depends on many other factors:
 \begin{itemize}
     \item adhesion to the substrates,
     \item part geometry (including mass),
     \item temperature extremes,
-    \item cycle and transition times.
+    \item cycle, and transition times.
 \end{itemize}
 DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. In this case, to simplify the problem, we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion should be considered to understand the overall situation.
 
@@ -121,7 +121,7 @@ There are other phenomena that may cause damage to a glob-topped device:
 \begin{itemize}
     \item chip cracking,
     \item failure of the chip to board or substrate joint,
-    \item damage to protective chip passivisation layer,
+    \item damage to protective chip passivization layer,
     \item wire-bond failure,
     \item metallization pattern shift,
     \item development of voids or notches in metallization tracks. 
@@ -145,7 +145,7 @@ parts. Hardware failures may occur due to handling, vibrations, or stress of dif
 \label{cycling_setup}
 The experimental setup for the thermal cycling is depicted in Figure~\ref{fig_setup}. The software part features the Control System Studio (Phoebus) for monitoring, accessing the database (Redis DB), and monitoring the \gls{PV}s. Moreover, all values are saved with archiver appliance. The second node dedicated to thermal cycling features a LabView-based interface for reading out additional humidity sensors. This node was later on depreciated and relative humidity readouts were taken from the built-in Relative Humidity (\gls{RH}) sensor inside the climatic chamber.
 
-The main test object for this part of the work was thermal cycling of the \gls{FEB}s. The diagnostic circuit of the STS-XYTER helps to identify any \gls{PCB} related issues. In order to read the temperatures, VDDM, and  \gls{CSA} bias values, a dedicated \footnote{purely software-based \gls{IOC}, not connected to any hardware}{soft IOC} was deployed. To acquire the previously mentioned values, the pyEPICS library~\cite{pyEPICS} was used, and the GBTxEMU-based readout chain (see \autoref{tester}) was adjusted to publish the values via channel access protocol. 
+The main test object for this part of the work was thermal cycling of the \gls{FEB}s. The diagnostic circuit of the STS-XYTER helps to identify any \gls{PCB} related issues. In order to read the temperatures, VDDM, and  \gls{CSA} bias values, a dedicated soft IOC\footnote{purely software-based \gls{IOC}, not connected to any hardware} was deployed. To acquire the previously mentioned values, the pyEPICS library~\cite{pyEPICS} was used, and the GBTxEMU-based readout chain (see \autoref{tester}) was adjusted to publish the values via channel access protocol. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter4/images/cycling_scheme.png}
@@ -225,11 +225,11 @@ A detailed view of a few cycles is presented in Figure~\ref{fig_active_detailed}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter4/images/FEB0ASIC5COMP.png}
-\caption{A detailed view on the performed active cycling. The top figure depicts the temperature of the chamber temperature and the set point of the Lauda chiller. Two lower figures show how the readout of temperature and VDDM from a chosen STS-XYTER depend on the cycling temperature. }
+\caption{A detailed view on the performed active cycling. The top figure depicts the temperature of the chamber temperature and the set point of the Lauda chiller. Two lower figures show how the readout of temperature and VDDM from a chosen STS-XYTER depends on the cycling temperature. }
 \label{fig_active_detailed}
 \end{figure}
 
-Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. The two bottom plots show how the cycling affects the STS-XYTERs diagnostic circuit. The VDDM value varies from about 1200~mV up to 1240~mV, but it does not have any effect on the performance of the chip, as the operating range could vary as much as 100~mV. The measured values of the VDDM may also vary across the \gls{FEB}, which can be seen in Figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from \footnote{considering that the voltage drop across the 1.2~V line connecting the subsequent chips is negligible}{the nominal 1.2~V} supplied by the 1.2~V \gls{LDO} regulator. 
+Similarly to passive cycling, the temperature of the cooling block is kept slightly above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. The two bottom plots show how the cycling affects the STS-XYTERs diagnostic circuit. The VDDM value varies from about 1200~mV up to 1240~mV, but it does not have any effect on the performance of the chip, as the operating range could vary as much as 100~mV. The measured values of the VDDM may also vary across the \gls{FEB}, which can be seen in Figure~\ref{feb_vary}. These differences highlight the need to properly calibrate the ADC of the diagnostic circuit, as the measured value shouldn't be too far from the nominal 1.2~V\footnote{Considering that the voltage drop across the 1.2~V line connecting the subsequent chips is negligible} supplied by the 1.2~V \gls{LDO} regulator. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter4/images/vddm_comp.png}
@@ -248,11 +248,11 @@ Moreover, during the active cycling, we placed 3 DS18B20 sensors on the fin (see
 \end{figure}
 
 
-Temperature sensor 1 was placed above the \gls{LDO} regulators, therefore the measured values are always higher than for the two other sensors. Temperature sensor 2 was placed on top of the fin but on the other side of the board. The sensor 3 was placed on the side of the fin next to the powering services, it's temperature is significantly lower, what's clearly visible at \SI{-38}{\celsius}, as it's placed closer to the heat exchanger (the cooling plate). This behavior was also confirmed by the simulations - see figure~\ref{fig_reboot_FEB} and figure~\ref{fig_nominal_febs}. 
+Temperature sensor 1 was placed above the \gls{LDO} regulators, therefore the measured values are always higher than for the two other sensors. Temperature sensor 2 was placed on top of the fin but on the other side of the board. Sensor 3 was placed on the side of the fin next to the powering services, it's temperature is significantly lower, what's clearly visible at \SI{-38}{\celsius}, as it's placed closer to the heat exchanger (the cooling plate). This behavior was also confirmed by the simulations - see figure~\ref{fig_reboot_FEB} and figure~\ref{fig_nominal_febs}. 
 \newpage
 
 \subsubsection{Cold startup}
-The cold startup was identified as one of the riskiest events that may cause a board to fail. Due to the limited life of the electronics, radiation-induced phenomena (latchup in the chips, and soft errors in the powering units) could cause the boards to fail over time.  As identified during the irradiation of the power supplies, we should expect at least 200 soft errors in the low voltage modules. \glspl{FEB} will be also power cycled, due to the nominal operation, increasing the total number of power cycles up to tenfold. The previously introduced \glspl{FEB} underwent the following power cycling in low temperatures:
+The cold startup was identified as one of the riskiest events that may cause a board to fail. Due to the limited life of the electronics, radiation-induced phenomena (latch-up in the chips, and soft errors in the powering units) could cause the boards to fail over time.  As identified during the irradiation of the power supplies, we should expect at least 200 soft errors in the low-voltage modules. \glspl{FEB} will be also power cycled, due to the nominal operation, increasing the total number of power cycles up to tenfold. The previously introduced \glspl{FEB} underwent the following power cycling in low temperatures:
 \begin{itemize}
     \item set A - 4 \glspl{FEB} - 200 cycles at $T = \SI{-30}{\celsius}$, 4 other \glspl{FEB} (including the one without chips) 300 cycles at $T = \SI{-30}{\celsius}$,
     \item Set B - 2 \glspl{FEB} - 50 $T = \SI{-20}{\celsius}$, 2 other \glspl{FEB} 50 $T = \SI{-30}{\celsius}$.

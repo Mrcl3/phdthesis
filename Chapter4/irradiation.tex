@@ -1,40 +1,47 @@
-The \gls{EPICS} and related toolkits can be used to control large experiments or even beamlines, but also smaller experimental setups, in which only limited functionalities are needed. During the R\&D phase for the \gls{STS} many setups were constructed, in order to evaluate the hardware that should be used for the final experiment. Furthermore, the \gls{STS}'s harsh ambient conditions impose even more rigorous limits. To address the needs of this dynamic environment, a container-based control framework was implemented. 
+The \gls{EPICS} and related toolkits can be used to control large experiments or even beamlines, but also smaller experimental setups, in which only limited functionalities are needed (e.g., data visualization, archiver, and database). In order to evaluate the hardware that should be used for the final experiment, many relatively (few hunders of \glspl{PV}) small R\&D setups were built and operated. %Furthermore, harsh ambient conditions inside the STS impose even more rigorous limits. To address the needs of this dynamic environment, a container-based control framework was implemented. 
+The two following sections introduce the applications of the developed software package for effective control and data acquisition in two chosen setups. The first section focuses on the powering units irradiation studies and implications for the \gls{STS}. Subsequently, the results from the thermal cycling measurements for the \gls{STS} electronics will be presented and discussed. The thermal cycling studies aimed to discover operational limitations of the \gls{FEE}. 
 
-The two following sections introduce the applications of the developed software package for effective control and data acquisition in two chosen setups. The first of the mentioned sections focuses on the powering units irradiation studies and implications for the \gls{STS}. The last section discusses the results from the thermal cycling measurements for the \gls{STS} electronics, which aimed to discover their operational limitations. 
 
 \section{Irradiation studies of the powering units}
 
-Radiation-induced effects in electronics play an important role in accelerator facilities. Depending on many factors, i.a. location of the setup, intensity, or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. The \gls{STS} detector will be powered by about 140 low voltage modules, 16 channels each providing 2100 power channels.
+Radiation-induced effects in electronics play an important role in accelerator facilities. Depending on many factors, i.a. location of the setup, intensity, or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. Hence, studies on the radiation hardness of the devices used for the \gls{CBM} experiment are crucial before choosing the final hardware. 
 
-In order to estimate the Single Event Effects (\gls{SEE}) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in \gls{GSI}, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors in the power units' electronics and estimating its rate.
+One of the detector services that is going to be exposed to the elevated level of radiation is low voltage powering of electronics. The \gls{STS} will be powered by about 140 low voltage modules, 16 channels each providing 2100 power channels. In order to estimate the Single Event Effects (\gls{SEE}) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in \gls{GSI}, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors\footnote{Soft errors are transient faults in semiconductor devices caused by external radiation, such as energetic particles and cosmic rays~\cite{6338321}} in the power units' electronics and estimating its rate.
 
 \subsection{FLUKA results as the motivation for the irradiation}
 
-The powering of the Front End Boards (\gls{FEB}s), together with the data processing electronics, sum up to about 2100 low voltage channels, operated in about 140 low voltage modules, 16 channels each. All of them will be placed in a shielded area within the cave with an elevated radiation level. The estimated dose values were calculated using FLUKA code (see Figure~\ref{fig:mCBM})~\cite{FLUKA}. 
+The powering of the Front End Boards (\gls{FEB}s), together with the data processing electronics, sum up to about 2100 low voltage channels, which will be operated in an environment with an elevated radiation. All low-voltage power supplies will be placed in a shielded area within the experimental cave. The estimated dose values were calculated using FLUKA code and are summarized in Figure~\ref{fig:mCBM})~\cite{FLUKA}. 
 
 \begin{figure}[!h]
     \centering
    % \includegraphics[width=0.95\columnwidth]{images/dose3.png}
-    \includegraphics[width=0.55\columnwidth]{Chapter4/images/Dose00.jpg}
+    \includegraphics[width=0.7\columnwidth]{Chapter4/images/Dose00.jpg}
     \caption{Expected dose distribution in the air in the \gls{CBM}
-cave under the platform in (11 AGeV Au $10^{9} \mathrm{\ ions/s}$ on 1\% Au
-interaction target) 0 to 0.5 m and 1.5 m to 2 m above the ground~\cite{fluka_senger}} 
+cave under the platform (\agev{11} Au $10^{9} \mathrm{\ ions/s}$ on 1\% Au
+interaction target). The first simulation depicts the radiation doses at heights between 0 and \SI{0.5}{\metre} and the second one from \SI{1.5}{\metre} to \SI{2}{\metre}~\cite{fluka_senger}.} 
     \label{fig:mCBM}
 \end{figure}
-%\newpage
+%newpage
 For the Au beam with the highest available intensities 
-($10^{9}\mathrm{\ ions/s}$) and energies (11~AGeV), we expect a total dose level of 20 mGy\footnote{Gray is a SI unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter \cite{gray}} after 1 month of operation in the area between 0 and 0.5 m above the ground (at the planned location of the power crates x = -600 cm, z = -600 cm) and 40 mGy between 1.5 m and 2 m above the ground (x = -600 cm, z = -600 cm).
+($10^{9}\,$\ionss) and energies 
+(\agev{11}), a total dose\footnote{Gray is a SI unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter \cite{gray}} of \mgy{20} is expected after 1 month of operation in the area between 0 and \SI{0.5}{\metre} above the ground (at the planned location of the power crates x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}) and \mgy{40} between \SI{1.5}{\metre} and \SI{2}{\metre} above the ground (x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}).
 
-A failure in the low voltage powering of the FEE may lead to a rapid decrease of temperature, as the primary coolant temperature may reach down to $-40^{\circ}\mathrm{C}$, consequently making the FEE susceptible to thermal stress. The effects of radiation must be therefore studied to ensure the safe operation of the \gls{STS}. Estimation of the soft error rate (\gls{SER}) is critical for the smooth operation of the experiment. 
+A radiation-induced failure in the low voltage powering of the FEE may lead to a rapid decrease of temperature, as the primary coolant temperature may reach down to \SI{-40}{\celsius}, consequently making the FEE susceptible to thermal stress. The effects of radiation must be therefore studied to ensure the safe operation of the \gls{STS}. Estimation of the soft error rate (\gls{SER}) is critical for the smooth operation of the experiment. 
 
 
-\subsection{Single Event Effects in the electronics}
+\subsection{Single Event Effects in electronics}
 
 A variety of different elements and chemical compounds can be used in electronics, including silicon, silicon dioxide ($\mathrm{SiO}_{2}$), or boron. The high ambient flux of particles in a particle accelerator environment usually consists of charged particles (mostly protons, and electrons), high-energy photons (gamma and X-rays), and a broad spectrum of neutrons.
 
-Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles ~\cite{electronic_system_on_module}. Radiation-induced soft errors have become a huge concern in advanced computer chips because uncorrected, they produce a failure rate that is higher than all the other mechanisms compromising reliability combined~\cite{1545891}. 
+ Radiation-induced soft errors have become a huge concern in advanced computer chips because uncorrected, they produce a failure rate that is higher than all the other mechanisms compromising reliability combined~\cite{1545891}. This kind of errors are especially important for high energy physics and aerospace applications, as it may severely affect the reliability of electronics components. Moreover, cumulative radiation effects occur during the complete lifetime of a transistor as long as it is exposed to radiation~\cite{RodriguezRodriguez2020}.
 
-Neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and the emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $^{10}\mathrm{B}(n,\alpha)^{7}\mathrm{Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
+Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.
+\begin{equation}
+    L = \frac{1}{\rho}\frac{\partial E}{\partial x}
+\end{equation}
+The charged particles passing through release charge, which is then collected by semiconductor structures. These effects are usually local, but they may propagate through the whole system. The most common mechanisms responsible for the soft errors are transient effects and static effects (related to content change in a memory cell). 
+
+Neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $\mathrm{^{10}B(n,\alpha)^{7}Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
 
 \begin{table}[!h]
 \centering

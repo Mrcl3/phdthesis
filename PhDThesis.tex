@@ -82,7 +82,8 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{grffile}
-
+\usepackage{graphicx}
+\usepackage{bold-extra}
 %Empty page definitions
 \usepackage{afterpage}
 \newcommand\myemptypage{
@@ -187,9 +188,33 @@
 % my number style
 \newcommand{\myNumberStyle}[1]{{\footnotesize\sffamily\color{brown!100!black} #1}}
 %\newcommand{\myNumberStyle}[1]{{\footnotesize\sffamily\color{black!100!black} #1}}
+% The AGEV unit
+\newcommand{\agev}[1]{\SI{#1}{A\giga\electronvolt}}
+% The GEV unit
+\newcommand{\gev}[1]{\SI{#1}{\giga\electronvolt}}
+% The kHz
+\newcommand{\khz}[1]{\SI{#1}{\kilo\hertz}}
+% The MHz
+\newcommand{\mhz}[1]{\SI{#1}{\mega\hertz}}
+% momentum Agev 
+\newcommand{\agevc}[1]{\SI{#1}{A\giga\electronvolt/c}}
+% mikro metr
+\newcommand{\mum}[1]{\SI{#1}{\micro\metre}}
+% kilo gray
+\newcommand{\kgy}[1]{\SI{#1}{\kilo\gray}}
+% mili gray
+\newcommand{\mgy}[1]{\SI{#1}{\milli\gray}}
+% new units ions
+\DeclareSIUnit\ions{ions}
+%\newcommand{\ionss}[1]{\SI{#1}{\ions/\second}}
+\newcommand{\ionss}{\unit{\ions/\second}}
+
+
+
 
 
 % removing the dot after figure number
+%\newcommand{<name>}[<args>]{ <code> }
 
 %\renewcommand*{\figureformat}{%
 %  \figurename~\thefigure%
@@ -203,11 +228,12 @@
 
 
 \begin{document}
+\sloppy
 \frontmatter
 \input{Titlepage.tex}
 
 \input{backpage.tex}
-
+\newpage
 % --------------------------------
 \thispagestyle{empty}
 %\clearpage
@@ -228,8 +254,8 @@
 %--------------------------------
 \input{ToC.tex}
 
-\chapter*{Abstract}
-\chapter*{Kurzfassung}
+\chapter{Zusammenfassung}
+\input{zussamenfasung.tex}
 %\input{Documents/acnowledgements.tex}
 \mainmatter
 \chapter{Introduction}
@@ -271,7 +297,7 @@
 %\input{Chapter7/demo.tex}
 %\input{Chapter7/failures.tex}
 %\input{Chapter7/Orchestration.tex}
-\chapter*{Zusammenfassung}
+
 
 %\bibliographystyle{unsrt}% We choose the "plain" reference style
 %\bibliography{refs.bib}

@@ -32,7 +32,7 @@ Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. Th
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/power_distribution.png}
-\caption{Power distribution scheme of the \gls{mSTS} (private information from Anton Lymanets).}
+\caption{Power distribution scheme of the \gls{mSTS}~\cite{Lymanets}.}
 \label{fig_msts_power}
 \end{figure}
 \newpage
@@ -150,7 +150,7 @@ where V and I are the voltage change and current. Figure \ref{fig_power_scheme} 
 }
 \end{table}
 
-Figure~\ref{fig_power_CSA} illustrates the distribution of the power dissipation among the different elements of the powering system for different values of the \gls{CSA} current. While increasing the power consumption of the \glspl{ASIC}, there is also a  significant rise of the power dissipated by the DC/DC converters and distribution lines. %\newpage
+Figure~\ref{fig_power_CSA} illustrates the distribution of the power dissipation among the different elements of the powering system for different values of the \gls{CSA} current. While increasing the power consumption of the \glspl{ASIC}, there is also a  significant rise in the power dissipated by the DC/DC converters and distribution lines. %\newpage
 
 \begin{figure}[h!]
 \centering
@@ -233,7 +233,7 @@ Unit 2         & 24.7 kW & 29.9 kW \\ \hline
 The values stated in Table~\ref{tab:power_cons} can't be considered as a reference. The results provide an estimation of the power consumption and also show how the module assembly evolved. 
 %\newpage
 \subsection{Parameters monitoring and obtained data}
-All the software and hardware components mentioned in the previous sections deliver essential information about the detector's safety and operational state. Thanks to the ongoing ambient monitoring, many issues of the subsystem were discovered and addressed, e.g. not sufficient cooling. Figure \ref{fig_temp} shows the temperature trends obtained through \gls{DCS} during the 430 days of operation. The first temperature sensor (depicted in blue) was placed at the top of the \gls{mSTS}'s enclosure, and the second one (depicted in orange) is located on the upper part of unit 2. Temperatures registered in \gls{mSTS} vary not only depending on the \gls{FEE} powering (peaks observed throughout the operation) but also on the temperature in the cave. The broader peak at the end of the studied period (red dashed line) is associated with the cooling unit's failure. There are also a few periods, with the longest in December and January, when the detector was not operated. 
+All the software and hardware components mentioned in the previous sections deliver essential information about the detector's safety and operational state. Thanks to the ongoing ambient monitoring, many issues of the subsystem were discovered and addressed, e.g., not sufficient cooling. Figure \ref{fig_temp} shows the temperature trends obtained through \gls{DCS} during the 430 days of operation. The first temperature sensor (depicted in blue) was placed at the top of the \gls{mSTS}'s enclosure, and the second one (depicted in orange) is located on the upper part of unit 2. Temperatures registered in \gls{mSTS} vary not only depending on the \gls{FEE} powering (peaks observed throughout the operation) but also on the temperature in the cave. The broader peak at the end of the studied period (red dashed line) is associated with the cooling unit's failure. There are also a few periods, with the longest in December and January, when the detector was not operated. 
 
 \begin{figure}[!h]
 \centering
@@ -252,7 +252,7 @@ To ensure the safe operation of the system, it was also necessary to have inform
 \end{figure}
 
 
-Temperature sensors (PT100) are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of unit 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. Temperature measured in the unit 3, especially at the beginning of the operation (depicted with the red rectangle), was much higher than those measured in unit 0 and 1. This effect is associated with an insufficient cooling which was resolved at the beginning of 2022. At the right end of the plot, we can see again the cooling unit failure. 
+Temperature sensors (PT100) are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of units 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. The temperature measured in unit 3, especially at the beginning of the operation (depicted with the red rectangle), was much higher than those measured in units 0 and 1. This effect is associated with insufficient cooling which was resolved at the beginning of 2022. At the right end of the plot, we can see again the cooling unit failure. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/POB1.png}
@@ -260,7 +260,7 @@ Temperature sensors (PT100) are also used to monitor the temperature on the powe
 \label{fig_POB1}
 \end{figure}
 
-Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on the unit 2. Unit 2 features 2 modules, 4 \gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about 1.6 A at constant 10.5 V), in comparison to the \gls{ROB} which is powered with 7 V and consumes about 0.8 A. This is, most likely, related to the better contact of the \gls{FEB} box to the cooling plate.
+Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on unit 2. Unit 2 features 2 modules, 4 \gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about 1.6 A at constant 10.5 V), in comparison to the \gls{ROB} which is powered with 7 V and consumes about 0.8 A. This is, most likely, related to the better contact of the \gls{FEB} box to the cooling plate.
 
 \begin{figure}[!h]
 \centering
@@ -273,7 +273,7 @@ Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as d
 
 \subsection{Monitoring of the leakage current}
 
-Information about the temperatures serves not only to ensure detector safety, but also to properly understand the behavior of the silicon sensors. By knowing the temperature trends over the irradiation period, we can normalize the leakage current from different points to a certain reference value, e.g. \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several temperature  sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the box is significantly lower, which indicates properly working cooling. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
+Information about the temperatures serves not only to ensure detector safety but also to properly understand the behavior of the silicon sensors. By knowing the temperature trends over the irradiation period, we can normalize the leakage current from different points to a certain reference value, e.g., \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several temperature  sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the box is significantly lower, which indicates properly working cooling. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
 
 \begin{figure}[!h]
 \centering
@@ -282,7 +282,7 @@ Information about the temperatures serves not only to ensure detector safety, bu
 \label{fig_temperatures}
 \end{figure}
 
-As the silicon sensors are symmetrically biased, the nominal operating voltage was chosen to be $\pm75$~V (to assure full depletion of the non-irradiated silicon sensors). The reverse polarity also implies negative current values. On most of the plots, leakage current of only one side of the silicon sensors will be showed. The other side of the sensor is characterized by the same trends, but opposite sign.
+As the silicon sensors are symmetrically biased, the nominal operating voltage was chosen to be $\pm75$~V (to assure full depletion of the non-irradiated silicon sensors). The reverse polarity also implies negative current values. In most of the plots, the leakage current of only one side of the silicon sensors will be shown. The other side of the sensor is characterized by the same trends, but with opposite sign.
 
 %\newpage
 \begin{figure}[!h]
@@ -304,7 +304,7 @@ The leakage current changes of the \gls{STS} silicon sensors during data-taking 
 \label{fig_sensors_spill}
 \end{figure}
 
-An example of the normalization of the unit 0 sensors is depicted in Figure~\ref{fig_sensors_spill}. A more detailed view of the spill structure is shown on the right plot. It can be clearly seen, that the reaction products traversing the silicons cause a significant leakage current increase of about \SI{10}{\micro A} (for the highest beam intensities - $10^{9}$ ions/s). Comparison of the average leakage current from two units after normalization to $20\,^{\circ}$C is shown in Figure~\ref{fig_leak}. Throughout the year 2021, only a few beam time campaigns took place. The increase of the leakage current due to radiation-induced damage is negligible. On the other hand, during the beam campaigns of 2022, the effect of radiation can be clearly seen. The leakage current value obtained for the module 0 of unit 3 differs from the performance of other modules, indicating an electrical problem.
+An example of the normalization of the unit 0 sensors is depicted in Figure~\ref{fig_sensors_spill}. A more detailed view of the spill structure is shown on the right plot. It can be clearly seen, that the reaction products traversing the silicons cause a significant leakage current increase of about \SI{10}{\micro A} (for the highest beam intensities - $10^{9}$ ions/s). Comparison of the average leakage current from two units after normalization to $20\,^{\circ}$C is shown in Figure~\ref{fig_leak}. Throughout the year 2021, only a few beam time campaigns took place. The increase in the leakage current due to radiation-induced damage is negligible. On the other hand, during the beam campaigns of 2022, the effect of radiation can be clearly seen. The leakage current value obtained for module 0 of unit 3 differs from the performance of other modules, indicating an electrical problem.
 
 \begin{figure}[!h]
 \centering
@@ -362,36 +362,36 @@ Figure \ref{fig_IV} shows IV curves of two selected modules from two different u
 \label{fig_IV}
 \end{figure}
 
-The leakage current is scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70~V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low voltage powering lines. Even though, it is difficult to distinguish the point of full depletion, the current values were still in the expected range. Linear behavior is an indicative of a resistive element added to the circuitry. The unit 3 sensor shows breakdown at similar biasing voltage for all three measurements. Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector. This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated in the new version of the \gls{FEB} (FEB8-3). 
+The leakage current is scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70~V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low-voltage powering lines. Even though it is difficult to distinguish the point of full depletion, the current values were still in the expected range. Linear behavior is an indication of a resistive element added to the circuitry. The unit 3 sensor shows a breakdown at a similar biasing voltage for all three measurements. Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector. This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated into the new version of the \gls{FEB} (FEB8-3). 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.5\columnwidth]{Chapter6/DCS/images/IV/30304Whole.png}
-\caption{IV curves of another silicon sensors measured by the vendor before shipping, before the assembly and then after it.} 
+\caption{IV curves of another silicon sensor measured by the vendor before shipping, before the assembly, and then after it.} 
 \label{fig_IV_good}
 \end{figure}
 
 \newpage
 \subsection{Data rates and leakage current}
-Data rates from subsystems contain important information about the detector performance. Figure~\ref{fig_data_rates_Ag} shows an example of the \gls{mCBM} Au+Au system ($T= 1~\mathrm{AGeV}$) and later with Ni+Ni system, due to reaching the maximum data transfer (without the \gls{mSTS} detector). Data rates are clearly correlated with the beam intensity. Regardless of the beam intensities, \gls{mSTS} (with the chosen settings) is responsible for more than half of the total data. During the beam intensities of $10^{8}$ ions/s, \gls{mSTS}'s data rate was around 500 MB/s and with the maximum beam intensities it scaled up $2000$~MB/s, reaching the limits of the data transmission for a \gls{FEB} 8 with 2 uplinks per \gls{ASIC}. 
+Data rates from subsystems contain essential information about the detector's performance. Figure~\ref{fig_data_rates_Ag} shows an example of the \gls{mCBM} Au+Au system ($T= 1~\mathrm{AGeV}$) and later with Ni+Ni system, due to reaching the maximum data transfer (without the \gls{mSTS} detector). Data rates are clearly correlated with the beam intensity. Regardless of the beam intensities, \gls{mSTS} (with the chosen settings) is responsible for more than half of the total data. During the beam intensities of $10^{8}$ ions/s, \gls{mSTS}'s data rate was around 500 MB/s and with the maximum beam intensities it scaled up $2000$~MB/s, reaching the limits of the data transmission for a \gls{FEB} 8 with 2 uplinks per \gls{ASIC}. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter6/DCS/images/rates/Ag_total.png}
 \caption{Data rates of all the \gls{mSTS} units in comparison to the overall data rate of all subsystems during data-taking.}
 \label{fig_data_rates_Ag}
 \end{figure}
-There is a direct correlation of the leakage current increment with the beam intensity, which determines also the \gls{mSTS} data rate (see Figure~\ref{fig_Data}). This correlation gives more insight into the operation and state of the silicon sensors.
+There is a direct correlation of the leakage current increment with the beam intensity, which also determines the \gls{mSTS} data rate (see Figure~\ref{fig_Data}). This correlation gives more insight into the operation and state of the silicon sensors.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/U1_data_rate.png}
-\includegraphics[width=0.47\columnwidth]{Chapter6/DCS/images/U2_data_rate.png}
+\includegraphics[width=0.48\columnwidth]{Chapter6/DCS/images/U1_data_rate.png}
+\includegraphics[width=0.48\columnwidth]{Chapter6/DCS/images/U2_data_rate.png}
 \caption{Leakage current evolution of the \gls{mSTS} silicon sensors and respective integrated data rate.}
 \label{fig_Data}
 \end{figure}
 
 \section{Conclusions}
 
-The successful operation of the \gls{mSTS}, including the \gls{DCS} and \gls{DAQ} chain, set an important milestone toward completion of the \gls{STS} project. The first extensive and successful data-taking activities with two tracking stations concluded the commissioning of the \gls{mSTS} detector. The prototyping of the \gls{DCS} supervisory layer of \gls{mSTS} took place and was successfully implemented, proving that the concept was extremely flexible and useful, not only for large detectors, accelerator setups but also for smaller experiments. After almost two years of operation, the containers based system was found to be a reliable, easily maintainable solution. Yet, for the final system, several additional applications are needed. The \gls{STS} detector will be much more complex and challenging when it comes to configuration and operation. For the final setup, it will be extremely important to have both hardware and software interlocking to ensure the machine's safety.
+The successful operation of the \gls{mSTS}, including the \gls{DCS} and \gls{DAQ} chain, set an important milestone toward the completion of the \gls{STS} project. The first extensive and successful data-taking activities with two tracking stations concluded the commissioning of the \gls{mSTS} detector. The prototyping of the \gls{DCS} supervisory layer of \gls{mSTS} took place, and it was successfully implemented, proving that the concept was extremely flexible and useful, not only for large detectors, and accelerator setups but also for smaller experiments. After almost two years of operation, containers based system was found to be a reliable, easily maintainable solution. Yet, for the final system, several additional applications are needed. The \gls{STS} detector will be much more complex and challenging when it comes to configuration and operation. For the final setup, it will be extremely important to have both hardware and software interlocking to ensure the machine's safety.
 
 \gls{mSTS} didn't publish its overall status to any external software agent. Due to that reason, some information like \gls{ASIC} internal temperature or VDDM were only accessible via the data acquisition chain (\gls{DCA}-\gls{CRI}). In the future, each subsystem will have an assigned Subsystem Control Agent (\gls{SCA}) to tackle control of the readout chain and the \gls{DCS}. 
 
@@ -402,7 +402,7 @@ Figure \ref{fig_dcs_results} shows how the \gls{DCS} performed during about 2 ye
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.55\columnwidth]{Chapter6/DCS/images/DCSpie.png}
-\caption{Results from the operation}
+\caption{Results from the operation.}
 \label{fig_dcs_results}
 \end{figure}
 

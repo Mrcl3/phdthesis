@@ -253,9 +253,11 @@
 %\pagebreak
 %--------------------------------
 \input{ToC.tex}
+\chapter{Abstract}
+\input{abstract.tex}
+\chapter{Kurzfassung}
+\input{kurzfassung.tex}
 
-\chapter{Zusammenfassung}
-\input{zussamenfasung.tex}
 %\input{Documents/acnowledgements.tex}
 \mainmatter
 \chapter{Introduction}
@@ -266,7 +268,7 @@
 \chapter{The STS and its role in the CBM experiment}
 \label{chap:CBM_STS}
 \input{Chapter2/STS.tex}
-\chapter{The Detector Control System (DCS), an important part of the online systems}
+\chapter{The Detector Control System, an important part of the online systems}
 \label{chap:online_systems}
 \input{Chapter3/Controls/ECS.tex}
 \input{Chapter3/Controls/DCS.tex}
@@ -288,7 +290,7 @@
 \label{chap:msts}
 \input{Chapter6/DCS/mSTS.tex}        
 \input{Chapter6/DCS/operation.tex}
-\chapter{Summary and next milestones}
+\chapter{Summary and overview}
 \label{chap:last}
 \input{Chapter7/summary.tex}
 \input{Chapter7/Orchestration.tex}
@@ -297,8 +299,11 @@
 %\input{Chapter7/demo.tex}
 %\input{Chapter7/failures.tex}
 %\input{Chapter7/Orchestration.tex}
+\chapter*{Zusammenfassung}
+\input{zussamenfasung.tex}
+\addcontentsline{toc}{chapter}{Zusammenfassung}  
 
-
+\newpage
 %\bibliographystyle{unsrt}% We choose the "plain" reference style
 %\bibliography{refs.bib}
 

@@ -1,4 +1,6 @@
-The third test activity, which involved important research for the \gls{STS} is related to the designing and testing of different relative humidity and temperature sensors. Due to the harsh conditions in the detector, choosing humidity sensors is an important task that should ensure the proper operational safety and operation of the system. This chapter presents the overview of different solutions for ambient sensing, together with answers to whether the tested technology meets the requirements. Most efforts were made to characterize fiber optic sensors, and subsequently come up with safety requirements and systems that would address potential risks posed by e.g. too humid environment. 
+The third test activity, which involved important research for the \gls{STS} is related to the designing and testing of different relative humidity and temperature sensors. Due to the harsh conditions in the detector, choosing humidity sensors is an important task that should ensure the operational safety of the detector. This chapter presents the overview of different solutions for ambient sensing, together with answers to whether the tested technology meets the requirements. Most efforts were made to characterize fiber optic sensors, and subsequently come up with safety requirements and system that would address potential risks posed by e.g., too humid environment. 
+
+%% Add here some more text about the used DCS framework
 
 \section{Sensors requirements}
 
@@ -6,12 +8,12 @@ The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for pot
 During the first few years of operation, the temperatures will be higher and Relative Humidity (\gls{RH}) can be measured more accurately\footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}. 
 %One of the most common techniques to achieve the frost points below~\SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the~\gls{FEE}. 
 
-During the detector's lifetime (10 years), there will be limited opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than 10~kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
+During the detector's lifetime (10 years), there will be few opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than 10\,kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
 The humidity sensors have to be insensitive to the magnetic field of \SI{1}{\tesla\metre} since the whole detector resides in a dipole magnet.  An ideal humidity sensor should also meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
     \item accurate relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
-    \item ideally, respond to a wide range of \gls{RH} values from 0\% to 80\%,
+    \item respond to a wide range of \gls{RH} values from 0\% to 80\%,
     \item high repeatability and low hysteresis,
     \item reliable operation across long distances (the readout device will be at least~\SI{20}{\metre} away from the detector).
 \end{itemize}
@@ -22,7 +24,7 @@ On the other hand, due to overpressure conditions inside the \gls{STS} enclosure
 
 The \gls{RH}, or the dew/frost point, are commonly used indicators to describe the number of water molecules in the air. The temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium, is known as the dew point.
 
-Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius} (dew). The dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius} (frost). A frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
+Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius}. The dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius}. The frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
 
 
 The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows:
@@ -34,18 +36,18 @@ The first documented formula for vapor pressure (over water and over ice) was in
     &+ d(10^{-3.49149(T_{st}/T - 1} -1) + log(e^{*}_{st})
 \end{split}
 \end{equation}
-where log refers to the logarithm base 10, $e_{s}$ is the saturation water vapor pressure~(hPa), a to d are constants; $a = - 7.90$, $b=5.03$, $c=1.38*10^{-7}$, $d=1.38*10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246~hPa$), and $T_{st}$ is the boiling point (at 1~atm) temperature (373.15~K). A similar equation can also be formulated for the vapor pressure over ice. 
+where log refers to the logarithm base 10, $e_{s}$ is the saturation water vapor pressure~(hPa), a to d are constants; $a = - 7.90$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,hPa$), and $T_{st}$ is the boiling point (at 1\,atm) temperature (373.15\,K). A similar equation can also be formulated for the vapor pressure over ice. 
 
 These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}: 
 \begin{equation}
     e^{*}_{s} = c*e^{(aT/(b+T))}
 \end{equation}
-where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over a plane of water ($e^{*}_{s}$):
+where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over water plane ($e^{*}_{s}$):
 \begin{equation}
     RH = 100\frac{e}{e^{*}_{s}}
     \label{eq:RH}
 \end{equation}
-Based on the parameters approximations by Sonntag ($c=6.11$~hPa, $a=17.62$, $b=243.12$~\SI{}{\celsius}) \cite{magnus}, the formula converges to:
+Based on the parameters approximations by Sonntag ($c=6.11$\,hPa, $a=17.62$, $b=243.12$\,\SI{}{\celsius}) \cite{magnus}, the formula converges to:
 \begin{equation}
     e^{*}_{s} = 6.112*e^{(17.62T/(243.12))}
     \label{eq:pressure}
@@ -68,13 +70,13 @@ Inserting the equation \ref{eq:RH} and \ref{eq:pressure} to the \ref{eq:dew} lea
 \label{fig:dewpointmagnus}
 \end{figure}
 
-The dew points based on relative humidity and temperature can be seen in Figure~\ref{fig:dewpointmagnus}. In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the dry-bulb\footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer, not affected by the moisture of the air.} temperature and \gls{RH} are needed.
+The dew points based on relative humidity and temperature can be seen in Figure~\ref{fig:dewpointmagnus}. In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the dry-bulb\footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer, not affected by the moisture of the air.} temperature and \gls{RH} are required.
 
 The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular\footnote{constant in the defined range} distribution of uncertainty for the sensors that measure the temperature and relative humidity:
 \begin{equation}
     \mu(x_{i}) = \frac{a}{\sqrt{3}}
 \end{equation}
-where a is the uncertainty available in the datasheets, and $x_{i}$ represents the measured value. The combined uncertainty $\mu_{c}$ can be derived from equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}:
+where a is the uncertainty available in the datasheets, and $x_{i}$ represents the measured value. The combined uncertainty $\mu_{c}$ can be derived from Equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}:
 \begin{equation}
     u_{Td} = \left [  \left (\frac{\partial T_{d}}{\partial T_{a}}  \right )^{2} \mu^{2}(T) + \left (\frac{\partial T_{d}}{\partial RH}  \right )^{2} \mu^{2}(RH)\right ]^{1/2}
     \label{dp_error}
@@ -85,16 +87,16 @@ In each system, we assume that measuring dew point temperature or relative humi
 
 \section{Overview of different technologies}
 
-Nowadays, electronic humidity sensors are commonly used in industry, scientific research facilities, and civil infrastructure. In general, we can classify the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. Resistive and capacitive sensors represent over 75\% of all sensors used today. As the names indicate, their working principles are based on capacitance and resistance changes, respectively.
+Nowadays, electronic humidity sensors are commonly used in industry, scientific research facilities, and civil infrastructure. In general, we can classify the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. Resistive and capacitive sensors represent over 75\% of all the sensors used today. As the names indicate, their working principles are based on resistance and capacitance changes, respectively.
 
 
 The efforts to employ miniaturized sensors in the \gls{HEP} experiment have been ongoing for many years. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case-specific study related to \gls{HEP} is summarized in~\cite{Kapic}.
 
-The two most challenging requirements in the case of \gls{STS} are radiation hardness and insensitivity to the magnetic field. Radiation can affect sensor materials in different ways depending on their type, rate of interaction, and material composition. Sensor structures are affected by radiation due to modifications to their lattice structures. For example, capacitive sensors like HIH3610~\cite{HIH3610} and HIH4030~\cite{HIH4030} tested in CERN turned out to be critically damaged after irradiation~\cite{Berruti}. It was also recently reported that capacitive sensors from IST AG~\cite{MK33} has a linear response to the radiation (what can be corrected~\cite{Kapic_sensor}). Employing such sensors in a \gls{HEP} experiment, especially in a tracker surrounded by a magnet, raises questions about the sensitivity to the magnetic field. 
+The two most challenging requirements in the case of \gls{STS} are radiation hardness and insensitivity to the magnetic field. Radiation can affect sensor materials in different ways depending on their type, rate of interaction, and material composition. Sensor structures are affected by radiation due to modifications to their lattice structures. For example, capacitive sensors like HIH3610~\cite{HIH3610} and HIH4030~\cite{HIH4030} tested in CERN turned out to be critically damaged after irradiation~\cite{Berruti}. It was also recently reported that capacitive sensors from IST AG~\cite{MK33} has a linear response to the radiation (what can be corrected~\cite{Kapic_sensor}). Employing such sensors in a \gls{HEP} experiment, especially in a tracker surrounded by a magnet, raises questions about the sensitivity to the magnetic field~\cite{Berruti}. 
 
 One of the possible solutions is using fiber optic-based sensors, which are by design not insensitive to the magnetic field. Another possibility is to use a sampling system, which sucks the air from the detector and using e.g., a vacuum pump transports it to the area with lower radiation and without a magnetic field.
 
-For \gls{STS} a distributed sensing system featuring a few different technologies is considered. The following sensors are discussed in the next sections: capacitive, fiber optic, and dew point transmitters. 
+For the \gls{STS} a distributed sensing system featuring a few different technologies is considered. The following sensors are discussed in the next sections: capacitive, fiber optic, and dew point transmitters. 
 
 
 \subsection{Industrial capacitive sensors and their performance at negative temperatures}
@@ -103,7 +105,7 @@ The capacitive sensors, in the simplest form, can be made out of two parallel pl
 \begin{equation}
 C = \epsilon_{r}\epsilon_0\frac{A}{d}
 \end{equation}
-where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constant, A is the plate surface area and d is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
+where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constants, A is the plate surface area and d is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
 The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fairly miniaturized and insensitive to pressure changes. The main drawbacks of these sensors are listed below:
 \begin{itemize}
     \item limited long-term stability,
@@ -111,7 +113,7 @@ The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fai
     \item limited distance to the readout device,
     \item most of the sensors are not radiation-hard.
 \end{itemize}
-Two different \gls{RH} capacitive sensors have been tested in low-temperature regimes - IST HYT221~\cite{hyt221} and Sensiron SHT85~\cite{SHT85}. Figure \ref{fig:hyt221} shows the \gls{RH} and temperature accuracy, respectively. Measuring humidity at low temperatures below \SI{-20}{\celsius} and 5\% \gls{RH} leads to large dew point errors (\SI{7}{\celsius} and more). The estimated dew point errors are presented in figure \ref{fig:hyt221_dp}.
+Two different \gls{RH} capacitive sensors have been tested in low-temperature regimes - IST HYT221~\cite{hyt221} and Sensiron SHT85~\cite{SHT85}. Figure \ref{fig:hyt221} depicts the \gls{RH} and temperature accuracy. Measuring humidity at low temperatures below \SI{-20}{\celsius} and 5\% \gls{RH} leads to large dew point errors (\SI{7}{\celsius} and more). The estimated dew point errors are presented in figure \ref{fig:hyt221_dp}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter5/images/hyt221_rh.png}
@@ -140,14 +142,14 @@ Figure \ref{fig:sht85} shows the uncertainties for the measurements with the SHT
 \label{fig:sht85_dp}
 \end{figure}
 \newpage
-The above-presented results don't take into account additional effects that alter the calculations, like hysteresis or drift, which could together contribute by 1\% or more to the \gls{RH} measurement. The performance of the SHT85 is most likely also worse in the low-temperature regime. The comparison of the industrial capacitive sensors shows a large performance disproportion.
+The above-presented results don't take into account additional effects that alter the calculations, like hysteresis or drift, which could together contribute by 1\% or more to the \gls{RH} measurement. The performance of the SHT85 also decreases in the low-temperature regime, but the extent is not determined in this work. The comparison of the industrial capacitive sensors shows a large performance disproportion.
 
-The studied sensors are much cheaper than custom trace humidity measurement systems (sampling systems) or fiber optic sensors. The readout of such sensors may be affected by the radiation and magnetic field, so they can't be considered a reliable solution for a long-term operation in the \gls{STS}. The next type of sensor that yields promising results is fiber optic sensors~\ref{FOS}.
+The studied sensors are much cheaper than custom trace humidity measurement systems (sampling systems) or fiber optic sensors. The readout of such sensors may be affected by the radiation and magnetic field, so they can't be considered a reliable solution for a long-term operation in the \gls{STS}. The next type of sensor that yields promising results is based fiber optic sensing technology~\ref{FOS}.
 
 \subsection{Description of the Fiber Optic Sensing technology}
 \label{FOS}
 
-Optical fiber optic sensors-based system usually consists of three main components as optical source, transducer, and detector. In general, the sensing principle relies on modifying one or more properties of light (most commonly a laser, diodes, or LEDs are employed as the optical sources) passing through a transducer which is located inside the fiber. A schematic view of a sensing setup is presented in Figure~\ref{fig:sensing}. Distributed sensing or even continuous sensing offers a unique opportunity for many sensing points in one fiber~\cite{GRATTAN200040}. 
+Fiber optic sensors-based system usually consists of three main components as optical source, transducer, and detector. In general, the sensing principle relies on modifying one or more properties of light (most commonly a laser, diodes, or LEDs are employed as the optical sources) passing through a transducer which is located inside the fiber. A schematic view of a sensing setup is presented in Figure~\ref{fig:sensing}. Distributed sensing or even continuous sensing offers a unique opportunity for many sensing points in one fiber~\cite{GRATTAN200040}. 
 \newpage
 \begin{figure}[!h]
 \centering
@@ -171,25 +173,25 @@ Fiber optic sensors have notable advantages in comparison to conventional sensor
     \item resistant to harsh conditions - the sensors are completely passive elements, hence they offer long durability.
 \end{itemize}
 
-On the other hand, \gls{FOS} are difficult to integrate with hardware interlocks, and handling and installation of the sensors might be more challenging due to the risk of damaging the fiber.
+On the other hand, \gls{FOS} are difficult to integrate with hardware interlocks, handling, and installation of the sensors might be more challenging due to the risk of damaging the fiber.
 
 
 
 
-\subsubsection{Fiber Bragg Grating (FBG) based sensor for humidity monitoring }
+\subsubsection{Fiber Bragg Grating based sensor for humidity monitoring }
 \label{fbg}
-A Fiber Bragg Grating is a selective filter inside the optical fiber that reflects light signals at a specific wavelength known as the Bragg wavelength ($\lambda_{B}$). Such a filter is created by inscribing a systematic variation of the fiber's refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependent on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}~\cite{Othonos2000FiberBG}:
+A Fiber Bragg Grating (\glspl{FBG}) is a selective filter inside the optical fiber that reflects light signals at a specific wavelength known as the Bragg wavelength ($\lambda_{B}$). Such a filter is created by inscribing a systematic variation of the fiber's refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependent on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}~\cite{Othonos2000FiberBG}:
 \begin{equation}
     \lambda_{B} = 2 \eta_{eff} \Lambda
 \end{equation}
 
-Both factors can be affected by strain, temperature, magnetic field, and/or pressure changes, which makes them a viable choice for sensing applications~\cite{Yun-Jiang_Rao_1997}. In general, wavelength shift $\lambda_{B}$ can be formulated as:
+Both factors can be affected by strain, temperature, magnetic field, and/or pressure changes, thus various sensing possibilities are available with the ~\cite{Yun-Jiang_Rao_1997}. In general, wavelength shift $\lambda_{B}$ can be formulated as:
 
 \begin{equation}
     \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
 \end{equation}
 
-where $P_{e}$ is a photo-elastic constant (optical properties change under mechanical deformation), $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient (change of the refractive index with the temperature) of the fiber. Using a \gls{FBG} sensor requires decoupling the strain measurement from the temperature measurement, usually called temperature compensation~\cite{Yun-Jiang_Rao_1997}. 
+where $P_{e}$ is a photo-elastic constant (optical properties change under mechanical deformation), $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient (change of the refractive index with the temperature) of the fiber. Using a \gls{FBG} sensor for strain measurements requires decoupling the strain from the temperature. This solution is commonly called temperature compensation~\cite{Yun-Jiang_Rao_1997}. 
 
 The most commonly used solution involves using two sensors next to each other, either inscribed in the same fiber or in another one placed in the vicinity of the main sensor. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
 \begin{equation}

@@ -2,7 +2,7 @@
 \section{Outlook}
 The last section of this computing note focuses on the future of the CBM experiment. The first part describes different software components needed to operate the experiment with a focus on the \gls{DCS}. The second part illustrates potential upgrades and additions to the DCS in order to address components needed for a more complex system.
 \subsection{Experiment controls architecture}
-Figure \ref{fig_sim} depicts the targeted controls architecture of the future CBM experiment. According to CBM computing Note 18003 \cite{CBM_definitions} detector control and Interlock control are denoted as Experiment and Detector controls work packages 1 and 2. The respective control systems of the mCBM experiment have been running in a standalone mode so far, which means that there hasn't been any structured communication between DCS, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}).
+Figure \ref{fig_sim} depicts the targeted controls architecture of the future CBM experiment. According to CBM computing Note 18003 \cite{CBM_definitions} detector control and Interlock control are denoted as Experiment and Detector controls work packages 1 and 2. The respective control systems of the \gls{mCBM} experiment have been running in a standalone mode so far, which means that there hasn't been any structured communication between DCS, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}).
 
 \begin{figure}[h!]
 \centering
@@ -14,14 +14,14 @@ Figure \ref{fig_sim} depicts the targeted controls architecture of the future CB
 \subsection{Experiment Control System (ESC)}\label{sssAgents}
 The ECS consists of so-called software agents, which should efficiently manage all the subsystems in order to acquire data for the physics analysis.
 The Experiment Control Agent, or ECA, is the top layer of the ECS core, which should be always running and keep track of 
-the partitions, of the systems in partitions, and of the systems out of partitions.  It also manages the states of ``Central systems'' not having partition-level states (e.g. TFC, FLESnet in case it does 
-not use internal partitions, ...). It provides upon request from agents the address and port needed to establish the 0MQ sockets and for building the 
-ECS structure. The Partition Control Agent(s), or PCA, is the bottom layer of the ECS, which track the state and controls a set of 
+the partitions, of the systems in partitions, and of the systems out of partitions.  It also manages the states of ``Central systems'' not having partition-level states (e.g., \gls{TFC}, FLESnet in case it does 
+not use internal partitions). It provides upon request from agents the address and port needed to establish the 0MQ sockets and for building the 
+ECS structure. The Partition Control Agent(s), or \gls{PCA}, is the bottom layer of the ECS, which track the state and controls a set of 
 detector systems plus all needed central systems. It corresponds to the run context entity.  Any data run corresponds to a single partition. 
 Multiple partitions can operate in parallel, potentially allowing to run~/~write parallel runs with independent 
 detector system sets. 
 
-The PCAs also hold internal instances of the necessary SCA interfaces, which are tasked with:
+The \glspl{PCA} also hold internal instances of the necessary SCA interfaces, which are tasked with:
 \begin{itemize}
  \item holding a copy of the current state of the SCA
  \item periodic ping of the SCA to ensure early disconnection detection

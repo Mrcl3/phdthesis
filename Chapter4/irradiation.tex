@@ -1,16 +1,17 @@
-The \gls{EPICS} and related toolkits can be used to control large experiments or even beamlines, but also smaller experimental setups, in which only limited functionalities are needed (e.g., data visualization, archiver, and database). In order to evaluate the hardware that should be used for the final experiment, many relatively (few hunders of \glspl{PV}) small R\&D setups were built and operated. %Furthermore, harsh ambient conditions inside the STS impose even more rigorous limits. To address the needs of this dynamic environment, a container-based control framework was implemented. 
+The \gls{EPICS} and related toolkits can be used to control large experiments or even beam lines, but also smaller experimental setups, in which only limited functionalities are needed (e.g., data visualization, archiver, and database). In order to evaluate the hardware that should be used for the final experiment, many relatively (few hundreds of \glspl{PV}) small R\&D setups were built and operated. %Furthermore, harsh ambient conditions inside the STS impose even more rigorous limits. To address the needs of this dynamic environment, a container-based control framework was implemented. 
 The two following sections introduce the applications of the developed software package for effective control and data acquisition in two chosen setups. The first section focuses on the powering units irradiation studies and implications for the \gls{STS}. Subsequently, the results from the thermal cycling measurements for the \gls{STS} electronics will be presented and discussed. The thermal cycling studies aimed to discover operational limitations of the \gls{FEE}. 
 
 
 \section{Irradiation studies of the powering units}
 
-Radiation-induced effects in electronics play an important role in accelerator facilities. Depending on many factors, i.a. location of the setup, intensity, or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. Hence, studies on the radiation hardness of the devices used for the \gls{CBM} experiment are crucial before choosing the final hardware. 
+Radiation-induced effects in electronics play an important role in accelerator facilities. Depending on many factors, i.a. location of the setup, intensity, or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. Hence, studies on the radiation hardness of the devices used for the \gls{CBM} experiment are crucial before choosing the final hardware and its exact position.
 
-One of the detector services that is going to be exposed to the elevated level of radiation is low voltage powering of electronics. The \gls{STS} will be powered by about 140 low voltage modules, 16 channels each providing 2100 power channels. In order to estimate the Single Event Effects (\gls{SEE}) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in \gls{GSI}, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors\footnote{Soft errors are transient faults in semiconductor devices caused by external radiation, such as energetic particles and cosmic rays~\cite{6338321}} in the power units' electronics and estimating its rate.
+One of the detector services that is going to be exposed to the elevated level of radiation is the low voltage powering of electronics. The \gls{STS} will be powered by about 140 low voltage modules, 16 
+channels each providing 2100 power channels. In order to estimate the Single Event Effects (\gls{SEE}) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in \gls{GSI}, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors\footnote{Soft errors are transient faults in semiconductor devices caused by external radiation, such as energetic particles and cosmic rays~\cite{6338321}} in the power units' electronics and estimating its rate.
 
 \subsection{FLUKA results as the motivation for the irradiation}
 
-The powering of the Front End Boards (\gls{FEB}s), together with the data processing electronics, sum up to about 2100 low voltage channels, which will be operated in an environment with an elevated radiation. All low-voltage power supplies will be placed in a shielded area within the experimental cave. The estimated dose values were calculated using FLUKA code and are summarized in Figure~\ref{fig:mCBM})~\cite{FLUKA}. 
+The powering of the Front End Boards (\glspl{FEB}), together with the data processing electronics, sum up to about 2100 low voltage channels, which will be operated in an environment with an elevated radiation. All low-voltage power supplies will be placed in a shielded area within the experimental cave. The estimated dose values were calculated using FLUKA code\footnote{FLUKA is a fully integrated particle physics Monte Carlo simulation package.} and are summarized in Figure~\ref{fig:mCBM})~\cite{FLUKA}. 
 
 \begin{figure}[!h]
     \centering
@@ -35,13 +36,13 @@ A variety of different elements and chemical compounds can be used in electronic
 
  Radiation-induced soft errors have become a huge concern in advanced computer chips because uncorrected, they produce a failure rate that is higher than all the other mechanisms compromising reliability combined~\cite{1545891}. This kind of errors are especially important for high energy physics and aerospace applications, as it may severely affect the reliability of electronics components. Moreover, cumulative radiation effects occur during the complete lifetime of a transistor as long as it is exposed to radiation~\cite{RodriguezRodriguez2020}.
 
-Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.
+Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.  LET is defined as the energy absorbed in matter per unit path length travelled by a charged particle
 \begin{equation}
-    L = \frac{1}{\rho}\frac{\partial E}{\partial x}
+    L = \frac{dE_{abs}}{dx}
 \end{equation}
 The charged particles passing through release charge, which is then collected by semiconductor structures. These effects are usually local, but they may propagate through the whole system. The most common mechanisms responsible for the soft errors are transient effects and static effects (related to content change in a memory cell). 
 
-Neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $\mathrm{^{10}B(n,\alpha)^{7}Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
+On the other hand, neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $\mathrm{^{10}B(n,\alpha)^{7}Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
 
 \begin{table}[!h]
 \centering
@@ -64,20 +65,22 @@ O(n,d)           & 10.53
 \label{cross-seciton}
 \end{table}
 
+% Write a summary about the cross section etc that in case of CBM and this chapter we want to use realistic conditions to check behavior of the 
+
 %\newpage
 \subsection{Methodology}
 
-The subject of the irradiation campaign was a MPOD mini crate with one low voltage (WIENER~\cite{wiener}) and one high voltage (ISEG~\cite{iseg}) module. The crate's CC24 controller (ISEG) offers an embedded \gls{EPICS} Input Output controller, which was used to detect radiation-induced channel or module failures. All registered  failure events were stored in a dedicated database.  
+The subject of the irradiation campaigns was a MPOD mini crate with one low voltage (WIENER~\cite{wiener}) and one high voltage (ISEG~\cite{iseg}) module. The crate's CC24 controller (ISEG) offers an embedded \gls{EPICS} Input Output controller, which was used to detect radiation-induced channel or module failures. All registered  failure events were stored in a dedicated database.  
 
-In order to correlate the soft failure rate with the absorbed dose, two types of thermoluminescent dosimeters were used. A larger polyethylene sphere (d = 30 cm) allowed measuring the neutron ambient dose, whilst the cylinder (d = 5 cm, h = 6 cm) measured other particles~\cite{bonner}. We assume that the conditions (e.g. neutron spectra) at the \gls{CBM} experiment will be similar to conditions at SIS18, and at the \gls{mCBM} experiment. The quality factor sets the relation between \gls{LET} and relative biological effectiveness (\gls{RBE}). It converts the measured dose given in Sv to absorbed energy in Gy. It's assumed that the factor equals 5 for both irradiation campaigns. The dose measured with the cylinder is assumed to have a quality factor of 1.
+In order to correlate the soft failure rate with the absorbed dose, two types of thermoluminescent dosimeters were used. A larger polyethylene sphere (d = 30\,cm) allowed measuring the neutron ambient dose, whilst the cylinder (d = 5\,cm, h = 6\,cm) measured other particles~\cite{bonner}. We assume that the conditions (e.g., neutron spectra) at the \gls{CBM} experiment will be similar to conditions at SIS18, and at the \gls{mCBM} experiment. The quality factor sets the relation between \gls{LET} and relative biological effectiveness (\gls{RBE}). It converts the measured dose given in sievert to absorbed energy in gray. It's assumed that the factor equals 5 for sphere in both irradiation campaigns. The dose measured with the cylinder is assumed to have a quality factor of 1.
 
 \subsection{Low statistics data analysis}
 
-We assume that failure events (radiation-induced errors) are statistically independent and are driven by purely stochastic factors. In addition, we take into account only the total dose measured by the dosimeters, thus rapid dose changes and their effect are not investigated in this contribution. In such a case, the probability of observing $n_{m}$ events with the mean value $\mu$ is described by the Poisson distribution:\newline
+We assume that failure events (radiation-induced soft errors) are statistically independent and are driven by purely stochastic factors. In addition, we take into account only the total dose measured by the dosimeters, thus rapid dose changes and their effect are not investigated in this contribution. In such a case, the probability of observing $n_{m}$ events with the mean value $\mu$ is described by the Poisson distribution:\newline
 \begin{equation}
     p(n|\mu) = \frac{\mu^{n}}{n!}e^{-\mu}
 \end{equation}
-The total number of events is considered to be the average $\mu$, as this is the most reasonable assumption. Considering 68\% confidence levels for values $n_{m} > 2$ we can apply the following equations to estimate the distribution's bands (see Figure~\ref{fig:poisson})~\cite{schmidt}.
+The total number of events is considered to be the average $\mu$. Considering 68\% confidence levels for values $n_{m} > 2$ we can apply the following equations to estimate the distribution's bands (see Figure~\ref{fig:poisson})~\cite{schmidt}.
 
 If in an experiment $\mu$ events are measured, we conclude that the standard deviation is described by $\mu - \sqrt{\mu}$ and $\mu + 1 + \sqrt{\mu}$ around the average value $\mu$.
 
@@ -87,7 +90,7 @@ If in an experiment $\mu$ events are measured, we conclude that the standard dev
     \caption{Estimated bands of the Poisson distribution~\cite{schmidt}.}
     \label{fig:poisson}
 \end{figure}
-\newpage
+%\newpage
 
 For $n_{m} \leq 2$ previously mentioned, estimations do not provide accurate results, therefore upper and lower bands need to be calculated explicitly. According to~\cite{schmidt}:
 
@@ -111,12 +114,12 @@ In order to investigate electronics' operation under the realistic conditions, t
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.65\columnwidth]{Chapter4/images/dose1.jpg}
-    \caption{Expected dose rate distribution (mGy/hour) in the \gls{mCBM} cave with 2 AGeV O ions beam of $10^{7}\mathrm{\ ions/s}$ on 4 mm Ni target. In the encircled area the dose reached about 0.1~mGy/hour~\cite{fluka_senger}.}
+    \caption{Expected dose rate distribution (mGy/hour) in the \gls{mCBM} cave with 2 AGeV O ions beam of $10^{7}\mathrm{\ ions/s}$ on 4 mm Ni target. In the encircled area the dose reached about 0.1\,mGy/hour~\cite{fluka_senger}.}
      \label{fig:CBM1}
 \end{figure}
 
 
-To measure the dose that the crate was exposed to, four thermoluminescent dosimeters (\gls{TLD}) with moderators were used (Figure~\ref{fig:crate}). Two TLDs placed far away from the crate served as a reference. During the irradiation at the \gls{mCBM} experiment, the dosimeters were read out twice, in order to evaluate the total dose received by the crate. The first value was $19.72\mathrm{\ mGy}$ and  the second one was $72.31\mathrm{\ mGy}$. 
+To measure the dose that the crate was exposed to, four thermoluminescent dosimeters (\gls{TLD}) with moderators were used (Figure~\ref{fig:crate}). Two TLDs placed that can be seen in the background of Figure~\ref{fig:crate} served as a reference. During the irradiation at the \gls{mCBM} experiment, the dosimeters were read out twice, in order to evaluate the total dose received by the crate. The first value was $19.72\mathrm{\ mGy}$ and  the second one was $72.31\mathrm{\ mGy}$. 
 
 
 \newpage
@@ -127,7 +130,7 @@ To measure the dose that the crate was exposed to, four thermoluminescent dosime
     \label{fig:crate}
 \end{figure}
 
-A \gls{SEE} in the low voltage module occurred in each part of the irradiation. In both cases, it was possible to recover the functionalities by enabling the channels again. After applying lower and upper limits, we find:
+A \gls{SEE} in the low voltage module occurred in each part of the irradiation. In both cases, it was possible to recover the functionalities by enabling the channels again. After applying lower and upper limits:
 %\newpage
 
 \begin{equation}
@@ -150,7 +153,7 @@ The setup at the SIS18's septum consisted of two \gls{TLD} dosimeters (for neutr
     \label{fig:spec_des}
 \end{figure}
 
-Wendi-2 is a precise wide-energy neutron dosimeter~\cite{wendi} that was used to determine the neutron dose rate in the so-called Kickerraum (Figure~\ref{fig:spec_des}). Due to the shielding of the wall, the gamma probe measured mostly background radiation. The MPOD mini crate was placed next to the TLD dosimeters. In order to calculate the momentary active neutron dose next to the crate, a ratio of total doses from both measurement places was used. 
+Wendi-2 is a precise wide-energy neutron dosimeter~\cite{wendi} that was used to determine the neutron dose rate in the so-called Kickerraum (Figure~\ref{fig:spec_des}). Due to the shielding of the wall, the gamma probe measured mostly background radiation. The MPOD mini crate was placed next to the TLD dosimeters. In order to calculate the momentary neutron dose next to the crate, a ratio of total doses from both measurement places was used. 
 \newpage
 \subsubsection{Results}
 During the irradiation period, readings from the dosimeters reached $106.1\mathrm{\ mSv}$ and $27.7\mathrm{\ mSv}$ for neutrons and other particles respectively.
@@ -161,7 +164,7 @@ During the irradiation period, readings from the dosimeters reached $106.1\mathr
 %    \caption{Neutron spectrum at the measurement location (SIS18 septum). It is based on the measurement of argon ions at 550 MeV/u. The first peak is related to the thermal neutrons and %the second one to the fast neutrons}
 %    \label{fig:spectrum}
 %\end{figure}
-Using assumed quality factors, we convert the ambient dose to the absorbed dose values. Hence, we get in total $49\pm{2}\mathrm{\ mGy}$, taking into account 5\% standard uncertainty of the TLD dosimeters. During the test, 11 radiation-induced soft failures were identified in the low voltage module. Therefore, we can estimate an average dose after which a low voltage failure might take place.
+Using assumed quality factors, the ambient dose was converted to the absorbed dose values. Hence, we get in total $49\pm{2}\mathrm{\ mGy}$, taking into account 5\% standard uncertainty of the TLD dosimeters. During the test, 11 radiation-induced soft failures were identified in the low voltage module. Therefore, it's possible to estimate an average dose after which a low voltage failure might take place.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.6\columnwidth]{Chapter4/images/LV_failure_and_neutronsrate.png}
@@ -175,15 +178,15 @@ Using assumed quality factors, we convert the ambient dose to the absorbed dose 
     \label{fig:lv_neutrons_rate}
 \end{figure}
 Figure~\ref{fig:lv_neutrons} shows how the number of failures cumulate with the total neutron dose, where the longer periods without failure indicate a break in SIS18 operation. Similarly, Figure~\ref{fig:lv_neutrons_rate} depicts the dose rate and related \gls{SEE}.
-For the 11 low voltage module failures, we get the following confidence bands from the Poisson distribution:
+For the 11 low voltage module failures, the confidence bands from the Poisson distribution are as follows:
    \begin{equation}
   \mathrm{\mu}_{\mathrm{LV}}^{\mathrm{SEE}}=\mathrm{11}_{-3}^{+4}
 \end{equation}
-Considering the sum of two doses, we get:
+Considering the sum of two doses
 \begin{equation}
-    \mathrm{D}_{\mathrm{LV}}^{\mathrm{SEE}}=\mathrm{4.45}_{-1.25}^{+1.93}\mathrm{\ mGy}
+    \mathrm{D}_{\mathrm{LV}}^{\mathrm{SEE}}=\mathrm{4.45}_{-1.25}^{+1.93}\mathrm{\,mGy}
 \end{equation}
-Therefore, we can expect a low voltage module failure after $\mathrm{4.45}_{-1.25}^{+1.93}\mathrm{\ mGy}.$ After the occurrence of a soft error in the low voltage module, it was always possible to turn the channels on again.
+Therefore, a low voltage module failure occurs after $\mathrm{4.45}_{-1.25}^{+1.93}\mathrm{\,mGy}.$ After the occurrence of a soft error in the low voltage module, it was always possible to turn the channels on again.
 \newpage
 The high voltage modules will be placed outside the cave in an area with lower radiation levels, thus their error sensitivity does not pose a risk to detector operation. In the case of the high voltage module, the \gls{SEE} don't result in a module switch off, but in disabling channels. In two cases, all channels were switched off, which is counted as if 16 channels were turned off at the same time. Figure \ref{fig:hv_neutrons} and \ref{fig:hv_neutrons_rate} show the channels' failure rate with the increasing cumulative dose. 
 \begin{figure}[!h]
@@ -204,18 +207,18 @@ For the high voltage module, the total number of channels that switched off due 
 \end{equation}
 Considering the failure number, it translates to:
 \begin{equation}
-    \mathrm{D}_{\mathrm{HV}}^{\mathrm{SEE}}=\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\ mGy}
+    \mathrm{D}_{\mathrm{HV}}^{\mathrm{SEE}}=\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\,mGy}
 \end{equation}
-If the high voltage module was situated in the same place as the low voltage, we could expect a channel to switch off after $\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\ mGy}$.
+If the high voltage module was situated in the same place as the low voltage, a channel switch off could happen after $\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\,mGy}$.
 \newpage
 \subsection{Conclusions}
 
 \label{irradiation_results}
 The control framework introduced in the previous chapter served as the data acquisition system for the irradiation of the MPOD crate and two modules. Prepared graphical user interfaces together with archiver, database allowed to track the failure events and compare them later on with the registered dose. Obtained results have a direct influence on the experiment operation.
 
-The \gls{FEE} of the \gls{STS} will be powered by about 140 low voltage modules. Given that in the worst case, some of those modules will be exposed to about 40 mGy/month, the measurement indicates that about 9 \gls{SEE} per month per module will occur. In practice, it means that every FEB will need to withstand 9 power cycles at low temperatures per month. Assuming operation of 2 months per year and a total projected operating time of 10 years, electronics must withstand at least 180 power cycles at low temperatures of about \SI{-20}{\celsius}.
+The \gls{FEE} of the \gls{STS} will be powered by about 140 low voltage modules. Given that in the worst case, some of those modules will be exposed to about 40\,mGy/month, the measurement indicates that about 9 \gls{SEE} per month per module will occur. In practice, it means that every FEB will need to withstand 9 power cycles at low temperatures per month. Assuming operation of 2 months per year and a total projected operating time of 10 years, electronics must withstand at least 180 power cycles at low temperatures of about \SI{-20}{\celsius}.
 \subsection{Potential risk to STS operation}
-If every low voltage module turns off 9 times per month during the operation, the potential consequences need to be carefully assessed. By planning the powering scheme for the \gls{STS}, we can prepare the system for the foreseen power interruptions. In the worst-case scenario, considering that we will use 140 low voltage modules, we can expect about 1260 soft errors a month, which means 1.75 errors per hour.  For the 16 \glspl{ROB} connected to one low voltage module, we could experience a temporary shutdown of up to 140 \glspl{FEB} or 70 modules per hour.  The duration of the shutdown is also critical for the operation. A soft error in the low voltage module can most likely be recovered within seconds, preventing extensive thermal stress in the FEE. On the other hand, for the testing scenarios, we need to consider that the electronics experience full thermal stress, in case fast power recovery is not possible. Additionally, power cycles of the \gls{FEE} in low temperatures may result in thermally induced mechanical stresses on the components of the \glspl{PCB}. Hence, the effects of thermal cycling of the \gls{FEE} should be carefully studied, in order to evaluate the limits in the performance of the electronics  (see section~\ref{thermal_cycling}). Nevertheless, there are also a few methods to decrease the potential risk, both from the radiation-induced damage and potential problems due to thermal shock:
+If every low voltage module turns off 9 times per month during the operation, the potential consequences need to be carefully assessed. By planning the powering scheme for the \gls{STS}, the system can be prepared for the foreseen power interruptions. In the worst-case scenario, considering 140 low voltage modules,  about 1260 soft errors a month, which corresponds to 1.75 errors per hour.  For the 16 \glspl{ROB} connected to one low voltage module, a temporary shutdown of up to 140 \glspl{FEB} or 70 modules per hour is expected.  The duration of the shutdown is also critical for the operation. A soft error in the low voltage module can most likely be recovered within seconds, preventing extensive thermal stress in the FEE. On the other hand, for the testing scenarios, it's necessary to consider that the electronics experience full thermal stress, in case fast power recovery is not possible. Additionally, power cycles of the \gls{FEE} in low temperatures may result in thermally induced mechanical stresses on the components of the \glspl{PCB}. Hence, the effects of thermal cycling of the \gls{FEE} should be carefully studied, in order to evaluate the limits in the performance of the electronics  (see section~\ref{thermal_cycling}). Nevertheless, there are also a few methods to decrease the potential risk, both from the radiation-induced damage and potential problems due to thermal shock:
 \begin{itemize}
     \item additional radiation shielding material around the power supplies,
     \item powering scheme - for example connecting \glspl{ROB} and corresponding \glspl{FEB} to the same low voltage module,

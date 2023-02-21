@@ -34,11 +34,11 @@ More details about these applications and their use will be provided in the next
 \begin{itemize}
     \item Bluesky Project (Python-based set of libraries \cite{Bluesky}),
     \item React Automation Studio \cite{React},
-    \item Channel Access Tools - MEDM, \gls{ALH}, \gls{AR} etc. 
+    \item Channel Access Tools - MEDM, Alarm Handler (\gls{ALH}), Archiver (\gls{AR}) etc. 
 \end{itemize}
 
 \subsection{EPICS architecture and input/output controller}
-The core elements of the systems are the \glspl{IOC}, which provides control logic for the connected hardware. The \gls{IOC} uses channel access and/or PVAccess to communicate with clients and contains also the following components\cite{IOC}:
+The core elements of the systems are the \glspl{IOC}, which provide control logic for the connected hardware. The \gls{IOC} uses channel access and/or PVAccess to communicate with clients and contains also the following components\cite{IOC}:
 \begin{itemize}
     \item \gls{IOC} database -  a memory resident database containing a set of named records of various types \cite{IOC2},
     \item record support - set of support routines defining a record,
@@ -48,7 +48,7 @@ The core elements of the systems are the \glspl{IOC}, which provides control log
 \end{itemize}
 
 An \gls{IOC} doesn't need extensive computing resources, therefore it runs also on low-power single-board computers like Raspberry PI or Odroid. 
- \gls{IOC} are also commonly supported by additional modules, device support, libraries, and \glspl{API} which altogether provide an efficient way to control various devices.
+ \glspl{IOC} are also commonly supported by additional modules, device support, libraries, and \glspl{API} which altogether provide an efficient way to control various devices.
 
  
 To communicate with devices, an \gls{IOC} uses so-called device support. The most commonly used ones include:
@@ -58,7 +58,7 @@ To communicate with devices, an \gls{IOC} uses so-called device support. The mos
     \item asynDriver \cite{asyn} - asynchronous driver support, which is an interface that implements a device-specific code to low-level communication drivers. Together with the StreamDevice it's the most commonly used one in \gls{mSTS}. 
 \end{itemize}
 
-Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring of the software components may be challenging if the system is built out of several nodes. To address this problem containerization technology was introduced. Besides, this technology has many advantages:
+Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring the software components may be challenging if the system is built out of several nodes. To address this problem containerization technology was introduced. Besides, this technology has many advantages:
 \begin{itemize}
     \item standardized, what makes it portable anywhere,
     \item independent of the operating system,

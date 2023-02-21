@@ -1,18 +1,21 @@
 \newpage
-\section{Thermal cycling of detector's electronics}
+\section{Thermal cycling of detector electronics}
 \label{thermal_cycling}
+Operating temperatures inside the \gls{STS} enclosure are dictated by the total non ionizing dose and noise levels. The temperature conditions in the STS could have repercussions on the functioning of detector electronics. Nevertheless, for the first few years of operation the ambient temperatures will be higher than \SI{-10}{\celsius}. Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will experience thermally induced mechanical stresses.
 
-The Front-End Electronics (\gls{FEE}) of the \gls{STS} will undergo significant thermally induced mechanical stresses over the detector's lifetime. During the commissioning and operation, the \gls{FEE}, especially the \glspl{FEB} will experience many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} in room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the boards. Nevertheless, the testing did not reproduce the STS operational conditions.
+One of the elements of the detector module which can experience a significant mechanical stresses is the \gls{FEB}.
+During the commissioning and operation, the \glspl{FEB} will experience many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} in room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the boards. Nevertheless, the testing did not reproduce the STS operational conditions.
 
-Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will face mechanical stresses. For the control and monitoring of devices, as well as for the processing of data the previously developed control framework was introduced. Implementation of the EPICS-based framework played a crucial role, as it enabled live monitoring of many parameters during the tests.
+To evaluate the behavior of the board in the realistic conditions, a thermal cycling setup was envisioned. Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules' performance.
 
-Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules' performance.
+ For the control and monitoring of devices, as well as for the processing of data the previously developed control framework was introduced. Implementation of the EPICS-based framework played a crucial role, as it enabled live monitoring of many parameters during the tests.
 
 \subsection{Nominal operation scenario of the STS}
 \label{nominal}
 
-In the nominal operation scenario at the end of the STS lifetime, the FEBs are powered on, and cooling liquid (NOVEC) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. In this case, according to the simulations, the cooling plate and \glspl{FEB} will reach temperatures as shown in Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, respectively.
+In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power, and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box and the \gls{FEB} for the nominal operation scenario.
 
+During periods in which the temperature will change due to transitions between detector states, the electronics will experience thermal stresses, which will partially occur with the electronics switched on. The cases discussed relate to the worst-case scenarios, in which the temperature differences are the highest. 
     
 \begin{figure}[!h]
 \centering
@@ -31,9 +34,7 @@ In the nominal operation scenario at the end of the STS lifetime, the FEBs are p
 \end{figure}
 
 
-During periods in which the temperature will change due to transitions between detector states, the electronics will experience thermal stresses, which will partially occur with the electronics switched on. The cases discussed relate to the worst-case scenarios, in which the temperature differences are the highest. 
-
-During the active (with low voltage on) phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  This difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
+During the active (with low voltage on) phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  The difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
 
 \begin{figure}[!h]
 \centering
@@ -46,7 +47,7 @@ During the active (with low voltage on) phase of operation, the temperature chan
 \subsection{Partial shutdown scenario of the STS}
 \label{reboot}
 
-At any given point during operation, the operator may need to power cycle a \gls{FEB}(s). In this scenario, the temperature of a given \gls{FEB} may change drastically due to the temporary lack of power. The amount of the thermally induced mechanical stress depends on reboot and configuration time. Besides, in case of a radiation-induced soft error in the power supply, the downtime of a \gls{FEB} may be difficult to predict. If the soft error is instantly recoverable, the FEB will be powered on in seconds after switching off, limiting a deteriorating effect of large temperature changes $\Delta T$.
+At any given point during operation, the operator may need to power cycle a \gls{FEB}(s). In this scenario, the temperature of a given \gls{FEB} may change drastically due to the temporary loss of power. The amount of the thermally induced mechanical stress depends on reboot and configuration time. Besides, in case of a radiation-induced soft error in the power supply, the downtime of a \gls{FEB} may be difficult to predict. If the soft error is instantly recoverable, the FEB will be powered on in seconds after switching off, limiting a deteriorating effect of large temperature changes $\Delta T$.
 
 Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glspl{FEB} are on, which results in effectively lower temperatures in comparison to the nominal scenario. Nevertheless, the $\Delta T$ remains the same as in the nominal operation scenario. During the operation, this scenario will probably last for a short time (range of seconds), and the temperature of the rebooted \gls{FEB} will not reach as low temperatures as depicted in the previous simulations.
 
@@ -61,7 +62,7 @@ Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glsp
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter4/images/reboot_box.png}
-\caption{Temperature distribution in the \gls{FEB} box for the partial shutdown scenario~\cite{Agarwal}.}
+\caption{Temperature distribution for the partially unpowered \gls{FEB}~\cite{Agarwal}.}
 \label{fig_reboot_box}
 \end{figure}
 
@@ -86,7 +87,16 @@ The last considered scenario is the so-called loss of power scenario. Out of the
 
 \subsection{Influence on the coefficient of thermal expansion on the PCB performance}
 
-The coefficient of thermal expansion (\gls{CTE}) is an important property of adhesives that affects relative movement between \gls{PCB} components. \gls{CTE} should be a concern when it comes to \glspl{PCB}, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may cause for example shear failures in solder joints~\cite{cte_report}. The \gls{STS} \gls{FEB} is equipped with many components which could be the reason for malfunctions at low temperatures, making analysis of potential causes a complex task. Both the LDO regulators and STS-XYTERs are covered with high viscosity glues which are referenced as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
+The coefficient of thermal expansion (\gls{CTE}) is an important property of materials that affects relative movement between \gls{PCB} components. \gls{CTE} should be a concern when it comes to \glspl{PCB}, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may cause for example shear failures in solder joints~\cite{cte_report}. The \gls{STS} \gls{FEB} is equipped with many components which could be the reason for malfunctions at low temperatures, making analysis of potential causes a complex task. 
+These components can be seen in Figure~\ref{fig_globtop}.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.85\columnwidth]{Chapter4/images/glob_topped_device.png}
+\caption{Schematics of the glob-topped device with the materials used for the thermal cycling of different FEB flavors.}
+\label{fig_globtop}
+\end{figure}
+
+Both the LDO regulators and STS-XYTERs are covered with high viscosity glues which are referenced as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
 \begin{itemize}
     \item adhesion to the substrates,
     \item part geometry (including mass),
@@ -95,7 +105,7 @@ The coefficient of thermal expansion (\gls{CTE}) is an important property of adh
 \end{itemize}
 
 
-The most common phenomena which cause damage to the glob topped device are:
+The most common phenomena which cause damage to the glob-topped device are:
 \begin{itemize}
     \item chip cracking,
     \item failure of the chip to board or substrate joint,
@@ -119,15 +129,16 @@ To protect the STS microelectronics, DYMAX 9001 was the glob top choice for the 
 \multicolumn{1}{c}{Material} & \multicolumn{1}{c}{CTE $\alpha_{2}$} [\si{\micro\metre\per\metre\per\celsius]}] \\ \hline
 DYMAX 9001-E-V3.5~\cite{9001}            & 180                                  \\
 DYMAX 9014~\cite{9014}                   & 192                                  \\
+DYMAX 9008~\cite{9008}                   & 230                                  \\
 EPO-TEK E4110~\cite{4110}                & 150                                  \\ \hline
 FR4~\cite{FR4}                          & 15                                   \\
-Si~\cite{Si}                           & 2.6                                 
+Silicon~\cite{Si}                           & 2.6                                 
 \end{tabular}
 \label{TCE}
 \end{center}
 \end{table}
  \newpage
-Three main components which need to be analyzed during the testing are the glues (glob top and conductive glue), bonds, and microelectronics (LDO regulator and STS-XYTER). From the thermal cycling point of view, power dissipation is one of the key differences between the DC linear voltage regulator and the front-end chip. The \gls{LDO} regulator dissipates much more heat than the STS-XYTER (see Figure~\ref{fig_temperatures_camera}), which was also confirmed by multiple simulations (see sections~\ref{nominal} -~\ref{power_loss}).
+Three main components which need to be analyzed during the testing are the glues (glob top and conductive glue), bonds, and microelectronics (LDO regulator and STS-XYTER). From the thermal cycling point of view, power dissipation is one of the key differences between the DC linear voltage regulator and the front-end chip. Figure~\ref{fig_temperatures_camera} depicts the temperature distribution of a powered board. The board was screwed to the cooling plate, which was at \SI{20}{\celsius}.
 
 \begin{figure}[!h]
 \centering
@@ -208,7 +219,7 @@ The \glspl{FEB}, Readout Boards (\glspl{ROB}), and  Power Boards (\glspl{POB}) a
     \item with powering $\Delta T\approx\SI{20}{\celsius} $
     \item more than 180 cold startups, as indicated in section~\ref{irradiation_results}
 \end{itemize}
-To find the operational limits of the boards and reproduce the operation scenarios the testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} (so-called cold startup). The transition time between the extreme temperatures (for passive and active cycling) was not is not manually regulated and is solely determined by the power of the Lauda chiller and the climatic chamber.
+To find the operational limits of the boards and reproduce the operation scenarios the testing was divided into three stages: passive cycling, active cycling, and power cycles down to \SI{-40}{\celsius} (so-called cold startup). The transition time between the extreme temperatures (for passive and active cycling) is not manually regulated and is solely determined by the power of the Lauda chiller and the climatic chamber.
 
 The main object of the tests was the \gls{FEB}s and its sensitivity to the thermally induced mechanical stresses. In the two main sets of measurements so far, in total 12 \gls{FEB}s in different configurations were tested.  After each round of thermal cycling (usually 50 cycles), the boards were inspected optically under the microscope for any signs of deterioration or visible changes. On the other hand, during the cycling with powering and low-temperature power cycling, the STS-XYTERs were extensively tested. The \glspl{ASIC} test included configuration of the chip, changing \gls{CSA} values to trigger different current consumption, but also ID consistency check, write/read registers test, and internal pulses. By performing the tests, it is possible to evaluate the performance of the board and estimate the influence of the thermal cycling.
 

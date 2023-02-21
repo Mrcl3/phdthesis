@@ -116,7 +116,7 @@ The \gls{mSTS}'s \gls{DCS} is a fairly automatized system, in which monitoring a
 
 
 \subsection{Power dissipation estimations}
- Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The results obtained through the \gls{FEE} were compared with the measurements of two separate front-end boards and average values from modules calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with the Ohm's law~\ref{power} based on the voltage drops. For the \gls{mSTS} the power was calculated at the power supply level.
+ Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The results obtained through the \gls{FEE} were compared with the measurements of two separate front-end boards and average values from modules calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with Ohm's law~\ref{power} based on the voltage drops. For the \gls{mSTS} the power was calculated at the power supply level.
   \begin{equation}
   \label{power}
     P = V\times I
@@ -144,8 +144,8 @@ where V and I are the voltage change and current. Figure \ref{fig_power_scheme} 
 \hline
 \multirow{2}{*}{CSA register} & \multicolumn{5}{c}{Power dissipation {[}W{]}}                                                                                                                                                                             \\
                               & ASICs & 1.8\,V LDO regulator & 1.2\,V LDO regulator & \begin{tabular}[c]{@{}c@{}}DC/DC converter 3 V\\ distribution lines\end{tabular} & \begin{tabular}[c]{@{}c@{}}DC/DC converter 2.5 V\\ distribution lines\end{tabular} \\ \hline
-15                            & 4.7  & 1.38                & 0.84                & 2.79                                                                             & 1.18                                                                               \\
-63                            & 8.38 & 1.38                & 2.46                & 2.79                                                                             & 5.77                                                                               \\ \hline
+15                            & 5.28  & 1.38                & 0.84                & 2.97                                                                             & 1.29                                                                               \\
+63                            & 10.26 & 1.38                & 2.46                & 2.97                                                                             & 6.36                                                                               \\ \hline
 \end{tabular}%
 }
 \end{table}
@@ -192,7 +192,7 @@ Similar measurements were also conducted for all the other detector modules (see
 \end{figure}
 \newpage
 The \gls{mSTS} modules are powered in the constant voltage mode, which means that the output voltage is always 10.5\,V. Knowing the currents at the power supply level, cable lengths, and voltage drops on subsequent components, it's possible to calculate the power dissipation. 
-To estimate the power consumption based on the values from the module testing prior to the detector assembly. Average values of the currents are presented in Table \ref{tab:typical_cons}. By adding estimates related to the distribution lines and DC/DC converters from figure~\ref{fig_power_scheme} we can compare the results with \gls{mSTS} results. 
+To estimate the power consumption based on the values from the module testing prior to the detector assembly. Average values of the currents are presented in Table \ref{tab:typical_cons}. By adding estimates related to the distribution lines and DC/DC converters from figure~\ref{fig_power_scheme} it's possible to compare these values with \gls{mSTS} results.
 \begin{table}[!h]
 \caption{Currents drawn by the analog front end and to the digital part depending on the set \gls{CSA} value.}
 \centering
@@ -216,16 +216,16 @@ Figure \ref{fig_theor} shows the comparison of the power consumption of \gls{mST
 \caption{Average power dissipation of the units compared with predictions based on theoretical power dissipation in the components (depicted as FLA and FLA v2).} 
 \label{fig_theor}
 \end{figure}
-The components used for units 0 and 2 are considered to be almost the final ones. The power consumption of these modules should serve as a reference for further calculations. Some parameters related to the voltage drop may change in \gls{STS}, mostly due to different powering lines' lengths and diameters of the wires, as well as different connectors. 
+The estimation based on the average current from the modules testing has the lowest power consumption values up to CSA of 48. The values obtained from that estimation are close to those from units 0 and 2. These units are considered to be built from almost final components. Hence, the power consumption of these modules should serve as a reference for further calculations. Some parameters related to the voltage drop may change in \gls{STS}, mostly due to different powering lines' lengths and diameters of the wires, as well as different connectors. 
 \begin{table}[h!]
 \caption{Total power consumption of the 876 modules of \gls{STS} based on the calculations from Figure~\ref{fig_theor}.}
 \centering
 \begin{tabular}{lll}
 \hline
                & \gls{CSA} 31  & \gls{CSA} 48  \\ \hline
-FLA estimation & 31.5 kW & 38.8 kW \\
-Unit 3         & 32.9 kW & 41.3 kW \\
-Unit 2         & 24.7 kW & 29.9 kW \\ \hline
+FLA estimation & 23.5 kW & 30.9 kW \\
+Unit 3         & 30.2 kW & 35.7 kW \\
+Unit 2         & 26.7 kW & 30.8 kW \\ \hline
 \end{tabular}
 
 \label{tab:power_cons}
@@ -252,7 +252,7 @@ To ensure the safe operation of the system, it was also necessary to have inform
 \end{figure}
 
 
-Temperature sensors (PT100) are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of units 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. The temperature measured in unit 3, especially at the beginning of the operation (depicted with the red rectangle), was much higher than those measured in units 0 and 1. This effect is associated with insufficient cooling which was resolved at the beginning of 2022. At the right end of the plot, we can see again the cooling unit failure. 
+Temperature sensors (PT100) are also used to monitor the temperature on the powering boards. A comparison of the temperatures on the \gls{POB} of units 1, 2 and between two \glspl{POB} of unit 3 are presented in Figure~\ref{fig_POB1}. The temperature measured in unit 3, especially at the beginning of the operation (depicted with the red rectangle), was much higher than those measured in units 0 and 1. This effect is associated with insufficient cooling which was resolved at the beginning of 2022. At the right end of the plot, cooling unit failure is also visible.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/POB1.png}
@@ -273,7 +273,7 @@ Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as d
 
 \subsection{Monitoring of the leakage current}
 
-Information about the temperatures serves not only to ensure detector safety but also to properly understand the behavior of the silicon sensors. By knowing the temperature trends over the irradiation period, we can normalize the leakage current from different points to a certain reference value, e.g., \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several temperature  sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the box is significantly lower, which indicates properly working cooling. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
+Information about the temperatures serves not only to ensure detector safety but also to properly understand the behavior of the silicon sensors. Knowing the temperature trends over the irradiation period, it's possible to normalize the leakage current from different points to a certain reference value, e.g., \SI{20}{\celsius}. Firstly, if the exact temperature characteristic of the sensors is now known, it's necessary to rely on a temperature sensor placed close to the semiconductor. In the \gls{mSTS} several temperature  sensors are measuring ambient conditions, an overview can be seen in figure \ref{fig_temperatures}. The temperature inside the box is significantly lower, which indicates properly working cooling. Higher temperatures are also seen on the top of the detector, where the excess heat is not evacuated. 
 
 \begin{figure}[!h]
 \centering
@@ -361,7 +361,7 @@ Figure \ref{fig_IV} shows IV curves of two selected modules from two different u
 \caption{IV curves for two modules from different \gls{mSTS} units. The silicon sensors were tested in the clean laboratory (first measurement), then subsequently after the U beam time and at the end of the test period in June 2022 (second measurement).}
 \label{fig_IV}
 \end{figure}
-Leakage current measurements is scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70\,V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low-voltage powering lines. Even though it is difficult to distinguish the point of full depletion, the current was still in the expected range. The unit 3 sensor shows a breakdown at a similar biasing voltage for all three measurements. Linear behavior of the IV is an indication of a resistive element added to the circuitry, which is related to the \gls{LV} power supply. 
+Leakage current measurements are scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70\,V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low-voltage powering lines. Even though it is difficult to distinguish the point of full depletion, the current was still in the expected range. The unit 3 sensor shows a breakdown at a similar biasing voltage for all three measurements. Linear behavior of the IV is an indication of a resistive element added to the circuitry, which is related to the \gls{LV} power supply. 
 
 Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector.
 This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated into the new version of the \gls{FEB} (FEB8-3). 
@@ -398,7 +398,7 @@ The successful operation of the \gls{mSTS}, including the \gls{DCS} and \gls{DAQ
 \gls{mSTS} didn't publish its overall status to any external software agent. Due to that reason, some information like \gls{ASIC} internal temperature or VDDM were only accessible via the data acquisition chain (\gls{DCA}-\gls{CRI}). In the future, each subsystem will have an assigned Subsystem Control Agent (\gls{SCA}) to tackle control of the readout chain and the \gls{DCS}. 
 
 
-Temperature sensors located inside the \gls{mSTS} and information about the current drawn by the sensors indicate the silicon sensors' state. The sensors may degrade over time due to radiation-induced damage,  which leads i.a. to leakage current increase, type inversion, etc. Those effects can be partially studied through the \gls{DCS} and the control strategy adopted respectively to the results.
+Temperature sensors located inside the \gls{mSTS} and information about the current drawn by the sensors indicate the silicon sensors' state. The sensors may degrade over time due to radiation-induced damage,  which leads i.a. to the leakage current increase, type inversion, etc. Those effects can be partially studied through the \gls{DCS} and the control strategy adopted respectively to the results.
 
 Figure \ref{fig_dcs_results} shows how the \gls{DCS} performed during about 2 years of operation. Due to the radiation-induced soft errors in the controllers of the cooling units, there were several occasions that the operation of the \gls{STS} had to be halted. Usually, such an interruption in the operation was automatically triggered by the \gls{FSM}. Listed errors might also include the intervention in the system. In that case, the error related to the cooling system was logged, but the FSM might have been off.
 \begin{figure}[!h]

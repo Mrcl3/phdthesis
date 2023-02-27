@@ -1,7 +1,7 @@
 
 As mentioned in the previous chapter, the \gls{CBM} will face an unprecedented interaction rate in high-energy physics experiments (up to $10^{7}$~events/s). That number also sets a clear requirement for the detector systems and their corresponding data acquisition. Due to the huge quantity of incoming data which is closely connected to the storage size, certain design decisions had to be made in order to reduce the raw data coming from the subsystems. 
 
-The decay topologies required for the reconstruction of the collisions imply a long trigger latency~\cite{Friese_2017}. In order to realize a complex trigger logic and reduce the data amount, the raw data needs to be evaluated in software on \gls{CPU} and/or \gls{GPU} level. The self-triggered readout system implies that the association of data from different detectors to individual physical collision events must be based solely on their timestamp, which is generated in the frond-end electronic (\gls{FEE}) circuitry. As a result, a central timing system must synchronize the \gls{FEE} elements to sub-nanosecond precision. On the other hand, the typical "event building" action and the high-level trigger are transitioned to the \gls{FLES} ("First-level Event Selector") online compute farm. 
+The decay topologies required for the reconstruction of the collisions imply a long trigger latency~\cite{Friese_2017}. In order to realize a complex trigger logic and reduce the data amount, the raw data needs to be evaluated in software on Central Processing Unit (\gls{CPU}) and/or Graphics Processing Unit (\gls{GPU}) level. The self-triggered readout system implies that the association of data from different detectors to individual physical collision events must be based solely on their timestamp, which is generated in the frond-end electronic (\gls{FEE}) circuitry. As a result, a central timing system must synchronize the \gls{FEE} elements to sub-nanosecond precision. On the other hand, the typical "event building" action and the high-level trigger are transitioned to the \gls{FLES} ("First-level Event Selector") online compute farm. 
 
 
 \begin{figure}[!h]
@@ -57,7 +57,7 @@ The subsystem-specific \gls{SCA} should manage communication both with the detec
 Two main links of the \gls{SCA} include:
 \begin{itemize}
     \item Detector Control System - Experimental Physics and Industrial Control System \gls{EPICS}~\cite{EPICS} based distributed control system which controls and monitors all the hardware connected to the specific detector (apart from the \gls{DAQ} specific boards).
-    \item Device Control Agent (\gls{DCA}) - this agent controls almost all logic on the \gls{CRI} board (excluding the \gls{FLIM} section and direct memory access data path). \gls{DCA} provides a high-level interface for the higher layers of the control architecture, collectively referred to as \gls{EDC}. 
+    \item Device Control Agent (\gls{DCA}) - this agent controls almost all logic on the \gls{CRI} board (excluding the FLES Interface Module (\gls{FLIM}) section and direct memory access data path). \gls{DCA} provides a high-level interface for the higher layers of the control architecture, collectively referred to as \gls{EDC}. 
 \end{itemize}
 
 

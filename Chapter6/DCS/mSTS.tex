@@ -50,7 +50,7 @@ For example, to measure leakage current for a given side of the silicon sensors 
 CBM:STS:1:0:2:HV:MeasureCurrent
 CBM:STS:11111:5:1:MeasureCurrent
 \end{verbatim}
-The first line of the example above points to a defined place and functionality in the detector - the current of the \gls{HV} channel of the given \gls{FEB}. The second line indicates the channel in the power supply module which is being used. This naming convention is then followed by the other services - low voltage power, cooling, etc.  
+The first line of the example above points to a defined place and functionality in the detector - the current of the High Voltage (\gls{HV}) channel of the given \gls{FEB}. The second line indicates the channel in the power supply module which is being used. This naming convention is then followed by the other services - low voltage power, cooling, etc.  
 \subsection{Network structure}
 There are three main networks in the mCBM experiment. The first one so-called detector network allows monitoring and control of hardware connected to the respective subsystem. All \gls{DCS} infrastructure, including the main node, is located in that network. The second network "FLES network" is focused only on the data coming from the detectors. The third network is dedicated to the operators and data-taking operations. All these networks are interconnected via gateways.  
 

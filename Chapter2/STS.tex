@@ -13,16 +13,17 @@ To achieve precise particle position the electrodes can be segmented into strips
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter2/images/silicons.png}
-\caption{The segmented electrode enables defining the particle position (left)~\cite{Sokolov:2006vdx}. The right scheme depicts the strips oriented at a small angle, which aims to reduce fake hits~\cite{Spieler}.}
+\caption{The segmented electrode enables defining the particle position (left)~\cite{Sokolov:2006vdx}. The right scheme depicts the strips oriented at a small angle $\alpha$, which aims to reduce fake hits~\cite{Spieler}.}
 \label{fig_si}
 \end{figure}
 \newpage
 
-The operation principle of semiconductor-based devices is related to the fact that the charged particles traversing the volume of the detector may ionize it. The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
-\begin{equation}
--\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  \frac{\delta(\gamma)}{Z}\right]
-\end{equation}
-Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be transferred to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\beta^{2}}}$ and $\delta$ density effect correction. On the other hand, photons must first contact with an electron through the photo or Compton effect, or with the Si nucleus. 
+The operation principle of semiconductor-based devices is related to the fact that the charged particles traversing the volume of the detector may ionize it. %The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
+%\begin{equation}
+%-\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  \frac{\delta(\gamma)}{Z}\right]
+%\end{equation}
+%Where z is the charge of the particle, $T_{max}$ is the maximum kinetic energy that can be transferred to a free electron in a single collision, I is the mean excitation energy, Z the atomic number, A the atomic mass, $N_{A}$ the Avogadro’s number, $m_{e}$ the electron mass, c the speed of light, $r_{e}$ the classical electron radius, $\beta = v/c$ and $\gamma = \frac{1}{\sqrt{1-\beta^{2}}}$ and $\delta$ density effect correction. 
+On the other hand, photons must first contact with an electron through the photo or Compton effect, or with the Si nucleus. 
 
 The sensitive volume of a silicon sensor produces on average signal current given by 
 \begin{equation}
@@ -117,7 +118,7 @@ The CCE depends on the depletion voltage and its changes with the radiation, as 
 \section{Design of the Silicon Tracking System}
 \label{STS}
 
-The physics observables together with the foreseen accelerator energy and beam intensity mentioned in the previous chapter define the requirements for the detector system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. The detector has to work with ion beam energies from \agev{2} to \agev{14} (protons \gev{29}). In addition to that, a central Au+Au collision results in up to 700 tracks. The \gls{STS} extends more than \SI{1}{\metre} downstream of the target and will be installed in a volume of \SI{3}{\cubic\metre}. 
+The physics observables together with the foreseen accelerator energy and beam intensity mentioned in the previous chapter define the requirements for the detector system. The \gls{STS} is designed to provide track reconstruction and momentum determination of the charged particles. Those particles are produced in collisions of an ion beam with energies from \agev{2} to \agev{14} (protons \gev{29}) with a target. For example, a central Au+Au collision results in up to 700 tracks. The \gls{STS} extends more than \SI{1}{\metre} downstream of the target and will be installed in a volume of \SI{3}{\cubic\metre}. 
 % on average 700 tracks, change the sentence anyway
 
 In order to achieve physics goals, \gls{STS} has to address the following:
@@ -221,11 +222,11 @@ The data load for the sensors will vary depending on their position in the detec
 
 The dimensions of the \gls{FEB} are tightly constrained due to the limited space inside the \gls{STS}. Hence, the dimensions of the \gls{FEB} are approximately \SI{3}{\centi\metre} by \SI{10}{\centi\metre}. The chips need also to be powered, which is achieved by the onboard linear voltage regulators (\gls{LDO} regulators). Each \gls{ASIC} has an analog (VDDM) and digital power domain that are powered by 1.2\,V and 1.8\,V \glspl{LDO}. The analog part is powered by 1.2\,V and 1.8\,V \glspl{LDO}, whereas the digital part is supplied from 1.8\,V \gls{LDO}.
 
-\glspl{FEB} are glued to aluminum fins, in order to achieve good thermal coupling. Subsequently, the fins are fixed to the base plate of the \gls{FEB} box (see Figure~\ref{feb_box}) before mounting them on a ladder. The \gls{FEB} boxes reside on cooling plates. The carbon composite, which is the interface between the fin and base plate, has an ultrahigh thermal conductivity. Therefore, the excess heat is efficiently removed by the coolant (NOVEC 649) which circulates through the cooling plate providing temperature down to \SI{-40}{\degree}. 
+\glspl{FEB} are glued to aluminum fins, in order to achieve good thermal coupling. Subsequently, the fins are fixed to the base plate of the \gls{FEB} box (see Figure~\ref{feb_box}) before mounting them on a ladder. The \gls{FEB} boxes reside on cooling plates. The carbon composite, which is the interface between the fin and base plate, has an ultrahigh thermal conductivity. Therefore, the excess heat is efficiently removed by the coolant (NOVEC 649) which circulates through the cooling plate providing temperature down to \SI{-40}{\celsius}. 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.45\columnwidth]{Chapter2/images/feb_box.png}
+\includegraphics[width=0.55\columnwidth]{Chapter2/images/feb_box_1.png}
 \caption{A simplified CAD drawing of the \gls{FEB} box.}
 \label{feb_box}
 \end{figure}
@@ -238,7 +239,7 @@ check many parameters that influence the \gls{FEB} performance.
 \subsubsection{Design of the STS-XYTER}
 
 The STS-XYTER (see Figure~\ref{sts_xyter}) is an integrated circuit designed for the readout of \gls{STS} and \gls{MUCH} consisting of 128 analog channels. One of the elements of the chip is a so-called low noise Charge Sensitive Amplifier (\gls{CSA}), which converts the collected charge into a voltage signal with an amplitude proportional to the charge. Subsequently, the signals pass through the Polarity Selection Circuit (\gls{PSC}) which allows measuring both polarities
-  of the detector signal with the same ASIC. It makes the use of the \gls{ASIC} for double-sided silicon sensors feasible. Signal processing is distinguished into two paths: fast and slow. The first one is responsible for the determination of the timestamp and the second one has been adjusted for low noise discrimination and energy measurement with a 5-bit flash ADC. When operating the \gls{ASIC} in self-triggered mode, hit information is saved and latched by the arrival of each signal using the information from the 5-bit continuous-time ADC and the slow path. 
+  of the detector signal with the same \gls{ASIC}. It makes the use of the \gls{ASIC} for double-sided silicon sensors feasible. Signal processing is distinguished into two paths: fast and slow. The first one is responsible for the determination of the timestamp and the second one has been adjusted for low noise discrimination and energy measurement with a 5-bit flash \gls{ADC}. When operating the \gls{ASIC} in self-triggered mode, hit information is saved and latched by the arrival of each signal using the information from the 5-bit continuous-time \gls{ADC} and the slow path. 
 
 \begin{figure}[!h]
 \centering
@@ -317,7 +318,7 @@ The STS performance is mainly determined by its ability to accurately reconstruc
 \label{fig_cce}
 \end{figure}
 
-This problem can be addressed from a few different perspectives. Firstly, the noise levels of the newly produced modules should be as low as possible. It can be achieved using low-noise electronics and ensuring proper shielding from electromagnetic interference. The noise levels can also be adjusted by decreasing the temperature or annealing the sensors. Nevertheless, the latter has to be performed in a controlled fashion in order to avoid reverse annealing. Keeping the detectors at temperatures below \SI{0}{\celsius} eliminates the reverse term while largely preserving the beneficial one. During maintenance, the ambient temperature has to be raised in a controlled manner to take advantage of short-term annealing and to prevent any reverse effects~\cite{Hartmann:2017gzy}. Figure~\ref{fig_cce_temp} shows how the silicon sensor would behave after receiving up to $10\times10^{13} MeV n_{eq}cm^{-2}$, what is considered to be the maximum dose that the \gls{STS}'s sensors will receive. According to this plot, the assumed signal-to-noise ratio of 10 can be achieved even if the sensor's \gls{CCE} drops to 70\% if the temperature is kept at \SI{-10}{\celsius}.
+This problem can be addressed from a few different perspectives. Firstly, the noise levels of the newly produced modules should be as low as possible. It can be achieved using low-noise electronics and ensuring proper shielding from electromagnetic interference. The noise levels can also be adjusted by decreasing the temperature or annealing the sensors. Nevertheless, the latter has to be performed in a controlled fashion in order to avoid reverse annealing. Keeping the detectors at temperatures below \SI{0}{\celsius} eliminates the reverse term while largely preserving the beneficial one. During maintenance, the ambient temperature has to be raised in a controlled manner to take advantage of short-term annealing and to prevent any reverse effects~\cite{Hartmann:2017gzy}. Figure~\ref{fig_cce_temp} shows how the silicon sensor would behave after receiving up to $10\times10^{13}\,\mathrm{MeV n_{eq}cm^{-2}}$, what is considered to be the maximum dose that the \gls{STS}'s sensors will receive. According to this plot, the assumed signal-to-noise ratio of 10 can be achieved even if the sensor's \gls{CCE} drops to 70\% if the temperature is kept at \SI{-10}{\celsius}.
 
 \begin{figure}[!h]
 \centering
@@ -335,7 +336,7 @@ This problem can be addressed from a few different perspectives. Firstly, the no
 
 \section{Overview of the services for the STS}
 
-The \gls{STS} will feature a number of services and sensors that need to be controlled, monitored, and automatized in order to work efficiently during the operation of the detector. These services include:
+The \gls{STS} will feature a number of services and sensors that need to be controlled, monitored, and automatized in order to work efficiently during the operation of the detector. The data from these services provides unique information about the detector's state and functioning:
 \begin{enumerate}
     \item Low voltage and high voltage powering modules.\\
     About 2500 low voltage and 1800 high voltage powering channels will be employed for the \gls{STS}. The low-voltage modules will be located in the experiment cave. This location exposes the electronics to elevated radiation levels. 

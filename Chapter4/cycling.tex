@@ -13,7 +13,7 @@ To evaluate the behavior of the board in the realistic conditions, a thermal cyc
 \subsection{Nominal operation scenario of the STS}
 \label{nominal}
 
-In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power, and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box and the \gls{FEB} for the nominal operation scenario.
+In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power ($\approx8\,W$), and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box and the \gls{FEB} for the nominal operation scenario.
 
 During periods in which the temperature will change due to transitions between detector states, the electronics will experience thermal stresses, which will partially occur with the electronics switched on. The cases discussed relate to the worst-case scenarios, in which the temperature differences are the highest. 
     
@@ -34,7 +34,7 @@ During periods in which the temperature will change due to transitions between d
 \end{figure}
 
 
-During the active (with low voltage on) phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  The difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
+During the active, nominal phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  The difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
 
 \begin{figure}[!h]
 \centering
@@ -85,7 +85,7 @@ Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glsp
 \label{power_loss}
 The last considered scenario is the so-called loss of power scenario. Out of the three introduced scenarios, it's the least probable one, but it also leads to significant data loss, as 10 \glspl{FEB} would stop sending data. Such a scenario could happen if all the connected low-voltage channels switch off, e.g., due to radiation. In this case, the \glspl{FEB} would reach the temperature of the cooling block ($T \approx \SI{-40}{\celsius}$) if the powering wasn't turned on within seconds.
 
-\subsection{Influence on the coefficient of thermal expansion on the PCB performance}
+\subsection{Influence of the coefficient of thermal expansion on the PCB performance}
 
 The coefficient of thermal expansion (\gls{CTE}) is an important property of materials that affects relative movement between \gls{PCB} components. \gls{CTE} should be a concern when it comes to \glspl{PCB}, as out-of-plane \gls{CTE} could cause cracking and delamination, while in-plane \gls{CTE} may cause for example shear failures in solder joints~\cite{cte_report}. The \gls{STS} \gls{FEB} is equipped with many components which could be the reason for malfunctions at low temperatures, making analysis of potential causes a complex task. 
 These components can be seen in Figure~\ref{fig_globtop}.
@@ -96,21 +96,21 @@ These components can be seen in Figure~\ref{fig_globtop}.
 \label{fig_globtop}
 \end{figure}
 
-Both the LDO regulators and STS-XYTERs are covered with high viscosity glues which are referenced as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
+Both the \gls{LDO} regulators and STS-XYTERs are covered with high viscosity glues which are referenced as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
 \begin{itemize}
     \item adhesion to the substrates,
-    \item part geometry (including mass),
+    \item part geometry (including the mass of the components in contact),
     \item temperature extremes,
-    \item cycle, and transition times.
+    \item number of cycles, and transition times.
 \end{itemize}
 
 
 The most common phenomena which cause damage to the glob-topped device are:
 \begin{itemize}
-    \item chip cracking,
+    \item wire-bond failure,
     \item failure of the chip to board or substrate joint,
     \item damage to protective chip passivization layer,
-    \item wire-bond failure,
+    \item chip cracking,
     \item metallization pattern shift,
     \item development of voids or notches in metallization tracks. 
 \end{itemize}
@@ -119,7 +119,7 @@ The most common phenomena which cause damage to the glob-topped device are:
 According to the data on electronics failures analyzed by the U.S. Air Force over about 20 years, it was shown that 50\% of these failures are related to connectors, 30\% to interconnects, and 20\% to component
 parts. Hardware failures may occur due to handling, vibrations, or stress of different origins (including thermal stress). About 55\% of the electronics failures are due to high temperatures and temperature cycling, 20\% of the failures are related to vibration and shock, and 20\% are due to humidity~\cite{thermal_electronics}. 
 
-To protect the STS microelectronics, DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. To simplify the CTE analysis, we assume that \gls{LDO} regulators and \glspl{ASIC} are mainly composed of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion influences the relative position of different components during thermal cycling.
+To protect the STS microelectronics, DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. The \gls{LDO} regulators and \glspl{ASIC} are made out of of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion influences the relative position of different components during thermal cycling.
 
 \begin{table}[!h]
 \begin{center}
@@ -131,19 +131,19 @@ DYMAX 9001-E-V3.5~\cite{9001}            & 180                                  
 DYMAX 9014~\cite{9014}                   & 192                                  \\
 DYMAX 9008~\cite{9008}                   & 230                                  \\
 EPO-TEK E4110~\cite{4110}                & 150                                  \\ \hline
-FR4~\cite{FR4}                          & 15                                   \\
+FR4 (\gls{PCB} material)~\cite{FR4}                          & 15                                   \\
 Silicon~\cite{Si}                           & 2.6                                 
 \end{tabular}
 \label{TCE}
 \end{center}
 \end{table}
  \newpage
-Three main components which need to be analyzed during the testing are the glues (glob top and conductive glue), bonds, and microelectronics (LDO regulator and STS-XYTER). From the thermal cycling point of view, power dissipation is one of the key differences between the DC linear voltage regulator and the front-end chip. Figure~\ref{fig_temperatures_camera} depicts the temperature distribution of a powered board. The board was screwed to the cooling plate, which was at \SI{20}{\celsius}.
+Three main components which need to be analyzed during the testing are the glues (glob top and conductive glue), bonds, and microelectronics (\gls{LDO} regulator and STS-XYTER). From the thermal cycling point of view, power dissipation is one of the key differences between the DC linear voltage regulator and the front-end chip. Figure~\ref{fig_temperatures_camera} depicts the temperature distribution of a powered board. The board was screwed to the cooling plate, which was at \SI{20}{\celsius}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.6\columnwidth]{Chapter4/images/feb_thermal.jpg}
-\caption{Temperature of the \gls{FEB} components measured with a thermal camera for the low power consumption scenario, \cite{leo_electronics}. The \gls{LDO} (on the right side of the figure) dissipates on average more heat than chips.}
+\caption{Temperature of the \gls{FEB} components measured with a thermal camera for the low power consumption scenario, \cite{leo_electronics}. The \gls{LDO} (on the right side of the picture) appear to be hotter than STS-XYTER chips.}
 \label{fig_temperatures_camera}
 \end{figure}
 
@@ -287,7 +287,7 @@ Temperature sensor 1 was placed above the \gls{LDO} regulators, therefore the me
 \subsubsection{Low-temperature power cycling}
 On contrary to the two introduced thermal cycling methods, power cycling is performed at a stable temperature. After switching the power on at low temperature, the \glspl{FEB} functionalities are tested and the power supply output is switched off. This process is then repeated a few hundred times. 
 
-Power cycling at low temperatures is considered as one of the riskiest events that may cause a board to fail.  As identified during the irradiation of the power supplies, we should expect at least 180 radiation-induced soft errors in the low-voltage modules. Radiation-induced phenomena (latchup in the chips, and soft errors in the powering units) limit the lifetime of the electronics and could cause the boards to fail over time. \glspl{FEB} will also be power cycled during testing, commissioning, and operation of the detector, increasing the total number of power cycles up to ten times. The previously introduced \glspl{FEB} underwent the following power cycling in low temperatures:
+Power cycling at low temperatures is considered as one of the riskiest events that may cause a board to fail.  As identified during the irradiation of the power supplies, we should expect at least 180 radiation-induced soft errors in the low-voltage modules. Radiation-induced phenomena (latchup in the chips, and soft errors in the powering units) limit the lifetime of the electronics and could cause the boards to fail over time. \glspl{FEB} will also be power cycled during testing, commissioning, and operation of the detector, increasing the total number of power cycles up to two/three times. The previously introduced \glspl{FEB} underwent the following power cycling in low temperatures:
 \begin{itemize}
     \item set A - 4 \glspl{FEB} - 200 cycles at $T = \SI{-30}{\celsius}$, 4 other \glspl{FEB} (including the one without chips) 300 cycles at $T = \SI{-30}{\celsius}$,
     \item Set B - 2 \glspl{FEB} - 50 cycles at $T = \SI{-20}{\celsius}$, 2 other \glspl{FEB} 50 cycles at $T = \SI{-30}{\celsius}$.
@@ -310,10 +310,10 @@ In the case of set A, which featured 8 \glspl{FEB}: 4 \glspl{FEB} with DYMAX 900
 \caption{Detailed description of the \gls{LDO} failure with regard to the type and number of cycles.}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lll}
-Globtop                   & Failure              & Remarks                       \\ \hline
-DYMAX Dam 9008, fill 9001 & 100 power cycles     & 1.8V \gls{LDO} failure (AVVD18)      \\ \hline
-DYMAX 9001                & 200 power cycles     & 1.2V \gls{LDO} failure after cycling  \\ \hline
-DYMAX 9001                & 200/300 power cycles & 1.2V \gls{LDO} failure during cycling \\ \hline
+Globtop                   & Failure Appearence             & Remarks                       \\ \hline
+DYMAX Dam 9008, fill 9001 & $\approx$ 100 power cycles     & 1.8\,V \gls{LDO} failure (AVVD18)      \\ \hline
+DYMAX 9001                & $\approx$ 200 power cycles     & 1.2\,V \gls{LDO} failure after cycling  \\ \hline
+DYMAX 9001                & $\approx$ 200/300 power cycles & 1.2\,V \gls{LDO} failure during cycling \\ \hline
 \end{tabular}%
 }
 \label{tab:SetA}
@@ -330,33 +330,26 @@ Comparison of the lauda chiller setpoint, readouts from the internal temperature
 \label{fig_cold_startup}
 \end{figure}
 
-Similarly, the onset of the \gls{FEB} malfunction can be seen in the diagnostic circuit of the STS-XYTER (see figure \ref{fig_cold_startup_vddm}). VDDM drops significantly, at the point at which the \gls{LDO} stops providing the nominal current. It was later identified that one of the bond connections of the \glspl{LDO} pad got detached from the board due
-to thermal stress. Therefore, the output current of the \gls{LDO} was reduced to a few mA and the voltage was not delivered to the Analog Frond End of the \glspl{ASIC}.
+Similarly, the onset of the \gls{FEB} malfunction can be seen in the diagnostic circuit of the STS-XYTER (see figure \ref{fig_active_failure}). VDDM drops significantly, at the point at which the \gls{LDO} stops providing the nominal current. The temperature measured by the chip drops by $\SI{15}{\celsius}$, and the VDDM reaches 0\,mV, indicating a problem with 1.2\,V \gls{LDO} regulator It was later identified that one of the bond connections of the \glspl{LDO} pad got detached from the board due
+to thermal stress. Therefore, the output current of the \gls{LDO} was reduced to a few mA and the voltage was not delivered to the Analog Frond End of the \glspl{ASIC}. 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.6\columnwidth]{Chapter4/images/temps_vddm.png}
-\caption{Temperature and VDDM of two chosen STS-XYTERs, and the onset of \gls{LDO} regulator malfunction.}
-\label{fig_cold_startup_vddm}
-\end{figure}
-
-Similar thermal cycling testing was performed on the set B, but in this case, the $\Delta T$ for passive and active cycles was higher, which also lead to an earlier failure of the \gls{PCB} (related to the lift of the \gls{LDO} regulator from the \gls{PCB} surface). Exact conditions and moments of failures are summarized in Table \ref{tab:setB}.
-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[!h]
 \centering
 \caption{Detailed description of the \gls{LDO} failure with regard to the type and number of cycles}
+\label{tab:setB}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llll}
-Globtop    & Cycles                                                                                                                                                                                                                                                                                  & Failure                                                          & Remarks                                                                              \\ \hline
-DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 cold startups at $T=\SI{-20}{\celsius}$\end{tabular}                                                                   & 43th active cycle {[}$\SI{-30}{\celsius}, \SI{-20}{\celsius}${]} & 1.2\,V \gls{LDO} failure                                                                     \\ \hline
-DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-20}{\celsius},\SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 cold startups at $T=\SI{-20}{\celsius}$, \\ 50 active cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\end{tabular} & 40th cold startup at $T=\SI{-30}{\celsius}$                      & \begin{tabular}[c]{@{}l@{}}failure of both 1.2\,V \gls{LDO}s\\ 1.8\,V \gls{LDO} failure\end{tabular} \\ \hline
-DYMAX 9001 & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\end{tabular}                                                                                                                & 29th cold startup {$\SI{-40}{\celsius}$}   & 1.2\,V \gls{LDO} failure                                                                     \\ \hline
+\textbf{Globtop} & Cycles                                                                                                                                                                                                                                                                                  & Failure                                                                                                     & Remarks                                                                                              \\ \hline
+DYMAX 9001       & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 cold startups at $T=\SI{-20}{\celsius}$\end{tabular}                                                                   & \begin{tabular}[c]{@{}l@{}}43th active cycle \\ {[}$\SI{-30}{\celsius}, \SI{-20}{\celsius}${]}\end{tabular} & 1.2\,V \gls{LDO} failure                                                                             \\ \hline
+DYMAX 9001       & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-20}{\celsius},\SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-20}{\celsius}, \SI{20}{\celsius}${]}\\ 50 cold startups at $T=\SI{-20}{\celsius}$, \\ 50 active cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}40th cold startup at \\ $T=\SI{-30}{\celsius}$\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}failure of both 1.2\,V \gls{LDO}s\\ 1.8\,V \gls{LDO} failure\end{tabular} \\ \hline
+DYMAX 9001       & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\\ 50 active cycles {[}$\SI{-30}{\celsius}, \SI{20}{\celsius}${]}\end{tabular}                                                                                                                & \begin{tabular}[c]{@{}l@{}}29th cold startup \\ {$\SI{-40}{\celsius}$}\end{tabular}                         & 1.2\,V \gls{LDO} failure                                                                             \\ \hline
 \end{tabular}%
 }
-\label{tab:setB}
 \end{table}
 %\newpage
-The onset of failure during the active cycling can also be seen via the diagnostic circuit of the STS-XYTER (see figure~\ref{fig_active_failure}). The temperature measured by the chip drops by $\SI{15}{\celsius}$, and the VDDM reaches 0\,mV, indicating a problem with 1.2\,V \gls{LDO} regulator. 
+
 
 \begin{figure}[!h]
 \centering

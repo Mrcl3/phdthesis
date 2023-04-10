@@ -6,7 +6,7 @@ Operating temperatures inside the \gls{STS} enclosure are dictated by the total 
 One of the elements of the detector module which can experience a significant mechanical stresses is the \gls{FEB}.
 During the commissioning and operation, the \glspl{FEB} will experience many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} in room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the boards. Nevertheless, the testing did not reproduce the STS operational conditions.
 
-To evaluate the behavior of the board in the realistic conditions, a thermal cycling setup was envisioned. Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules' performance.
+To evaluate the behavior of the board in the realistic conditions, a thermal cycling setup was envisioned. Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules performance.
 
  For the control and monitoring of devices, as well as for the processing of data the previously developed control framework was introduced. Implementation of the EPICS-based framework played a crucial role, as it enabled live monitoring of many parameters during the tests.
 
@@ -82,7 +82,7 @@ Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glsp
 
 \subsection{Loss of power scenario of the STS}
 \label{power_loss}
-The last considered scenario is the so-called loss of power scenario. Out of the three introduced scenarios, it's the least probable one, but it also leads to significant data loss, as 10 \glspl{FEB} would stop sending data. Such a scenario could happen if all the connected low-voltage channels switch off, e.g., due to radiation. In this case, the \glspl{FEB} would reach the temperature of the cooling block ($T \approx \SI{-40}{\celsius}$) if the powering wasn't turned on within seconds.
+The last considered scenario is the so-called loss of power scenario. Out of the three introduced scenarios, it is the least probable one, but it also leads to significant data loss, as 10 \glspl{FEB} would stop sending data. Such a scenario could happen if all the connected low-voltage channels switch off, e.g., due to radiation. In this case, the \glspl{FEB} would reach the temperature of the cooling block ($T \approx \SI{-40}{\celsius}$) if the powering was not turned on within seconds.
 
 \subsection{Influence of the coefficient of thermal expansion on the PCB performance}
 
@@ -186,7 +186,7 @@ assembled. In total, four different FEB flavors can be distinguished:
 \begin{itemize}
     \item with DYMAX 9001 as the glob top (see Figure~\ref{fig_noglobtop}),
     \item with DYMAX 9014 as the glob top,
-    \item with DYMAX 9001 as the fill and DYMAX 9008 as the dam \footnote{Dam and fill is a technique for properly covering wire bonded die. It's a two-step method in which a dam is dispensed around the top of the component first, followed by filling the center.} (see Figure~\ref{fig_cycling_temps}), 
+    \item with DYMAX 9001 as the fill and DYMAX 9008 as the dam \footnote{Dam and fill is a technique for properly covering wire bonded die. It is a two-step method in which a dam is dispensed around the top of the component first, followed by filling the center.} (see Figure~\ref{fig_cycling_temps}), 
     \item without glob top and \glspl{ASIC} (see Figure~\ref{fig_noglobtop}).
     \end{itemize}
 %\newpage
@@ -259,7 +259,7 @@ Active cycling refers to cycling with the electronics switched on at all times. 
 \caption{A detailed view on the performed active cycling. The top figure depicts the temperature of the chamber temperature and the set point of the Lauda chiller. Two lower figures show how the readout of temperature and VDDM from a chosen STS-XYTER depends on the cycling temperature. }
 \label{fig_active_detailed}
 \end{figure}
-A detailed view of a few cycles is presented in Figure~\ref{fig_active_detailed}. Figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept a few degrees (2 -- \SI{3}{\celsius}) above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. The two bottom graphs show how the cycling affects the STS-XYTERs diagnostic circuit. The VDDM value varies from about 1200\,mV up to 1240\,mV, but it does not have any effect on the performance of the chip, as the operating range could vary as much as 100\,mV. The measured values of the VDDM may also vary across the \gls{FEB}, which can be seen in Figure~\ref{feb_vary}. These differences emphasize the need to properly calibrate the ADC of the diagnostic circuit, as the measured values shouldn't be too far from the nominal 1.2\,V\footnote{Considering that the voltage drop across the 1.2\,V line connecting the subsequent chips is negligible} supplied by the 1.2\,V \gls{LDO} regulator. 
+A detailed view of a few cycles is presented in Figure~\ref{fig_active_detailed}. Figure depicts active cycling from \SI{-30}{\celsius} to \SI{20}{\celsius}. Similarly to passive cycling, the temperature of the cooling block is kept a few degrees (2 -- \SI{3}{\celsius}) above the ambient temperature, although the effective temperature of the active components (STS-XYTERs and \gls{LDO} regulators) is much higher. The two bottom graphs show how the cycling affects the STS-XYTERs diagnostic circuit. The VDDM value varies from about 1200\,mV up to 1240\,mV, but it does not have any effect on the performance of the chip, as the operating range could vary as much as 100\,mV. The measured values of the VDDM may also vary across the \gls{FEB}, which can be seen in Figure~\ref{feb_vary}. These differences emphasize the need to properly calibrate the ADC of the diagnostic circuit, as the measured values should not be too far from the nominal 1.2\,V\footnote{Considering that the voltage drop across the 1.2\,V line connecting the subsequent chips is negligible} supplied by the 1.2\,V \gls{LDO} regulator. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter4/images/vddm_comp.png}
@@ -278,7 +278,7 @@ Moreover, during the active cycling, 3 DS18B20 sensors were glued on the T-shelf
 \end{figure}
 
 \newpage
-Temperature sensor 1 was placed above the \gls{LDO} regulators, therefore the measured values are always higher than for the two other sensors. Temperature sensor 2 was placed on top of the T-shelf but on the other side of the board. Sensor 3 was placed on the side of the T-shelf next to the powering services, its temperature is significantly lower, what's clearly visible at \SI{-38}{\celsius}, as it's placed closer to the heat exchanger (the cooling plate). This behavior was also confirmed by the simulations - see Figure~\ref{fig_nominal_febs} and Figure~\ref{fig_reboot_FEB}. 
+Temperature sensor 1 was placed above the \gls{LDO} regulators, therefore the measured values are always higher than for the two other sensors. Temperature sensor 2 was placed on top of the T-shelf but on the other side of the board. Sensor 3 was placed on the side of the T-shelf next to the powering services, its temperature is significantly lower, what is clearly visible at \SI{-38}{\celsius}, as it is placed closer to the heat exchanger (the cooling plate). This behavior was also confirmed by the simulations - see Figure~\ref{fig_nominal_febs} and Figure~\ref{fig_reboot_FEB}. 
 
 
 %\newpage
@@ -318,7 +318,7 @@ DYMAX 9001                & $\approx$ 200/300 power cycles & 1.2\,V \gls{LDO} fa
 \label{tab:SetA}
 \end{table}
 \newpage
-The onset of the \gls{LDO} failure can be seen in Figure \ref{fig_cold_startup}. At about \SI{500}{\minute} the 1.2\,V LDO regulator's input current started dropping, indicating increasing resistance in the circuit. As depicted in Figure \ref{fig_cold_startup} once the temperature reached $\SI{20}{\celsius}$ the current consumption was again nominal. After about  3000\,min, this effect turned out to be irreversible, and we observed the complete failure of the 1.2\,V \gls{LDO} regulator. After about 100 cycles, the current consumption measured at the level of the power supply dropped to almost 0\,A. 
+The onset of the \gls{LDO} failure can be seen in Figure \ref{fig_cold_startup}. At about \SI{500}{\minute} the 1.2\,V LDO regulator input current started dropping, indicating increasing resistance in the circuit. As depicted in Figure \ref{fig_cold_startup} once the temperature reached $\SI{20}{\celsius}$ the current consumption was again nominal. After about  3000\,min, this effect turned out to be irreversible, and we observed the complete failure of the 1.2\,V \gls{LDO} regulator. After about 100 cycles, the current consumption measured at the level of the power supply dropped to almost 0\,A. 
 %\newpage
 \begin{figure}[!h]
 \centering
@@ -357,7 +357,7 @@ DYMAX 9001       & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\ce
 \label{fig_active_failure}
 \end{figure}
 \newpage
-One of the potential failure mechanisms can be seen in Figure~\ref{fig_ldo_lift}. An air bubble seen on the right photo caused the regulator to lift from the \glspl{PCB} surface, resulting in bond breaks. Hence, the \gls{LDO} wasn't providing the nominal voltage and current to the chips. 
+One of the potential failure mechanisms can be seen in Figure~\ref{fig_ldo_lift}. An air bubble seen on the right photo caused the regulator to lift from the \glspl{PCB} surface, resulting in bond breaks. Hence, the \gls{LDO} was not providing the nominal voltage and current to the chips. 
 
 \begin{figure}[!h]
 \centering

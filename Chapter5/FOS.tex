@@ -78,15 +78,15 @@ The climatic chamber offers the temperature control between \SI{-40}{\celsius} a
 \newpage
 One of the most important sensor characteristics is accuracy, which holds information about the deviation of the measured value from the ideal value. Overall, the uncertainty comprises several factors~\cite{sensors_physics}:
 \begin{itemize}
-    \item calibration error - a constant error over the whole range of measurements, its source is related to the accuracy of the reference device and the calibration method applied,
-    \item hysteresis - a deviation of the sensor's output to a certain point of the input single when approached from opposite directions (see Figure~\ref{fig:accuracy}), 
-    \item non-linearity - in the characterization of the \glspl{FBG} it is assumed that the response of the sensors to the stimulus (increasing humidity or temperature) is linear. Therefore, any deviation from the linearity is considered a contribution to the uncertainty,
-    \item repeatability - the error caused by the inability of a sensor to represent the same value at the same conditions. 
+    \item calibration error -- a constant error over the whole range of measurements, its source is related to the accuracy of the reference device and the calibration method applied,
+    \item hysteresis - a deviation of the sensor output to a certain point of the input single when approached from opposite directions (see Figure~\ref{fig:accuracy}), 
+    \item non-linearity -- in the characterization of the \glspl{FBG} it is assumed that the response of the sensors to the stimulus (increasing humidity or temperature) is linear. Therefore, any deviation from the linearity is considered a contribution to the uncertainty,
+    \item repeatability -- the error caused by the inability of a sensor to represent the same value at the same conditions. 
 \end{itemize}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter5/images/Picture2.png}
-\caption{Different contributions to the sensor's accuracy.}
+\caption{Different contributions to the sensors accuracy.}
 \label{fig:accuracy}
 \end{figure}
 By combining all the errors, the total uncertainty of a sensor is as follows:
@@ -112,7 +112,7 @@ The test subjects were two hygrometers (\SI{15}{\micro\metre} polyimide coating)
 \label{fig_array_wavelength}
 \end{figure}
 
-The second test involved evaluating the humidity response of the sensor in the range (10\% to 80\%), see Figures~\ref{fig_response} and~\ref{fig_array_wavelength}. In both cases, increasing the relative humidity inside the test chamber results in the shift of the Bragg wavelength toward higher values. It's related to the increasing strain on the grating resulting from the deposition of water molecules in the polyimide. These measurements were taken at a stable temperature of \SI{20}{\celsius}.
+The second test involved evaluating the humidity response of the sensor in the range (10\% to 80\%), see Figures~\ref{fig_response} and~\ref{fig_array_wavelength}. In both cases, increasing the relative humidity inside the test chamber results in the shift of the Bragg wavelength toward higher values. It is related to the increasing strain on the grating resulting from the deposition of water molecules in the polyimide. These measurements were taken at a stable temperature of \SI{20}{\celsius}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter5/images/rh.png}
@@ -139,7 +139,7 @@ The measurements below \SI{0}{\celsius} have relatively large uncertainty, due t
 \label{fig_array_calibration}
 \end{figure}
 %\newpage
-The uncertainties of the reference devices (the Michell chilled mirror $\pm 1$\%RH and the PT1000 temperature sensor's - \SI{0.001}{\celsius}) are taken into account, together with linear fit error. The uncertainties are assumed to be following the Gaussian distribution and the confidence level of 68\%. The slopes of the obtained fits are the humidity sensitivities of the sensors. These values at different temperatures and their corresponding uncertainties are depicted in Figure~\ref{fig_RH_sens}. 
+The uncertainties of the reference devices (the Michell chilled mirror $\pm 1$\%RH and the PT1000 temperature sensor - \SI{0.001}{\celsius}) are taken into account, together with linear fit error. The uncertainties are assumed to be following the Gaussian distribution and the confidence level of 68\%. The slopes of the obtained fits are the humidity sensitivities of the sensors. These values at different temperatures and their corresponding uncertainties are depicted in Figure~\ref{fig_RH_sens}. 
 
 \begin{figure}[!h]
 \centering
@@ -154,7 +154,7 @@ The uncertainties of the reference devices (the Michell chilled mirror $\pm 1$\%
 \label{fig_RH_sens2}
 \end{figure}
 
-Similar plots were also obtained for all the other \gls{RH} sensors of the array (see Figure~\ref{fig_calibration}). The second hygrometer didn't show a linear response to the changing conditions, which is further discussed in the next section.
+Similar plots were also obtained for all the other \gls{RH} sensors of the array (see Figure~\ref{fig_calibration}). The second hygrometer did not show a linear response to the changing conditions, which is further discussed in the next section.
 \newpage
 The average $S_{RH}$ for the array sensors is $2.77\pm 0.03\,\mathrm{\frac{pm}{\%RH}}$  and $2.09\pm 0.02\,\mathrm{\frac{pm}{\%RH}}$ for the hygrometer. Given the uncertainty of the coating thickness, these results are in line with the findings in~\cite{YEO_PI} and~\cite{Kronenberg:02} for coating thicknesses between \SI{15}{\micro\metre} and \SI{20}{\micro\metre}. The uncertainty obtained from the calibration is much smaller than the error introduced by the interrogator itself, which is 1\,pm. The hygrometer measures with an accuracy of 0.5\%RH and for the array sensors on average 0.36\%RH. 
 
@@ -175,7 +175,7 @@ The second coefficient called temperature sensitivity ($S_{T}$) conveys informat
 \end{figure}
 
 \subsection{Calibration with saturated salt solutions}
-The two mentioned hygrometers were also at first tested with the use of the saturated salt solutions method. The details of this approach are given in section~\ref{fos:setup}. The results of these measurements are depicted in Figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 doesn't have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
+The two mentioned hygrometers were also at first tested with the use of the saturated salt solutions method. The details of this approach are given in section~\ref{fos:setup}. The results of these measurements are depicted in Figure~\ref{fig:fos_salt}. The Sensor depicted as FBG RH FOS 1 does not have a linear response to the changing humidity and temperature, therefore it was excluded from further tests. 
 
 \begin{figure}[!h]
 \centering
@@ -185,7 +185,7 @@ The two mentioned hygrometers were also at first tested with the use of the satu
 \label{fig:fos_salt}
 \end{figure}
 
-The comparison of the results from two different calibration methods for the hygrometers is depicted in Table~\ref{tab:fos}. The calibration method based on the saturated salt solutions has larger uncertainties due to the small number of calibration points. Nevertheless, the method involving saturated salt solutions is a very cost-effective method allowing the characterization of the sensors, but it can't be used in a wide temperature range, especially below \SI{0}{\celsius} as the relative humidity provided by the solution is not constant. 
+The comparison of the results from two different calibration methods for the hygrometers is depicted in Table~\ref{tab:fos}. The calibration method based on the saturated salt solutions has larger uncertainties due to the small number of calibration points. Nevertheless, the method involving saturated salt solutions is a very cost-effective method allowing the characterization of the sensors, but it can not be used in a wide temperature range, especially below \SI{0}{\celsius} as the relative humidity provided by the solution is not constant. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -206,7 +206,7 @@ Climatic chamber              & 2.09                                & 0.06      
 \subsection{Time response}
 The time response of the hygrometer and the array sensors was investigated as well. The sensors were compared during the increasing humidity from about 20\% to 80\%. The \gls{FBG} based \gls{FOS} has a much longer time response than the capacitive sensors (seconds). The time response of different sensors is often compared using for example the time to reach 63\% of set value $\tau_{63}$.
 \newpage
-Figures~\ref{fig_time_response} and~\ref{fig_time_response2} depict the comparison of the time response of the hygrometer and one of the array sensors with commercial capacitive sensors (two SHT85 and HYT221 sensors). The response of the \gls{FOS} is shown as wavelength change. It's also noteworthy that the response is about twice slower at \SI{0}{\celsius}. The average response time at \SI{0}{\celsius} for the array sensors is 10.7\,min, and 4.8\,min for the hygrometer. On the other hand, at \SI{20}{\celsius} those values equal 2.3\,min and 2\,min. Small differences among the array sensors were also seen, but they most likely correspond to slight differences in the coating thickness and the position inside the climatic chamber. 
+Figures~\ref{fig_time_response} and~\ref{fig_time_response2} depict the comparison of the time response of the hygrometer and one of the array sensors with commercial capacitive sensors (two SHT85 and HYT221 sensors). The response of the \gls{FOS} is shown as wavelength change. It is also noteworthy that the response is about twice slower at \SI{0}{\celsius}. The average response time at \SI{0}{\celsius} for the array sensors is 10.7\,min, and 4.8\,min for the hygrometer. On the other hand, at \SI{20}{\celsius} those values equal 2.3\,min and 2\,min. Small differences among the array sensors were also seen, but they most likely correspond to slight differences in the coating thickness and the position inside the climatic chamber. 
 
 \begin{figure}[!h]
 \centering
@@ -227,7 +227,7 @@ Figures~\ref{fig_time_response} and~\ref{fig_time_response2} depict the comparis
 Longer response times for the array sensors are related to the thicker polyimide coating. The second contribution might be related to the slightly different packaging of the sensors. 
 
 \subsection{Hysteresis}
-Figures~\ref{fig_hysteresis} and~\ref{fig_hysteresis2} show the hysteresis of the hygrometer and two array sensors. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH}. The temperature fluctuations during the hysteresis measurement are depicted in Figure~\ref{fig_hysteresis2}. The resolution of the optical interrogator is 1\,pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point, the hysteresis of the hygrometer is $0.72\pm0.48$\%RH and for the array sensors $2.67\pm0.33$\%RH. 
+Figures~\ref{fig_hysteresis} and~\ref{fig_hysteresis2} show the hysteresis of the hygrometer and two array sensors. The first figure shows the wavelength change during the stepwise increase of relative humidity from $10$\% to $70$\% (with $10$\% step), and also while decreasing the \gls{RH}. The temperature fluctuations during the hysteresis measurement are depicted in Figure~\ref{fig_hysteresis2}. The resolution of the optical interrogator is 1\,pm. Hence, any temperature uncertainty of \SI{0.1}{\celsius} and relative humidity uncertainty of $0.5$\% are related to the device resolution. Based on Bragg wavelength measurement differences at each point, the hysteresis of the hygrometer is $0.72\pm0.48$\% RH, and for the array sensors $2.67\pm0.33$\% RH. 
 
 \begin{figure}[!h]
 \centering

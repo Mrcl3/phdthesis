@@ -33,9 +33,9 @@
 ]{scrbook}
 
 \usepackage[%
-  backend=bibtex      % biber or bibtex
+  backend=biber      % biber or bibtex
 %,style=authoryear    % Alphabeticalsch
- ,style=numeric-comp  % numerical-compressed
+ ,style=science  % numerical-compressed
  ,sorting=none        % no sorting
  ,sortcites=true      % some other example options ...
  ,block=none
@@ -49,7 +49,7 @@
  % if you need natbib functions
 ]{biblatex}
 \addbibresource{refs.bib}  % better than \bibliography
-
+%\bibliographystyle{ieeetr}
 \usepackage[breaklinks=true, colorlinks=false, linkcolor=blue, linktoc=all, pdfborder={0 0 0}]{hyperref} % hyper refs without borders 
 
 \usepackage[utf8]{inputenc}
@@ -258,14 +258,14 @@
 \chapter{Kurzfassung}
 \input{kurzfassung.tex}
 
-%\input{Documents/acnowledgements.tex}
+\input{Documents/acnowledgements.tex}
 \mainmatter
-\chapter{Introduction}
+\chapter{Introduction to physics background}
 \label{chap:intro}
 \input{Chapter1/physics.tex}
 \input{Chapter1/FAIR.tex}
 \input{Chapter1/CBM.tex}
-\chapter{The STS and its role in the CBM experiment}
+\chapter{The Silicon Tracking System and its role in the CBM experiment}
 \label{chap:CBM_STS}
 \input{Chapter2/STS.tex}
 \chapter{The Detector Control System, an important part of the online systems}
@@ -276,21 +276,21 @@
 \input{Chapter3/Controls/EPICS.tex}
 \input{Chapter4/Containarization.tex}
 \input{Chapter4/frontend.tex}
-\chapter{Applications of the proposed control framework for test setups}
+\chapter{Control framework applications for the test setups}
 \label{chap:containers}
 \input{Chapter4/irradiation.tex}
 \input{Chapter4/monitoring.tex}
 \input{Chapter4/cycling.tex}
-\chapter{Solutions for the humidity monitoring in STS}
+\chapter{Solutions for humidity monitoring in STS}
 \label{chap:fos}
 \input{Chapter5/Overview.tex}
 \input{Chapter5/FOS.tex}
 \input{Chapter5/chosen_sensors.tex}
-\chapter{mSTS as the pathfinder for the DCS}
+\chapter{mSTS as pathfinder for the DCS}
 \label{chap:msts}
 \input{Chapter6/DCS/mSTS.tex}        
 \input{Chapter6/DCS/operation.tex}
-\chapter{Summary and overview}
+\chapter{Summary and overview on DCS toward the full STS system}
 \label{chap:last}
 \input{Chapter7/summary.tex}
 \input{Chapter7/Orchestration.tex}
@@ -316,6 +316,7 @@
 \include{Documents/appendix.tex}
 %\clearpage
 %\addcontentsline{toc}{chapter}{References}
+
 \printbibliography
 %\clearpage
 

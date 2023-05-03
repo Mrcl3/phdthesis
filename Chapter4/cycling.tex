@@ -1,19 +1,19 @@
 \newpage
 \section{Thermal cycling of detector electronics}
 \label{thermal_cycling}
-Operating temperatures inside the \gls{STS} enclosure are dictated by the total non ionizing dose and noise levels. The temperature conditions in the STS could have repercussions on the functioning of detector electronics. Nevertheless, for the first few years of operation the ambient temperatures will be higher than \SI{-10}{\celsius}. Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will experience thermally induced mechanical stresses.
+Operating temperatures inside the \gls{STS} enclosure are dictated by the total non-ionizing dose and noise levels. The temperature conditions in the STS could have repercussions on the functioning of detector electronics. Nevertheless, for the first few years of operation, the ambient temperatures will be higher than \SI{-10}{\celsius}. Operating scenarios of the \gls{STS} together with other constraints related to, for example, the soft errors rate in the low voltage powering of the \gls{FEE}, define the testing procedures for all the electronics which will experience thermally induced mechanical stresses.
 
-One of the elements of the detector module which can experience a significant mechanical stresses is the \gls{FEB}.
-During the commissioning and operation, the \glspl{FEB} will experience many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} in room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the boards. Nevertheless, the testing did not reproduce the STS operational conditions.
+One of the elements of the detector module which can experience significant mechanical stresses is the \gls{FEB}.
+During the commissioning and operation, the \glspl{FEB} will experience many power cycles. As reported in the~\cite{CBM_PR_2021}, the power cycling of the \glspl{FEB} at room temperature of about \SI{20}{\celsius} run flawlessly, not identifying any issues with the boards. Nevertheless, the testing did not reproduce the STS operational conditions.
 
-To evaluate the behavior of the board in the realistic conditions, a thermal cycling setup was envisioned. Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules performance.
+To evaluate the behavior of the board in realistic conditions, a thermal cycling setup was envisioned. Thermal cycling testing is usually performed in order to determine the ability of different components and solder interconnects to resist extreme temperature changes. Permanent changes to the electrical or physical features may compromise the detector modules performance.
 
  For the control and monitoring of devices, as well as for the processing of data the previously developed control framework was introduced. Implementation of the EPICS-based framework played a crucial role, as it enabled live monitoring of many parameters during the tests.
 
 \subsection{Nominal operation scenario of the STS}
 \label{nominal}
 
-In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power ($\approx8\,W$), and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box and the \gls{FEB} for the nominal operation scenario.
+In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power ($\approx8\,W$), and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box, and the \gls{FEB} for the nominal operation scenario.
 
 During periods in which the temperature will change due to transitions between detector states, the electronics will experience thermal stresses, which will partially occur with the electronics switched on. The cases discussed relate to the worst-case scenarios, in which the temperature differences are the highest. 
     
@@ -95,7 +95,7 @@ These components can be seen in Figure~\ref{fig_globtop}.
 \label{fig_globtop}
 \end{figure}
 
-Both the \gls{LDO} regulators and STS-XYTERs are covered with high viscosity glues which are referenced as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
+Both the \gls{LDO} regulators and STS-XYTERs are covered with high viscosity glues which are known as glob top\footnote{protective epoxy-based material for microelectronics}. Apart from \gls{CTE}, the performance of the glob top material depends on many other factors:
 \begin{itemize}
     \item adhesion to the substrates,
     \item part geometry (including the mass of the components in contact),
@@ -118,7 +118,7 @@ The most common phenomena which cause damage to the glob-topped device are:
 According to the data on electronics failures analyzed by the U.S. Air Force over about 20 years, it was shown that 50\% of these failures are related to connectors, 30\% to interconnects, and 20\% to component
 parts. Hardware failures may occur due to handling, vibrations, or stress of different origins (including thermal stress). About 55\% of the electronics failures are due to high temperatures and temperature cycling, 20\% of the failures are related to vibration and shock, and 20\% are due to humidity~\cite{thermal_electronics}. 
 
-To protect the STS microelectronics, DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. The \gls{LDO} regulators and \glspl{ASIC} are made out of of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is one order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion influences the relative position of different components during thermal cycling.
+To protect the STS microelectronics, DYMAX 9001 was the glob top choice for the \glspl{FEB}, and it was then replaced by its successor DYMAX 9014. The \gls{LDO} regulators and \glspl{ASIC} are made of silicon. The linear CTE of glob top materials (DYMAX 9001, DYMAX 9014, DYMAX 9008) and conductive glue (EPO-TEK E4110) is by an order of magnitude higher than the coefficient for the \glspl{PCB} and silicon. Additionally, a volume expansion influences the relative position of different components during thermal cycling.
 
 \begin{table}[!h]
 \begin{center}
@@ -169,7 +169,7 @@ The main objective was thermal cycling of the \glspl{FEB}, which consists of 4 L
 \label{fig_setup}
 \end{figure}
 
-
+\newpage
 Apart from the \gls{ASIC}-specific values, are other parameters taken into consideration which are as
 follows:
 \begin{itemize}
@@ -198,7 +198,7 @@ assembled. In total, four different FEB flavors can be distinguished:
 The right picture depicts two fully assembled \gls{FEB}s with STS-XYTERS version 2.1 and DYMAX 9001 as the glob top.}
 \label{fig_noglobtop}
 \end{figure}
-
+\newpage
 To prepare for the thermal cycling, the assembled boards (type A and B) were mounted on a cooling shelf (initially with thermal pads, later by gluing it to the T-shelf’s surface) and then eventually placed on a cooling plate in the climatic chamber (see Figure~\ref{fig_cycling_temps}). In order to reproduce similar conditions as in the \gls{STS} (coolant temperature at \SI{-40}{\celsius}) KRYO 51 coolant was used instead of the NOVEC 649 liquid. Additionally, the chamber temperature was always kept below the temperature of the cooling plate to avoid icing. During the cycling, the voltage drop at the \gls{LDO} regulators was the same \SI{0.6}{\volt} for all the boards.
 
 \begin{figure}[!h]
@@ -209,7 +209,6 @@ To prepare for the thermal cycling, the assembled boards (type A and B) were mou
 \label{fig_cycling_temps}
 \end{figure}
 
-\newpage
 
 \subsection{Testing procedure}
 The \glspl{FEB}, Readout Boards (\glspl{ROB}), and  Power Boards (\glspl{POB}) are going to be cooled, and they will experience thermal stress on the components. According to the previously introduced operation scenarios, these boards need to withstand:
@@ -317,7 +316,6 @@ DYMAX 9001                & $\approx$ 200/300 power cycles & 1.2\,V \gls{LDO} fa
 }
 \label{tab:SetA}
 \end{table}
-\newpage
 The onset of the \gls{LDO} failure can be seen in Figure \ref{fig_cold_startup}. At about \SI{500}{\minute} the 1.2\,V LDO regulator input current started dropping, indicating increasing resistance in the circuit. As depicted in Figure \ref{fig_cold_startup} once the temperature reached $\SI{20}{\celsius}$ the current consumption was again nominal. After about  3000\,min, this effect turned out to be irreversible, and we observed the complete failure of the 1.2\,V \gls{LDO} regulator. After about 100 cycles, the current consumption measured at the level of the power supply dropped to almost 0\,A. 
 %\newpage
 \begin{figure}[!h]
@@ -356,7 +354,7 @@ DYMAX 9001       & \begin{tabular}[c]{@{}l@{}}50 passive cycles {[}$\SI{-30}{\ce
 \caption{Temperature and VDDM of a chosen STS-XYTER, and the onset of \gls{LDO} regulator failure.}
 \label{fig_active_failure}
 \end{figure}
-\newpage
+
 One of the potential failure mechanisms can be seen in Figure~\ref{fig_ldo_lift}. An air bubble seen on the right photo caused the regulator to lift from the \glspl{PCB} surface, resulting in bond breaks. Hence, the \gls{LDO} was not providing the nominal voltage and current to the chips. 
 
 \begin{figure}[!h]
@@ -365,7 +363,7 @@ One of the potential failure mechanisms can be seen in Figure~\ref{fig_ldo_lift}
 \caption{Microscopic view of the air bubble between glob top and bonds of the \gls{LDO}.}
 \label{fig_ldo_lift}
 \end{figure}
-\newpage
+%\newpage
 \subsection{Conclusions}
 The deployed part of the developed EPICS-based framework for the thermal cycling of the \gls{STS} electronics enabled automation of the cycling process, storing the necessary data and analyzing it in order to evaluate the capabilities of the \glspl{FEB}. 
 

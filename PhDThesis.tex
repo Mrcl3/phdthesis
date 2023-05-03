@@ -1,7 +1,7 @@
 \begin{filecontents}{refs.bib}
 @online{solarfarm, 
   author  = {Buckley, Alastair and nee Hall, Lisa Clark and {Colantuono, Giuseppe Everard}, Aldous}, 
-  title   = {{The Sheffield Solar Farm}}, 
+  title   = {The Sheffield Solar Farm}, 
   url     = {http://www.sheffieldsolarfarm.group.shef.ac.uk/solar-panel-data},
   urldate = {2013-05-16}, 
 }
@@ -35,7 +35,7 @@
 \usepackage[%
   backend=biber      % biber or bibtex
 %,style=authoryear    % Alphabeticalsch
- ,style=science  % numerical-compressed
+ ,style=ieee	  % numerical-compressed
  ,sorting=none        % no sorting
  ,sortcites=true      % some other example options ...
  ,block=none
@@ -166,7 +166,7 @@
 \definecolor{auburn1}{rgb}{0.43, 0.21, 0.1}
 \definecolor{source}{gray}{0.85}% my comment style
 \definecolor{auburn}{rgb}{0.36, 0.54, 0.66}
-\newcommand{\myTitleStyle}[1]{{\LARGE\sffamily\color{auburn} #1}}
+\newcommand{\myTitleStyle}[1]{{\huge\color{auburn} #1}}
 %\newcommand{\myCommentStyle}[1]{{\footnotesize\sffamily\color{black!100!white} #1}}
  
 % my string style
@@ -309,6 +309,7 @@
 
 \renewcommand\listfigurename{List of Figures}
 \listoffigures
+\newpage
 \addcontentsline{toc}{chapter}{List of Tables}
 \renewcommand\listtablename{List of Tables}
 \listoftables

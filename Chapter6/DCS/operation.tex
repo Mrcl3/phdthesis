@@ -11,7 +11,7 @@ The powering of the \gls{mSTS} is organized similarly as it will be implemented 
 \caption{Schematic view of the first station of the \gls{mSTS}. It depicts the main structures of the C-Frame. }
 \label{fig_msts_scheme}
 \end{figure}
-%\newpage
+\newpage
 
 
 \subsubsection{Noise considerations}
@@ -35,12 +35,11 @@ Figure~\ref{fig_msts_power} depicts the power distribution of the \gls{mSTS}. Th
 \caption{Power distribution scheme of the \gls{mSTS}~\cite{Lymanets}.}
 \label{fig_msts_power}
 \end{figure}
-\newpage
 
 \subsection{Detector modules}
  The detector modules used to build \gls{mSTS} differ not only in microcable lengths, and sensor size but also in the version of \gls{LDO} regulators and DC/DC converters output voltage, which may affect parameters like power dissipation or the general performance (ENC levels). The module assembly is more broadly discussed in section \ref{module}. The respective components of each \gls{mSTS} unit can be found in Table~\ref{tab:msts_comp}. Before assembling \gls{mSTS}, extensive measurements of all the building blocks were performed. Figure \ref{fig_msts_ENC1} and  \ref{fig_msts_ENC2} show noise measurements of two modules from different units. Unit 1 is the only unit used before for the previous \gls{mCBM} campaign~\cite{heuser1}. It is one of the oldest units, and it is also slightly irradiated, thus sensors leakage currents are higher than the new modules. The module of unit 1 (Figure \ref{fig_msts_ENC2}) has larger noise and a more pronounced odd-even effect than unit 0 module. In both modules, the Z-strips (p-side channel numbers 0 to 134) are clearly recognizable. 
 
-Figure \ref{fig_msts_ENC2} also shows the estimated ENC values for different components of the module (sensor, microcables, and \gls{ASIC}s). The \gls{ENC} estimation is based on a simple parameterization of the \gls{ENC} versus capacitance for the STS-XYTER. The targeted \gls{ENC} value for \gls{mSTS} modules is 1000\,e, but the measurement outcome depends also on the sensor size, microcables length, and nuances of the assembly process. In the case of \gls{mSTS} modules the targeted \gls{ENC} value was achieved during the laboratory testing. Nevertheless, based on the  obtained data and the \gls{ADC} thresholds settings used during the data-taking campaign it was concluded that the \gls{ENC} levels were higher than 1000\,e.\newpage
+Figure \ref{fig_msts_ENC2} also shows the estimated ENC values for different components of the module (sensor, microcables, and \gls{ASIC}s). The \gls{ENC} estimation is based on a simple parameterization of the \gls{ENC} versus capacitance for the STS-XYTER. The targeted \gls{ENC} value for \gls{mSTS} modules is 1000\,e, but the measurement outcome depends also on the sensor size, microcables length, and nuances of the assembly process. In the case of \gls{mSTS} modules the targeted \gls{ENC} value was achieved during the laboratory testing. Nevertheless, based on the  obtained data and the \gls{ADC} thresholds settings used during the data-taking campaign it was concluded that the \gls{ENC} levels were higher than 1000\,e.
 
 
 \begin{table}[!h]
@@ -60,19 +59,19 @@ Unit & Ladder & Silicon sensors                                                 
 }
 \label{tab:msts_comp}
 \end{table}
-
+\newpage
 
 \begin{figure}[!hb]
 \centering
-\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/U0M1_ENC.jpg}
+\includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U0M1_ENC.jpg}
 \caption{Equivalent Noise Charge for module 0 of unit 0 measured at the \gls{mCBM} experimental site~\cite{Adrian}. Values from all the analog channels (128 per chip) of the \glspl{ASIC} are depicted.}
 \label{fig_msts_ENC1}
 \end{figure}
-\newpage
+
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.95\columnwidth]{Chapter6/DCS/images/U1M1_ENC.png}
+\includegraphics[width=0.9\columnwidth]{Chapter6/DCS/images/U1M1_ENC.png}
 \caption{Equivalent Noise Charge plot for module 0 of unit 1 measured at the \gls{mCBM} experimental site~\cite{Adrian}. Three additional lines describing the noise contribution from ASIC, ASIC+microcables and ASIC+microcables+sensor are depicted.}
 \label{fig_msts_ENC2}
 \end{figure}
@@ -316,14 +315,14 @@ An example of the normalization of the unit 0 sensors is depicted in Figure~\ref
 
 \newpage
 The quantitative current changes over the \gls{mCBM} campaign are shown in Table~\ref{tab:msts_final_fluence}. To better understand the overall results, it is important to take a look at the position of the silicon sensors with respect to the beam (see~figure~\ref{fig_sensors_scheme}). The sensors located closer to the collision point (from unit 0) are more irradiated than sensors from units 2 and 3. Furthermore, the results obtained from unit 3 are inconsistent throughout the experiment, which means that those modules seem to experience electrical problems (e.g., short circuits). By applying the formulas introduced in Chapter~\ref{silicon_damage}, it is possible to estimate the fluence accumulated by the sensors based on the leakage currents differences (Table~\ref{tab:msts_final_fluence}).
-The major uncertainty is connected to the damage coefficient ($\alpha$). The $\alpha$ of $5,53\times 10^{-17} A/cm$ was chosen based on the analysis prepared by~\cite{Larionov:2016eoz}. 
+The major uncertainty is connected to the damage coefficient ($\alpha$). The $\alpha$ of $5,53\times 10^{-17}\,\mathrm{A/cm}$ was chosen based on the analysis prepared by~\cite{Larionov:2016eoz}. 
 
 \begin{table}[!h]
 \caption{Leakage current differences and corresponding fluence estimations based on the Hamburg model for all the \gls{mSTS} modules.}
 \centering
 \begin{tabular}{lcc}
 \hline
-\multicolumn{1}{c}{Module} & \begin{tabular}[c]{@{}c@{}}Current \\ difference {[}uA{]}\end{tabular} & Fluence {[}$n/cm_{2}${]} \\ \hline
+\multicolumn{1}{c}{Module} & \begin{tabular}[c]{@{}c@{}}Current \\ difference {[}uA{]}\end{tabular} & Fluence {[}$\mathrm{n/cm_{2}}${]} \\ \hline
 U3L1M0                     & 16.2                                                                  & $2.5\times10^{11}$          \\
 U3L1M1                     & 7.6                                                                    & $5.8\times10^{10}$          \\ \hline
 U3L0M0                     & 3.7                                                                    & $5.7\times10^{10}$          \\
@@ -341,7 +340,7 @@ U0M1                       & 7.2                                                
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.75\columnwidth]{Chapter6/DCS/images/msts_sensors_scheme2.png}
+\includegraphics[width=0.65\columnwidth]{Chapter6/DCS/images/msts_sensors_scheme2.png}
 \caption{Schematic view of the \gls{mSTS} sensor position with respect to the beam}
 \label{fig_sensors_scheme}
 \end{figure}

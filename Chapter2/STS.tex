@@ -134,7 +134,7 @@ In order to achieve physics goals, \gls{STS} has to address the following:
     \item  aperture - the aperture of the whole experiment is set to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}.
     \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y, 
     \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The signal-to-noise\footnote{Ratio of the most probable signal amplitude for a minimum ionizing particle divided by the mean root square of the single strip noise.} ratio needs to be above 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than \gevc{1}. 
-    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim of minimizing multiple scattering. It is achieved by placing the electronics, mechanical infrastructure, and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.8\%$ is required. 
+    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim of minimizing multiple scattering. It is achieved by placing the electronics, mechanical infrastructure, and cooling outside the active area. For the \gls{STS} the momentum resolution better than $2\%$ is required, what will be achieved by placing the \gls{STS} in a $1\,Tm$ dipole magnet.
     \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of $10^{14}\,\mathrm{neutrons/cm^{2}~(1\,MeV n_{eq})}$. It was confirmed that after receiving twice the mentioned dose the CCE decreases by up to 20\%. The total dose of \kgy{12} is expected only for the 5 - 10\% sensors in the innermost region of the detector after 10 years of operation, 2 months per year of \agev{10} Au+Au collisions at \mhz{10} interaction rate~\cite{Heuser:54798}.
     \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (\mhz{10}/$\mathrm{cm^{2}}$ define the requirements for the readout system (signal shaping time, number of readout channels, etc.)
 \end{itemize}
@@ -371,14 +371,14 @@ In addition to that, the \gls{DCS} for the Silicon Tracking System (\gls{STS}) i
  
  \begin{itemize}
     \item potential control framework should offer the possibility to control a variety of different services, which often have different communication protocols,
-    \item logging, and monitoring - there should be reliable means of supervision of processes, containers, and Input/Output Controllers\footnote{The input/output controller is a device that interfaces between an input or output device and the computer or hardware device} (\glspl{IOC}).
+    \item logging, and monitoring - there should be reliable means of supervision of processes, containers, and Input/Output Controllers\footnote{An input/output controller is a device that interfaces between an input or output device and the computer or hardware device.} (\glspl{IOC}).
     \item the control software should be horizontally and vertically scalable when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/instrumentations,
     \item supervision - it should be possible to integrate a sub-system oriented with higher-level control structures,
      \item flexible - applications should be easy to run on different operating systems and processor architectures,
      \item sustainability and support - the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
      \item reliability - the system should be highly available, minimizing the downtimes,
      \item network separation - it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
-     \item \glspl{GUI} - all parameters/process variables\footnote{In control theory, a process variable is the currently measured value of a particular part of a process which is being monitored or controlled} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk, and what actions need to be taken.
+     \item \glspl{GUI} - all parameters/process variables\footnote{In control theory, a process variable is the currently measured value of a particular part of a process which is being monitored or controlled.} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk, and what actions need to be taken.
 
  \end{itemize}
 \newpage

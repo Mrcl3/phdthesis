@@ -7,7 +7,7 @@ Experiments like \gls{CMS}, use a trigger to \cite{CMS-DAQ} reduce the amount of
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter3/Controls/images/online.png}
-\caption{General schematics of the CBM readout systems.}
+\caption{General schematics of the CBM readout systems without detector detector specific systems.}
 \label{fig_controls}
 \end{figure}
 
@@ -18,7 +18,7 @@ The readout hardware is connected to the computing farm via custom-developed opt
 
 Heavy-ion physics experiments require complex control systems, which are crucial to the successful operation of the detector system. Proper implementation of such systems ensures an understanding of the safety margins and enhanced data production quality. In general, the whole system should be robust, partitioned, modular, distributed, and highly available. Similar topics were also considered while designing the \gls{STS} control system.
 
-Figure \ref{fig_sim} depicts the targeted control architecture of the future \gls{CBM} experiment. It consists of different software agents\footnote{A software agent is a persistent, goal-oriented computer program} with clearly defined tasks. During the Phase - 0 experiment of the \gls{CBM} (\gls{mCBM}) some parts of the future \gls{ECS} were tested. The respective parts of the controls have been tested in a standalone mode, which means that there has not been any structured communication between \gls{DCS}, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}). Nevertheless, for the final experiment, the detector control system should provide the information on the detector state to the agents residing at a higher level in the control hierarchy and also request the state of the~\gls{DAQ}.
+Figure \ref{fig_sim} depicts the targeted control architecture of the future \gls{CBM} experiment. It consists of different software agents\footnote{A software agent is a persistent, goal-oriented computer program.} with clearly defined tasks. During the Phase - 0 experiment of the \gls{CBM} (\gls{mCBM}) some parts of the future \gls{ECS} were tested. The respective parts of the controls have been tested in a standalone mode, which means that there has not been any structured communication between \gls{DCS}, Device Control Agent (\gls{DCA}), and Experiment Control System (\gls{ECS}). Nevertheless, for the final experiment, the detector control system should provide the information on the detector state to the agents residing at a higher level in the control hierarchy and also request the state of the~\gls{DAQ}.
 
 %\newpage
 \begin{figure}[!h]
@@ -40,13 +40,13 @@ Figure \ref{fig_sim} depicts the targeted control architecture of the future \gl
 The highest supervisory element of the control strategy is the Experiment Control Agent (\gls{ECA}). It is the top layer of the \gls{ECS}, which should be constantly running and keeping track of the  partitions, the systems in partitions, and the systems out of partitions. 
 
 
-The \gls{PCA}, is the bottom layer of the \gls{ECS}, which tracks the state and controls a set of detector systems plus all needed central systems. Multiple partitions can run concurrently, potentially allowing for parallel runs with independent detector system sets. Partition (controlled by \gls{PCA}) is a component of the \gls{ECS} describing the combined state of a set of detector systems participating in a common readout. It is used to segment the readout and data flow. It also manages the states of central systems, which do not have partition-level states (e.g. \gls{TFC}, \gls{FLES} in case it does not use internal partitions).  It provides the address and port required by agents to establish the 0MQ\footnote{asynchronous messaging library \cite{zeromq}.} sockets\footnote{A socket is used by a client to send requests to and receive replies from a service} and build the \gls{ECS} structure upon request.
+The \gls{PCA}, is the bottom layer of the \gls{ECS}, which tracks the state and controls a set of detector systems plus all needed central systems. Multiple partitions can run concurrently, potentially allowing for parallel runs with independent detector system sets. Partition (controlled by \gls{PCA}) is a component of the \gls{ECS} describing the combined state of a set of detector systems participating in a common readout. It is used to segment the readout and data flow. It also manages the states of central systems, which do not have partition-level states (e.g. \gls{TFC}, \gls{FLES} in case it does not use internal partitions).  It provides the address and port required by agents to establish the 0MQ\footnote{0MQ is an asynchronous messaging library \cite{zeromq}.} sockets\footnote{A socket is used by a client to send requests to and receive replies from a service.} and build the \gls{ECS} structure upon request.
 
 The \glspl{PCA} hold internal instances of the necessary System Control Agent (\gls{SCA}) interfaces, which are responsible for:
 \begin{itemize}
  \item Holding a copy of the current state of the \gls{SCA}.
  \item Periodic ping of the \gls{SCA} to ensure early disconnection detection.
- \item Sending requests to the \gls{SCA} and receiving the replies
+ \item Sending requests to the \gls{SCA} and receiving the replies.
  \item Monitoring the \gls{SCA} broadcast channel for unexpected state changes.
 \end{itemize}
 

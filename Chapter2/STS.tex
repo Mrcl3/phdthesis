@@ -27,34 +27,34 @@ On the other hand, photons must first interact with an electron through the phot
 
 The sensitive volume of a silicon sensor produces an average charge given by 
 \begin{equation}
-    Q_{s} = \frac{E}{E_{i}}e
+    Q_{s} = \frac{E}{E_{i}}e.
 \end{equation}
 where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the band gap of the semiconductor so that the electron can move to the conduction band. The silicon has a band gap of \SI{1.12}{\eV}. Nevertheless, the average ionization energy for silicon is about \SI{3.6}{\eV}. This effect is related to the fact that only about 30\% of the particle energy is converted into an electrical signal, and the rest goes into phonon excitation (lattice vibrations). A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around 25000 electron-hole pairs.
 
 Considering a simple example if a sensor had about $\sim10^{9}$ thermally produced free charge carriers\footnote{Electrons or holes introduced to the conduction (valence) band by doping.}, but a passing charged particle would generate only $\sim2\times10^{4}$ electrons-hole pairs. Such a signal would be lost in the remaining free-charge carriers. There are two ways to address this problem, either by cooling the sensor to very low temperatures or depleting the silicon volume of free-charge carriers. The depletion process of a pn-junction requires applying an external voltage so that the sensor is fully depleted~\cite{Spieler}. This external voltage $V$ disturbs the equilibrium of spontaneous generation and recombination of electrons/holes. It increases the potential barrier of the pn-junction and the depletion width. 
 
-The full depletion voltage is one of the most important parameters for silicon sensors, as it defines the operating range. 
+The full depletion voltage is one of the most important parameters for silicon sensors, as it defines the operating range
 \begin{equation}
-    V_{FD} = \frac{D^{2}}{2\epsilon \mu \rho},
+    V_{FD} = \frac{D^{2}}{2\epsilon \mu \rho}.
 \end{equation}
-where D is the sensor thickness, $\epsilon$ is the dielectric constant, $\mu$ is the mobility and $\rho$ the resistivity.
+$D$ is the sensor thickness, $\epsilon$ is the dielectric constant, $\mu$ is the mobility and $\rho$ the resistivity.
 
-When the sensor is operated in the over-depleted mode, the electric field is established.
+When the sensor is operated in the over-depleted mode, the electric field is established
 \begin{equation}
-    E_{max/min} = \frac{V_{bias}\pm V_{FD}}{D}
+    E_{max/min} = \frac{V_{bias}\pm V_{FD}}{D}.
 \end{equation}
-where $V_{FD}$ is the effective full depletion voltage and $V_{bias}$ is the additional voltage. The thermally generated electron-hole pairs are swept out of the depletion region. This effect results in a reverse current called leakage current which is strongly influenced by mid-gap levels occupied by impurities. The current increases linearly with the $\sqrt{V}$ until the detector reaches full depletion. An electric breakdown is found at greater bias voltages, where the current begins to increase exponentially. The breakdown can be understood by either "avalanche breakdown" (charge multiplication in collisions with the lattice) or "Zener breakdown" (based on the quantum mechanical "tunnel effect")~\cite{Hartmann:2017gzy}.
+where $V_{FD}$ is the effective full depletion voltage and $V_{bias}$ is the additional voltage. The thermally generated electron-hole pairs are swept out of the depletion region. This effect results in a reverse current called leakage current which is strongly influenced by mid-gap levels occupied by impurities. The current increases with the applied voltage ${V}$ until the detector reaches full depletion. An electric breakdown is found at greater bias voltages, where the current begins to increase exponentially. The breakdown can be understood by either "avalanche breakdown" (charge multiplication in collisions with the lattice) or "Zener breakdown" (based on the quantum mechanical "tunnel effect")~\cite{Hartmann:2017gzy}.
 
-If the detector is fully depleted, the generated electrons and holes drift in the electric field according to their velocities $\nu_{p}$ and $\nu_{n}$ in the direction of respective electrodes. The current induced by a single charge carrier can be described by Ramo's theorem:
+If the detector is fully depleted, the generated electrons and holes drift in the electric field according to their velocities $\nu_{p}$ and $\nu_{n}$ in the direction of respective electrodes. The current induced by a single charge carrier can be described by Ramo's theorem
 \begin{equation}
-    I = q_{0}\frac{v_{n,p}}{D}
+    I = q_{0}\frac{v_{n,p}}{D}.
 \end{equation}
 where the drift velocity $v_{n,p}$ depends on the mobility of the holes and electrons and the electric field strength, and $D$ is the thickness.
 
 \section{Radiation damage to the silicon sensors}
 \label{silicon_damage}
 % Annealing after radiation damage
-To understand the properties of the silicon sensor after irradiation, it is necessary to consider the damage done to the lattice by the particles and the process called annealing. Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor (usually forming $\mathrm{SiO_{2}-Si}$ interface states~\cite{Moll:1999kv}. Displaced atoms form defects, which introduce new levels in the band gap, therefore changing the properties of the semiconductor. It results in the increase of the dark current, change of depletion voltage, and decrease of Charge Collection Efficiency (\gls{CCE}). In practice, the damage depends on the particle interacting with the sensors and its energy. Figure~\ref{fig_niel_si} describes the behavior of displacement damage for different particles and their energies.  
+To understand the properties of the silicon sensor after irradiation, it is necessary to consider the damage caused to the lattice by the particles and the process called annealing. Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor (usually forming $\mathrm{SiO_{2}-Si}$ interface states~\cite{Moll:1999kv}. Displaced atoms form defects, which introduce new levels in the band gap, therefore changing the properties of the semiconductor. It results in the increase of the dark current, change of depletion voltage, and decrease of Charge Collection Efficiency (\gls{CCE}). In practice, the damage depends on the particle interacting with the sensors and its energy. Figure~\ref{fig_niel_si} describes the behavior of displacement damage for different particles and their energies.  
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter2/images/displacement_damage.png}
@@ -63,29 +63,29 @@ plotted relative to 1\,MeV neutrons~\cite{Spieler}.}
 \label{fig_niel_si}
 \end{figure}
 
-Annealing can be described as the combination of various effects, such as the movement of particles or defects through the lattice structure, the rearrangement, or break-up of defects, and the interaction between defects as they propagate. Silicon sensors annealing is a process used to reduce the amount of leakage current present in silicon sensors. This process involves heating the sensors to a very high temperature for an extended period of time, allowing the bonds between the atoms in the silicon lattice to become more stable and reduce the amount of current flowing through the device. The annealing process also helps to reduce the amount of noise generated by the sensor, as well as improve its temperature stability. \bigbreak
+Annealing can be described as the combination of various effects, such as the movement of particles or defects through the lattice structure, the rearrangement, or break-up of defects, and the interaction between defects as they propagate. Silicon sensors annealing is a process used to reduce the leakage current of silicon sensors. This process involves heating the sensors to a very high temperature for an extended period of time, allowing the bonds between the atoms in the silicon lattice to become more stable and reduce the amount of current flowing through the device. The annealing process also helps to reduce the amount of noise generated by the sensor, as well as improve its temperature stability. \bigbreak
 
 \textbf{Leakage current}\bigbreak
-Production of additional mid-gap levels is the major contributor to the increase of leakage current during the radiation. It was also found in a number of experiments that the sensor leakage current is related to the fluence as follows:
-
+Production of additional mid-gap levels is the major contributor to the increase of leakage current during the radiation. It was also found in a number of experiments that the sensor leakage current is related to the fluence as follows
 \begin{equation}
 \label{eq:fluence}
-    I_{d} = I_{0} + \alpha \phi Ad
+    I_{d} = I_{0} + \alpha \phi Ad.
 \end{equation}
-where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and temperature, $\phi$ is the particle fluence, d is the detector thickness, and A is the area. Figure~\ref{fig_leakage_theory} provides a more detailed overview of  bulk-damage-induced leakage current in different types of silicon detectors. Moreover, leakage current changes also with the temperature:
+$I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damage coefficient dependent on particle type and temperature, $\phi$ is the particle fluence, $d$ is the detector thickness, and $A$ is the area. Figure~\ref{fig_leakage_theory} provides a more detailed overview of bulk-damage-induced leakage current in different types of silicon detectors. Moreover, leakage current changes also with the temperature
 \begin{equation}
 \label{Sil:temp}
-    I(T) \propto T^{2}e^{\frac{-E}{2kT}}
+    I(T) \propto T^{2}e^{\frac{-E}{2kT}}.
 \end{equation}
+$T$ is the temperature, $k$ is the Boltzmann constant and $E$ is the band gap energy. 
 If the temperature of the silicon sensors is known, then it is possible to normalize the leakage current to a predefined value (e.g., \SI{20}{\celsius}). It allows for comparing the leakage current of sensors before and after irradiation, even though the ambient conditions were different. 
 
 It allows us to scale down leakage current to $20\,^{\circ}$C using the equation \ref{Sil:scal}.
  
 \begin{equation}
 \label{Sil:scal}
-    \frac{I_{R}(T_{2})}{I_{R}(T_{1})} = (\frac{T_{2}}{T_{1}})^{2}e^{\frac{-E_{g}}{2kT}(\frac{T_{1}-T_{2}}{T_{1}T_{2}})}
+    \frac{I_{R}(T_{2})}{I_{R}(T_{1})} = (\frac{T_{2}}{T_{1}})^{2}e^{\frac{-E_{g}}{2kT}(\frac{T_{1}-T_{2}}{T_{1}T_{2}})}.
 \end{equation}
-where $E_{g}$ is the band gap, k is the Boltzmann constant, I is the current and T is the temperature.
+where $E_{g}$ is the band gap, $k$ is the Boltzmann constant, $I$ is the current and $T$ is the temperature.
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.65\columnwidth]{Chapter2/images/Leakage_current.png}
@@ -104,13 +104,21 @@ for different detector types~\cite{Moll:1999kv}.}
 % Information about the sensors used in the upper one
 \textbf{Depletion Voltage}\bigbreak
 
-Defects caused by radiation increase the leakage current of the device and thus reduce the depletion voltage. In addition, the radiation can cause the charge carriers to become trapped, reducing the mobility of the carriers and further reducing the depletion voltage. For an n-type-doped silicon sensor, the effects of radiation on the depletion voltage are more pronounced compared to a p-type-doped sensor, as the majority of carriers in an n-type-doped sensor are electrons, which are more easily affected by radiation than holes.  \bigbreak
+
+The effective doping of a detector is influenced by radiation-induced defects that exhibit characteristics of either donors or acceptors. The removal of donors due to radiation affects the overall space charge within the detector. When a phosphorus vacancy center is formed, the phosphorus atoms lose their donor properties.
+
+Initially, the detector consists of n-type silicon doped with phosphorus, where phosphorus acts as a donor. However, during irradiation, the material becomes less effectively n-doped. This decrease continues until the number of acceptor states matches the number of remaining donor states, resulting in the material becoming intrinsic. In other words, it loses its net doping effect.
+
+As the irradiation fluence increases, the doping concentration starts to rise again. However, since the material already lacks donors, the newly formed defects tend to act as acceptors, causing the material to become p-doped. This phenomenon is known as space charge inversion.
+
+After depleting the initial doping concentration, a linear increase in negative space charge is observed. This is attributed to the accumulation of acceptor-like defects.
+
+It's important to note that the specific behavior described here may vary depending on the characteristics of the detector material and the nature of the radiation exposure. Figure 2.8 likely provides a visual representation of the changes in depletion voltage and effective doping concentration that occur after irradiation.
 
 \textbf{Signal-to-noise ratio and Charge Collection Efficiency }\bigbreak
-Signal-to-noise ratio and CCE are two very important factors characterizing the detector. The noise level can be controlled by operating the detector at low temperatures or by limiting the exposition to electromagnetic interference. On the other hand, the CCE of non-irradiated sensors is assumed to be 100\%. The CCE after the irradiation could be defined as the ratio:
-
+Signal-to-noise ratio and CCE are two very important factors characterizing the detector. The noise level can be controlled by operating the detector at low temperatures or by limiting the exposition to electromagnetic interference. On the other hand, the CCE of non-irradiated sensors is assumed to be 100\%. The CCE after the irradiation could be defined as the ratio
 \begin{equation}
-    \eta = 100\%\times\frac{Q_{irr}}{Q}
+    \eta = 100\%\times\frac{Q_{irr}}{Q}.
 \end{equation}
 where $Q_{irr}$ is the charge collected by the irradiated sensor, and $Q$ is the charge collected by non-irradiated sensor. 
 The CCE depends on the depletion voltage and its changes with the radiation, as the full collection of the charge could only be achieved at the maximum electric field. Therefore, the fluence and/or depletion voltage remain crucial for the operation of the detector. 
@@ -123,12 +131,12 @@ The physics observables together with the foreseen accelerator energy and beam i
 
 In order to achieve physics goals, \gls{STS} has to address the following:
 \begin{itemize}
-    \item  aperture - the aperture of the whole experiment is assumed to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}.
+    \item  aperture - the aperture of the whole experiment is set to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}.
     \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y, 
-    \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The signal-to-noise\footnote{Ratio of the most probable signal amplitude for a minimum ionizing particle divided by the root mean square of the single strip noise.} ratio needs to be above 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than \gevc{1}. 
-    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim to avoid excessive multiple scattering. It is achieved by placing the electronics, mechanical infrastructure and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.8\%$ is required. 
+    \item single-hit efficiency - the detector layer should provide almost 100\% detection efficiency. The signal-to-noise\footnote{Ratio of the most probable signal amplitude for a minimum ionizing particle divided by the mean root square of the single strip noise.} ratio needs to be above 10. Having that, the track reconstruction efficiency should exceed 95\% for particle momenta larger than \gevc{1}. 
+    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim of minimizing multiple scattering. It is achieved by placing the electronics, mechanical infrastructure, and cooling outside the active area. For the \gls{STS} the momentum resolution of $\Delta p/p = 1.8\%$ is required. 
     \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of $10^{14}\,\mathrm{neutrons/cm^{2}~(1\,MeV n_{eq})}$. It was confirmed that after receiving twice the mentioned dose the CCE decreases by up to 20\%. The total dose of \kgy{12} is expected only for the 5 - 10\% sensors in the innermost region of the detector after 10 years of operation, 2 months per year of \agev{10} Au+Au collisions at \mhz{10} interaction rate~\cite{Heuser:54798}.
-    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (\mhz{10} interactions per $\mathrm{cm^{2}}$ define the requirements for the readout system (signal shaping time, number of readout channels etc.)
+    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (\mhz{10}/$\mathrm{cm^{2}}$ define the requirements for the readout system (signal shaping time, number of readout channels, etc.)
 \end{itemize}
 
 
@@ -263,11 +271,11 @@ In order to estimate the overall noise performance it's necessary to include the
     \item series white noise (\gls{CSA} input transistor thermal and flicker noise)
     \item series 1/f (flicker) noise (caused by charge carriers that are randomly trapped and released between the interfaces of two materials).
 \end{itemize}
-An analytical expression of the noise spectral density at the shaper output and the Equivalent Noise Charge (\gls{ENC}) can be expressed as:
+An analytical expression of the noise spectral density at the shaper output and the Equivalent Noise Charge (\gls{ENC}) can be expressed as
 \begin{equation}
-    ENC^{2} = ENC^{2}_{i} + ENC^{2}_{w} + ENC^{2}_{1/f},
+    ENC^{2} = ENC^{2}_{i} + ENC^{2}_{w} + ENC^{2}_{1/f}.
 \end{equation}
-where $ENC_{i}$  is the total current noise, $ ENC_{w}$ is the total white noise and $ENC_{1/f}$ is the total flicker noise. 
+$ENC_{i}$  is the total current noise, $ ENC_{w}$ is the total white noise and $ENC_{1/f}$ is the total flicker noise. 
 
 The noise performance of a module provides an invaluable insight into the state of the sensor and \gls{FEE} electronics. Knowing the nominal \gls{ENC} allows the detection and investigation of potential external noise sources. Moreover, it provides means of estimating broken analog connections or hints on how to adjust settings to reduce the noise contribution.
 \subsection{Readout board and Common Readout Interface}

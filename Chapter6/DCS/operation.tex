@@ -115,10 +115,10 @@ The \gls{mSTS} \gls{DCS} is a fairly automatized system, in which monitoring and
 
 
 \subsection{Power dissipation estimations}
- Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The results obtained through the \gls{FEE} were compared with the measurements of two separate front-end boards and average values from modules calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with Ohm's law~\ref{power} based on the voltage drops. For the \gls{mSTS} the power was calculated at the power supply level.
+ Power consumption of the 11 modules (22 \glspl{FEB}) of \gls{mSTS} was studied in detail to better understand the differences between the modules and estimate how predictions meet the experimental results. The results obtained through the \gls{FEE} were compared with the measurements of two separate front-end boards and average values from modules calibration. In order to compare the results, the \gls{CSA} control registers (front and back register) of all STS-XYTERs were scanned from 7 to 42 with a step of 5. The power dissipation was calculated with Ohm's law~\ref{power} based on the voltage drops. For the \gls{mSTS} the power was calculated at the power supply level
   \begin{equation}
   \label{power}
-    P = V\times I
+    P = V\times I.
 \end{equation}
 where V and I are the voltage change and current. Figure \ref{fig_power_scheme} depicts the powering scheme of a \gls{FEB}. Table~\ref{tab:distribution} contains the power dissipation values for different elements of the powering scheme in the function of the \gls{CSA} registers values for measurements conducted with a separate pair of \glspl{FEB}. The two mentioned \glspl{FEB} were powered directly using a \gls{LV} power supply (R\&S~HMP4040~\cite{RS}). The power dissipation estimations for the distribution lines and the DC/DC converters were performed based on the assumed efficiency of $80$\%. This efficiency drops to $65$\% at \SI{10}{\celsius} with currents approaching the device output limit (3\,A).  Another assumption was also made for the voltage drop in the \gls{LDO} regulators of 0.6\,V. 
  
@@ -136,7 +136,7 @@ where V and I are the voltage change and current. Figure \ref{fig_power_scheme} 
 % \usepackage{graphicx}
 \begin{table}[!h]
 \centering
-\caption{Power dissipation of the powering system in the function of the CSA registers values. Once the ASICs are configured, the digital line current remains constant. }
+\caption{Power dissipation of the powering system in the function of the CSA registers values. Once the ASICs are configured, the digital line current remains constant. The SMX ASIC is denoted as Integrated Circuit (IC).}
 \label{tab:distribution}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{cccccc}
@@ -357,13 +357,13 @@ Figure \ref{fig_IV} shows IV curves of two selected modules from two different u
 \centering
 \includegraphics[width=0.48\columnwidth]{Chapter6/DCS/images/IV/U0FEB1.png}
 \includegraphics[width=0.48\columnwidth]{Chapter6/DCS/images/IV/U3L1FEB1.png}
-\caption{IV curves for two modules from different \gls{mSTS} units. The silicon sensors were tested in the clean laboratory (first measurement), then subsequently after the U beam time and at the end of the test period in June 2022 (second measurement).}
+\caption{IV curves for two modules from different \gls{mSTS} units (Left: module 0 of unit 0, right: module 0 of ladder 1 of unit 3). Silicon sensors were tested in the clean laboratory (first measurement), then subsequently after the U beam time and at the end of the test period in June 2022 (second measurement).}
 \label{fig_IV}
 \end{figure}
 Leakage current measurements are scaled down to $\SI{20}{\celsius}$ but the relative humidity was different for each measurement. The IV measured during the QA procedure before the assembly of the module is depicted in yellow and shows a typical behavior of a reverse-biased silicon diode with a full depletion reached around 60-70\,V. The two other IV measurements for each module took place after assembly in \gls{mSTS}, the beam campaign with the U beam, and at the end of data-taking for 2022. The linear behavior of the sensors can be seen after the module assembly, measuring with an external high-voltage filter in a floating scheme and low-voltage powering lines. Even though it is difficult to distinguish the point of full depletion, the current was still in the expected range. The unit 3 sensor shows a breakdown at a similar biasing voltage for all three measurements. Linear behavior of the IV is an indication of a resistive element added to the circuitry, which is related to the \gls{LV} power supply. 
 
 Figure~\ref{fig_IV_good} shows the IV measurement of a module assembled similarly to the ones used in the \gls{mSTS} detector.
-This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated into the new version of the \gls{FEB} (FEB8-3). 
+This module was tested without additional \gls{HV} filter, \gls{LV} connection, and the Keithley~\cite{Keithley} power supply instead of ISEG \gls{HV} module. The \gls{HV} filter was integrated into the new version of the \gls{FEB} (FEB8-3). It was later confirmed that the sensor behavior from Figure~\ref{fig_IV} was associated with the LV power supply. 
 
 \begin{figure}[!h]
 \centering

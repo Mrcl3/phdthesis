@@ -13,7 +13,7 @@ To evaluate the behavior of the board in realistic conditions, a thermal cycling
 \subsection{Nominal operation scenario of the STS}
 \label{nominal}
 
-In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power ($\approx8\,W$), and any excess heat is evacuated by cooling liquid (NOVEC 649) is flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box, and the \gls{FEB} for the nominal operation scenario.
+In the nominal operation scenario at the end of the STS lifetime, the \glspl{FEB} are operated at the nominal power ($\approx8\,W$), and any excess heat is evacuated by cooling liquid (NOVEC 649) flowing through the \gls{FEB} cooling plate at \SI{-40}{\celsius}. Figure~\ref{fig_coolinkg_block_nominal} and~\ref{fig_nominal_febs}, depict thermal simulations of the cooling plate, \gls{FEB} box, and the \gls{FEB} for the nominal operation scenario.
 
 During periods in which the temperature will change due to transitions between detector states, the electronics will experience thermal stresses, which will partially occur with the electronics switched on. The cases discussed relate to the worst-case scenarios, in which the temperature differences are the highest. 
     
@@ -29,12 +29,12 @@ During periods in which the temperature will change due to transitions between d
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.62\columnwidth]{Chapter4/images/nominal_febs.png}
-\caption{Temperature distribution in the \gls{FEB} box and in the \gls{FEB} for the nominal operation scenario~\cite{Agarwal}.}
+\caption{Temperature distribution in the \gls{FEB} box containting 10 \glspl{FEB} (bottom of the figure) and on the \gls{FEB} for the nominal operation scenario (top of the figure)~\cite{Agarwal}. }
 \label{fig_nominal_febs}
 \end{figure}
 
 
-During the active, nominal phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  The difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
+During the active, nominal phase of operation, the temperature change of the electronics could be $\Delta T \approx \SI{20}{\celsius}$. On the other hand, simulations from Figure~\ref{fig_nominal_febs} indicate the minimum temperature the electronics will reach during the operation. This operation mode is summarized in Figure~\ref{fig_nominal_scenario}.  The difference is associated with a slow increase of the coolant temperature from \SI{-40}{\celsius} to \SI{-20}{\celsius}. After switching off the electronics, the temperature reaches the temperature of the cooling plate. The change will be $\Delta T \approx \SI{20}{\celsius}$ (from e.g., \SI{0}{\celsius} to \SI{-20}{\celsius}). These temperatures provide an indication of minimum and maximum thermal cycling set points.  
 
 \begin{figure}[!h]
 \centering
@@ -62,7 +62,7 @@ Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glsp
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.57\columnwidth]{Chapter4/images/reboot_box.png}
-\caption{Temperature distribution for the partially unpowered \gls{FEB}~\cite{Agarwal}.}
+\caption{Temperature distribution for the partially unpowered \gls{FEB}~\cite{Agarwal}. Each cooling shelf inside the \gls{FEB} box has two glued boards, and one of them is powered.}
 \label{fig_reboot_box}
 \end{figure}
 
@@ -76,7 +76,7 @@ Figure~\ref{fig_reboot_box} depicts the scenario in which only 5 out of 10 \glsp
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter4/images/nominal.png}
-\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature.}
+\caption{An example of \gls{STS} state transition from operation to safe state - comparison of temperatures of a \gls{FEB} box and cooling liquid temperature. Step represent a generic time period, indicating the rate of changes in the detector.}
 \label{fig_reboot_nominal2}
 \end{figure}
 
@@ -367,7 +367,7 @@ One of the potential failure mechanisms can be seen in Figure~\ref{fig_ldo_lift}
 \subsection{Conclusions}
 The deployed part of the developed EPICS-based framework for the thermal cycling of the \gls{STS} electronics enabled automation of the cycling process, storing the necessary data and analyzing it in order to evaluate the capabilities of the \glspl{FEB}. 
 
-In total 12 \glspl{FEB} were investigated in order to find the boundary conditions for the temperature operation range. Performed thermal investigations led to discovering the limits of the \glspl{FEB}, namely failures related to the \gls{LDO} regulators. The realized measurements led to 6/24 1.2\,V \gls{LDO} failures and 2/20 1.8\,V \gls{LDO} regulator-related failures. The more frequent 1.2\,V \gls{LDO} regulator failure can be associated with larger current changes, leading to larger temperature differences. Furthermore, the boards initially tested in harsher conditions (bigger difference between the extreme temperatures) tend to fail sooner. Moreover, the \glspl{FEB} without \glspl{ASIC} and globtop on the LDO regulator didn’t show any sign of malfunction. Nevertheless, due to the lack of \glspl{ASIC}, it was impossible to change the analog line current.
+In total 12 \glspl{FEB} were investigated in order to find the safe temperature operation range. Performed thermal investigations led to discovering the limits of the \glspl{FEB}, namely failures related to the \gls{LDO} regulators. The realized measurements led to 6/24 1.2\,V \gls{LDO} failures and 2/20 1.8\,V \gls{LDO} regulator-related failures. The more frequent 1.2\,V \gls{LDO} regulator failure can be associated with larger current changes, leading to larger temperature differences. Furthermore, the boards initially tested in harsher conditions (bigger difference between the extreme temperatures) tend to fail sooner. Moreover, the \glspl{FEB} without \glspl{ASIC} and globtop on the LDO regulator didn’t show any sign of malfunction. Nevertheless, due to the lack of \glspl{ASIC}, it was impossible to change the analog line current.
 
 As described in the introduction to thermal cycling, one of the most probable mechanisms leading to the \gls{LDO} regulator-related failure is the mismatch of the \gls{CTE}. It may potentially result in failure of the \gls{LDO} regulator due to e.g., the lift of bonds.
 

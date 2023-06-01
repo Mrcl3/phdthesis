@@ -7,7 +7,7 @@ Experiments like \gls{CMS}, use a trigger to \cite{CMS-DAQ} reduce the amount of
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter3/Controls/images/online.png}
-\caption{Schematics of the CBM readout systems.}
+\caption{General schematics of the CBM readout systems.}
 \label{fig_controls}
 \end{figure}
 
@@ -24,7 +24,7 @@ Figure \ref{fig_sim} depicts the targeted control architecture of the future \gl
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\columnwidth]{Chapter3/Controls/images/AgentsRelations_V2.pdf}
-\caption{\gls{ECS} core agent relations. The numbers and letters indicate how many instances of agents or systems might run concurrently.}
+\caption{\gls{ECS} core agent relations. The numbers and letters indicate how many instances of agents or systems can run concurrently.}
 \label{fig_sim}
 \end{figure}
 
@@ -38,6 +38,7 @@ Figure \ref{fig_sim} depicts the targeted control architecture of the future \gl
 \section{Experiment Control System and its structure}\label{sssAgents}
 
 The highest supervisory element of the control strategy is the Experiment Control Agent (\gls{ECA}). It is the top layer of the \gls{ECS}, which should be constantly running and keeping track of the  partitions, the systems in partitions, and the systems out of partitions. 
+
 
 The \gls{PCA}, is the bottom layer of the \gls{ECS}, which tracks the state and controls a set of detector systems plus all needed central systems. Multiple partitions can run concurrently, potentially allowing for parallel runs with independent detector system sets. Partition (controlled by \gls{PCA}) is a component of the \gls{ECS} describing the combined state of a set of detector systems participating in a common readout. It is used to segment the readout and data flow. It also manages the states of central systems, which do not have partition-level states (e.g. \gls{TFC}, \gls{FLES} in case it does not use internal partitions).  It provides the address and port required by agents to establish the 0MQ\footnote{asynchronous messaging library \cite{zeromq}.} sockets\footnote{A socket is used by a client to send requests to and receive replies from a service} and build the \gls{ECS} structure upon request.
 

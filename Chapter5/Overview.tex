@@ -12,7 +12,7 @@ During the detector lifetime (10 years), there will be few opportunities to perf
 The sensors have to be insensitive to the magnetic field of \SI{1}{\tesla\metre} since the whole detector resides in a dipole magnet.  An ideal humidity sensor should also meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
-    \item accurate relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
+    \item accurate (up to 3\%) relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
     \item respond to a wide range of \gls{RH} values from 0\% to 80\%,
     \item high repeatability and low hysteresis,
     \item reliable operation across long distances (the readout device will be at least~\SI{20}{\metre} away from the detector).
@@ -22,63 +22,63 @@ On the other hand, due to overpressure conditions inside the \gls{STS} enclosure
 
 \section{Vapor pressure and its significance}
 
-The \gls{RH}, or the dew/frost point, are commonly used parameters to describe the number of water molecules in the air. The dew point is the temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water at the same rate at which it evaporates, which is a measure of how much water vapor is in a gas medium.
+The \gls{RH}, or the dew/frost point, are commonly used parameters to describe the number of water molecules in the air. The dew point is the temperature at which water vapor in any gas medium (at constant pressure) begins to condense into liquid water at the same rate at which it evaporates.
 
-Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius}. The dew point is defined as a liquid condensation layer. Water vapor condenses as solid ice at gas temperatures far below \SI{0}{\celsius}. On the other hand, the frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
+Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius}. The dew point is defined as a liquid condensation layer. Water vapor deposits as solid ice at gas temperatures far below \SI{0}{\celsius}. On the other hand, the frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
 
 
-The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows:
+The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows
 
 \begin{equation}
 \label{gratch}
 \begin{split}
     &\log({e}^{*}_{s}) = a(T_{st}/T - 1) + b(\log(T_{st}/T) - c(10^{11.344(1-T/T_{st})} - 1) \\
-    &+ d(10^{-3.49149(T_{st}/T - 1} -1) + \log(e^{*}_{st})
+    &+ d(10^{-3.49149(T_{st}/T - 1} -1) + \log(e^{*}_{st}).
 \end{split}
 \end{equation}
 where log refers to the logarithm base 10, $e_{s}$ is the saturation water vapor pressure~(hPa), a to d are constants; $a = - 7.90$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,\mathrm{hPa}$), and $T_{st}$ is the boiling point (at 1\,atm) temperature (373.15\,K). A similar equation can also be formulated for the vapor pressure over ice. 
 
-These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}: 
+These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}
 \begin{equation}
-    e^{*}_{s} = c*e^{(aT/(b+T))}
+    e^{*}_{s} = c*e^{(aT/(b+T))}.
 \end{equation}
-where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over water plane ($e^{*}_{s}$):
+where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over water plane ($e^{*}_{s}$)
 \begin{equation}
-    RH = 100\frac{e}{e^{*}_{s}}
+    RH = 100\frac{e}{e^{*}_{s}}.
     \label{eq:RH}
 \end{equation}
-Based on the parameters approximations by Sonntag ($c=6.11$\,hPa, $a=17.62$, $b=243.12$\,\SI{}{\celsius}) \cite{magnus}, the formula converges to:
+Based on the parameters approximations by Sonntag ($c=6.11$\,hPa, $a=17.62$, $b=243.12$\,\SI{}{\celsius}) \cite{magnus}, the formula converges to
 \begin{equation}
-    e^{*}_{s} = 6.112*e^{(17.62T/243.12)}
+    e^{*}_{s} = 6.112*e^{(17.62T/243.12)}.
     \label{eq:pressure}
 \end{equation}
-The dew formation corresponds to the equation:
+The dew formation corresponds to the equation
 \begin{equation}
-    e^{*}_{s}(T_{d}) = e_{st}(T)
+    e^{*}_{s}(T_{d}) = e_{st}(T).
     \label{eq:dew}
 \end{equation}
 Sonntag approximation results in a maximum error of \SI{0.35}{\celsius} between \SI{-45}{\celsius} and \SI{60}{\celsius} in comparison to the more complex formula described in \cite{hardy}. 
-Inserting the equation \ref{eq:RH} and \ref{eq:pressure} to the \ref{eq:dew} leads to the formula below, which provides the dew point in \SI{}{\celsius}.
+Inserting the equation \ref{eq:RH} and \ref{eq:pressure} to the \ref{eq:dew} leads to the formula below, which provides the dew point in \SI{}{\celsius}
 \begin{equation}
-    T_{d}(T, RH) = \frac{\lambda(\ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (\ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}
+    T_{d}(T, RH) = \frac{\lambda(\ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T})}{\beta - (\ln(\frac{RH}{100})+\frac{\beta T}{\lambda + T}}.
     \label{eq:td}
 \end{equation}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.65\columnwidth]{Chapter5/images/dewpointmagnus.png}
-\caption{Dew points calculations based on the Magnus formula with parameters approximations by Sonntag.}
+\caption{Dew points calculated with Magnus formula with parameters approximations by Sonntag.}
 \label{fig:dewpointmagnus}
 \end{figure}
 
 The dew points calculations based on relative humidity and temperature can be seen in Figure~\ref{fig:dewpointmagnus}. In order to compare the results of different relative humidity sensors and dew points sensors, uncertainties of the dry-bulb\footnote{"Dry Bulb Temperature" refers essentially to the ambient air temperature. It is called "Dry Bulb" because the air temperature is indicated by a thermometer, not affected by the moisture of the air.} temperature and \gls{RH} are required.
 
-The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular\footnote{constant in the defined range} distribution of uncertainty for the sensors that measure the temperature and relative humidity:
+The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular\footnote{constant in the defined range} distribution of uncertainty for the sensors that measure the temperature and relative humidity
 \begin{equation}
-    \mu(x_{i}) = \frac{a}{\sqrt{3}}
+    \mu(x_{i}) = \frac{a}{\sqrt{3}}.
 \end{equation}
-where a is the uncertainty available in the datasheets, and $x_{i}$ represents the measured $i$ value. The combined uncertainty $\mu_{c}$ can be derived from Equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}:
+where a is the uncertainty available in the datasheets, and $x_{i}$ represents the measured $i$ value. The combined uncertainty $\mu_{c}$ can be derived from Equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}
 \begin{equation}
-    u_{Td} = \left [  \left (\frac{\partial T_{d}}{\partial T_{a}}  \right )^{2} \mu^{2}(T) + \left (\frac{\partial T_{d}}{\partial RH}  \right )^{2} \mu^{2}(RH)\right ]^{1/2}
+    u_{Td} = \left [  \left (\frac{\partial T_{d}}{\partial T_{a}}  \right )^{2} \mu^{2}(T) + \left (\frac{\partial T_{d}}{\partial RH}  \right )^{2} \mu^{2}(RH)\right ]^{1/2}.
     \label{dp_error}
 \end{equation}
 
@@ -101,9 +101,9 @@ For the \gls{STS} a distributed sensing system featuring a few different technol
 
 \subsection{Industrial capacitive sensors and their performance at negative temperatures}
 \label{capacitive_sensors}
-The capacitive sensors, in the simplest form, can be made out of two parallel plates, where the capacitance between the two electrodes is given by:
+The capacitive sensors, in the simplest form, can be made out of two parallel plates, where the capacitance between the two electrodes is given by
 \begin{equation}
-C = \epsilon_{r}\epsilon_0\frac{A}{d}
+C = \epsilon_{r}\epsilon_0\frac{A}{d}.
 \end{equation}
 where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constants, A is the plate surface area and d is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
 The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fairly miniaturized and insensitive to pressure changes. The main drawbacks of these sensors are listed below:
@@ -180,22 +180,22 @@ On the other hand, \gls{FOS} are difficult to integrate with hardware interlocks
 
 \subsubsection{Fiber Bragg Grating based sensor for humidity monitoring }
 \label{fbg}
-A FBG is a selective filter inside the optical fiber that reflects light signals at a specific wavelength known as the Bragg wavelength ($\lambda_{B}$). Such a filter is created by inscribing a systematic variation of the fiber refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependent on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}~\cite{Othonos2000FiberBG}:
+A FBG is a selective filter inside the optical fiber that reflects light signals at a specific wavelength known as the Bragg wavelength ($\lambda_{B}$). Such a filter is created by inscribing a systematic variation of the fiber refractive index~\cite{fbg_overview}. This characteristic wavelength ($\lambda_{B}$) is dependent on the fiber effective refractive index ($\eta_{eff}$) and the grating pitch ($\Lambda$) of the \gls{FBG}~\cite{Othonos2000FiberBG}
 \begin{equation}
-    \lambda_{B} = 2 \eta_{eff} \Lambda
+    \lambda_{B} = 2 \eta_{eff} \Lambda.
 \end{equation}
 
-Both factors can be affected by strain, temperature, magnetic field, and/or pressure changes, thus various sensing possibilities are available with the FBG~\cite{Yun-Jiang_Rao_1997}. In general, wavelength shift $\lambda_{B}$ can be formulated as:
+Both factors can be affected by strain, temperature, magnetic field, and/or pressure changes, thus various sensing possibilities are available with the FBG~\cite{Yun-Jiang_Rao_1997}. In general, wavelength shift $\lambda_{B}$ can be formulated as
 
 \begin{equation}
-    \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
+    \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T.
 \end{equation}
 
 where $P_{e}$ is a photo-elastic constant (optical properties change under mechanical deformation), $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient (change of the refractive index with the temperature) of the fiber. Using a \gls{FBG} sensor for strain measurements requires decoupling the strain from the temperature. This solution is commonly called temperature compensation~\cite{Yun-Jiang_Rao_1997}. 
 
-The most commonly used solution involves using two sensors next to each other, either inscribed in the same fiber or in another one placed in the vicinity of the main sensor. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as:
+The most commonly used solution involves using two sensors next to each other, either inscribed in the same fiber or in another one placed in the vicinity of the main sensor. The first sensor is responsible for measuring the strain, and the second one measures the temperature in strain-free conditions. The wavelength shift $\Delta \lambda$ induced by the $\Delta T$ can be described as
 \begin{equation}
-    \frac{\Delta\lambda_{B}}{\lambda_{B}}=\left [(1-P_{e}) \alpha + \xi  \right ] \Delta T
+    \frac{\Delta\lambda_{B}}{\lambda_{B}}=\left [(1-P_{e}) \alpha + \xi  \right ] \Delta T.
 \end{equation}
 
 

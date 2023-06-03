@@ -37,13 +37,13 @@ A variety of different elements and chemical compounds can be used in electronic
 
  Radiation-induced soft errors have become a huge concern in advanced computer chips because uncorrected, they produce a failure rate that is higher than all the other mechanisms compromising reliability combined~\cite{1545891}. These kinds of errors are especially important for high energy physics and aerospace applications, as it may severely affect the reliability of electronics components. Moreover, cumulative radiation effects occur during the complete lifetime of a transistor as long as it is exposed to radiation~\cite{RodriguezRodriguez2020}.
 
-Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.  LET is defined as the energy absorbed in matter per unit path length travelled by a charged particle
+Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.  LET is defined as the energy absorbed in matter per unit path length traveled by a charged particle
 \begin{equation}
     L = \frac{dE_{abs}}{dx}.
 \end{equation}
-The charged particles generate electron-hole pairs on the particle track and deposits charge. The generated charge is collected to the drain by drift and diffusion, and causes soft error. These effects are usually local, but they may propagate through the whole system. The most common mechanisms responsible for the soft errors are transient effects and static effects (related to content change in a memory cell). 
+When charged particles interact with a particle track, they produce electron-hole pairs that deposit charge. This charge is then collected through drift and diffusion to the drain, which can cause soft errors. Although these effects are often limited to a local area, they can sometimes propagate throughout the entire sensitive electronics. Soft errors are most commonly caused by transient effects and static effects, which occur when there is a change in the content of a memory cell.
 
-On the other hand, neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $\mathrm{^{10}B(n,\alpha)^{7}Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
+On the other hand, neutrons do not cause direct ionization in silicon or oxygen. These neutral particles interact elastically as well as inelastically, resulting either in the creation of other nuclei and the emission of a light particle or in changes in the kinetic energies of the participants. A few neutron threshold energies for reactions with oxygen and silicon are summarized in Table~\ref{cross-seciton}. The cross-section for neutron reactions generally decreases with the energy. Moreover, neutrons can indirectly cause \gls{SEE} by secondary radiation, for example, a reaction with boron which results in the emission of an $\alpha$ particle $\mathrm{^{10}B(n,\alpha)^{7}Li}$~\cite{1545891,neutrons_energy,neutrons_energy_2}. 
 
 \begin{table}[!h]
 \centering
@@ -73,42 +73,23 @@ O(n,d)           & 10.53
 
 The subject of the irradiation campaigns was a MPOD mini crate with one low voltage (WIENER~\cite{wiener}) and one high voltage (ISEG~\cite{iseg}) module. The crate CC24 controller (ISEG) offers an embedded \gls{EPICS} Input Output controller, which was used to detect radiation-induced channel or module failures. All registered  failure events were stored in a dedicated database.  
 
-In order to correlate the soft failure rate with the absorbed dose, two types of thermoluminescent dosimeters were used. A larger polyethylene sphere (d = 30\,cm) allowed measuring the neutron ambient dose, whilst the cylinder (d = 5\,cm, h = 6\,cm) measured other particles~\cite{bonner}. We assume that the conditions (e.g., neutron spectra) at the \gls{CBM} experiment will be similar to conditions at SIS18, and at the \gls{mCBM} experiment. The quality factor sets the relation between \gls{LET} and relative biological effectiveness (\gls{RBE}). It converts the measured dose given in sievert to absorbed energy in gray. It is assumed that the factor equals 5 for sphere in both irradiation campaigns. The dose measured with the cylinder is assumed to have a quality factor of 1.
+In order to correlate the soft failure rate with the absorbed dose, two types of thermoluminescent dosimeters were used. A larger polyethylene sphere ($d = 30\,\mathrm{cm}$) allowed measuring the neutron ambient dose, whilst the cylinder ($d = 5\,\mathrm{cm}$, $h = 6\,\mathrm{cm}$) measured other particles~\cite{bonner}. We assume that the conditions (e.g., neutron spectra) at the \gls{CBM} experiment will be similar to conditions at SIS18, and at the \gls{mCBM} experiment. The quality factor sets the relation between \gls{LET}. It converts the measured dose given in Sievert to absorbed energy in gray. It is assumed that the factor equals 5 for the sphere in both irradiation campaigns. The dose measured with the cylinder is assumed to have a quality factor of 1.
 
 \subsection{Low statistics data analysis}
 
-We assume that failure events (radiation-induced soft errors) are statistically independent and are driven by purely stochastic factors. In addition, we take into account only the total dose measured by the dosimeters, thus rapid dose changes and their effect are not investigated in this contribution. In such a case, the probability of observing $n_{m}$ events with the mean value $\mu$ is described by the Poisson distribution\newline
+We assume that failure events (radiation-induced soft errors) are statistically independent and are driven by purely stochastic factors. In addition, we take into account only the total dose measured by the dosimeters, thus rapid dose changes and their effect are not investigated in this contribution. In such a case, the probability of observing $n$ events with the mean value $\mu$ is described by the Poisson distribution\newline
 \begin{equation}
-    p(n|\mu) = \frac{\mu^{n}}{n!}e^{-\mu}.
+    p(n|\mu) = \frac{\mu^{n}}{n!}e^{-\mu},
 \end{equation}
-The total number of events is considered to be the average $\mu$. Considering 68\% confidence levels for values $n_{m} > 2$ we can apply the following equations to estimate the distribution bands (see Figure~\ref{fig:poisson})~\cite{schmidt}.
+where $n$ is the number of occurrences, e is Euler's number. The mean value $\mu$ is also considered to be the variance of the distribution and can be calculated as
+\begin{equation}
+    \mu = n/D_{tot},
+\end{equation}
+where $D_{tot}$ reflects the cumulative dose. The standard deviation can be calculated as 
+\begin{equation}
+    \sigma = \sqrt{\lambda}.
+\end{equation}
 
-If in an experiment $\mu$ events are measured, we conclude that the standard deviation is described by $\mu - \sqrt{\mu}$ and $\mu + 1 + \sqrt{\mu}$ around the average value $\mu$.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.55\columnwidth]{Chapter4/images/poisson.png}
-    \caption{Estimated bands of the Poisson distribution~\cite{schmidt}.}
-    \label{fig:poisson}
-\end{figure}
-%\newpage
-
-For $n_{m} \leq 2$ previously mentioned, estimations do not provide accurate results, therefore upper and lower bands need to be calculated explicitly. According to~\cite{schmidt}:
-
-
-
-\begin{table}[!h]
-\centering
-\caption{Estimated bands of the Poisson distribution for low number of events $n_{m}  \leq 2$.}
-\begin{tabular}{ccc}
-\hline
-Number of counts & \multicolumn{2}{c}{Poisonn distribution} \\ \cline{2-3} 
-$n_{m}$          & $\mu_{l}$            & $\mu_{u}$           \\ \hline
-0                & 0                    & 1.84                \\
-1                & 0.17                & 3.30                \\
-2                & 0.71                & 4.64                \\ \hline
-\end{tabular}
-\end{table}
 %\newpage
 \subsection{Irradiation at the mCBM experiment}
 In order to investigate electronics operation under the realistic conditions, that low voltage modules will face during the CBM experiment, an irradiation campaign took place at the \gls{mCBM} experiment (see figure~\ref{fig:CBM1}). Different intensities and reaction systems (Au+Au, Au+Ni, etc.) were exercised during the experiment.
@@ -131,18 +112,20 @@ To measure the dose that the crate was exposed to, four thermoluminescent dosime
     \label{fig:crate}
 \end{figure}
 
-A \gls{SEE} in the low voltage module occurred in each part of the irradiation. In both cases, it was possible to recover the functionalities by enabling the channels again. After applying lower and upper limits according to the Poisonn distribution
-%\newpage
-
+A \gls{SEE} in the low voltage module occurred in each part of the irradiation. In both cases, it was possible to recover the functionalities by enabling the channels again. The mean value $\mu$ is given as the ratio of the occurred events divided by the cumulative dose
 \begin{equation}
-    D_{lower}=\frac{92}{0.708} = 129.9\mathrm{\ mGy}
+    \mu = \frac{2}{92} = 0.0217\,\mathrm{mGy^{-1}}.
 \end{equation}
-\begin{equation}
-    D_{upper}=\frac{92}{4.64} = 19.8\mathrm{\ mGy}.
-\end{equation}
+Therefore, a soft error will occur after $46\,\mathrm{mGy}$. The probability mass function of this distribution is 1 for dose 0, which means that this distribution can't predict the events with the given average rate. In order to increase the statistics a second irradiation campaign took place at SIS18 septum.
 
-The uncertainty for $n_{m}=2$ is extremely high and equals to $\mathrm{46}_{-26}^{+84}$\,mGy, therefore no clear conclusion on the behavior of the crate could be made. To further increase the statistics, a second irradiation campaign took place at the electrostatic septum of the SIS18 synchrotron. 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.75\columnwidth]{Chapter4/images/MCBM_crate.png}
+    \caption{The probability distribution of one event occurring at different dose levels.}
+    \label{fig:crate_prob}
+\end{figure}
 
+ 
 %\vspace{10cm}
 \subsection{Irradiation at the SIS18 septum}
 \subsubsection{Setup description}
@@ -178,16 +161,33 @@ Using assumed quality factors, the ambient dose was converted to the absorbed do
     \caption{Neutron dose rate and failures of the low voltage module.}
     \label{fig:lv_neutrons_rate}
 \end{figure}
-Figure~\ref{fig:lv_neutrons} shows how the number of failures cumulate with the total neutron dose, where the longer periods without failure indicate a break in SIS18 operation. Similarly, Figure~\ref{fig:lv_neutrons_rate} depicts the dose rate and related \gls{SEE}.
-For the 11 low voltage module failures, the confidence bands from the Poisson distribution are as follows
+Figure~\ref{fig:lv_neutrons} shows how the number of failures cumulates with the total neutron dose, where the longer periods without failure indicate a break in SIS18 operation. Similarly, Figure~\ref{fig:lv_neutrons_rate} depicts the dose rate and related \gls{SEE}.
+For the 11 low voltage module failures, the rate equals to
    \begin{equation}
-  \mathrm{\mu}_{\mathrm{LV}}^{\mathrm{SEE}}=\mathrm{11}_{-3}^{+4}.
+  \mu = \frac{11}{49} = 0.2244\mathrm{\,mGy^{-1}}.
 \end{equation}
-Considering the sum of two doses $49\pm{2}\mathrm{\ mGy}$, a soft error occurs after
+Therefore, a soft error will occur on average after (see Figure~\ref{fig:sis18_lv2})
 \begin{equation}
-    \mathrm{D}_{\mathrm{LV}}^{\mathrm{SEE}}=\mathrm{4.45}_{-1.25}^{+1.93}\mathrm{\,mGy}.
+    \mathrm{D}_{\mathrm{LV}}=\mathrm{4.45}\mathrm{\,mGy}.
 \end{equation}
-After the occurrence of a soft error in the low voltage module, it was always possible to turn the channels on again.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Chapter4/images/SIS18_LV.png}
+    \caption{Poisson probability mass function of the distribution based on the soft error analysis of LV module.}
+    \label{fig:sis18_lv}
+    
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.75\columnwidth]{Chapter4/images/SIS18_LV_prob.png}
+        \caption{The probability distribution of one event occurring at different dose levels.}
+    \label{fig:sis18_lv2}
+    
+\end{figure}
+
+After the occurrence of a soft error in the low-voltage module, it was always possible to turn the channels on again.
 
 The high voltage modules will be placed outside the cave in an area with lower radiation levels, thus their error sensitivity does not pose a risk to detector operation. In the case of the high voltage module, the \gls{SEE} do not result in a module switch off, but in disabling channels. In two cases, all channels were switched off, which is counted as if 16 channels were turned off at the same time. Figure \ref{fig:hv_neutrons} and \ref{fig:hv_neutrons_rate} show the channels failure rate with the increasing cumulative dose. 
 \begin{figure}[!h]
@@ -204,13 +204,22 @@ The high voltage modules will be placed outside the cave in an area with lower r
 \end{figure}
 For the high voltage module, the total number of channels that switched off due to the irradiation is 56. Following a similar procedure as for the previous calculation
   \begin{equation}
- \mathrm{\mu}_{\mathrm{HV}}^{\mathrm{SEE}}=\mathrm{56}_{-7}^{+8}.
+ \mu = \frac{56}{49} = 1.1429\,\mathrm{mGy^{-1}},
 \end{equation}
-Considering the failure number, it translates to
+what translates to:
 \begin{equation}
-    \mathrm{D}_{\mathrm{HV}}^{\mathrm{SEE}}=\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\,mGy}.
+    D_{HV}=0.88\mathrm{\,mGy}.
 \end{equation}
-If the high voltage module was situated in the same place as the low voltage, a channel switch off could happen after $\mathrm{0.88}_{-0.12}^{+0.13}\mathrm{\,mGy}$.
+If the high voltage module was situated in the same place as the low voltage, a channel switch off could happen after $0.88\mathrm{\,mGy}$. The probability mass function also shows higher values for the HV module. 
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Chapter4/images/SIS18_HV.png}
+    \caption{Poisson probability mass function of the distribution based on the soft error analysis of HV module.}
+    \label{fig:sis18_hv}
+\end{figure}
+
+
 
 \subsection{Conclusions}
 

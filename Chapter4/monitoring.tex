@@ -6,12 +6,12 @@
 
 The first application of the introduced control framework was to read out several parameters from different readout chains (see section \ref{readout} for a detailed explanation of different readout chains). The \gls{ROB} and \gls{DPB} based readout chains were used to evaluate the possibility of interfacing values from the \gls{DAQ} chain to the \gls{EPICS}-based system. The main purpose was to monitor the stability of the electronics throughout different tests, e.g., during the thermal cycling of \gls{FEE}. A similar interface was also developed for the GBTxEMU readout chain. 
 
-Two \glspl{FEB} -- 16 STS-XYTERs were used to evaluate the performance of the interface and the ASICs. It constituted in total 112 process variables, which makes it a relatively small setup. Those values were then stored in a database and were available from Phoebus for further analysis and visualization.
+Two \glspl{FEB} -- $16$ STS-XYTERs were used to evaluate the performance of the interface and the ASICs. It constituted in total $112$ process variables, which makes it a relatively small setup. Those values were then stored in a database and were available from Phoebus for further analysis and visualization.
 
 To get the values from the \glspl{ASIC} a soft \gls{IOC} with a pyEPICS~\cite{pyEPICS} interface was used. The monitored values included the registers and corresponding values available from \gls{GBT} \gls{SCA2} \gls{ASIC} \cite{GBT_SCA_ASIC} and three GBTX chips: 
 \begin{itemize}
-    \item GBT SCA -- RSSI (Received Single Strength Indicator), input voltage $V_{in}$, 1.5\,V DC/DC converter output voltage $V_{out}$, 2.5\,V DC/DC converter output voltage $V_{out}$ (see figure~\ref{fig:ROB}), two temperature sensors,
-    \item GBTX \gls{ASIC} - FEC (Forward Error Correction) counts.
+    \item GBT SCA -- RSSI (Received Single Strength Indicator), input voltage $V_{in}$, \SI{1.5}{\volt} DC/DC converter output voltage $V_{out}$, \SI{2.5}{\volt} DC/DC converter output voltage $V_{out}$ (see figure~\ref{fig:ROB}), two temperature sensors
+    \item GBTX \gls{ASIC} - FEC (Forward Error Correction) counts
 \end{itemize}
 %\newpage
 

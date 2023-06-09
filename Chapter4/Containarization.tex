@@ -1,6 +1,6 @@
 \section{Containerized IOC}
 \label{containerizer_ioc}
-Containerization is an increasingly popular method of virtualizing an application without running a full-blown operating system. In current practices, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} community, containers and their different applications become increasingly popular. According to ~\cite{Klaus2021} the first mention of Docker\footnote{Docker is a set of products that use operating system level virtualization to deliver software in packages called containers.} container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
+Containerization is an increasingly popular method of virtualizing an application without running a full-blown operating system. In current practices, containers are commonly used both in development and production environments, often together with cloud solutions. In the \gls{HEP} community, containers and their different applications become increasingly popular. According to~\cite{Klaus2021} the first mention of Docker\footnote{Docker is a set of products that use operating system level virtualization to deliver software in packages called containers.} container of the \gls{EPICS} \gls{IOC} was related to the Taurus project in 2015~\cite{taurus}. Since then containerization efforts intensified also within the \gls{FAIR} based collaborations - \gls{CBM}/\gls{MVD}~\cite{Klaus2021} and PANDA DCS~\cite{PANDA_1}.
 
 IOC container has been prepared by the \gls{DCS} group of the \gls{PANDA} Collaboration and adjusted to the \gls{STS} needs. The latest \gls{IOC}'s image is built on EPICS R7.0.3.1 image, and it contains the most important modules and extensions i.a. asyn, autosave, calc, Modbus, and SNMP (see Figure~\ref{fig_ioc1}). By using so-called volumes (see Figure~\ref{fig_doc}) the \gls{IOC} can be used at any node with the Docker engine. Volumes are one of the mechanisms to manage application data, and it's a proper way to ensure data persistence. When a container is started, Docker loads the read-only image layer, adds a read-write layer on top of the image stack, and mounts volumes onto the container file system. Having prepared database files, st.cmd, and stream protocols if needed, an \gls{IOC} can be deployed on any node, with any operating system and processor architecture.
 \begin{figure}[!h]
@@ -28,17 +28,17 @@ Docker was chosen as the platform to prepare the images and run the containers. 
 For the use of containers in the final experiment, the following list of requirements must be taken into consideration:
 
 \begin{itemize}
-    \item services should be accessible only by experts, crucial services should be hidden from operators (authorization),
-    \item ssh accesses to the DCS nodes should be limited by authorization plugins to avoid overloading,
-    \item experiment network should be segmented based on the goals and communication between software entities clearly, defined (\gls{DCS}, \gls{SCA}),
-    \item proper security context for all the services (e.g. root privileges),
-    \item logging all the changes in the cluster,
-    \item preventing containers from loading unwanted kernel modules,
-    \item cluster, and container redundancy.
+    \item Services should be accessible only by experts, crucial services should be hidden from operators (authorization).
+    \item Ssh accesses to the DCS nodes should be limited by authorization plugins to avoid overloading,
+    \item Experiment network should be segmented based on the goals and communication between software entities clearly, defined (\gls{DCS}, \gls{SCA}).
+    \item Proper security context should exist for all the services (e.g., root privileges).
+    \item All the changes in the cluster need to be logged.
+    \item Unwanted kernel modules can't be loaded by the containers.
+    \item Cluster and container should be redundant.
 \end{itemize}
 
 
-One of the features of Docker has been considered risky for the operation of the detector or experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised, it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector -- e.g. killing the container. A compromised node can also endanger other nodes in the network.  Since late 2020 it is possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating the risk.
+One of the features of Docker has been considered risky for the operation of the detector or experiment, especially considering the final system. Docker-based containers run with the root privileges, therefore posing a threat to the operation of the control system. The daemon is a part of the engine that runs the containers that have full privileges not only within the container but also on the node. If a container gets compromised, it may lead to potentially disastrous scenarios, including loss of data or potential threat to the detector -- e.g., killing the container. A compromised node can also endanger other nodes in the network.  Since late $2020$ it is possible to run Docker daemon and containers as a non-root user. Docker daemon and containers themselves can run inside a user namespace~\cite{docker_limitations}, therefore mitigating the risk.
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.8\columnwidth]{sections/images/docker.png}

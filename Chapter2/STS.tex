@@ -104,16 +104,7 @@ for different detector types~\cite{Moll:1999kv}.}
 % Information about the sensors used in the upper one
 \textbf{Depletion Voltage}\bigbreak
 
-
-The effective doping of a detector is influenced by radiation-induced defects that exhibit characteristics of either donors or acceptors. The removal of donors due to radiation affects the overall space charge within the detector. When a phosphorus vacancy center is formed, the phosphorus atoms lose their donor properties.
-
-Initially, the detector consists of n-type silicon doped with phosphorus, where phosphorus acts as a donor. However, during irradiation, the material becomes less effectively n-doped. This decrease continues until the number of acceptor states matches the number of remaining donor states, resulting in the material becoming intrinsic. In other words, it loses its net doping effect.
-
-As the irradiation fluence increases, the doping concentration starts to rise again. However, since the material already lacks donors, the newly formed defects tend to act as acceptors, causing the material to become p-doped. This phenomenon is known as space charge inversion.
-
-After depleting the initial doping concentration, a linear increase in negative space charge is observed. This is attributed to the accumulation of acceptor-like defects.
-
-It's important to note that the specific behavior described here may vary depending on the characteristics of the detector material and the nature of the radiation exposure. Figure 2.8 likely provides a visual representation of the changes in depletion voltage and effective doping concentration that occur after irradiation.
+Radiation-induced defects in detectors can alter their effective doping, leading to changes in the space charge within the material. Initially, n-type silicon detectors doped with phosphorus or arsenic act as donors. However, irradiation reduces the effective n-doping until the remaining donor states match the number of acceptor states, resulting in intrinsic behavior. With further irradiation, the newly formed defects act as acceptors, causing space charge inversion and p-doping. The accumulation of acceptor-like defects leads to a linear increase in negative space charge. It's important to note that the specific behavior vary depending on the detector material and radiation exposure. 
 
 \textbf{Signal-to-noise ratio and Charge Collection Efficiency }\bigbreak
 Signal-to-noise ratio and CCE are two very important factors characterizing the detector. The noise level can be controlled by operating the detector at low temperatures or by limiting the exposition to electromagnetic interference. On the other hand, the CCE of non-irradiated sensors is assumed to be $100\%$. The CCE after the irradiation could be defined as the ratio
@@ -235,7 +226,7 @@ The dimensions of the \gls{FEB} are tightly constrained due to the limited space
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.55\columnwidth]{Chapter2/images/feb_box_1.png}
-\caption{A simplified CAD drawing of the \gls{FEB} box.}
+\caption{A simplified CAD drawing of the \gls{FEB} box. The box contains 5 cooling shelfs.}
 \label{feb_box}
 \end{figure}
 
@@ -267,9 +258,9 @@ The noise level is relatively high due to the fast path higher bandwidth. The sl
 
 In order to estimate the overall noise performance it's necessary to include the silicon sensor, cables, and readout chip. There are three main contributions to the noise levels~\cite{Toia:209729}:
 \begin{itemize}
-    \item parallel current noise (detector leakage current, leakage current flowing through transistors in the Electrostatic Discharge protection circuit, resistor bias shunt resistance~\cite{Spieler}, feedback resistance),
-    \item series white noise (\gls{CSA} input transistor thermal and flicker noise)
-    \item series 1/f (flicker) noise (caused by charge carriers that are randomly trapped and released between the interfaces of two materials).
+    \item Parallel current noise (detector leakage current, leakage current flowing through transistors in the Electrostatic Discharge protection circuit, resistor bias shunt resistance~\cite{Spieler}, feedback resistance).
+    \item Series white noise (\gls{CSA} input transistor thermal and flicker noise).
+    \item Series 1/f (flicker) noise (caused by charge carriers that are randomly trapped and released between the interfaces of two materials).
 \end{itemize}
 An analytical expression of the noise spectral density at the shaper output and the Equivalent Noise Charge (\gls{ENC}) can be expressed as
 \begin{equation}
@@ -303,9 +294,10 @@ low-performance setups, e.g., for testing and quality assurance. \bigbreak
 \textbf{Data Processing board based chain}\bigbreak
 
 
-Even though the final solution for the readout is the \gls{CRI} board, the Data Processing Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. For the control communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows simple and fast communication with \glspl{FPGA}.
+Even though the final solution for the readout is the \gls{CRI} board, the Data Processing Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. For the control communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows simple and fast communication with \glspl{FPGA}.\bigbreak
 
-\textbf{Data chain based on GBTxEMU board} \bigbreak
+
+\textbf{Data acquisition chain based on GBTxEMU board} \bigbreak
 
 
 Another alternative to the two readout chains is the GBTxEMU-based tester. It is based on a commercial Artix-7 board (TE-0712, Trenz Electronics GmbH), and allows emulating GBTX ASIC or the whole \gls{ROB}. Moreover, it could also be used in an autonomous mode with the addition of an adapter.
@@ -370,14 +362,14 @@ In addition to that, the \gls{DCS} for the Silicon Tracking System (\gls{STS}) i
 
  
  \begin{itemize}
-    \item potential control framework should offer the possibility to control a variety of different services, which often have different communication protocols,
-    \item logging, and monitoring - there should be reliable means of supervision of processes, containers, and Input/Output Controllers\footnote{An input/output controller is a device that interfaces between an input or output device and the computer or hardware device.} (\glspl{IOC}).
-    \item the control software should be horizontally and vertically scalable when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/instrumentations,
-    \item supervision - it should be possible to integrate a sub-system oriented with higher-level control structures,
-     \item flexible - applications should be easy to run on different operating systems and processor architectures,
-     \item sustainability and support - the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided,
-     \item reliability - the system should be highly available, minimizing the downtimes,
-     \item network separation - it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes,
+    \item Potential control framework should offer the possibility to control a variety of different services, which often have different communication protocols.
+    \item Logging, and monitoring - there should be reliable means of supervision of processes, containers, and Input/Output Controllers\footnote{An input/output controller is a device that interfaces between an input or output device and the computer or hardware device.} (\glspl{IOC}).
+    \item The control software should be horizontally and vertically scalable when it comes to adding additional computing nodes or applications/Input Output Controllers (\glspl{IOC})/instrumentations.
+    \item Supervision - it should be possible to integrate a sub-system oriented with higher-level control structures.
+     \item Flexible - applications should be easy to run on different operating systems and processor architectures.
+     \item Sustainability and support - the experiment is supposed to run for about 10 years, excluding the building and commissioning time. The control system should be sustainable and long-term support provided.
+     \item Reliability - the system should be highly available, minimizing the downtimes,
+     \item network separation - it should be running in a dedicated network (divided into several service-oriented subnets) to have a good overview of the processes and communication between the nodes.
      \item \glspl{GUI} - all parameters/process variables\footnote{In control theory, a process variable is the currently measured value of a particular part of a process which is being monitored or controlled.} should be available in a user-friendly Graphical User Interface (\gls{GUI}). In case of error or malfunction, it should be stated clearly by the software where the error happened, what could be the potential risk, and what actions need to be taken.
 
  \end{itemize}

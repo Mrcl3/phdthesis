@@ -1,5 +1,5 @@
 %\section{The \gls{mSTS} as the pathfinder for the \gls{STS}}
-The mCBM~\cite{mCBM} experiment is considered a \gls{FAIR} Phase \num{0} experiment and the precursor of the \gls{CBM} experiment. The first mCBM campaign took place in \num{2019} after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, built of \num{4} detector modules (\num{8} \glspl{FEB}) mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} detector features \num{11} detector modules, and it was assembled in order to have a better understanding of the components and the operation of a more complex structure. Completing \num{11} modules (together with the QA procedures, testing of the STS-XYTER and \glspl{FEB}), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the \gls{mCBM} experiment, focuses on the \gls{DCS} architecture, and gives an introduction to the detector operation. The next sections summarize the assembly of \gls{mSTS} and its hardware. At last, the results obtained through the \gls{DCS} consisting of power dissipation considerations, ambient conditions monitoring, and leakage current evaluation and calculations are discussed.
+The mCBM~\cite{mCBM} experiment is considered a \gls{FAIR} Phase \num{0} experiment and the precursor of the \gls{CBM} experiment. The first \gls{mCBM} campaign took place in \num{2019} after two years of preparations in the detector test area HTD \cite{progress_report_2017_sturm}. The first \gls{mSTS} prototype was operated together with mTRD, mTOF, mRICH, and mPSD, and it consisted of one tracking station, built of \num{4} detector modules (\num{8} \glspl{FEB}) mounted onto two carbon ladders, and then subsequently in two C-frames. The next iteration of the \gls{mSTS} detector features \num{11} detector modules, and it was assembled in order to have a better understanding of the components and the operation of a more complex structure. Completing \num{11} modules (together with the QA procedures, testing of the STS-XYTER and \glspl{FEB}), readout, and control software, set an important milestone on the way to the \gls{STS}. The first section of this chapter gives an overview of the \gls{mCBM} experiment, focuses on the \gls{DCS} architecture, and gives an introduction to the detector operation. The next sections summarize the assembly of \gls{mSTS} and its hardware. At last, the results obtained through the \gls{DCS} consisting of power dissipation considerations, ambient conditions monitoring, and leakage current evaluation and calculations are discussed.
 
 \section{mCBM -- the phase 0 experiment}
 The \gls{mCBM} experiment aims to test and optimize the performance of the detectors, including crucial software and hardware components. The experiment uses beams from SIS18 synchrotron at energies up to \SI{2}{\A\giga\eV} and intensities up to $10^{9}$ ions/s. The test setup is positioned downstream of a solid target centered around a polar angle of \SI{25}{\degree} (see Figure~\ref{fig_mcbm}).
@@ -7,7 +7,7 @@ The \gls{mCBM} experiment aims to test and optimize the performance of the detec
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter6/DCS/images/mcbm_2021_setup.png}
-\caption{Schematic view of the mCBM experiment in 2022.}
+\caption{Schematic view of the mCBM experiment in $2022$.}
 \label{fig_mcbm}
 \end{figure}
 \newpage
@@ -24,14 +24,14 @@ Figure~\ref{fig_mSTS} depicts the latest \gls{mSTS} detector, which features \nu
 \end{figure}
 \newpage
 \subsection{Data-taking campaigns}
-After the commissioning of the \gls{mCBM} experiment in June \num{2021} with \gls{CRI} based readout and with both \gls{mSTS} tracking stations in June 2021, the first data-taking took place in July, featuring collisions of O ions on a Ni target at \SI{2}{\A\giga\eV} with intensities up to $10^{10}$ ions/spill. The spill duration was set to \SI{10}{\sec}, and the effective intensity reached $10^{9}\,\mathrm{ions/s}$. This campaign allowed performing last checks of the \gls{DCS} and other systems before the announced $\Lambda$ benchmark runs in 2022 \cite{sturm3}.
+After the commissioning of the \gls{mCBM} experiment in June \num{2021} with \gls{CRI} based readout and with both \gls{mSTS} tracking stations in June $2021$, the first data-taking took place in July, featuring collisions of O ions on a Ni target at \SI{2}{\A\giga\eV} with intensities up to $10^{10}$ ions/spill. The spill duration was set to \SI{10}{\sec}, and the effective intensity reached $10^{9}\,\mathrm{ions/s}$. This campaign allowed performing last checks of the \gls{DCS} and other systems before the announced $\Lambda$ benchmark runs in $2022$ \cite{sturm3}.
 
-During that beam campaign, very good spatial and time resolutions were confirmed~\cite{dario1}. Moreover, a clear distinction between noise and minimum ionizing particles (\glspl{MIP}) signal was seen.
-The vertex reconstruction was completed using the correlations of \gls{mSTS} hits within the two stations or with other detectors. Hit reconstruction efficiency of 97.5\% was achieved, which is consistent with the expectation from simulations, using the mTOF as an additional external reference~\cite{dario1}.
+During that beam campaign, very good spatial and time resolutions were confirmed~\cite{dario1}. Moreover, a clear distinction between noise and minimum ionizing particles (\glspl{MIP}) signal was seen.
+The vertex reconstruction was completed using the correlations of \gls{mSTS} hits within the two stations or with other detectors. Hit reconstruction efficiency of $97.5$\% was achieved, which is consistent with the expectation from simulations, using the mTOF as an additional external reference~\cite{dario1}.
 
 The preceding runs with U beams and Au target ($T = 1$ AGeV and average collision rate of 400 kHz) took place in March 2022. The benchmark runs with Ni + Ni ($T = 1.93$ AGeV and average collision rate of 200-300 kHz) were realized in June 2022. During the data taking with the heaviest systems, the silicon sensors were exposed to significant particle flux, which will be discussed in the next sections. 
 \section{Introduction to the detector control}
-The next sections give an overview of the control system and used applications. The \gls{mSTS} detector uses most of the container-related developments including Phoebus, Alarm-system, Alarm-logger, Elasticsearch, Kibana, Archiver, Redis \gls{DB}, and the underlying stream-processing platform. The \gls{mCBM} subdetectors require control systems, but some services and related hardware used for the Phase-0 experiment are in most cases different from those, to be used for the final experiment. It implies that the efforts toward the \gls{DCS} will have to be intensified as the services will be close to completion. The prototyping of the \gls{DCS} refers mostly to the software components that could be maintained and used during the commissioning and operation of the future experiment. 
+The next sections give an overview of the control system and its applications. The \gls{mSTS} detector uses most of the container-related developments including Phoebus, Alarm-system, Alarm-logger, Elasticsearch, Kibana, Archiver, Redis \gls{DB}, and the underlying stream-processing platform. The \gls{mCBM} subdetectors require control systems, but some services and related hardware used for the Phase-0 experiment are in most cases different from those, to be used for the final experiment. It implies that the efforts toward the \gls{DCS} will have to be intensified as the services will be close to completion. The prototyping of the \gls{DCS} refers mostly to the software components that could be maintained and used during the commissioning and operation of the future experiment. 
 
 As described in the chapter~\ref{EPICS}, the network serves as a medium allowing a server and a client to publish and subscribe to process variables. Those variables are distinguished by its name and follow the convention described in the next subsection.
 \subsection{Distinguishing the services and their names}
@@ -55,9 +55,9 @@ The first line of the example above points to a defined place and functionality 
 There are three main networks in the mCBM experiment. The first one so-called detector network allows monitoring and control of hardware connected to the respective subsystem. All \gls{DCS} infrastructure, including the main node, is located in that network. The second network FLES network is focused only on the data coming from the detectors. The third network is dedicated to the operators and data-taking operations. All these networks are interconnected via gateways.  
 
 \subsection{Detector control system for mSTS}
-A breakdown of the \gls{mSTS} \gls{DCS} architecture is presented in Figure~\ref{fig_mstsarch}. The supervisory layer features several nodes: 2 single board computers (\glspl{SBC}) and two nodes - the control and archiver node. 
+A breakdown of the \gls{mSTS} \gls{DCS} architecture is presented in Figure~\ref{fig_mstsarch}. The supervisory layer features several nodes: $2$ single board computers (\glspl{SBC}) and two nodes - the control and archiver node. 
 
-The first one of the main nodes takes care of the control and monitoring of the whole system (all the containers and applications), and the second node serves as a backup and archiving node. The control layer comprises all the necessary \glspl{IOC} and underlying nodes. The last layer (field layer) features all readout boards, sensors, power supplies, cooling units, etc. The system sums up to about 5000 process variables and about 10\% of them have to be archived. The control system software (containers, \glspl{IOC}) needs to be also monitored, in order to detect any kind of malfunction. 
+The first one of the main nodes takes care of the control and monitoring of the whole system (all the containers and applications), and the second node serves as a backup and archiving node. The control layer comprises all the necessary \glspl{IOC} and underlying nodes. The last layer (field layer) features all readout boards, sensors, power supplies, cooling units, etc. The system sums up to about $5000$ process variables and about 10\% of them have to be archived. The control system software (containers, \glspl{IOC}) needs to be also monitored, in order to detect any kind of malfunction. 
 
 \begin{figure}[!h]
 \centering
@@ -69,10 +69,10 @@ The first one of the main nodes takes care of the control and monitoring of the 
 \subsection{Finite state machine and its role}
 \gls{mSTS}, as opposed to the final \gls{STS}, does not require sophisticated hardware and software interlocking mechanisms. The biggest risk to the safe operation are:
 \begin{itemize}
-    \item too high ambient temperature (exceeding \SI{60}{\degreeCelsius})
-    \item ambient temperature reaching dew point 
-    \item sudden loss of cooling unit (e.g., due to radiation-induced damage)
-    \item high leakage current (usually too high currents are managed by the trip conditions of the power supply)
+    \item Too high ambient temperature (exceeding \SI{60}{\degreeCelsius})
+    \item Ambient temperature reaching dew point 
+    \item Sudden loss of cooling unit (e.g., due to radiation-induced damage)
+    \item High leakage current (usually too high currents are managed by the trip conditions of the power supply)
 \end{itemize}
 A proposed \gls{FSM} for \gls{mSTS} \gls{DCS} can be seen in Figure~\ref{fig_FSM}. Each state of the \gls{FSM} represents a well-defined detector state. After initialization of all the services, the detector enters into the standby state, in which the cooling stabilizes and the detector is prepared for the next steps. Next transitions and stages prepare \gls{mSTS} for the operation and data taking, low voltage and subsequently high voltage channels are turned on. In case any of the issues listed above happens, the detector is brought into a safe state (error state), which in most cases requires operator intervention. The global states mentioned to the right of the block diagram are the states propagated to the higher levels of control instances (\gls{SCA}/\gls{ECS}).
 \begin{figure}[h!]
@@ -88,14 +88,14 @@ Weave Scope~\cite{weavescope} is a visualization and monitoring tool for contain
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.85\columnwidth]{Chapter6/DCS/images/weave.png}
-\caption{mSTS - weavescope view of the deployed services.}
+\caption{mSTS - Weave Scope view of the deployed services.}
 \label{fig_weave}
 \end{figure}
 %\newpage
 \subsection{IOC monitoring - heartbeat and ping monitor}
 Apart from container monitoring, the \glspl{IOC} database also contains a heartbeat record, which indicates whether the \gls{IOC} is working properly. An additional tool called PIMO \gls{IOC} was also deployed. It is a ping monitor, which checks if a given \gls{IOC} is reachable in the network. Losing an \gls{IOC} would indicate an error. When it comes to machine safety, \gls{mSTS} \gls{DCS} \gls{FSM} should also react to the disconnection of \glspl{PV} which are being monitored.
 \subsection{Process variables monitoring and control}
-As described in Figure~\ref{fig_mstsarch}, the three monitoring blocks are: relative humidity and temperature sensors, cooling, and powering. To monitor ambient conditions, seven PT100 temperature sensors and one relative humidity sensor (Sensiron SHT85) were placed inside \gls{mSTS}~\cite{SHT85}. Additionally, one sensor was placed outside the detector enclosure to monitor the temperature in the experimental cave. The temperature sensors were read out using a dedicated readout board connected to a Raspberry Pi~\cite{raspberry} board which runs an \gls{IOC} process. Similarly, the humidity sensors were read out by a microcontroller board connected to the same \gls{SBC} and \gls{IOC}.
+As described in Figure~\ref{fig_mstsarch}, the three monitoring blocks are relative humidity and temperature sensors, cooling, and powering. To monitor ambient conditions, seven PT100 temperature sensors and one relative humidity sensor (Sensiron SHT85) were placed inside \gls{mSTS}~\cite{SHT85}. Additionally, one sensor was placed outside the detector enclosure to monitor the temperature in the experimental cave. The temperature sensors were read out using a dedicated readout board connected to a Raspberry Pi~\cite{raspberry} board which runs an \gls{IOC} process. Similarly, the humidity sensors were read out by a microcontroller board connected to the same \gls{SBC} and \gls{IOC}.
 
 The control of the \gls{mSTS} modules powering is organized twofold. All low voltage and high voltage modules are controlled via CC24 controller~\cite{cc24} inside MPOD crates~\cite{mpod}. Each CC24 controller has an embedded \gls{IOC} which was customized for the system requirements.  An operator can either use the \gls{SNMP} based communication, ca-tools, or a dedicated \gls{GUI}. In the case of SNMP scripts, the user has access to single channels, and specific channel-hardware connection knowledge is required to properly handle the detector. On the other hand, thanks to the aliases assigned to the process variables, specific channels could be switched on (via channel access protocol, PV access, or Graphical User Interface) by knowing the position of the \gls{FEB} in the detector.
 

@@ -24,7 +24,7 @@ Control System Studio (\gls{CSS}) consists of open-source Java applications and 
 \end{figure}
 
 \subsection{Solutions for archiving the data} \label{archiver}
-Archiver serves as one of the main building blocks of the \gls{DCS}, as it allows not only to look up the history of a given record, but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for \gls{STS} is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle, a system administrator can adjust these settings to the needs of the specific case. The  four Tomcat containers\footnote{An Open source web server by the Apache foundation.} are employed to handle the tasks of the archiver.  
+Archiver serves as one of the main building blocks of the \gls{DCS}, as it allows not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for \gls{STS} is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle, a system administrator can adjust these settings to the needs of the specific case. The  four Tomcat containers\footnote{An Open source web server by the Apache foundation.} are employed to handle the tasks of the archiver.  
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.7\columnwidth]{Chapter4/images/applarch.png}
@@ -37,15 +37,15 @@ The main advantage of the archiver include:
 
 \begin{itemize}
     \item Data retrieval can be integrated into Phoebus or Matlab.
-    \item Wide range of supported formats.
-    \item Stable performance, even with a hundred thousand \glspl{PV}.
+    \item It supports a wide range of formats.
+    \item It ensures stable performance, even with a hundred thousand \glspl{PV}.
 \end{itemize}
 
 Apart from the Archiver appliance, there are also alternative solutions:
 
 \begin{itemize}
-    \item Cassandra \cite{cassandra_archive},
-    \item RDB Archive engine \cite{rdb_archive}.
+    \item Cassandra \cite{cassandra_archive}
+    \item RDB Archive engine \cite{rdb_archive}
 \end{itemize}
 
 \subsection{Alert communication with alarm server}
@@ -58,16 +58,16 @@ An alarm server monitors a chosen set of \glspl{PV}, including their alarm state
 \end{figure}
 \newpage
 \subsection{State and commands logging}
-Logging is another important part of the \gls{DCS}. It allows monitoring and checking of all the changes in the configuration and alarms of all the process variables. Thanks to the logs acquired by the dedicated service, debugging becomes much easier. The alarm logging service enables the logging of: configuration changes, state changes logging, and commands. Similarly to the alarm server, it uses Apache Kafka for data transfer. Apart from the logs, there is also a \gls{GUI} available in the Phoebus \cite{alarm_logger}, an operator can also use the Kibana\footnote{Source-available data visualization software.} web interface to discover patterns and trends in the data. 
+Logging is another important part of the \gls{DCS}. It allows monitoring and checking of all the changes in the configuration and alarms of all the process variables. Thanks to the logs acquired by the dedicated service, debugging becomes much easier. The alarm logging service enables the logging of configuration changes, state changes logging and commands. Similarly to the alarm server, it uses Apache Kafka for data transfer. Apart from the logs, there is also a \gls{GUI} available in the Phoebus \cite{alarm_logger}, an operator can also use the Kibana\footnote{Source-available data visualization software.} web interface to discover patterns and trends in the data. 
 
 \subsection{Finite state machine as an automation and safety mechanism}
 A finite state machine (\gls{FSM}) is a software construct that defines states and transitions between these states of the physical device. In a given moment it has a clearly defined state and a given set of rules and conditions apply to this state. An input issued by an operator or automatically by a sensor(s) could trigger a transition. All transitions are unidirectional, but it is possible to define two opposite transitions, e.g., entering and escaping the error state. 
 
-One of the possibilities to implement a \gls{FSM} is to use Sequencer, which is a State Notation Language based on C/C++. 
+One of the possibilities to implement a \gls{FSM} is to use Sequencer, which is a State Notation Language based on C/C++.:
 \begin{itemize}
-    \item start-up, shut-down, fault recovery, etc.,
-    \item little C code, many states, many transitions,
-    \item short compilation time, and can call any C++ code, easy connection to channelAccess.
+    \item Start-up, shut-down, fault recovery, etc.
+    \item Little C code, many states, many transitions
+    \item Short compilation time, and can call any C++ code, easy connection to channelAccess
 \end{itemize}
 
 One of the alternatives to the Sequencer and State Notation language is the PyEPICS-based library Pysmlib\cite{pysmlib}. It features several interesting functions like integrated watchdog logic, multi-threading, or configurable logging systems.
@@ -75,4 +75,4 @@ One of the alternatives to the Sequencer and State Notation language is the PyEP
 
 \section{Containerized EPICS-based framework}
 
-The containers-based framework introduced in this chapter is the baseline for all the research and development activities throughout this thesis. In principle, most small and/or laboratory-based experimental setups do not require full-blown control systems. Hence, in the next two chapters two smaller framework applications will be introduced. In addition to that, the studies and their implications are discussed in detail. Chapter 6 is dedicated to the application of the full control system to the Phase-0 version of the \gls{STS}.
+The containers-based framework introduced in this chapter is the baseline for all the research and development activities throughout this thesis. In principle, most small and/or larger laboratory-based experimental setups do not require full-blown control systems. Hence, in the next two chapters two smaller applications of the developed framework are introduced. In addition to that, the studies and their implications are discussed in detail. Chapter 6 is dedicated to the application of the full control system to the Phase-0 version of the \gls{STS}.

@@ -23,9 +23,9 @@ detector system sets.
 
 The \glspl{PCA} also hold internal instances of the necessary SCA interfaces, which are tasked with:
 \begin{itemize}
- \item holding a copy of the current state of the SCA
- \item periodic ping of the SCA to ensure early disconnection detection
- \item sending requests to the SCA and receiving the replies
+ \item Holding a copy of the current state of the SCA
+ \item Periodic ping of the SCA to ensure early disconnection detection
+ \item Sending requests to the SCA and receiving the replies
  \item Monitoring the SCA broadcast channel for unexpected~/~unrequested state changes
 \end{itemize}
 These should not be confused with the SCA, which are in separate processes.
@@ -68,14 +68,14 @@ Figure \ref{fig_arch} shows a general idea behind the STS's DCS from the softwar
 \end{figure}
 %\newpage
 \subsection{Means of orchestration and maintenance} 
-Weavescope provides basic monitoring and handling functionalities. Container metrics proved to be extremely useful in detecting issues and managing containers. For the final experiment, a much more sophisticated infrastructure is foreseen. Therefore, it's necessary to address it by automating deployment and monitoring. Similarly, as for the containers, an orchestrator needs to be secure, scalable, highly available, provide logging, monitoring capabilities, and be redundant. Orchestration leads to automation of the container deployment, as well as to balance the workload. 
-Examples of orchestrators include DockerSwarm \cite{DockerSwarm}, and Kubernetes \cite{Kubernetes}. One of the recent applications of the Kubernetes was reported in \cite{ICALEPCS2021:Diamond}, where the whole test beamline is operated with containers. Similarly, the whole CBM's DCS will be operated with containers and orchestration tools. 
+Weavescope provides basic monitoring and handling functionalities. Container metrics proved to be extremely useful in detecting issues and managing containers. For the final experiment, a much more sophisticated infrastructure is foreseen. Therefore, it's necessary to address it by automating deployment and monitoring. Similarly, as for the containers, an orchestrator needs to be secure, scalable, highly available, provide logging, and monitoring capabilities, and be redundant. Orchestration leads to automation of the container deployment, as well as to balance the workload. 
+Examples of orchestrators include DockerSwarm \cite{DockerSwarm}, and Kubernetes \cite{Kubernetes}. One of the recent applications of Kubernetes was reported in \cite{ICALEPCS2021:Diamond}, where the whole test beam line is operated with containers. Similarly, the whole CBM's DCS will be operated with containers and orchestration tools. 
 With container orchestration, it is possible to manage the lifecycle of applications or ecosystems of applications consisting of large numbers of containers. 
 
 Orchestrators can:
  \begin{itemize}
-     \item automatically deploy containers based on policies, application load, and environment metrics,
-     \item identify failed containers or clusters and heal them,
+     \item Automatically deploy containers based on policies, application load, and environment metrics.
+     \item Identify failed containers or clusters and heal them.
      \item manage application configuration,
      \item connect containers to storage and manage networking,
      \item improve security by restricting access in between containers, and between containers and external systems.
@@ -83,16 +83,16 @@ Orchestrators can:
 \subsection{Logbook}
 One of the missing components in the mSTS's architecture is the logbook and the connection to it. The mSTS's environment is considered to be a development scene, therefore for the CBM experiment, a proper production environment has to be prepared. So far, for all mCBM-related activities, elog \cite{elog} was used. For the final experiment, a dedicated elog branch will be implemented and the elog client will be used \cite{elog_client}.
 \subsection{Save and restore}
-Save and restore functions can be divided into two groups of mechanisms. The first tool which provides save mechanisms is the so-called autosave, which is a part of the synApps module \cite{autosave}. It provides tools to preserve PVs values through an IOC reboot. The second set of tools that permits taking snapshots and saving configurations is MASAR \cite{masar}. It's a more complex tool than autosave, offering also a Phoebus-based \gls{GUI}. 
+Save and restore functions can be divided into two groups of mechanisms. The first tool which provides save mechanisms is the so-called autosave, which is a part of the synApps module \cite{autosave}. It provides tools to preserve \glspl{PV} values through an IOC reboot. The second set of tools that permits taking snapshots and saving configurations is MASAR \cite{masar}. It's a more complex tool than autosave, offering also a Phoebus-based \gls{GUI}. 
 \subsection{Timing}
 To properly archive and analyze the data, it's necessary that all nodes, \gls{IOC}s, and other software applications are synchronized. As it's impossible to adjust the clock in the containers, it should be synchronized on each node separately. The central \gls{DCS} node will provide a Network Time Protocol (\gls{NTP}) daemon that will be synchronized with one of the public, official sources.  By doing so, the clocks of all the containers running control applications will be automatically synchronized even if the external network connection is not available. 
 \subsection{Failover considerations}
-The high availability of services plays a key role in the safe operation of a detector. Once all the services are deployed, only minimal operation breaks are foreseen during 10 years of operation. The STS needs to be constantly cooled, in order to avoid performance degradation of the silicon sensors.
+The high availability of services plays a key role in the safe operation of a detector. Once all the services are deployed, only minimal operation breaks are foreseen during $10$ years of operation. The STS needs to be constantly cooled, in order to avoid performance degradation of the silicon sensors.
 Crucial elements of the STS, like the air drying plant or the cooling plant, will be monitored and controlled by a PLC-based system (for example Siemens PLC). This hardware layer will provide the essential safety measures in case of failure, but the PLC will be also linked to an IOC publishing the values to the software layer. Even before triggering the hardware interlock, any potentially hazardous system behavior will be discovered by the software of the control system. In order to ensure maximum safety, failover mechanisms will be exercised to mitigate potential IOC failures. There are 3 considered methods to address failover. 
 
 If the hardware is controlled e.g., via a network, then it is possible to deploy a backup IOC, which has the same configuration as the main IOC, therefore providing a replacement if it fails. Nevertheless, under some standards like for example RS232, it is not considered good practice to have two \glspl{IOC} connected to the same node. Furthermore, in the case of RS232 a multiplexer would be needed to implement a redundant solution. 
 
-A second possibility is to use failover mechanisms based on an orchestrator, in this case, the deployment and life-cycle of a container is governed by an additional tool, i.e., Kubernetes. In case one of the containers (IOCs) hangs up, it will be automatically stopped and a new container will take over the tasks. Nevertheless, the newly deployed container could have a different configuration, therefore changing the state of the whole system. 
+A second possibility is to use failover mechanisms based on an orchestrator, in this case, the deployment and life-cycle of a container are governed by an additional tool, i.e., Kubernetes. In case one of the containers (\glspl{IOC}) hangs up, it will be automatically stopped, and a new container will take over the tasks. Nevertheless, the newly deployed container could have a different configuration, therefore changing the state of the whole system. 
 
 
 \subsection{Data persistence}
@@ -100,8 +100,8 @@ A second possibility is to use failover mechanisms based on an orchestrator, in 
 As mentioned in the section \ref{archiver}, the archiver could be split into a few nodes serving as temporary data storage (short-term, mid-term). Proper daily backup to GSI managed database would be recommended, as it depends mostly on the database services provided by the GSI IT. So far, the Redis DB has been used but also other options should be considered. 
 
 \subsection{Available protocols}
-As reported during the EPICS Collaboration meeting 2022 \cite{epics_2022}, a transition to the newer protocol (PV access) is ongoing. Nevertheless, CA and PVA are both included in the EPICS 7, which should be the base image of the CBM IOC image, also for the next versions of the IOC. PVA is under constant development and will offer even more features in the coming years, thus for the future CBM experiment (timeline of more than 10 years) it is a perfect choice. 
+As reported during the EPICS Collaboration meeting $2022$ \cite{epics_2022}, a transition to the newer protocol (PV access) is ongoing. Nevertheless, CA and PVA are both included in the EPICS 7, which should be the base image of the CBM \gls{IOC} image and also for the next versions of the IOC. PVA is under constant development and will offer even more features in the coming years, thus for the future CBM experiment (timeline of more than 10 years) it is a perfect choice. 
 
 \subsection{Use of gateways}
-Lets consider the low voltage powering of the \gls{STS} \gls{FEE}, which consists of about 2100 low voltage channels, 140 modules, and 14 crates. Each crate has a controller with an embedded \gls{IOC}, publishing all the process variables. By putting the power supplies into a different subnet, we can not only easily debug potential issues but also limit the network traffic. That is why it has been endorsed to use CA Gateway \cite{gateway} or PV gateway (to be tested), which will take care of regulating access between the subnets in the DCS network. It also provides additional access security, assuring that the \glspl{IOC} running the key services like powering run smoothly.
+Let's consider the low voltage powering of the \gls{STS} \gls{FEE}, which consists of about $2100$ low voltage channels, $140$ modules, and $14$ crates. Each crate has a controller with an embedded \gls{IOC}, publishing all the process variables. By putting the power supplies into a different subnet, we can not only easily debug potential issues but also limit the network traffic. That is why it has been endorsed to use CA Gateway \cite{gateway} or PV gateway (to be tested), which will take care of regulating access between the subnets in the DCS network. It also provides additional access security, assuring that the \glspl{IOC} running the key services like powering run smoothly.
 

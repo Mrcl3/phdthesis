@@ -12,39 +12,39 @@ EPICS is a set of tools and applications which provide a software infrastructure
 \label{fig_EPICS}
 \end{figure}
 
-As described in Figure \ref{fig_EPICS}, the system uses client/server and publish/subscribe approaches to communicate between different devices/nodes. Most servers, called Input/Output Controllers (\gls{IOC}) perform I/O\footnote{ I/O task is anything which the CPU can not perform on its own, and has to rely on other components} and local control tasks and publish this information to clients via dedicated protocols Channel Access and/or pvAccess \cite{EPICS}. 
+As described in Figure \ref{fig_EPICS}, the system uses client/server and publish/subscribe approaches to communicate between different devices/nodes. Most servers, called Input/Output Controllers (\gls{IOC}) perform I/O\footnote{ I/O task is anything which the CPU can not perform on its own, and has to rely on other components} and local control tasks and publish this information to clients via dedicated protocols Channel Access and/or pvAccess~\cite{EPICS}. 
 
  \subsection{Available control tool sets}
- EPICS and related toolkits offer a complete set of applications to control large experiments. Many sites all over the world have implemented \gls{EPICS}-based control systems, i.e., \gls{HADES} ~\cite{HADES_EPICS}, \gls{J-PARC} \cite{J-PARC}, \gls{STAR} \cite{STAR}, \gls{ITER} \cite{ITER}, Australian Synchrotron and many more \cite{EPICS_site}. Besides, there are also different alternatives to implementing a control system, which includes: 
+ EPICS and related toolkits offer a complete set of applications to control large experiments. Many sites all over the world have implemented \gls{EPICS}-based control systems, i.e., \gls{HADES} ~\cite{HADES_EPICS}, \gls{J-PARC} \cite{J-PARC}, \gls{STAR} \cite{STAR}, \gls{ITER} \cite{ITER}, Australian Synchrotron and many more \cite{EPICS_site}. Besides, there are also different alternatives to implementing a control system, which include: 
  \begin{itemize}
-     \item Siemens WinCC \cite{Camacho:2022fxa,Goralczyk:2022udx},
-     \item Tango \cite{Santander-Vela:2021tma},
-     \item LabVIEW \cite{State:2022qlw},
-     \item custom software (e.g., python/C++ or stream processing software) \cite{taurus}.
+     \item Siemens WinCC \cite{Camacho:2022fxa,Goralczyk:2022udx}
+     \item Tango \cite{Santander-Vela:2021tma}
+     \item LabVIEW \cite{State:2022qlw}
+     \item Custom software (e.g., python/C++ or stream processing software) \cite{taurus}
  \end{itemize} 
  
  These frameworks were discarded either because of licensing needs (LabVIEW, Siemens WinCC) or lack of extensive experience on-site (Tango). Phoebus \cite{Phoebus} was chosen as the collection of tools and applications to monitor and operate \gls{STS}. All \gls{mSTS} \glspl{OPI} were prepared in Phoebus~\cite{Phoebus}. The detector uses the following Phoebus-related applications:
 \begin{itemize}
-    \item Alarms logging,
-    \item Alarm server,
-    \item Save and restore.
+    \item Alarms logging
+    \item Alarm server
+    \item Save and restore
 \end{itemize}
 %\newpage
 More details about these applications and their use will be provided in the next sections. Although Phoebus proved to be easy to use and implement new operator screens, there are also alternatives that could provide similar functionalities:
 \begin{itemize}
-    \item Bluesky Project (Python-based set of libraries \cite{Bluesky}),
-    \item React Automation Studio \cite{React},
-    \item Channel Access Tools - MEDM, Alarm Handler (\gls{ALH}), Archiver (\gls{AR}) etc. 
+    \item Bluesky Project (Python-based set of libraries \cite{Bluesky})
+    \item React Automation Studio \cite{React}
+    \item Channel Access Tools - MEDM, Alarm Handler (\gls{ALH}), Archiver (\gls{AR}) etc.) 
 \end{itemize}
 
 \subsection{EPICS architecture and input/output controller}
 The core elements of the systems are the input/output controllers (\glspl{IOC}), which provide control logic for the connected hardware. The \gls{IOC} uses channel access and/or PVAccess to communicate with clients and contains also the following components\cite{IOC}:
 \begin{itemize}
-    \item \gls{IOC} database -- a memory resident database containing a set of named records of various types \cite{IOC2},
-    \item record support -- a set of support routines defining a record,
-    \item device support and drivers -- serve access to external devices,
-    \item monitors and scanners,
-    \item sequencer -- an optional extension of the \gls{IOC} which is a finite state machine.
+    \item \gls{IOC} database -- a memory resident database containing a set of named records of various types \cite{IOC2}
+    \item Record support -- a set of support routines defining a record
+    \item Device support and drivers -- serve access to external devices
+    \item Monitors and scanners
+    \item Sequencer -- an optional extension of the \gls{IOC} which is a finite state machine
 \end{itemize}
 
 An \gls{IOC} does not need extensive computing resources, therefore it runs also on low-power single-board computers like Raspberry PI or Odroid. 
@@ -53,19 +53,19 @@ An \gls{IOC} does not need extensive computing resources, therefore it runs also
  
 To communicate with devices, an \gls{IOC} uses so-called device support. The most commonly used ones include:
 \begin{itemize}
-    \item StreamDevice is a generic EPICS device support for devices with a byte stream based communication interface. That means devices that can be controlled by sending and receiving strings (in the broadest sense, including non-printable characters and even null bytes). Examples of this type of communication interface are serial line (RS-232, RS-485, ...), IEEE-488 (also known as GPIB or HP-IB), and telnet-like TCP/IP \cite{StreamDevice},
-    \item devModbus \cite{modbus} - includes support for three Modbus standards (TCP, RTU, ASCII), used for control of climatic chambers in the \gls{STS} group,
+    \item StreamDevice is a generic EPICS device support for devices with a byte stream-based communication interface. That means devices that can be controlled by sending and receiving strings (in the broadest sense, including non-printable characters and even null bytes). Examples of this type of communication interface are serial line (RS-232, RS-485, etc.), IEEE-488 (also known as GPIB or HP-IB), and telnet-like TCP/IP \cite{StreamDevice}.
+    \item devModbus \cite{modbus} - includes support for three Modbus standards (TCP, RTU, ASCII), used for control of climatic chambers in the \gls{STS} group.
     \item asynDriver \cite{asyn} - asynchronous driver support, which is an interface that implements a device-specific code to low-level communication drivers. Together with the StreamDevice it is the most commonly used one in \gls{mSTS}. 
 \end{itemize}
 
-Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring the software components may be challenging if the system is built out of several nodes. To address this problem containerization technology was introduced. Besides, this technology has many advantages:
+Control software often needs to be deployed on nodes with different operating systems and/or architectures. Additionally, monitoring the software components may be challenging if the system is built out of several nodes. To address this problem containerization technology was introduced. Besides, this technology has many advantages, as it's:
 \begin{itemize}
-    \item standardized, what makes it portable anywhere,
-    \item independent of the operating system,
-    \item instant replication and easy debugging,
-    \item lightweight - containers share the machine kernel, and they do not require a separate one, which makes them much faster than virtual machines,
-    \item docker daemon monitors the containers instead of the hypervisor in case of virtual machines,
-    \item processes run as native causing little overhead.
+    \item Standardized, what makes it portable anywhere
+    \item Independent of the operating system
+    \item Instant replication and easy debugging
+    \item Lightweight - containers share the machine kernel, and they do not require a separate one, which makes them much faster than virtual machines
+    \item Docker daemon monitors the containers instead of the hypervisor in case of virtual machines,
+    \item Processes run as native causing little overhead
 \end{itemize}
 
 Container images\footnote{A container image consists of an unchangeable, static file containing executable code that runs independently.} for the \gls{IOC}, as well as other \gls{DCS} building blocks, were created. More detailed information about containerization and how it was implemented is included in Section~\ref{containerizer_ioc}.

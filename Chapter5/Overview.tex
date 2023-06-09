@@ -1,24 +1,24 @@
-The research conducted for the \gls{STS} focused on designing and testing different relative humidity and temperature sensors. This chapter provides an overview of the various solutions for ambient sensing, as we as an assessment of whether the tested technology meets the requirements. Particular attention was given to characterizing fiber optic sensors in order to develop safety requirements and systems that would mitigate potential risks posed by a too humid environment. 
+The research conducted for the \gls{STS} focused on designing and testing different relative humidity and temperature sensors. This chapter provides an overview of the various solutions for ambient sensing, as we as an assessment of whether the tested technology meets the requirements. Particular attention was given to characterizing fiber optic sensors in order to develop safety requirements and systems that would mitigate potential risks posed by an environment with excessive moisture. 
 
 %% Add here some more text about the used DCS framework
 
 \section{Sensors requirements}
 
-The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for potential ambient sensors. As described in Section~\ref{STS}, the ambient temperature will reach \SI{-10}{\celsius} and the cooling liquid (3M NOVEC 649) will be circulating at temperatures close to~\SI{-40}{\celsius}. Therefore, the first boundary condition arises: the frost point and the dew point inside the \gls{STS} has to be below~\SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}.
-During the detector commissioning, the temperatures will be higher and relative humidity (\gls{RH}) can be measured more accurately\footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}. 
+The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for potential ambient sensors. As described in Section~\ref{STS}, the ambient temperature will reach \SI{-10}{\celsius} and the cooling liquid (3M NOVEC 649) will be circulating at temperatures close to~\SI{-40}{\celsius}. Therefore, the first boundary condition arises: the frost point and the dew point inside the \gls{STS} have to be below~\SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}.
+During the detector commissioning, the temperatures will be higher, and relative humidity (\gls{RH}) can be measured more accurately\footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}. 
 %One of the most common techniques to achieve the frost points below~\SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the~\gls{FEE}. 
 
-During the detector lifetime (10 years), there will be few opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than 10\,kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
+During the detector lifetime ($10$ years), there will be few opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than $10$\,kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
 The sensors have to be insensitive to the magnetic field of \SI{1}{\tesla\metre} since the whole detector resides in a dipole magnet.  An ideal humidity sensor should also meet the following requirements:
 \begin{itemize}
     \item small dimensions and mass (especially when placed close to the active area of the system),
-    \item accurate (up to 3\%) relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
-    \item respond to a wide range of \gls{RH} values from 0\% to 80\%,
+    \item accurate (up to $3$\%) relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
+    \item respond to a wide range of \gls{RH} values from $0$\% to $80$\%,
     \item high repeatability and low hysteresis,
     \item reliable operation across long distances (the readout device will be at least~\SI{20}{\metre} away from the detector).
 \end{itemize}
 
-On the other hand, due to overpressure conditions inside the \gls{STS} enclosure, a low response time (seconds) is not necessarily needed. In terms of detector safety and implementation of the sensors readouts in the hardware and software interlocking, the time response up to minutes is considered to be acceptable. 
+On the other hand, due to overpressure conditions inside the \gls{STS} enclosure, a low response time (seconds) is not necessarily needed, which is discussed in the next sections of this chapter. In terms of detector safety and implementation of the sensors readouts in the hardware and software interlocking, the time response up to minutes is considered to be acceptable. 
 
 \section{Vapor pressure and its significance}
 
@@ -27,22 +27,22 @@ The \gls{RH}, or the dew/frost point, are commonly used parameters to describe t
 Water vapor condenses as liquid water at gas temperatures above \SI{0}{\celsius}. The dew point is defined as a liquid condensation layer. Water vapor deposits as solid ice at gas temperatures far below \SI{0}{\celsius}. On the other hand, the frost point is defined as a solid condensation layer. However, for gas temperatures ranging from \SI{0}{\celsius} to approximately \SI{-20}{\celsius}, the state of the condensed layer is unknown; it could be either water, ice, or a combination of both \cite{nie_dewpoint}. 
 
 
-The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in 1945 \cite{goff_gratch}. The original correlation (over water) is as follows
+The first documented formula for vapor pressure (over water and over ice) was introduced by Goff and Gratch in $1945$ \cite{goff_gratch}. The original correlation (over water) is as follows
 
 \begin{equation}
 \label{gratch}
 \begin{split}
     &\log({e}^{*}_{s}) = a(T_{st}/T - 1) + b(\log(T_{st}/T) - c(10^{11.344(1-T/T_{st})} - 1) \\
-    &+ d(10^{-3.49149(T_{st}/T - 1} -1) + \log(e^{*}_{st}).
+    &+ d(10^{-3.49149(T_{st}/T - 1} -1) + \log(e^{*}_{st}),
 \end{split}
 \end{equation}
-where log refers to the logarithm base 10, $e_{s}$ is the saturation water vapor pressure~(hPa), a to d are constants; $a = - 7.90$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,\mathrm{hPa}$), and $T_{st}$ is the boiling point (at 1\,atm) temperature (373.15\,K). A similar equation can also be formulated for the vapor pressure over ice. 
+where log refers to the logarithm base $10$, $e_{s}$ is the saturation water vapor pressure~(hPa), $a$ to $d$ are constants; $a = - 7.90$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,\mathrm{hPa}$), and $T_{st}$ is the boiling point (at $1$\,atm) temperature ($373.15$\,K). A similar equation can also be formulated for the vapor pressure over ice. 
 
 These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}
 \begin{equation}
-    e^{*}_{s} = c*e^{(aT/(b+T))}.
+    e^{*}_{s} = c*e^{(aT/(b+T))},
 \end{equation}
-where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over water plane ($e^{*}_{s}$)
+where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over the water plane ($e^{*}_{s}$)
 \begin{equation}
     RH = 100\frac{e}{e^{*}_{s}}.
     \label{eq:RH}
@@ -74,9 +74,9 @@ The dew points calculations based on relative humidity and temperature can be se
 
 The individual standard uncertainty $\mu$ is defined as the uncertainty of the result of a measurement expressed as its standard deviation~\cite{NIST_1994}. Hence, assuming the rectangular\footnote{constant in the defined range} distribution of uncertainty for the sensors that measure the temperature and relative humidity
 \begin{equation}
-    \mu(x_{i}) = \frac{a}{\sqrt{3}}.
+    \mu(x_{i}) = \frac{a}{\sqrt{3}},
 \end{equation}
-where a is the uncertainty available in the datasheets, and $x_{i}$ represents the measured $i$ value. The combined uncertainty $\mu_{c}$ can be derived from Equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}
+where $a$ is the uncertainty available in the datasheets, and $x_{i}$ represents the measured $i$ value. The combined uncertainty $\mu_{c}$ can be derived from Equation \ref{eq:dew} based on the law of propagation of uncertainty~\cite{dp_uncertainty}
 \begin{equation}
     u_{Td} = \left [  \left (\frac{\partial T_{d}}{\partial T_{a}}  \right )^{2} \mu^{2}(T) + \left (\frac{\partial T_{d}}{\partial RH}  \right )^{2} \mu^{2}(RH)\right ]^{1/2}.
     \label{dp_error}
@@ -87,12 +87,12 @@ In each system, we assume that measuring dew point temperature or relative humi
 
 \section{Overview of different technologies}
 
-Nowadays, electronic humidity sensors are commonly used in industry, scientific research facilities, and civil infrastructure. In general, we can classify the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. Resistive and capacitive sensors represent over 75\% of all the sensors used today. As the names indicate, their working principles are based on resistance and capacitance changes, respectively.
+Nowadays, electronic humidity sensors are commonly used in industry, scientific research facilities, and civil infrastructure. In general, we can classify the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. Resistive and capacitive sensors represent over $75$\% of all the sensors used today. As the names indicate, their working principles are based on resistance and capacitance changes, respectively.
 
 
 The efforts to employ miniaturized sensors in \gls{HEP} experiments have been ongoing for many years. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case-specific study related to \gls{HEP} is summarized in~\cite{Kapic}.
 
-The two most challenging requirements in the case of \gls{STS} are radiation hardness and insensitivity to the magnetic field. Radiation can affect sensor materials in different ways depending on their type, rate of interaction, and material composition. Sensor structures are affected by radiation due to modifications to their lattice structures. For example, capacitive sensors like HIH3610~\cite{HIH3610} and HIH4030~\cite{HIH4030} tested in CERN turned out to be critically damaged after irradiation~\cite{Berruti}. It was also recently reported that capacitive sensors from IST AG~\cite{MK33} has a linear response to the radiation (what can be corrected~\cite{Kapic_sensor}). Employing such sensors in a \gls{HEP} experiment, especially in a tracker surrounded by a magnet, raises questions about the sensitivity to the magnetic field~\cite{Berruti}. 
+The two most challenging requirements in the case of \gls{STS} are radiation hardness and insensitivity to the magnetic field. Radiation can affect sensor materials in different ways depending on their type, rate of interaction, and material composition. Sensor structures are affected by radiation due to modifications to their lattice structures. For example, capacitive sensors like HIH3610~\cite{HIH3610} and HIH4030~\cite{HIH4030} tested in CERN turned out to be critically damaged after irradiation~\cite{Berruti}. It was also recently reported that capacitive sensors from IST AG~\cite{MK33} have a linear response to the radiation (what can be corrected~\cite{Kapic_sensor}). Employing such sensors in a \gls{HEP} experiment, especially in a tracker surrounded by a magnet, raises questions about the sensitivity to the magnetic field~\cite{Berruti}. 
 
 One of the possible solutions is using fiber optic-based sensors, which are by design insensitive to the magnetic field. Another possibility is to use a sampling system, which sucks the air from the detector and using e.g., a vacuum pump transports it to the area with lower radiation and without a magnetic field.
 
@@ -103,15 +103,15 @@ For the \gls{STS} a distributed sensing system featuring a few different technol
 \label{capacitive_sensors}
 The capacitive sensors, in the simplest form, can be made out of two parallel plates, where the capacitance between the two electrodes is given by
 \begin{equation}
-C = \epsilon_{r}\epsilon_0\frac{A}{d}.
+C = \epsilon_{r}\epsilon_0\frac{A}{d},
 \end{equation}
 where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constants, A is the plate surface area and d is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
 The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fairly miniaturized and insensitive to pressure changes. The main drawbacks of these sensors are listed below:
 \begin{itemize}
-    \item limited long-term stability,
-    \item sensitive to water condensation,
-    \item limited distance to the readout device,
-    \item most of the sensors are not radiation-hard.
+    \item Limited long-term stability
+    \item Sensitive to water condensation
+    \item Limited distance to the readout device
+    \item Most of the sensors are not radiation-hard
 \end{itemize}
 Two different \gls{RH} capacitive sensors have been tested in low-temperature regimes - IST HYT221~\cite{hyt221} and Sensiron SHT85~\cite{SHT85}. Figure \ref{fig:hyt221} depicts the \gls{RH} and temperature accuracy of the first sensor. Measuring humidity at low temperatures below \SI{-20}{\celsius} and 5\% \gls{RH} leads to large dew point errors (\SI{7}{\celsius} and more). The estimated dew point errors calculated with the Magnus formula are presented in figure \ref{fig:hyt221_dp}.
 \begin{figure}[!h]
@@ -142,19 +142,19 @@ Figure \ref{fig:sht85} shows the uncertainties for the measurements with the SHT
 \label{fig:sht85_dp}
 \end{figure}
 \newpage
-The above-presented results do not take into account additional effects that alter the calculations, like hysteresis or drift, which could together contribute by 1\% or more to the \gls{RH} measurement. The performance of the SHT85 also decreases in the low-temperature regime, but the extent is not determined in this work. The comparison of the industrial capacitive sensors shows a large performance disproportion.
+The above-presented results do not take into account additional effects that alter the calculations, like hysteresis or drift, which could together contribute by $1$\% or more to the \gls{RH} measurement. The performance of the SHT85 also decreases in the low-temperature regime, but the extent is not determined in this work. The comparison of the industrial capacitive sensors shows a large performance disproportion.
 
 The studied sensors are much cheaper than custom trace humidity measurement systems (sampling systems) or fiber optic sensors. The readout of such sensors may be affected by the radiation and magnetic field, so they can be considered a reliable solution for a long-term operation in the \gls{STS}. The next type of sensor that yields promising results is based on fiber optic sensing technology.
 
 \subsection{Description of the Fiber Optic Sensing technology}
 \label{FOS}
 
-Fiber optic sensors-based (\gls{FOS}) system usually consists of three main components as an optical source, transducer, and detector. In general, the sensing principle relies on modifying one or more properties of light (most commonly a laser, diode, or LEDs are employed as the optical sources) passing through a transducer which is located inside the fiber. A schematic view of a sensing setup is presented in Figure~\ref{fig:sensing}. Distributed sensing or even continuous sensing offers a unique opportunity for many sensing points in one fiber~\cite{GRATTAN200040}. 
+Fiber optic sensors-based (\gls{FOS}) system usually consists of three main components an optical source, transducer, and detector. In general, the sensing principle relies on modifying one or more properties of light (most commonly a laser, diode, or LEDs are employed as the optical sources) passing through a transducer which is located inside the fiber. A schematic view of a sensing setup is presented in Figure~\ref{fig:sensing}. Distributed sensing or even continuous sensing offers a unique opportunity for many sensing points in one fiber~\cite{GRATTAN200040}. 
 \newpage
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter5/images/sensing.png}
-\caption{Comparison of different sensing possibilities with the \gls{FOS}. Opto- and processing electronics is commonly called optical interrogator.}
+\caption{Comparison of different sensing possibilities with the \gls{FOS}. Opto- and processing electronics are commonly called optical interrogator.}
 \label{fig:sensing}
 \end{figure}
 
@@ -188,7 +188,7 @@ A FBG is a selective filter inside the optical fiber that reflects light signals
 Both factors can be affected by strain, temperature, magnetic field, and/or pressure changes, thus various sensing possibilities are available with the FBG~\cite{Yun-Jiang_Rao_1997}. In general, wavelength shift $\lambda_{B}$ can be formulated as
 
 \begin{equation}
-    \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T.
+    \frac{\Delta\lambda_{B}}{\lambda_{B}}=(1-P_{e}) \epsilon + \left [(1-P_{e}) \alpha + \xi  \right ] \Delta T,
 \end{equation}
 
 where $P_{e}$ is a photo-elastic constant (optical properties change under mechanical deformation), $\epsilon$ is a strain induced on the fiber, $\alpha$ is the thermal expansion coefficient of the coated \gls{FBG}, and the $\xi$ is the thermo-optic coefficient (change of the refractive index with the temperature) of the fiber. Using a \gls{FBG} sensor for strain measurements requires decoupling the strain from the temperature. This solution is commonly called temperature compensation~\cite{Yun-Jiang_Rao_1997}. 
@@ -211,7 +211,7 @@ It is possible to measure RH instead of the strain by applying a hygroscopic mat
                             %\newpage
                              \begin{equation}\label{eqn:FBG}
                             %\large
-                                    \frac{\Delta\lambda_{B}}{\lambda_{B}}=\Delta TS_{T}+\Delta RHS_{RH}
+                                    \frac{\Delta\lambda_{B}}{\lambda_{B}}=\Delta TS_{T}+\Delta RHS_{RH},
                             \end{equation}
                             where $\lambda_{B}$ is the Bragg wavelength, and $S_{RH/T}$ are the sensitivity coefficients for RH and temperature, respectively. 
 
@@ -229,7 +229,7 @@ Due to expected very low dew point levels inside the \gls{STS} (below \SI{-45}{\
     \item chilled mirror dew point hygrometer  (dew points from \SI{-100}{\celsius} to \SI{100}{\celsius}).
 \end{itemize}
 
-Aluminum oxide interacts with water, and it is considered the sensor sensing layer. In its design, the sensors resemble the capacitive ones. Aluminum oxide based sensors are characterized by very low uncertainties. In addition to that, the implementation in a hardware-based interlock is much easier than in the case of the \gls{FOS} (the readout system is based on analog signals). An example of a sampling system is presented in Figure~\ref{fig:sniffer}. The readout can be placed in distant areas without extensive ionizing radiation or magnetic field. The air is sucked from the detector by a vacuum pump, transported to the sampling cabinet, and then the dew point is measured by the aluminum oxide sensor.  
+Aluminum oxide interacts with water, and it is considered the sensor sensing layer. In its design, the sensors resemble the capacitive ones. Aluminum oxide-based sensors are characterized by very low uncertainties. In addition to that, the implementation in a hardware-based interlock is much easier than in the case of the \gls{FOS} (the readout system is based on analog signals). An example of a sampling system is presented in Figure~\ref{fig:sniffer}. The readout can be placed in distant areas without extensive ionizing radiation or magnetic field. The air is sucked from the detector by a vacuum pump, transported to the sampling cabinet, and then the dew point is measured by the aluminum oxide sensor.  
 
 Another precise and commonly used method, especially for the calibration of other humidity sensors, is the chilled mirror hygrometer. The mirror is cooled slowly and in a controlled manner until condensate can be detected on it. Using a vapor pressure curve, it is possible to determine the partial pressure of water vapor at the dew point of flowing gas. A careful measurement presupposes that equilibrium conditions are reached. This can only be achieved by approaching the dew point approximately with the temperature regime and repeating it several times. The measurement range of the Michell S8000 chilled mirror is presented in Figure~\ref{fig:fos_mirror}. The chilled mirror together with the HYT221 and SHT85 were used to calibrate and characterize FBG-based \gls{FOS}. 
 
@@ -254,7 +254,7 @@ Right: Michell S8000 Remote High Precision Chilled Mirror Hygrometer~\cite{miche
 \newpage
 \subsection{Sensors performance in high radiation environments}
 \label{fos_irrad}
-Implementing a cost-effective distributed sensing system in highly irradiated environments is a challenging task. Sampling system with multiple sensing lines are considered to be the most reliable way, but their cost per sensing point is relatively high. 
+Implementing a cost-effective distributed sensing system in highly irradiated environments is a challenging task. Sampling systems with multiple sensing lines are considered to be the most reliable way, but their cost per sensing point is relatively high. 
 
 Over the years, capacitive sensors have been widely used in many industrial applications, but their susceptibility to radiation does not qualify them as appropriate and reliable sensors for long-term \gls{STS} operation~\cite{Kapic, capacitive_irrad, Berruti}. The sensor internal electronic circuit is its most vulnerable part~\cite{SHCHEMEROV20222871}.
 

@@ -16,7 +16,7 @@ To achieve precise particle position the electrodes can be segmented into strips
 \caption{The segmented electrode enables defining the particle position (left)~\cite{Sokolov:2006vdx}. The right scheme depicts the strips oriented at a small angle $\alpha$, which aims to reduce fake hits~\cite{Spieler}.}
 \label{fig_si}
 \end{figure}
-\newpage
+
 
 The operation principle of semiconductor-based devices is related to the fact that the charged particles traversing the volume of the detector may ionize it. %The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
 %\begin{equation}
@@ -104,7 +104,7 @@ for different detector types~\cite{Moll:1999kv}.}
 % Information about the sensors used in the upper one
 \textbf{Depletion Voltage}\bigbreak
 
-Radiation-induced defects in detectors can alter their effective doping, leading to changes in the space charge within the material. Initially, n-type silicon detectors doped with phosphorus or arsenic act as donors. However, irradiation reduces the effective n-doping until the remaining donor states match the number of acceptor states, resulting in intrinsic behavior. With further irradiation, the newly formed defects act as acceptors, causing space charge inversion and p-doping. The accumulation of acceptor-like defects leads to a linear increase in negative space charge. It's important to note that the specific behavior vary depending on the detector material and radiation exposure. 
+Radiation-induced defects in detectors can alter their effective doping, leading to changes in the space charge within the material. Initially, n-type silicon detectors doped with phosphorus or arsenic act as donors. However, irradiation reduces the effective n-doping until the remaining donor states match the number of acceptor states, resulting in intrinsic behavior. With further irradiation, the newly formed defects act as acceptors, causing space charge inversion and p-doping. The accumulation of acceptor-like defects leads to a linear increase in negative space charge. It's important to note that the specific behavior varies depending on the detector material and radiation exposure~\cite{Momot:2019lnx, Hartmann:2017gzy}. \bigbreak
 
 \textbf{Signal-to-noise ratio and Charge Collection Efficiency }\bigbreak
 Signal-to-noise ratio and CCE are two very important factors characterizing the detector. The noise level can be controlled by operating the detector at low temperatures or by limiting the exposition to electromagnetic interference. On the other hand, the CCE of non-irradiated sensors is assumed to be $100\%$. The CCE after the irradiation could be defined as the ratio
@@ -144,7 +144,6 @@ The modules are produced in 166 variants, which differ in sensor size, micro-cab
 The stations are placed inside a thermally insulated box that resides in a dipole magnet gap. During \gls{STS} operation, the temperature inside the enclosure will be gradually decreased with the increasing radiation damage to the silicon sensors, to minimize thermal runaway~\cite{Spieler}. The largest amount of heat is dissipated by the low-voltage powering of the electronics and not the sensors themselves. Hence, effective cooling is needed to address this problem.
 The temperature of about \SI{-10}{\celsius} will ensure a safe performance (away from the thermal runaway\footnote{Thermal runaway occurs when the power dissipation of a device increases rapidly with temperature, and it is impossible to evacuate the excess heat.} temperatures) of the semiconductor sensors and minimize the contribution of the shot noise~\cite{Spieler}. The low ambient temperature also sets hard limits on the frost point inside the STS enclosure. As the coolant temperatures might reach down to \SI{-40}{\celsius}, the frost point needs to be below \SI{-45}{\celsius} at all times. 
 
-\newpage
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1\columnwidth]{Chapter2/images/assembly_sequence.png}
@@ -226,7 +225,7 @@ The dimensions of the \gls{FEB} are tightly constrained due to the limited space
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.55\columnwidth]{Chapter2/images/feb_box_1.png}
-\caption{A simplified CAD drawing of the \gls{FEB} box. The box contains 5 cooling shelfs.}
+\caption{A simplified CAD drawing of the \gls{FEB} box. The box contains 5 cooling shelfs screwed to the base of the cooling plate.}
 \label{feb_box}
 \end{figure}
 
@@ -284,13 +283,13 @@ The Common Readout Interface (\gls{CRI}) is a PCIe card\footnote{PCIe card refer
 \label{fig_cri_board}
 \end{figure}
 
-
+\newpage
 \subsection{Alternative readout chains}
 \label{tester}
 There are two alternative readout chains implemented for testing purposes towards the realization of \gls{STS}. The first readout chain is based on the Data Processing Board (\gls{DPB} is a \gls{FPGA} based board), \glspl{ROB}. The second type of readout chain is GBTxEMU-based. It is an alternative low-cost readout chain that can be used for
 low-performance setups, e.g., for testing and quality assurance. \bigbreak
 
-\newpage
+
 \textbf{Data Processing board based chain}\bigbreak
 
 

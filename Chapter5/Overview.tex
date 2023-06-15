@@ -40,7 +40,7 @@ where log refers to the logarithm base $10$, $e_{s}$ is the saturation water vap
 
 These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}
 \begin{equation}
-    e^{*}_{s} = c*e^{(aT/(b+T))},
+    e^{*}_{s} = c \cdot e^{(aT/(b+T))},
 \end{equation}
 where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$) to the equilibrium vapor pressure over the water plane ($e^{*}_{s}$)
 \begin{equation}
@@ -49,7 +49,7 @@ where \gls{RH} is usually defined as the ratio of the water vapor pressure ($e$)
 \end{equation}
 Based on the parameters approximations by Sonntag ($c=6.11$\,hPa, $a=17.62$, $b=243.12$\,\SI{}{\celsius}) \cite{magnus}, the formula converges to
 \begin{equation}
-    e^{*}_{s} = 6.112*e^{(17.62T/243.12)}.
+    e^{*}_{s} = 6.112 \cdot e^{(17.62T/243.12)}.
     \label{eq:pressure}
 \end{equation}
 The dew formation corresponds to the equation
@@ -89,8 +89,7 @@ In each system, we assume that measuring dew point temperature or relative humi
 
 Nowadays, electronic humidity sensors are commonly used in industry, scientific research facilities, and civil infrastructure. In general, we can classify the sensors based on their operating principle - changes in current, voltage, weight, or conductivity can be subsequently associated with humidity changes if the underlying detection principles relate to interaction with water. Resistive and capacitive sensors represent over $75$\% of all the sensors used today. As the names indicate, their working principles are based on resistance and capacitance changes, respectively.
 
-
-The efforts to employ miniaturized sensors in \gls{HEP} experiments have been ongoing for many years. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case-specific study related to \gls{HEP} is summarized in~\cite{Kapic}.
+The efforts to employ miniaturized sensors in \gls{HEP} experiments have been ongoing for many years. A general review of the dew point and relative humidity sensing techniques was presented in~\cite{RITTERSMA}. On the other hand, a more recent overview with a case-specific study related to \gls{HEP} is summarized in~\cite{Kapic}. 
 
 The two most challenging requirements in the case of \gls{STS} are radiation hardness and insensitivity to the magnetic field. Radiation can affect sensor materials in different ways depending on their type, rate of interaction, and material composition. Sensor structures are affected by radiation due to modifications to their lattice structures. For example, capacitive sensors like HIH3610~\cite{HIH3610} and HIH4030~\cite{HIH4030} tested in CERN turned out to be critically damaged after irradiation~\cite{Berruti}. It was also recently reported that capacitive sensors from IST AG~\cite{MK33} have a linear response to the radiation (what can be corrected~\cite{Kapic_sensor}). Employing such sensors in a \gls{HEP} experiment, especially in a tracker surrounded by a magnet, raises questions about the sensitivity to the magnetic field~\cite{Berruti}. 
 
@@ -105,7 +104,7 @@ The capacitive sensors, in the simplest form, can be made out of two parallel pl
 \begin{equation}
 C = \epsilon_{r}\epsilon_0\frac{A}{d},
 \end{equation}
-where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constants, A is the plate surface area and d is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
+where the $\epsilon_{r}$ and $\epsilon_{0}$ are the relative and vacuum permittivity constants, $A$ is the plate surface area and $d$ is the plate distance. If the humidity changes can be associated with the changes of one of the parameters, the \gls{RH} can be therefore calculated. 
 The capacitive \gls{RH} sensors can measure below \SI{0}{\celsius}, they are fairly miniaturized and insensitive to pressure changes. The main drawbacks of these sensors are listed below:
 \begin{itemize}
     \item Limited long-term stability

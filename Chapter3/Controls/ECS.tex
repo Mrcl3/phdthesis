@@ -6,13 +6,16 @@ Experiments like \gls{CMS}, use a trigger to \cite{CMS-DAQ} reduce the amount of
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.65\columnwidth]{Chapter3/Controls/images/online.png}
+\includegraphics[width=0.7\columnwidth]{Chapter3/Controls/images/online.png}
 \caption{General schematics of the CBM readout systems without detector detector-specific systems.}
 \label{fig_controls}
 \end{figure}
 
-\newpage
-The readout hardware is connected to the computing farm via custom-developed optical links that manage clock and time distribution, data transfer, and control communication. The Common Readout Interface (\gls{CRI}) connects the links to the online farm. The \gls{CRI} forwards the clock and time information obtained from the Timing and Fast Control (\gls{TFC}) system to the detector \gls{FEE}, and also converts the data received from the detector. Figure~\ref{fig_controls} shows the schematic view of the controls and data acquisition chain of the \gls{CBM} experiment. The Experiment Control System (\gls{ECS}) highlighted in red is also the supervisory structure of the Detector Control System (\gls{DCS}) which controls and monitors the subsystems. The next sections focus on the software components related to the \gls{ECS}, and a detailed explanation of the experiment control with its design. The main focus of the recent work is put on the \gls{DCS}. An introduction to the modern control system frameworks is given, together with a detailed explanation of the functionalities of the specific software components. 
+
+The readout hardware is connected to the computing farm via custom-developed optical links that manage clock and time distribution, data transfer, and control communication. The Common Readout Interface (\gls{CRI}) connects the links to the online farm. The \gls{CRI} forwards the clock and time information obtained from the Timing and Fast Control (\gls{TFC}) system to the detector \gls{FEE}, and also converts the data received from the detector. Figure~\ref{fig_controls} shows the schematic view of the controls and data acquisition chain of the \gls{CBM} experiment. 
+
+\newpage 
+The Experiment Control System (\gls{ECS}) highlighted in red is also the supervisory structure of the Detector Control System (\gls{DCS}) which controls and monitors the subsystems. The next sections focus on the software components related to the \gls{ECS}, and a detailed explanation of the experiment control with its design. The main focus of the recent work is put on the \gls{DCS}. An introduction to the modern control system frameworks is given, together with a detailed explanation of the functionalities of the specific software components. 
 %\newpage
 \section{Controlling the CBM experiment}
 

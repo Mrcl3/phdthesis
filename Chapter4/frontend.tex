@@ -10,7 +10,7 @@ All the applications in figure~\ref{fig_dcs_node_msts} applications were used as
 \caption{Services used in addition to Phoebus functionalities, together forming a full-blown control system.}
 \label{fig_dcs_node_msts}
 \end{figure}
-\newpage
+
 \subsection{Control System Studio and Phoebus}
 
 Control System Studio (\gls{CSS}) consists of open-source Java applications and modules which can be used in constructing a control system. Phoebus is an update to the \gls{CSS}, and significantly improves its performance by removing dependencies on Eclipse RCP. Phoebus uses both channel access protocol and \gls{PV} access, and it offers graphically based applications to access \gls{EPICS} \glspl{PV}, \glspl{OPI}, \glspl{PV} history, etc. An example of a chiller \gls{GUI} is depicted in figure~\ref{fig_lauda1}. One of the main features of Phoebus is its modular nature. Users can develop and add their products, or just include or exclude applications or configurations. 
@@ -22,7 +22,7 @@ Control System Studio (\gls{CSS}) consists of open-source Java applications and 
 \caption{An example of a detector system \gls{GUI} for a cooling unit.}
 \label{fig_lauda1}
 \end{figure}
-
+\newpage
 \subsection{Solutions for archiving the data} \label{archiver}
 Archiver serves as one of the main building blocks of the \gls{DCS}, as it allows not only to look up the history of a given record but also to download and post-process the data. Archivers make use of the publish/subscribe logic, updating the values on change. In general, the archiver must run smoothly, without significant downtime, and the linked database and other clients should also have a stable connection. A primary choice for \gls{STS} is the so-called Archiver Appliance~\cite{archiver_appliance}. An example of the archiver appliance is divided into short-term storage, medium-term storage, and long-term storage. In principle, a system administrator can adjust these settings to the needs of the specific case. The  four Tomcat containers\footnote{An Open source web server by the Apache foundation.} are employed to handle the tasks of the archiver.  
 %\begin{figure}[!h]

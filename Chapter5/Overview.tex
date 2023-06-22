@@ -5,17 +5,17 @@ The research conducted for the \gls{STS} focused on designing and testing differ
 \section{Sensors requirements}
 
 The design of the \gls{STS} \cite{Heuser:54798} defines the requirements for potential ambient sensors. As described in Section~\ref{STS}, the ambient temperature will reach \SI{-10}{\celsius} and the cooling liquid (3M NOVEC 649) will be circulating at temperatures close to~\SI{-40}{\celsius}. Therefore, the first boundary condition arises: the frost point and the dew point inside the \gls{STS} have to be below~\SI{-40}{\celsius} to avoid ice formation or condensation on the \gls{FEE}.
-During the detector commissioning, the temperatures will be higher, and relative humidity (\gls{RH}) can be measured more accurately\footnote{performance of the commercial RH sensors usually decreases below \SI{0}{\degree}}. 
+During the detector commissioning, the temperatures will be higher, and relative humidity (\gls{RH}) can be measured more accurately\footnote{Performance of the commercial RH sensors usually decreases below \SI{0}{\degree}.}. 
 %One of the most common techniques to achieve the frost points below~\SI{-40}{\celsius} is baking. In the case of the silicon tracker, too high temperatures could destroy the~\gls{FEE}. 
 
 During the detector lifetime ($10$ years), there will be few opportunities to perform any upgrades. Therefore, the sensors have to withstand the radiation accumulated during that period (about 10kGy). As few sensors will be placed in the vicinity of the beam pipe, the total dose could reach more than $10$\,kGy~\cite{Heuser:54798}. The humidity measurements will be distributed, implying that different sensors may face different doses. 
 The sensors have to be insensitive to the magnetic field of \SI{1}{\tesla\metre} since the whole detector resides in a dipole magnet.  An ideal humidity sensor should also meet the following requirements:
 \begin{itemize}
-    \item small dimensions and mass (especially when placed close to the active area of the system),
-    \item accurate (up to $3$\%) relative humidity readouts at temperatures down to~\SI{-20}{\celsius}, 
-    \item respond to a wide range of \gls{RH} values from $0$\% to $80$\%,
-    \item high repeatability and low hysteresis,
-    \item reliable operation across long distances (the readout device will be at least~\SI{20}{\metre} away from the detector).
+    \item Small dimensions and mass (especially when placed close to the active area of the system).
+    \item Accurate (up to $2$\%) relative humidity readouts at temperatures down to~\SI{-20}{\celsius}.
+    \item Respond to a wide range of \gls{RH} values from $0$\% to $80$\%,
+    \item high repeatability and low hysteresis.
+    \item Reliable operation across long distances (the readout device will be at least~\SI{20}{\metre} away from the detector).
 \end{itemize}
 
 On the other hand, due to overpressure conditions inside the \gls{STS} enclosure, a low response time (seconds) is not necessarily needed, which is discussed in the next sections of this chapter. In terms of detector safety and implementation of the sensors readouts in the hardware and software interlocking, the time response up to minutes is considered to be acceptable. 
@@ -36,7 +36,7 @@ The first documented formula for vapor pressure (over water and over ice) was in
     &+ d(10^{-3.49149(T_{st}/T - 1} -1) + \log(e^{*}_{st}),
 \end{split}
 \end{equation}
-where log refers to the logarithm base $10$, $e_{s}$ is the saturation water vapor pressure~(hPa), $a$ to $d$ are constants; $a = - 7.90$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,\mathrm{hPa}$), and $T_{st}$ is the boiling point (at $1$\,atm) temperature ($373.15$\,K). A similar equation can also be formulated for the vapor pressure over ice. 
+where log refers to the logarithm base $10$, $e_{s}$ is the saturation water vapor pressure~(hPa), $a$ to $d$ are constants; $a = - 7.9$, $b=5.03$, $c=1.38\times10^{-7}$, $d=1.38\times10^{-7}$, $e^{*}_{s}$ is the stream-point pressure ($1013.246\,\mathrm{hPa}$), and $T_{st}$ is the boiling point (at $1$\,atm) temperature ($373.15$\,K). A similar equation can also be formulated for the vapor pressure over ice. 
 
 These equations marked the first attempts to formulate a highly accurate description of water dynamics in the air. The Magnus formula is easier to implement than Equation~\ref{gratch} and allows converting between the saturation vapor pressure and temperature with a minimal error~\cite{magnus}
 \begin{equation}
@@ -149,7 +149,7 @@ The studied sensors are much cheaper than custom trace humidity measurement syst
 \label{FOS}
 
 Fiber optic sensors-based (\gls{FOS}) system usually consists of three main components an optical source, transducer, and detector. In general, the sensing principle relies on modifying one or more properties of light (most commonly a laser, diode, or LEDs are employed as the optical sources) passing through a transducer which is located inside the fiber. A schematic view of a sensing setup is presented in Figure~\ref{fig:sensing}. Distributed sensing or even continuous sensing offers a unique opportunity for many sensing points in one fiber~\cite{GRATTAN200040}. 
-\newpage
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\columnwidth]{Chapter5/images/sensing.png}
@@ -164,12 +164,12 @@ The main efforts were concentrated on a technology called Fiber Bragg Grating~(\
 Fiber optic sensors have notable advantages in comparison to conventional sensors:
 
 \begin{itemize}
-    \item fibers can be insensitive to radiation or have predictable behavior,
-    \item magnetic field insensitive,
-    \item good signal transmission over long distances,
-    \item multiplexing capabilities (see figure~\ref{fig:sensing}),
-    \item immunity to electrostatic and electromagnetic interference,
-    \item resistant to harsh conditions - the sensors are completely passive elements, hence they offer long durability.
+    \item Fibers can be insensitive to radiation or have predictable behavior
+    \item Magnetic field insensitive
+    \item Good signal transmission over long distances
+    \item Multiplexing capabilities (see figure~\ref{fig:sensing})
+    \item Immunity to electrostatic and electromagnetic interference
+    \item Resistant to harsh conditions - the sensors are completely passive elements, hence they offer long durability
 \end{itemize}
 
 On the other hand, \gls{FOS} are difficult to integrate with hardware interlocks. Handling and installation of the sensors might be more challenging due to the risk of damaging the fiber or the sensor. 

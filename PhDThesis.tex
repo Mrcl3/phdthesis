@@ -1,6 +1,6 @@
 \newcommand{\mycomment}[1]{}
 
-\let\cleardoublepage\clearpage
+%\let\cleardoublepage\clearpage
 \documentclass[paper=a4,%
                fontsize=11,%
                twoside,%
@@ -57,6 +57,7 @@
 \usepackage[nottoc,numbib,notlot]{tocbibind}
 \usepackage{multirow}
 \usepackage{multicol}
+\usepackage{float}
 \usepackage{url}
 \usepackage{float}
 \usepackage{csquotes}
@@ -66,6 +67,7 @@
 \makeglossaries
 \loadglsentries{glo.tex}
 \usepackage{tikz}
+\interfootnotelinepenalty=10000
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{graphicx}
@@ -87,7 +89,13 @@
 
 \usepackage{xcolor}
 \usepackage{charter}
+\usepackage{afterpage}
 
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
 
 \addtokomafont{disposition}{\selectfont\color{black}}
 \usepackage{addfont}
@@ -221,10 +229,10 @@
 \input{Titlepage.tex}
 
 \input{backpage.tex}
-\newpage
+
 % --------------------------------
-\thispagestyle{empty}
-%\clearpage
+%\thispagestyle{empty}
+\clearpage
 \begin{center}
 
 \hspace{0pt}
@@ -238,7 +246,21 @@
 \vfill
 \hspace{0pt}
 \end{center}
-%\pagebreak
+
+\blankpage
+\newpage 
+\thispagestyle{empty}
+
+\ % The empty page
+
+\newpage
+\newpage 
+\thispagestyle{empty}
+\vspace*{\fill}
+\hfill\emph{to my family}
+\ % The empty page
+
+\newpage
 %--------------------------------
 \input{ToC.tex}
 \chapter{Abstract}
@@ -308,6 +330,11 @@
 %\clearpage
 
 \printglossaries
+
+\clearpage
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+
 \input{Documents/acnowledgements.tex}
 
 %\addchap{Curriculum Vitae}

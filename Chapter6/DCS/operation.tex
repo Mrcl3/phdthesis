@@ -120,7 +120,7 @@ The \gls{mSTS} \gls{DCS} is a fairly automatized system, in which monitoring and
   \label{power}
     P = V\cdot I,
 \end{equation}
-where V and I are the voltage change and current. Figure \ref{fig_power_scheme} depicts the powering scheme of a \gls{FEB}. Table~\ref{tab:distribution} contains the power dissipation values for different elements of the powering scheme in the function of the \gls{CSA} registers values for measurements conducted with a separate pair of \glspl{FEB}. The two mentioned \glspl{FEB} were powered directly using a \gls{LV} power supply (R\&S~HMP4040~\cite{RS}). The power dissipation estimations for the distribution lines and the DC/DC converters were performed based on the assumed efficiency of $80$\%. This efficiency drops to $65$\% at \SI{10}{\celsius} with currents approaching the device output limit ($3\,A$).  Another assumption was also made for the voltage drop in the \gls{LDO} regulators of $0.6$\,V. 
+where V and I are the voltage change and current. Figure \ref{fig_power_scheme} depicts the powering scheme of a \gls{FEB}. Table~\ref{tab:distribution} contains the power dissipation values for different elements of the powering scheme in the function of the \gls{CSA} registers values for measurements conducted with a separate pair of \glspl{FEB}. The two mentioned \glspl{FEB} were powered directly using a \gls{LV} power supply (R\&S~HMP4040~\cite{RS}). The power dissipation estimations for the distribution lines and the DC/DC converters were performed based on the assumed efficiency of $80$\%. This efficiency drops to $65$\% at \SI{10}{\celsius} with currents approaching the device output limit ($3$\,A).  Another assumption was also made for the voltage drop in the \gls{LDO} regulators of $0.6$\,V. 
  
  In this case, due to the settings of the \glspl{ASIC} the currents for the digital line were slightly higher than expected values for the operation - around $2.3$\,A instead of $1.9$\,A. The current of analog lines (two $1.2$\,V LDO regulators) is mostly defined by the \gls{CSA} register values, and in this case, varied from $1.4$\,A to $4.1$\,A.  The voltage drop of every element in the distribution lines could not be accurately determined. Hence, the calculations were made for the distribution lines based on the currents measured for the \glspl{FEB} and they can not be considered as a reference. A detailed description of the powering scheme can be found in section~\ref{module}.
 
@@ -259,7 +259,7 @@ Temperature sensors (PT100) are also used to monitor the temperature on the powe
 \label{fig_POB1}
 \end{figure}
 
-Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on unit $2$. Unit $2$ features $2$ modules, $4 $\gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about $1.6$\,A at constant $10.5$\,V), in comparison to the \gls{ROB} which is powered with $7$\,V and consumes about $0.8$\,A. This is, most likely, related to the better contact of the \gls{FEB} box to the cooling plate.
+Additionally, the temperature on the \gls{ROB} and \gls{FEB} was monitored, as depicted in Figure~\ref{fig_robvsfeb}. Interestingly, the temperature on the \gls{ROB} is higher than the temperature on the \gls{FEB} box on unit $2$. Unit $2$ features $2$ modules, $4$ \gls{FEB}s (+ pulser board) in the \gls{FEB} box (each drawing about $1.6$\,A at constant $10.5$\,V), in comparison to the \gls{ROB} which is powered with $7$\,V and consumes about $0.8$\,A. This is, most likely, related to the better contact of the \gls{FEB} box to the cooling plate.
 
 \begin{figure}[!h]
 \centering
@@ -372,6 +372,7 @@ Linear behavior of the current-voltage characteristics from Figure~\ref{fig_IV} 
 \caption{IV curves of another silicon sensor measured by the vendor before shipping, before the assembly, and then after it.} 
 \label{fig_IV_good}
 \end{figure}
+\newpage
 \subsection{Data rates and leakage current}
 Data rates from subsystems contain essential information about the detector performance. Figure~\ref{fig_data_rates_Ag} shows an example of the \gls{mCBM} Au+Au system ($T= 1\,\mathrm{AGeV}$) and later with Ni+Ni system, due to reaching the maximum data transfer (without the \gls{mSTS} detector). Data rates are clearly correlated with the beam intensity. Regardless of the beam intensities, \gls{mSTS} (with the chosen settings) is responsible for more than half of the total data. During the beam intensities of $10^{8}$ ions/s, \gls{mSTS} data rate was around 500 MB/s, and with the maximum beam intensities, it scaled up $2000$\,MB/s, reaching the limits of the data transmission for a \gls{FEB} $8$ with $2$ uplinks per \gls{ASIC}. 
 \begin{figure}[H]

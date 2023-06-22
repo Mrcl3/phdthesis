@@ -8,7 +8,7 @@ This chapter aims to present an introduction to silicon-based detector systems a
 \section{Fundamentals of the silicon detector}
 Semiconductor diodes operated with reverse bias voltage can be considered ionization chambers, which feature a pair of electrodes and applied external voltage. The particles passing through the volume of a sensor lose their energy by producing electron and hole pairs. The charge is retrieved by one or more electrodes. The analog signals are converted into digital ones, processed, and analyzed.
 
-To achieve precise particle position the electrodes can be segmented into strips. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. To achieve the two-dimensional information, the second electrode strips have usually an inclination of a few degrees. Hence, the contribution of fake ghost hits is minimized.  
+To achieve precise measurement of particle position the electrodes can be segmented into strips. To address this problem, the electrodes can be segmented into strips. Figure~\ref{fig_si} shows an example of implementing segmented electrodes to determine the particle position. To achieve the two-dimensional information, the second electrode strips have usually an inclination of a few degrees. Hence, the contribution of fake ghost hits is minimized.  
 
 \begin{figure}[!h]
 \centering
@@ -18,7 +18,7 @@ To achieve precise particle position the electrodes can be segmented into strips
 \end{figure}
 
 
-The operation principle of semiconductor-based devices is related to the fact that the charged particles traversing the volume of the detector may ionize it. %The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
+The operation principle of semiconductor-based devices is related to the fact that the charged particles traversing the volume of the detector may ionize it (creating electron hole pairs). %The mean value of the energy loss in the medium is given by the Bethe-Bloch formula:
 %\begin{equation}
 %-\dfrac{\mathrm dE}{\mathrm dx} = 4 \pi N_{a} r_{e}^{2} m_{e} c^{2} z^{2}  \dfrac{Z}{A} \frac{1}{\beta^{2}} \left[ \frac{1}{2}\ln(\frac{2m_{e}\gamma^{2}c^{2} T_{max}}{I^{2}}) - \beta^{2} -  \frac{\delta(\gamma)}{Z}\right]
 %\end{equation}
@@ -29,7 +29,7 @@ The sensitive volume of a silicon sensor produces an average charge given by
 \begin{equation}
     Q_{s} = \frac{E}{E_{i}}e,
 \end{equation}
-where E is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the band gap of the semiconductor so that the electron can move to the conduction band. The silicon has a band gap of \SI{1.12}{\eV}. Nevertheless, the average ionization energy for silicon is about \SI{3.6}{\eV}. This effect is related to the fact that only about $30\%$ of the particle energy is converted into an electrical signal, and the rest goes into phonon excitation (lattice vibrations). A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around $25000$ electron-hole pairs.
+where $E$ is the absorbed energy, $E_{i}$ is the energy required to form a charge pair. The energy needs to be greater than the band gap of the semiconductor so that the electron can move to the conduction band. The silicon has a band gap of \SI{1.12}{\eV}. Nevertheless, the average ionization energy is about \SI{3.6}{\eV}. This effect is related to the fact that only about $30\%$ of the particle energy is converted into an electrical signal, and the rest goes into phonon excitation (lattice vibrations). A typical charge deposition by a minimum ionizing particle in a \SI{300}{\micro\metre} thick wafer is around $25000$ electron-hole pairs.
 
 Considering a simple example if a sensor had about $\sim10^{9}$ thermally produced free charge carriers\footnote{Electrons or holes introduced to the conduction (valence) band by doping.}, but a passing charged particle would generate only $\sim2\times10^{4}$ electrons-hole pairs. Such a signal would be lost in the remaining free-charge carriers. There are two ways to address this problem, either by cooling the sensor to very low temperatures or depleting the silicon volume of free-charge carriers. The depletion process of a pn-junction requires applying an external voltage so that the sensor is fully depleted~\cite{Spieler}. This external voltage $V$ disturbs the equilibrium of spontaneous generation and recombination of electrons/holes. It increases the potential barrier of the pn-junction and the depletion width. 
 
@@ -54,7 +54,7 @@ where the drift velocity $v_{n,p}$ depends on the mobility of the holes and elec
 \section{Radiation damage to the silicon sensors}
 \label{silicon_damage}
 % Annealing after radiation damage
-To understand the properties of the silicon sensor after irradiation, it is necessary to consider the damage caused to the lattice by the particles and the process called annealing. Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor (usually forming $\mathrm{SiO_{2}-Si}$ interface states~\cite{Moll:1999kv}. Displaced atoms form defects, which introduce new levels in the band gap, therefore changing the properties of the semiconductor. It results in the increase of the dark current, change of depletion voltage, and decrease of Charge Collection Efficiency (\gls{CCE}). In practice, the damage depends on the particle interacting with the sensors and its energy. Figure~\ref{fig_niel_si} describes the behavior of displacement damage for different particles and their energies.  
+To understand the properties of the silicon sensor after irradiation, it is necessary to consider the damage caused to the lattice by the particles and the process called annealing. Radiation damage can be divided into two main groups: displacement damage and ionization damage. The first mentioned phenomenon is related to the incident particles displacing the silicon atoms from their position in the lattice. The ionization damage occurs in the insulating layers of the sensor (usually forming $\mathrm{SiO_{2}-Si}$ interface states)~\cite{Moll:1999kv}. Displaced atoms form defects, which introduce new levels in the band gap, therefore changing the properties of the semiconductor. It results in the increase of the dark current, change of depletion voltage, and decrease of Charge Collection Efficiency (\gls{CCE}). In practice, the damage depends on the particle interacting with the sensors and its energy. Figure~\ref{fig_niel_si} describes the behavior of displacement damage for different particles and their energies.  
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter2/images/displacement_damage.png}
@@ -66,7 +66,7 @@ plotted relative to 1\,MeV neutrons~\cite{Spieler}.}
 Annealing can be described as the combination of various effects, such as the movement of particles or defects through the lattice structure, the rearrangement, or break-up of defects, and the interaction between defects as they propagate. Silicon sensors annealing is a process used to reduce the leakage current of silicon sensors. This process involves heating the sensors to a very high temperature for an extended period of time, allowing the bonds between the atoms in the silicon lattice to become more stable and reduce the amount of current flowing through the device. The annealing process also helps to reduce the amount of noise generated by the sensor, as well as improve its temperature stability. \bigbreak
 
 \textbf{Leakage current}\bigbreak
-Production of additional mid-gap levels is the major contributor to the increase of leakage current during the radiation. It was also found in a number of experiments that the sensor leakage current is related to the fluence as follows
+Production of additional mid-gap levels is the major contributor to the increase of leakage current during the radiation. It was found in a number of experiments that the sensor leakage current is related to the fluence as follows
 \begin{equation}
 \label{eq:fluence}
     I_{d} = I_{0} + \alpha \phi Ad,
@@ -77,7 +77,7 @@ where $I_{0}$ is the leakage current before the irradiation, $\alpha$ is a damag
     I(T) \propto T^{2}e^{\frac{-E}{2kT}},
 \end{equation}
 where $T$ is the temperature, $k$ is the Boltzmann constant and $E$ is the band gap energy. 
-If the temperature of the silicon sensors is known, then it is possible to normalize the leakage current to a predefined value (e.g., \SI{20}{\celsius}). It allows for comparing the leakage current of sensors before and after irradiation, even though the ambient conditions were different. 
+If the temperature of the silicon sensors is known, then it is possible to normalize the leakage current to a predefined value (e.g., \SI{20}{\celsius}). It allows comparing the leakage current of sensors before and after irradiation, even though the ambient conditions were different. 
 
 It allows us to scale down leakage current to $20\,^{\circ}$C using the equation \ref{Sil:scal}.
  
@@ -122,12 +122,12 @@ The physics observables together with the foreseen accelerator energy and beam i
 
 In order to achieve physics goals, \gls{STS} has to address the following:
 \begin{itemize}
-    \item  aperture - the aperture of the whole experiment is set to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}.
-    \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y.
-    \item single-hit efficiency - the detector layer should provide almost $100\%$ detection efficiency. The signal-to-noise\footnote{Ratio of the most probable signal amplitude for a minimum ionizing particle divided by the mean root square of the single strip noise.} ratio needs to be above 10. Having that, the track reconstruction efficiency should exceed $95\%$ for particle momenta larger than \gevc{1}. 
-    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim of minimizing multiple scattering. It is achieved by placing the electronics, mechanical infrastructure, and cooling outside the active area. For the \gls{STS} the momentum resolution better than $2\%$ is required, which will be achieved by placing the \gls{STS} in a $1\,\mathrm{Tm}$ dipole magnet.
-    \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of $10^{14}\,\mathrm{neutrons/cm^{2}~(1\,MeV n_{eq})}$. It was confirmed that after receiving twice the mentioned dose the CCE decreases by up to 20\%. The total dose of \kgy{12} is expected only for the $5 - 10\%$ sensors in the innermost region of the detector after $10$ years of operation, 2 months per year of \agev{10} Au+Au collisions at \mhz{10} interaction rate~\cite{Heuser:54798}.
-    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (\mhz{10}/$\mathrm{cm^{2}}$ define the requirements for the readout system (signal shaping time, number of readout channels, etc.).
+    \item  aperture - the aperture of the whole experiment is set to cover polar angles from \SI{2}{\degree} up to \SI{25}{\degree}~\cite{Heuser:54798}.
+    \item spatial resolution - a single-hit resolution of about \SI{20}{\micro\metre} in X direction and \SI{120}{\micro\metre} in Y~\cite{Heuser:54798}.
+    \item single-hit efficiency - the detector layer should provide almost $100\%$ detection efficiency. The signal-to-noise\footnote{Ratio of the most probable signal amplitude for a minimum ionizing particle divided by the mean root square of the single strip noise.} ratio needs to be above 10. Having that, the track reconstruction efficiency should exceed $95\%$ for particle momenta larger than \gevc{1}~\cite{Heuser:54798}. 
+    \item momentum resolution - it is mainly influenced by the material budget of the system. The \gls{STS} is designed with the aim of minimizing multiple scattering. It is achieved by placing the electronics, mechanical infrastructure, and cooling outside the active area. For the \gls{STS} the momentum resolution better than $2\%$ is required, which will be achieved by placing the \gls{STS} in a $1\,\mathrm{Tm}$ dipole magnet~\cite{Heuser:54798}.
+    \item radiation hardness - the silicon sensors and the electronics need to withstand the total dose of $10^{14}\,\mathrm{neutrons/cm^{2}}~(1\,\mathrm{MeV n_{eq})}$. It was confirmed that after receiving twice the mentioned dose the CCE decreases by up to 20\%. The total dose of \kgy{12} is expected only for the $5 - 10\%$ sensors in the innermost region of the detector after $10$ years of operation, 2 months per year of \agev{10} Au+Au collisions at \mhz{10} interaction rate~\cite{Heuser:54798}.
+    \item hit rates and readout - the hit rates of charged particles for the inner-most silicon sensors (\mhz{10}/$\mathrm{cm^{2}}$ define the requirements for the readout system (signal shaping time, number of readout channels, etc.)~\cite{Heuser:54798}.
 \end{itemize}
 
 
@@ -171,7 +171,7 @@ The use of microstrip silicon sensors has been demonstrated in many well-known e
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.75\columnwidth]{Chapter2/images/silicon_sensors.png}
-\caption{Left: An example of a sensor electrode segmented into strips inclined by a small angle. The shortest strips are interconnected with each other. Right: The silicon sensors to be used for the \gls{STS}. The width of the sensor is \SI{6.2}{\centi\metre} and there are 4 strip lengths: \SI{2.2}{\centi\metre}, \SI{4.2}{\centi\metre}, \SI{6.2}{\centi\metre}, \SI{12.4}{\centi\metre}~\cite{Heuser:54798}.}
+\caption{Left: An example of a sensor segmented into strips inclined by a small angle. The shortest strips are interconnected with each other. Right: Silicon sensors to be used for the \gls{STS}. The width of the sensor is \SI{6.2}{\centi\metre} and there are 4 strip lengths: \SI{2.2}{\centi\metre}, \SI{4.2}{\centi\metre}, \SI{6.2}{\centi\metre}, \SI{12.4}{\centi\metre}~\cite{Heuser:54798}.}
 \label{fig_sts_si}
 \end{figure}
 
@@ -180,7 +180,7 @@ The aluminum strips on the p-side of the sensors are inclined by \SI{7.5}{\degre
 \label{sts_module}
 The silicon sensor, the microcables together with the two \glspl{FEB} form a functional module of the \gls{STS}. The assembly is realized stepwise, where each step requires extensive testing of the components. Therefore, a laborious workflow was developed to address the complexity of the module assembly~\cite{carmen2}. 
 
-A module \glspl{ASIC} are powered using low-voltage supply lines. A high voltage supply for the silicon sensor biasing is realized using two separated coaxial lines for positive and negative voltage. The low-voltage powering is provided by dedicated power boards (\gls{POB}), which reside outside the detector acceptance. The \glspl{POB} are populated with DC-DC converters~\cite{DC_DC_converter} which provide the powering for \gls{FEE}. There are two flavors of the DC-DC converters used: 3\,V and 2.5\,V. As the voltage conversion efficiency is not 100\%, the heat produced in this process has to be evacuated. Hence, the \glspl{POB} are in thermal contact with the cooling plates. 
+A module \glspl{ASIC} are powered using low-voltage supply lines. A high voltage supply for the silicon sensor biasing is realized using two separated coaxial lines for positive and negative voltage. The low-voltage powering is provided by dedicated power boards (\gls{POB}), which reside outside the detector acceptance. The \glspl{POB} are populated with DC-DC converters~\cite{DC_DC_converter} which provide the powering for \gls{FEE}. There are two flavors of the DC-DC converters used: $3$\,V and $2.5$\,V. As the voltage conversion efficiency is not 100\%, the heat produced in this process has to be evacuated. Hence, the \glspl{POB} are in thermal contact with the cooling plates. 
 
 Upon completion of calibration and testing, the module together with the cooling fin is installed onto a carbon-fiber support structure (ladder). Up to ten modules form one ladder. Subsequently, the ladders are mounted on a C-frame, which accommodates a cooling structure. 
 \section{The readout chain of the STS}
@@ -192,7 +192,7 @@ The first layer of the \gls{STS} readout chain is a Front-End Board (\gls{FEB}) 
 
 The next element is the readout board (\gls{ROB}). It aggregates data from multiple \glspl{FEB} and sends it via optical links out of the detector enclosure to the Common Readout Interface (\gls{CRI}) board. Subsequently, the data is transported to a computing farm for online processing, the First Event Level Selector (\gls{FLES}). 
 
-In total, the \gls{STS} features roughly 14000 STS-XYTERs, 600 \glspl{ROB}. It requires not only extensive testing capabilities but also the possibility to handle a high data throughput. Given a typical average raw event size of roughly 50\,kB for minimum-bias Au+Au collisions, a peak collision rate of 10\,MHz results in an instantaneous raw data rate of about 500\,GB/s (for all the detector systems). Figure~\ref{fig_daq_schem} depicts the complete readout chain of the \gls{STS} at the \gls{CBM} experiment. 
+In total, the \gls{STS} features roughly $14000$ STS-XYTERs, $600$ \glspl{ROB}. It requires not only extensive testing capabilities but also the possibility to handle a high data throughput. Given a typical average raw event size of roughly $50$\,kB for minimum-bias Au+Au collisions, a peak collision rate of 10\,MHz results in an instantaneous raw data rate of about $500$\,GB/s (for all the detector systems). Figure~\ref{fig_daq_schem} depicts the complete readout chain of the \gls{STS} at the \gls{CBM} experiment. 
 
 \begin{figure}[!h]
 \centering
@@ -201,8 +201,7 @@ In total, the \gls{STS} features roughly 14000 STS-XYTERs, 600 \glspl{ROB}. It r
 \label{fig_daq_schem}
 \end{figure}
 
-There are two other readout chains that have been exercised for different detector development activities. The first option uses on Data Processing Board (\gls{DPB}), a precursor
-to the CRI-based readout. The second option is based on the GBTxEMU-based tester, which emulates the \gls{ROB}.
+There are two other readout chains that have been exercised for different detector development activities. The first option uses on Data Processing Board (\gls{DPB}), a precursor to the CRI-based readout. The second option is based on the GBTxEMU-based tester, which emulates the \gls{ROB}.
 
 
 \subsection{Front-end electronics and the readout ASIC}
@@ -212,13 +211,13 @@ A readout of a detector module is based on the two \glspl{FEB} (see Figure~\ref{
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.45\columnwidth]{Chapter2/images/feb_8_v2.pdf}
-\caption{Prototype design of a \gls{FEB} for reading out 1024 channels from a silicon sensor. There are 8 readout ASICs and four low dropout voltage regulators on the left. These active parts are covered by a protective glue called glob top.}
+\caption{Prototype design of a \gls{FEB} for reading out $1024$ channels from a silicon sensor. There are 8 readout ASICs and four low dropout voltage regulators on the left. These active parts are covered by a protective glue called glob top.}
 \label{fig_feb}
 \end{figure}
 
-The data load for the sensors will vary depending on their position in the detector. Each readout link of the \gls{FEB} has a bandwidth of about 320 Mb/s, therefore for the innermost sensors the \gls{FEB} has 5 readout links instead of 2 or 1. 
+The data load for the sensors will vary depending on their position in the detector. Each readout link of the \gls{FEB} has a bandwidth of about $320$ Mb/s, therefore for the innermost sensors the \gls{FEB} has $5$ readout links instead of $2$ or $1$. 
 
-The dimensions of the \gls{FEB} are tightly constrained due to the limited space inside the \gls{STS}. Hence, the dimensions of the \gls{FEB} are approximately \SI{3}{\centi\metre} by \SI{10}{\centi\metre}. The chips need also to be powered, which is achieved by the onboard linear voltage regulators (\gls{LDO} regulators). Each \gls{ASIC} has an analog (VDDM) and digital power domain that are powered by 1.2\,V and 1.8\,V \glspl{LDO}. The analog part is powered by 1.2\,V and 1.8\,V \glspl{LDO}, whereas the digital part is supplied from 1.8\,V \gls{LDO}.
+The dimensions of the \gls{FEB} are tightly constrained due to the limited space inside the \gls{STS}. Hence, the dimensions of the \gls{FEB} are approximately \SI{3}{\centi\metre} by \SI{10}{\centi\metre}. The chips need also to be powered, which is achieved by the onboard linear voltage regulators (\gls{LDO} regulators). Each \gls{ASIC} has an analog (VDDM) and digital power domain that are powered by $1.2$\,V and $1.8$\,V \glspl{LDO}. The analog part is powered by $1.2$\,V and $1.8$\,V \glspl{LDO}, whereas the digital part is supplied from $1.8$\,V \gls{LDO}.
 
 \glspl{FEB} are glued to aluminum fins, in order to achieve good thermal coupling. Subsequently, the fins are fixed to the base plate of the \gls{FEB} box (see Figure~\ref{feb_box}) before mounting them on a ladder. The \gls{FEB} boxes reside on cooling plates. The carbon composite, which is the interface between the fin and base plate, has an ultrahigh thermal conductivity. Therefore, the excess heat is efficiently removed by the coolant (NOVEC 649) which circulates through the cooling plate providing temperatures down to \SI{-40}{\celsius}. 
 
@@ -229,14 +228,13 @@ The dimensions of the \gls{FEB} are tightly constrained due to the limited space
 \label{feb_box}
 \end{figure}
 
-
-The characterization of the STS-XYTER ASICs is an extensive procedure that investigates the chip. Information about proper amplitude and time calibrations is necessary to interpret the data correctly. This represents an essential step before using the chip in the readout of the silicon sensors. The characterization procedures are intended to
-check many parameters that influence the \gls{FEB} performance. 
+\newpage
+The characterization of the STS-XYTER ASICs is an extensive procedure that investigates the chip. Information about proper amplitude and time calibrations is necessary to interpret the data correctly. It represents an essential step before using the chip in the readout of the silicon sensors. The characterization procedures are designed to check many parameters that influence the \gls{FEB} performance. 
 
 
 \subsubsection{Design of the STS-XYTER}
 
-The STS-XYTER (see Figure~\ref{sts_xyter}) is an integrated circuit designed for the readout of \gls{STS} and \gls{MUCH} consisting of 128 analog channels. One of the elements of the chip is a so-called low noise Charge Sensitive Amplifier (\gls{CSA}), which converts the collected charge into a voltage signal with an amplitude proportional to the charge. Subsequently, the signals pass through the Polarity Selection Circuit (\gls{PSC}) which allows measuring both polarities
+The STS-XYTER (see Figure~\ref{sts_xyter}) is an integrated circuit designed for the readout of \gls{STS} and \gls{MUCH}. It consists of $128$ analog channels. One of the elements of the chip is a so-called low noise Charge Sensitive Amplifier (\gls{CSA}), which converts the collected charge into a voltage signal with an amplitude proportional to the charge. Subsequently, the signals pass through the Polarity Selection Circuit (\gls{PSC}) which allows measuring both polarities
   of the detector signal with the same \gls{ASIC}. It makes the use of the \gls{ASIC} for double-sided silicon sensors feasible. Signal processing is distinguished into two paths: fast and slow. The first one is responsible for the determination of the timestamp and the second one has been adjusted for low noise discrimination and energy measurement with a 5-bit flash \gls{ADC}. When operating the \gls{ASIC} in self-triggered mode, hit information is saved and latched by the arrival of each signal using the information from the 5-bit continuous-time \gls{ADC} and the slow path. 
 
 \begin{figure}[!h]
@@ -246,9 +244,9 @@ The STS-XYTER (see Figure~\ref{sts_xyter}) is an integrated circuit designed for
 \label{sts_xyter}
 \end{figure}
 
-The digital back-end allows accessing registers and readout the data. It also provides measures to monitor the performance of the chip via i.e., upset counters, link error monitor, and diagnostic circuitry (temperature, VDDM potential, CSA bias value). The serial communication with the chip is based on a custom-developed Hit and Control Transfer Synchronous Protocol (STS-HCTSP) protocol~\cite{Kasinski_2016}. A detailed description of the STS-XYTER can be found in~\cite{RodriguezRodriguez2020}.
+The digital back-end allows accessing registers and reading out the data. It also provides measures to monitor the performance of the chip via i.e., upset counters, link error monitor, and diagnostic circuitry (temperature, VDDM potential, CSA bias value). The serial communication with the chip is based on a custom-developed Hit and Control Transfer Synchronous Protocol (STS-HCTSP) protocol~\cite{Kasinski_2016}. A detailed description of the STS-XYTER can be found in~\cite{RodriguezRodriguez2020}.
 
-STS-XYTER also features an internal monitoring circuit - a diagnostic circuit. It enables the measurement of several potentials inside the chip. By monitoring the analog powering domain (VDDM), temperature, it is possible to have a general understanding of the chip state without running extensive tests. The diagnostic circuit of the \glspl{ASIC} and the obtained results will be discussed in detail in Chapter 4.
+STS-XYTER also features an internal monitoring circuit - a diagnostic circuit. It enables the measurement of several potentials inside the chip. By monitoring the analog powering domain (VDDM), temperature, it is possible to have a general understanding of the chip state without running extensive tests. The diagnostic circuit of the \glspl{ASIC} and the obtained results will be discussed in detail in Chapter $4$.
 \subsubsection{Noise considerations for the detector module}
 Noise levels are among the most important parameters for the \gls{STS}. The contribution of noise becomes even more crucial in triggerless systems like the \gls{CBM} experiment. The noise hit is produced once it exceeds the set thresholds of the discriminator. It is digitized and constitutes the data together with the real hits. Too high noise levels may not only worsen the obtained data but also affect the performance of the \gls{DAQ} chain~\cite{Heuser:54798}.
 
@@ -271,7 +269,7 @@ The noise performance of a module provides an invaluable insight into the state 
 \subsection{Readout board and Common Readout Interface}
 
 The \gls{STS} readout board (\gls{ROB}) is a data concentrator board based on the radiation-tolerant GBTx ASIC and Versatile Link
-devices developed by CERN and others~\cite{Bonacini:1235849, C_2013}. The board is an interface between many electrical readout links (many \glspl{FEB}) and the \glspl{CRI} boards located outside the underground cavern of the \gls{CBM} experiment~\cite{Lehnert_2017}. It resides inside the \gls{STS} enclosure, which means that it will be exposed to high levels of ionizing particles. Therefore, it is built from radiation-hard components. The board is also thermally coupled to the cooling plate, which can reach a temperature down to \SI{-40}{\degree}. The \gls{ROB} needs to reliably work at changing temperature between \SI{-40}{\degree} and \SI{20}{\degree}. 
+devices developed by CERN and others~\cite{Bonacini:1235849, C_2013}. The board is an interface between many electrical readout links (many \glspl{FEB}) and the \glspl{CRI} boards located outside the underground cavern of the \gls{CBM} experiment~\cite{Lehnert_2017}. It resides inside the \gls{STS} enclosure, which means that it will be exposed to high levels of ionizing particles. Therefore, it is built from radiation-hard components. The board is also thermally coupled to the cooling plate, which can reach a temperature down to \SI{-40}{\celsius}. The \gls{ROB} needs to reliably work at changing temperature between \SI{-40}{\celsius} and \SI{20}{\celsius}. 
 
 The main building elements of the board are three \gls{GBT}x \glspl{ASIC} and a \gls{GBT} \gls{SCA2} \gls{ASIC}. Two of the \glspl{GBT}x \glspl{ASIC} act as slaves and are controlled via the mentioned \gls{SCA2}. 
 
@@ -293,7 +291,7 @@ low-performance setups, e.g., for testing and quality assurance. \bigbreak
 \textbf{Data Processing board based chain}\bigbreak
 
 
-Even though the final solution for the readout is the \gls{CRI} board, the Data Processing Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. For the control communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows simple and fast communication with \glspl{FPGA}.\bigbreak
+Even though the final solution for the readout is the \gls{CRI} board, the Data Processing Boards (\glspl{DPB}) were implemented for developing and testing purposes~\cite{Loizeau}. To control the communication with the \gls{DPB}, the IPbus protocol~\cite{ipbus} was chosen. It is a communication protocol based on Gigabit Ethernet (GbE) which allows simple and fast communication with \glspl{FPGA}.\bigbreak
 
 
 \textbf{Data acquisition chain based on GBTxEMU board} \bigbreak
@@ -317,12 +315,12 @@ The \gls{STS} performance is mainly determined by its ability to accurately reco
 \label{fig_cce}
 \end{figure}
 
-This problem can be addressed from a few different perspectives. Firstly, the noise levels of the newly produced modules should be as low as possible. It can be achieved using low-noise electronics and ensuring proper shielding from electromagnetic interference. The noise levels can also be adjusted by decreasing the temperature or annealing the sensors. Nevertheless, the latter has to be performed in a controlled fashion in order to avoid reverse annealing. Keeping the detectors at temperatures below \SI{0}{\celsius} eliminates the reverse term while largely preserving the beneficial one. During maintenance, the ambient temperature has to be raised in a controlled manner to take advantage of short-term annealing and to prevent any reverse effects~\cite{Hartmann:2017gzy}. Figure~\ref{fig_cce_temp} shows how the silicon sensor would behave after receiving up to $10\times10^{13}\,\mathrm{MeV n_{eq}cm^{-2}}$, what is considered to be the maximum dose that the \gls{STS} sensors will receive. According to this plot, the assumed signal-to-noise ratio of 10 can be achieved even if the sensor \gls{CCE} drops to 70\% if the temperature is kept at \SI{-10}{\celsius}.
+This problem can be addressed from a few different perspectives. Firstly, the noise levels of the newly produced modules should be as low as possible. It can be achieved using low-noise electronics and ensuring proper shielding from electromagnetic interference. The noise levels can also be adjusted by decreasing the temperature or annealing the sensors. Nevertheless, the latter has to be performed in a controlled fashion in order to avoid reverse annealing. Keeping the detectors at temperatures below \SI{0}{\celsius} eliminates the reverse term while largely preserving the beneficial one. During maintenance, the ambient temperature has to be raised in a controlled manner to take advantage of short-term annealing and to prevent any reverse effects~\cite{Hartmann:2017gzy}. Figure~\ref{fig_cce_temp} shows how the silicon sensor would behave after receiving up to $10\times10^{13}\,\mathrm{MeV n_{eq}cm^{-2}}$, what is considered to be the maximum dose that the \gls{STS} sensors will receive. According to this plot, the assumed signal-to-noise ratio of $10$ can be achieved even if the sensor \gls{CCE} drops to $70$\% if the temperature is kept at \SI{-10}{\celsius}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\columnwidth]{Chapter2/images/SN.png}
-\caption{Variation of the sensor temperature with accumulated fluence to maintain S/N = 10 for two different CCE levels. The shaded bands indicate 20\% modeling error~\cite{Agarwal}.}
+\caption{Variation of the sensor temperature with accumulated fluence to maintain S/N = $10$ for two different CCE levels. The shaded bands indicate 20\% modeling error~\cite{Agarwal}.}
 \label{fig_cce_temp}
 \end{figure}
 
@@ -342,9 +340,9 @@ The \gls{STS} will feature a number of services and sensors that need to be cont
     \item Temperature, humidity, pressure sensors.\\
     A number of different sensors and technologies will be used to monitor the ambient conditions inside the detector. Their performance and values are going to have a direct impact on the detector operation.
     \item Cooling plant.\\
-    To avoid reverse annealing of the silicon sensors and thermal runaway scenarios, the detectors will be cooled with temperatures reaching \SI{-40}{\degree} at the end of their lifetime. The cooling plant providing the coolant is a crucial part of the safe operation of the detector.
+    To avoid reverse annealing of the silicon sensors and thermal runaway scenarios, the detectors will be cooled with temperatures reaching \SI{-40}{\celsius} at the end of their lifetime. The cooling plant providing the coolant is a crucial part of the safe operation of the detector.
     \item Air-drying system.\\
-    The coldest points inside the \gls{STS} may reach temperatures down to \SI{-40}{\degree}. Therefore, the frost point inside the enclosure has to be fairly below the coolant temperature to avoid possible icing or condensation on the electronics.
+    The coldest points inside the \gls{STS} may reach temperatures down to \SI{-40}{\celsius}. Therefore, the frost point inside the enclosure has to be fairly below the coolant temperature to avoid possible icing or condensation on the electronics.
  \end{enumerate}
 
 %\subsection{Powering schematics of the detector}

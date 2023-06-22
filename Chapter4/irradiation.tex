@@ -6,7 +6,7 @@ The two following sections introduce the applications of the developed software 
 
 Radiation-induced effects in electronics play an important role in accelerator facilities. Depending on many factors, i.a. location of the setup, intensity, or energy of the incident particles, damage caused to a semiconductor device may vary greatly. A particle could cause no observable effect, transient disruption of circuit operation, a change of logic state, or even permanent damage to the device or integrated circuit (IC)~\cite{dodd}. Hence, studies on the radiation hardness of the devices used for the \gls{CBM} experiment are crucial before choosing the final hardware and its exact position.
 
-One of the detector services that is going to be exposed to the elevated level of radiation is the low voltage powering of electronics. The \gls{STS} will be powered by about $140$ low-voltage modules, 16 
+One of the detector services that is going to be exposed to the elevated level of radiation is the low voltage powering of electronics. The \gls{STS} will be powered by about $140$ low-voltage modules, $16$ 
 channels each providing $2100$ power channels. In order to estimate the Single Event Effects (\gls{SEE}) in the powering electronics in the envisaged radiation environment, two irradiation campaigns took place in \gls{GSI}, Darmstadt.  The first one was conducted at the mini-CBM experiment and the second was realized next to the electrostatic septum of the SIS18 synchrotron. These irradiation campaigns aimed at detecting radiation-induced soft errors. Soft errors are transient faults in semiconductor devices caused by external radiation, such as energetic particles and cosmic rays~\cite{6338321} in the power units electronics and estimating its rate. 
 
 A radiation-induced failure in the low voltage powering of the FEE may lead to a rapid decrease of temperature, as the primary coolant temperature may reach down to \SI{-40}{\celsius}, consequently making the FEE susceptible to thermal stress. The effects of radiation must be therefore studied to ensure the safe operation of the \gls{STS}. Estimation of the soft error rate (\gls{SER}) is critical for the smooth operation of the experiment.
@@ -27,13 +27,13 @@ interaction target). The first simulation depicts the radiation doses at heights
 %newpage
 For Au ions beams with the highest available intensities 
 ($10^{9}\,$\ionss) and energies 
-(\agev{11}), a total dose\footnote{Gray is a SI unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter \cite{gray}.} of \mgy{20} is expected after $1$ a month of operation in the area between $0$ and \SI{0.5}{\metre} above the ground (at the planned location of the power crates x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}) and \mgy{40} between \SI{1.5}{\metre} and \SI{2}{\metre} above the ground (x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}).
+(\agev{11}), a total dose\footnote{Gray is a SI unit of ionizing radiation dose, defined as the absorption of one joule of radiation energy per kilogram of matter \cite{gray}.} of \mgy{20} is expected after a month of operation in the area between $0$ and \SI{0.5}{\metre} above the ground (at the planned location of the power crates x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}) and \mgy{40} between \SI{1.5}{\metre} and \SI{2}{\metre} above the ground (x = \SI{-600}{\centi\metre}, z = \SI{-600}{\centi\metre}).
  
 
-
+\newpage
 \subsection{Single Event Effects in electronics}
 
-When charged particles interact with a particle track, they produce electron-hole pairs that deposit charge. This charge is then collected through drift and diffusion to the drain, which can cause soft errors. Although these effects are often limited to a local area, they can sometimes propagate throughout the entire sensitive electronics. Soft errors are most commonly caused by transient effects and static effects, which occur when there is a change in the content of a memory cell.
+When charged particles interact with the material, they produce electron-hole pairs that deposit charge. This charge is then collected through drift and diffusion to the drain, which can cause soft errors. Although these effects are often limited to a local area, they can sometimes propagate throughout the entire sensitive electronics. Soft errors are most commonly caused by transient effects and static effects, which occur when there is a change in the content of a memory cell.
 
 Different interaction mechanisms may cause both stochastic and deterministic effects in electronics. These effects are directly related to the integrated dose and linear energy transfer (\gls{LET}) of the incident particles~\cite{electronic_system_on_module}.  LET is defined as the energy absorbed in matter per unit path length traveled by a charged particle
 \begin{equation}
@@ -141,10 +141,10 @@ Nevertheless, during the first irradiation period, only $2$ soft errors were det
 
 %\vspace{10cm}
 
-
+\newpage
 \subsection{Irradiation at the SIS18 septum}
 \subsubsection{Setup description}
-The setup at the SIS18 septum consisted of two \gls{TLD} dosimeters (for neutrons and for other particles). Furthermore, the total doses from TLDs were supplemented with readouts from two active dosimeters placed behind the wall (see Figure~\ref{fig:spec_des}). These dosimeters were used to measure of the dose rate to assess its influence on the \gls{SEE}.
+The setup at the SIS18 septum consisted of two \gls{TLD} dosimeters (for neutrons and for other particles). Furthermore, the total doses from TLDs were supplemented with readouts from two active dosimeters placed behind the wall (see Figure~\ref{fig:spec_des}). These dosimeters were used to measure the dose rate to assess its influence on the \gls{SEE}.
 
 \begin{figure}[!hbtp]
     \centering
@@ -153,9 +153,9 @@ The setup at the SIS18 septum consisted of two \gls{TLD} dosimeters (for neutron
     \label{fig:spec_des}
 \end{figure}
 
-Wendi-2 is a precise wide-energy neutron dosimeter~\cite{wendi} that was used to determine the neutron dose rate in the so-called Kickerraum (Figure~\ref{fig:spec_des}). Due to the shielding of the wall, the gamma probe measured mostly background radiation. The TLD dosimeters were placed next to the crate. In order to calculate the momentary neutron dose next to the crate, a ratio of total doses from both measurement places was used. 
+Wendi-2 is a precise wide-energy neutron dosimeter~\cite{wendi} that was used to determine the neutron dose rate in the so-called Kickerraum (Figure~\ref{fig:spec_des}). Due to the shielding of the wall, the gamma probe measured mostly background radiation. The TLD dosimeters were placed next to the crate. To calculate the momentary neutron dose next to the crate, a ratio of total doses from both measurement places was used. 
 
-
+\newpage
 \subsubsection{Results}
 During the irradiation period, readings from the dosimeters reached $106.1\mathrm{\ mSv}$ and $27.7\mathrm{\ mSv}$ for neutrons and other particles respectively.
 %(Figure~\ref{fig:spectrum} depicts neutrons spectrum at the irradiation place).
@@ -211,7 +211,7 @@ In the case of the high voltage module, the \gls{SEE} do not result in a module 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.6\columnwidth]{Chapter4/images/HV_failure_and_neutronrate.png}
+    \includegraphics[width=0.6\columnwidth]{Chapter4/images/HV_failure_and_neutronsrate.png}
     \caption{Cumulative neutron dose and failures of the high voltage module channels.}
     \label{fig:hv_neutrons}
 \end{figure}
